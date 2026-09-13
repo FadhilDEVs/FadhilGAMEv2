@@ -524,9 +524,29 @@
 
     .admin-modal-box {
       background: #090e1f; border: 1.5px solid var(--accent-yellow); border-radius: 18px;
-      width: 94%; max-width: 620px; max-height: 88vh; overflow-y: auto; padding: 22px;
-      box-shadow: 0 0 50px rgba(250, 204, 21, 0.3); display: flex; flex-direction: column; gap: 14px;
+      width: 94%; max-width: 680px; max-height: 88vh; overflow-y: auto; padding: 22px;
+      box-shadow: 0 0 50px rgba(250, 204, 21, 0.3); display: flex; flex-direction: column; gap: 16px;
     }
+    .admin-card-section {
+      background: rgba(14, 20, 38, 0.95); border: 1px solid rgba(0, 240, 255, 0.25);
+      border-radius: 14px; padding: 14px; display: flex; flex-direction: column; gap: 12px;
+    }
+    .admin-section-heading {
+      font-family: 'Orbitron', sans-serif; font-size: 12px; font-weight: 900;
+      color: var(--primary); display: flex; align-items: center; gap: 8px;
+    }
+    .admin-form-group { display: flex; flex-direction: column; gap: 4px; text-align: left; }
+    .admin-form-label { font-size: 10px; font-weight: 700; color: #cbd5e1; }
+    .admin-form-input, .admin-form-select {
+      background: rgba(8, 12, 26, 0.9); border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 8px; padding: 8px 12px; color: #fff; font-size: 11.5px; outline: none; transition: all 0.2s;
+    }
+    .admin-form-input:focus, .admin-form-select:focus { border-color: var(--primary); box-shadow: 0 0 10px rgba(0, 240, 255, 0.3); }
+    .admin-banner-preview-box {
+      width: 100%; height: 110px; border-radius: 10px; border: 1px dashed var(--accent-yellow);
+      overflow: hidden; background: #040714; display: flex; align-items: center; justify-content: center; position: relative;
+    }
+    .admin-banner-preview-box img { width: 100%; height: 100%; object-fit: cover; }
     .admin-game-row {
       background: rgba(18, 25, 46, 0.85); border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 12px; padding: 12px; display: flex; gap: 14px; align-items: center;
@@ -781,14 +801,14 @@
     <div id="tab-home" class="tab-content" style="display:block;">
       <div class="dashboard-layout">
         <div class="main-stream">
-          <div class="hero-banner">
-            <div class="hero-badge">★ GAME UNGGULAN (SIAP MAIN)</div>
-            <h2 class="hero-title">SPACE BLASTER</h2>
-            <p class="hero-desc">Kendalikan jet STRIKER, hancurkan 5 tipe meteorit, kumpulkan 6 power-up spesial, dan kalahkan 3 armada Boss alien!</p>
+          <div class="hero-banner" id="heroBannerEl">
+            <div class="hero-badge" id="heroBadgeEl">★ GAME UNGGULAN (SIAP MAIN)</div>
+            <h2 class="hero-title" id="heroTitleEl">SPACE BLASTER</h2>
+            <p class="hero-desc" id="heroDescEl">Kendalikan jet STRIKER, hancurkan 5 tipe meteorit, kumpulkan 6 power-up spesial, dan kalahkan 3 armada Boss alien!</p>
 
             <div class="hero-actions-row">
-              <button class="btn-hero-guide" onclick="openGameGuide('SPACE BLASTER')">📖 PANDUAN & LINEUP</button>
-              <button class="btn-hero-play" onclick="launchGame('SPACE BLASTER')">▶ MAIN SEKARANG →</button>
+              <button class="btn-hero-guide" id="btnHeroGuide" onclick="openGameGuide('SPACE BLASTER')">📖 PANDUAN & LINEUP</button>
+              <button class="btn-hero-play" id="btnHeroPlay" onclick="launchGame('SPACE BLASTER')">▶ MAIN SEKARANG →</button>
             </div>
           </div>
 
@@ -1009,132 +1029,132 @@
                 <th>TANGGAL</th>
               </tr>
             </thead>
-            <tbody id="leaderboardTableBody">
-              <tr><td colspan="5" style="text-align:center; padding:20px;">Memuat data leaderboard...</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-
-    <!-- TAB 4: PRESTASI -->
-    <div id="tab-achievements" class="tab-content">
-      <h2 style="font-family:'Orbitron',sans-serif; font-size:20px; margin-bottom:14px;">LENCANA PENCAPAIAN</h2>
-      <div class="achieve-grid" id="achievementsGrid"></div>
-    </div>
-
-    <!-- TAB 5: TENTANG -->
-    <div id="tab-about" class="tab-content">
-      <div class="glass-card" style="padding:26px;">
-        <h2 style="font-family:'Orbitron',sans-serif; font-size:22px; color:var(--primary);">TENTANG FADHIL GAME</h2>
-        <p style="font-size:12.5px; color:#cbd5e1; margin-top:8px; line-height:1.6;">
-          Platform arcade modern berbasis GitHub Pages & Google Sheets API dengan mesin Canvas 60 FPS, suara sintetis 8-bit, sistem upload gambar Base64, dan sinkronisasi rekor personal-best tanpa penumpukan skor ganda.
-        </p>
-      </div>
-    </div>
-
-    <footer>
-      <div><strong>FADHIL GAME</strong> &nbsp;|&nbsp; Modern Arcade Platform</div>
-      <div>GitHub Pages & Google Sheets API</div>
-    </footer>
-  </section>
-
-  <!-- MODAL PANDUAN & LINEUP SETIAP GAME -->
-  <div class="modal" id="guideModal">
-    <div class="guide-modal-box">
-      <div class="guide-modal-header">
-        <div>
-          <div class="guide-modal-title" id="guideTitle">PANDUAN & LINEUP GAME</div>
-          <div class="guide-modal-sub" id="guideSubtitle">Pelajari mekanika, item, dan musuh sebelum bertanding.</div>
-        </div>
-        <button type="button" class="btn-modal-close" style="margin-top:0; padding:4px 12px;" onclick="closeGameGuide()">✕</button>
-      </div>
-      <div id="guideContent" style="display:flex; flex-direction:column; gap:12px;"></div>
-      <div style="display:flex; justify-content:flex-end; gap:8px; margin-top:8px;">
-        <button class="btn-modal-close" style="margin-top:0;" onclick="closeGameGuide()">Tutup</button>
-        <button class="btn-hero-play" id="btnGuideLaunch" style="padding:8px 18px; font-size:11px;" onclick="launchFromGuide()">▶ MAIN SEKARANG</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- MODAL PANEL ADMIN (OPSI 2: UPLOAD IMAGE BASE64) -->
+  <!-- MODAL PANEL ADMIN (PENGELOLA HERO BANNER & THUMBNAIL) -->
   <div class="modal" id="adminModal">
     <div class="admin-modal-box">
       <div class="guide-modal-header">
         <div>
-          <div class="guide-modal-title" style="color:var(--accent-yellow);">⚙ PANEL PENGELOLA THUMBNAIL (ADMIN)</div>
-          <div class="guide-modal-sub">Klik tombol unggah untuk mengganti foto dari galeri HP atau laptop tanpa link luar.</div>
+          <div class="guide-modal-title" style="color:var(--accent-yellow);">⚙ PANEL KONTROL ADMINISTRATOR</div>
+          <div class="guide-modal-sub">Kelola Game Unggulan (Hero Banner) dan Thumbnail Game langsung dari HP/Laptop.</div>
         </div>
         <button type="button" class="btn-modal-close" style="margin-top:0; padding:4px 12px;" onclick="closeAdminModal()">✕</button>
       </div>
 
-      <div style="display:flex; flex-direction:column; gap:12px;">
-        <!-- Game 1: Space Blaster -->
-        <div class="admin-game-row">
-          <div class="admin-prev-box" id="admin-prev-space-blaster"></div>
-          <div class="admin-row-content">
-            <div class="admin-game-name">Space Blaster</div>
-            <div class="admin-btn-group">
-              <label class="admin-upload-label">
-                📁 Unggah Foto
-                <input type="file" accept="image/*" style="display:none;" onchange="handleImageUpload(event, 'space-blaster')">
-              </label>
-              <button class="admin-save-btn" id="admin-save-space-blaster" onclick="saveAdminThumbnail('space-blaster')" disabled>Simpan</button>
-              <button class="admin-reset-btn" onclick="resetThumbnail('space-blaster')">Reset</button>
-            </div>
+      <!-- KARTU 1: PENGATURAN GAME UNGGULAN (HERO BANNER) -->
+      <div class="admin-card-section">
+        <div class="admin-section-heading">🌟 PENGATURAN GAME UNGGULAN (HERO BANNER)</div>
+        
+        <div class="admin-form-group">
+          <label class="admin-form-label">Pilih Game yang Diunggulkan:</label>
+          <select class="admin-form-select" id="adminFeaturedSelect" onchange="onAdminSelectFeaturedGame(this.value)">
+            <option value="SPACE BLASTER">Space Blaster (Default)</option>
+            <option value="NEON DODGER">Neon Dodger</option>
+            <option value="PIXEL RACER">Pixel Racer</option>
+            <option value="GALAXY QUEST">Galaxy Quest (Coming Soon)</option>
+          </select>
+        </div>
+
+        <div class="admin-form-group">
+          <label class="admin-form-label">Judul Banner:</label>
+          <input type="text" class="admin-form-input" id="adminFeaturedTitle" placeholder="Contoh: SPACE BLASTER">
+        </div>
+
+        <div class="admin-form-group">
+          <label class="admin-form-label">Deskripsi Singkat:</label>
+          <input type="text" class="admin-form-input" id="adminFeaturedDesc" placeholder="Deskripsi game unggulan...">
+        </div>
+
+        <div class="admin-form-group">
+          <label class="admin-form-label">Foto Latar Belakang (Background Banner):</label>
+          <div class="admin-banner-preview-box" id="adminHeroBgPreview">
+            <span style="font-size:10px; color:#64748b;">(Belum ada foto latar khusus / Menggunakan gambar kosmik bawaan)</span>
+          </div>
+          <div style="display:flex; gap:8px; align-items:center; margin-top:6px;">
+            <label class="admin-upload-label">
+              🖼️ Unggah Foto Latar
+              <input type="file" accept="image/*" style="display:none;" onchange="handleHeroBgUpload(event)">
+            </label>
+            <button class="admin-reset-btn" type="button" onclick="removeHeroCustomBg()">Hapus Foto Latar</button>
           </div>
         </div>
 
-        <!-- Game 2: Neon Dodger -->
-        <div class="admin-game-row">
-          <div class="admin-prev-box" id="admin-prev-neon-dodger"></div>
-          <div class="admin-row-content">
-            <div class="admin-game-name">Neon Dodger</div>
-            <div class="admin-btn-group">
-              <label class="admin-upload-label">
-                📁 Unggah Foto
-                <input type="file" accept="image/*" style="display:none;" onchange="handleImageUpload(event, 'neon-dodger')">
-              </label>
-              <button class="admin-save-btn" id="admin-save-neon-dodger" onclick="saveAdminThumbnail('neon-dodger')" disabled>Simpan</button>
-              <button class="admin-reset-btn" onclick="resetThumbnail('neon-dodger')">Reset</button>
+        <div style="display:flex; justify-content:flex-end; gap:8px; margin-top:4px;">
+          <button class="admin-reset-btn" type="button" onclick="resetAdminFeatured()">Reset Default</button>
+          <button class="admin-save-btn" type="button" id="btnSaveFeatured" onclick="saveAdminFeatured()">💾 Simpan Game Unggulan</button>
+        </div>
+      </div>
+
+      <!-- KARTU 2: PENGELOLA THUMBNAIL KARTU GAME -->
+      <div class="admin-card-section">
+        <div class="admin-section-heading">🎨 PENGELOLA THUMBNAIL KARTU GAME</div>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <!-- Game 1: Space Blaster -->
+          <div class="admin-game-row">
+            <div class="admin-prev-box" id="admin-prev-space-blaster"></div>
+            <div class="admin-row-content">
+              <div class="admin-game-name">Space Blaster</div>
+              <div class="admin-btn-group">
+                <label class="admin-upload-label">
+                  📁 Unggah Foto
+                  <input type="file" accept="image/*" style="display:none;" onchange="handleImageUpload(event, 'space-blaster')">
+                </label>
+                <button class="admin-save-btn" id="admin-save-space-blaster" onclick="saveAdminThumbnail('space-blaster')" disabled>Simpan</button>
+                <button class="admin-reset-btn" onclick="resetThumbnail('space-blaster')">Reset</button>
+              </div>
             </div>
           </div>
-        </div>
 
-        <!-- Game 3: Pixel Racer -->
-        <div class="admin-game-row">
-          <div class="admin-prev-box" id="admin-prev-pixel-racer"></div>
-          <div class="admin-row-content">
-            <div class="admin-game-name">Pixel Racer</div>
-            <div class="admin-btn-group">
-              <label class="admin-upload-label">
-                📁 Unggah Foto
-                <input type="file" accept="image/*" style="display:none;" onchange="handleImageUpload(event, 'pixel-racer')">
-              </label>
-              <button class="admin-save-btn" id="admin-save-pixel-racer" onclick="saveAdminThumbnail('pixel-racer')" disabled>Simpan</button>
-              <button class="admin-reset-btn" onclick="resetThumbnail('pixel-racer')">Reset</button>
+          <!-- Game 2: Neon Dodger -->
+          <div class="admin-game-row">
+            <div class="admin-prev-box" id="admin-prev-neon-dodger"></div>
+            <div class="admin-row-content">
+              <div class="admin-game-name">Neon Dodger</div>
+              <div class="admin-btn-group">
+                <label class="admin-upload-label">
+                  📁 Unggah Foto
+                  <input type="file" accept="image/*" style="display:none;" onchange="handleImageUpload(event, 'neon-dodger')">
+                </label>
+                <button class="admin-save-btn" id="admin-save-neon-dodger" onclick="saveAdminThumbnail('neon-dodger')" disabled>Simpan</button>
+                <button class="admin-reset-btn" onclick="resetThumbnail('neon-dodger')">Reset</button>
+              </div>
             </div>
           </div>
-        </div>
 
-        <!-- Game 4: Galaxy Quest -->
-        <div class="admin-game-row">
-          <div class="admin-prev-box" id="admin-prev-galaxy-quest"></div>
-          <div class="admin-row-content">
-            <div class="admin-game-name">Galaxy Quest</div>
-            <div class="admin-btn-group">
-              <label class="admin-upload-label">
-                📁 Unggah Foto
-                <input type="file" accept="image/*" style="display:none;" onchange="handleImageUpload(event, 'galaxy-quest')">
-              </label>
-              <button class="admin-save-btn" id="admin-save-galaxy-quest" onclick="saveAdminThumbnail('galaxy-quest')" disabled>Simpan</button>
-              <button class="admin-reset-btn" onclick="resetThumbnail('galaxy-quest')">Reset</button>
+          <!-- Game 3: Pixel Racer -->
+          <div class="admin-game-row">
+            <div class="admin-prev-box" id="admin-prev-pixel-racer"></div>
+            <div class="admin-row-content">
+              <div class="admin-game-name">Pixel Racer</div>
+              <div class="admin-btn-group">
+                <label class="admin-upload-label">
+                  📁 Unggah Foto
+                  <input type="file" accept="image/*" style="display:none;" onchange="handleImageUpload(event, 'pixel-racer')">
+                </label>
+                <button class="admin-save-btn" id="admin-save-pixel-racer" onclick="saveAdminThumbnail('pixel-racer')" disabled>Simpan</button>
+                <button class="admin-reset-btn" onclick="resetThumbnail('pixel-racer')">Reset</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Game 4: Galaxy Quest -->
+          <div class="admin-game-row">
+            <div class="admin-prev-box" id="admin-prev-galaxy-quest"></div>
+            <div class="admin-row-content">
+              <div class="admin-game-name">Galaxy Quest</div>
+              <div class="admin-btn-group">
+                <label class="admin-upload-label">
+                  📁 Unggah Foto
+                  <input type="file" accept="image/*" style="display:none;" onchange="handleImageUpload(event, 'galaxy-quest')">
+                </label>
+                <button class="admin-save-btn" id="admin-save-galaxy-quest" onclick="saveAdminThumbnail('galaxy-quest')" disabled>Simpan</button>
+                <button class="admin-reset-btn" onclick="resetThumbnail('galaxy-quest')">Reset</button>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div style="display:flex; justify-content:flex-end; margin-top:8px;">
+      <div style="display:flex; justify-content:flex-end; margin-top:4px;">
         <button class="btn-modal-close" style="margin-top:0;" onclick="closeAdminModal()">Tutup Panel</button>
       </div>
     </div>
@@ -1188,140 +1208,199 @@
     let defaultThumbnailsSVG = {};
     let pendingAdminThumbnails = {};
 
-    function sanitizeAvatar(av) {
-      if (!av || typeof av !== 'string') return '🤖';
-      const clean = av.trim();
-      if (clean.length > 5 || clean.includes('GMT') || clean.includes('202') || clean.includes(':') || clean.includes('Waktu')) {
-        return '🤖';
-      }
-      return clean;
-    }
+    const DEFAULT_FEATURED_CONFIG = {
+      gameKey: 'SPACE BLASTER',
+      title: 'SPACE BLASTER',
+      desc: 'Kendalikan jet STRIKER, hancurkan 5 tipe meteorit, kumpulkan 6 power-up spesial, dan kalahkan 3 armada Boss alien!',
+      bgBase64: ''
+    };
+    let currentFeaturedConfig = { ...DEFAULT_FEATURED_CONFIG };
+    let pendingHeroBgBase64 = null;
 
-    function showToast(msg) {
-      const toast = document.getElementById('toast');
-      const toastMsg = document.getElementById('toastMsg');
-      toastMsg.innerText = msg;
-      toast.classList.add('show');
-      setTimeout(() => toast.classList.remove('show'), 2600);
-    }
-
-    async function callBackend(action, data = {}) {
-      const payload = { action, ...data };
-      
-      try {
-        const response = await fetch(SCRIPT_API_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-          body: JSON.stringify(payload),
-          redirect: 'follow'
-        });
-        if (response.ok) {
-          const res = await response.json();
-          if (res && res.avatar) res.avatar = sanitizeAvatar(res.avatar);
-          return res;
-        }
-      } catch (errPost) {}
-
-      try {
-        const queryParams = new URLSearchParams(payload);
-        const response = await fetch(`${SCRIPT_API_URL}?${queryParams.toString()}`, {
-          method: 'GET',
-          redirect: 'follow'
-        });
-        if (response.ok) {
-          const res = await response.json();
-          if (res && res.avatar) res.avatar = sanitizeAvatar(res.avatar);
-          return res;
-        }
-      } catch (errGet) {}
-
-      // Fallback lokal jika offline
-      if (action === 'login') {
-        if (data.username && data.username.toLowerCase() === 'admin' && data.password === 'padilregy') {
-          return { success: true, username: 'Admin', avatar: '⚡', isAdmin: true, message: "Akses Admin Aktif (Lokal)" };
-        }
-        return { success: true, username: data.username || "Pemain", avatar: "🤖", isAdmin: false, message: "Masuk sesi mandiri." };
-      }
-      return { success: true };
-    }
-
-    const AudioContext = window.AudioContext || window.webkitAudioContext;
-    let audioCtx = null;
-    let bgmTimer = null;
-
-    function initAudio() {
-      if (!audioCtx) audioCtx = new AudioContext();
-      if (audioCtx.state === 'suspended') audioCtx.resume();
-    }
-
-    const sfx = {
-      click() {
-        if (!soundEnabled) return; initAudio();
-        const osc = audioCtx.createOscillator(), gain = audioCtx.createGain();
-        osc.type = 'sine'; osc.frequency.setValueAtTime(450, audioCtx.currentTime);
-        osc.frequency.exponentialRampToValueAtTime(800, audioCtx.currentTime + 0.05);
-        gain.gain.setValueAtTime(0.1, audioCtx.currentTime); gain.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 0.05);
-        osc.connect(gain); gain.connect(audioCtx.destination); osc.start(); osc.stop(audioCtx.currentTime + 0.05);
+    const PRESET_GAME_DESCRIPTIONS = {
+      'SPACE BLASTER': {
+        title: 'SPACE BLASTER',
+        desc: 'Kendalikan jet STRIKER, hancurkan 5 tipe meteorit, kumpulkan 6 power-up spesial, dan kalahkan 3 armada Boss alien!'
       },
-      laser() {
-        if (!soundEnabled) return; initAudio();
-        const osc = audioCtx.createOscillator(), gain = audioCtx.createGain();
-        osc.type = 'square'; osc.frequency.setValueAtTime(880, audioCtx.currentTime);
-        osc.frequency.exponentialRampToValueAtTime(140, audioCtx.currentTime + 0.1);
-        gain.gain.setValueAtTime(0.08, audioCtx.currentTime); gain.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 0.1);
-        osc.connect(gain); gain.connect(audioCtx.destination); osc.start(); osc.stop(audioCtx.currentTime + 0.1);
+      'NEON DODGER': {
+        title: 'NEON DODGER',
+        desc: 'Meluncur di grid 3D synthwave berkecepatan tinggi, lewati gerbang laser berdenyut, dan kumpulkan chrono warp!'
       },
-      bossLaser() {
-        if (!soundEnabled) return; initAudio();
-        const osc = audioCtx.createOscillator(), gain = audioCtx.createGain();
-        osc.type = 'sawtooth'; osc.frequency.setValueAtTime(320, audioCtx.currentTime);
-        osc.frequency.exponentialRampToValueAtTime(80, audioCtx.currentTime + 0.16);
-        gain.gain.setValueAtTime(0.12, audioCtx.currentTime); gain.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 0.16);
-        osc.connect(gain); gain.connect(audioCtx.destination); osc.start(); osc.stop(audioCtx.currentTime + 0.16);
+      'PIXEL RACER': {
+        title: 'PIXEL RACER',
+        desc: 'Supercar cyberpunk jalan raya 3 lajur dengan turbo nitro berkecepatan tinggi, isi bensin, dan tabrak tembus lawan!'
       },
-      hit() {
-        if (!soundEnabled) return; initAudio();
-        const osc = audioCtx.createOscillator(), gain = audioCtx.createGain();
-        osc.type = 'sawtooth'; osc.frequency.setValueAtTime(200, audioCtx.currentTime);
-        osc.frequency.exponentialRampToValueAtTime(40, audioCtx.currentTime + 0.15);
-        gain.gain.setValueAtTime(0.18, audioCtx.currentTime); gain.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 0.15);
-        osc.connect(gain); gain.connect(audioCtx.destination); osc.start(); osc.stop(audioCtx.currentTime + 0.15);
-      },
-      powerup() {
-        if (!soundEnabled) return; initAudio();
-        const osc = audioCtx.createOscillator(), gain = audioCtx.createGain();
-        osc.type = 'sine'; osc.frequency.setValueAtTime(480, audioCtx.currentTime);
-        osc.frequency.exponentialRampToValueAtTime(960, audioCtx.currentTime + 0.14);
-        gain.gain.setValueAtTime(0.15, audioCtx.currentTime); gain.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 0.14);
-        osc.connect(gain); gain.connect(audioCtx.destination); osc.start(); osc.stop(audioCtx.currentTime + 0.14);
-      },
-      nitro() {
-        if (!soundEnabled) return; initAudio();
-        const osc = audioCtx.createOscillator(), gain = audioCtx.createGain();
-        osc.type = 'sawtooth'; osc.frequency.setValueAtTime(120, audioCtx.currentTime);
-        osc.frequency.linearRampToValueAtTime(360, audioCtx.currentTime + 0.25);
-        gain.gain.setValueAtTime(0.15, audioCtx.currentTime); gain.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 0.25);
-        osc.connect(gain); gain.connect(audioCtx.destination); osc.start(); osc.stop(audioCtx.currentTime + 0.25);
-      },
-      gameOver() {
-        if (!soundEnabled) return; initAudio();
-        const osc = audioCtx.createOscillator(), gain = audioCtx.createGain();
-        osc.type = 'triangle'; osc.frequency.setValueAtTime(300, audioCtx.currentTime);
-        osc.frequency.exponentialRampToValueAtTime(50, audioCtx.currentTime + 0.4);
-        gain.gain.setValueAtTime(0.25, audioCtx.currentTime); gain.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 0.4);
-        osc.connect(gain); gain.connect(audioCtx.destination); osc.start(); osc.stop(audioCtx.currentTime + 0.4);
+      'GALAXY QUEST': {
+        title: 'GALAXY QUEST',
+        desc: 'Petualangan antariksa penjelajahan planet baru menembus cincin kosmik raksasa dan menguak rahasia alien!'
       }
     };
 
-    function triggerHaptic(duration = 25) { if (navigator.vibrate) navigator.vibrate(duration); }
+    function applyFeaturedConfig(cfg) {
+      if (!cfg) return;
+      currentFeaturedConfig = { ...currentFeaturedConfig, ...cfg };
 
-    function toggleBgm() {
-      bgmEnabled = !bgmEnabled;
-      const btn = document.getElementById('btn-bgm');
-      if (bgmEnabled) {
-        initAudio(); btn.classList.add('active'); btn.innerText = "🎵 BGM: ON"; startSynthwaveBGM();
+      const heroTitleEl = document.getElementById('heroTitleEl');
+      const heroDescEl = document.getElementById('heroDescEl');
+      const heroBadgeEl = document.getElementById('heroBadgeEl');
+      const btnPlay = document.getElementById('btnHeroPlay');
+      const btnGuide = document.getElementById('btnHeroGuide');
+      const heroBanner = document.getElementById('heroBannerEl');
+
+      const isLive = cfg.gameKey !== 'GALAXY QUEST';
+      if (heroBadgeEl) heroBadgeEl.innerText = isLive ? '★ GAME UNGGULAN (SIAP MAIN)' : '★ GAME UNGGULAN (SEGERA HADIR)';
+      if (heroTitleEl) heroTitleEl.innerText = cfg.title || cfg.gameKey;
+      if (heroDescEl) heroDescEl.innerText = cfg.desc || '';
+
+      if (btnPlay) {
+        if (isLive) {
+          btnPlay.style.display = 'inline-flex';
+          btnPlay.innerText = '▶ MAIN SEKARANG →';
+          btnPlay.onclick = () => launchGame(cfg.gameKey);
+        } else {
+          btnPlay.style.display = 'none';
+        }
+      }
+
+      if (btnGuide) {
+        btnGuide.onclick = () => openGameGuide(cfg.gameKey);
+      }
+
+      if (heroBanner) {
+        if (cfg.bgBase64) {
+          heroBanner.style.backgroundImage = `
+            radial-gradient(circle at 80% 20%, rgba(99, 102, 241, 0.35) 0%, transparent 60%),
+            linear-gradient(180deg, rgba(6, 9, 19, 0.25) 0%, rgba(6, 9, 19, 0.95) 92%),
+            url('${cfg.bgBase64}')
+          `;
+        } else {
+          heroBanner.style.backgroundImage = `
+            radial-gradient(circle at 80% 20%, rgba(99, 102, 241, 0.45) 0%, transparent 60%),
+            linear-gradient(180deg, rgba(6, 9, 19, 0.3) 0%, rgba(6, 9, 19, 0.96) 92%),
+            url('https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?q=80&w=1200&auto=format&fit=crop')
+          `;
+        }
+      }
+    }
+
+    function initAdminFeaturedInputs() {
+      const sel = document.getElementById('adminFeaturedSelect');
+      const titleInp = document.getElementById('adminFeaturedTitle');
+      const descInp = document.getElementById('adminFeaturedDesc');
+      const previewBox = document.getElementById('adminHeroBgPreview');
+
+      if (sel) sel.value = currentFeaturedConfig.gameKey;
+      if (titleInp) titleInp.value = currentFeaturedConfig.title;
+      if (descInp) descInp.value = currentFeaturedConfig.desc;
+
+      if (previewBox) {
+        if (currentFeaturedConfig.bgBase64) {
+          previewBox.innerHTML = `<img src="${currentFeaturedConfig.bgBase64}" alt="Hero Background">`;
+        } else {
+          previewBox.innerHTML = `<span style="font-size:10px; color:#64748b;">(Belum ada foto latar khusus / Menggunakan gambar kosmik bawaan)</span>`;
+        }
+      }
+    }
+
+    function onAdminSelectFeaturedGame(gameKey) {
+      sfx.click();
+      const preset = PRESET_GAME_DESCRIPTIONS[gameKey];
+      if (preset) {
+        document.getElementById('adminFeaturedTitle').value = preset.title;
+        document.getElementById('adminFeaturedDesc').value = preset.desc;
+      }
+    }
+
+    function handleHeroBgUpload(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const img = new Image();
+        img.onload = function() {
+          // Kompresi latar belakang banner ke resolusi 720x360 JPEG 0.65 (~25KB)
+          const canvas = document.createElement('canvas');
+          canvas.width = 720;
+          canvas.height = 360;
+          const ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0, 720, 360);
+          const base64 = canvas.toDataURL('image/jpeg', 0.65);
+
+          pendingHeroBgBase64 = base64;
+          const previewBox = document.getElementById('adminHeroBgPreview');
+          if (previewBox) previewBox.innerHTML = `<img src="${base64}" alt="Hero Background Preview">`;
+          showToast('Foto latar banner siap disimpan!');
+        };
+        img.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function removeHeroCustomBg() {
+      sfx.click();
+      pendingHeroBgBase64 = '';
+      currentFeaturedConfig.bgBase64 = '';
+      const previewBox = document.getElementById('adminHeroBgPreview');
+      if (previewBox) previewBox.innerHTML = `<span style="font-size:10px; color:#64748b;">(Foto latar dihapus. Klik simpan untuk menerapkan latar default)</span>`;
+      showToast('Latar khusus disetel kosong.');
+    }
+
+    async function saveAdminFeatured() {
+      sfx.click();
+      const sel = document.getElementById('adminFeaturedSelect').value;
+      const title = document.getElementById('adminFeaturedTitle').value.trim() || sel;
+      const desc = document.getElementById('adminFeaturedDesc').value.trim();
+      const bg = (pendingHeroBgBase64 !== null) ? pendingHeroBgBase64 : currentFeaturedConfig.bgBase64;
+
+      const newConfig = {
+        gameKey: sel,
+        title: title,
+        desc: desc,
+        bgBase64: bg
+      };
+
+      const btn = document.getElementById('btnSaveFeatured');
+      btn.disabled = true;
+      btn.innerText = 'Menyimpan...';
+
+      localStorage.setItem('fg_featured_config', JSON.stringify(newConfig));
+      applyFeaturedConfig(newConfig);
+
+      const res = await callBackend('saveFeaturedConfig', { config: newConfig });
+      btn.disabled = false;
+      btn.innerText = '💾 Simpan Game Unggulan';
+
+      if (res && res.success) {
+        showToast('Game Unggulan berhasil disimpan ke Google Sheets!');
       } else {
-        btn.classList.remove('active'); btn.innerText = "🎵 BGM: OFF"; stopSynthwaveBGM();
+        showToast('Tersimpan di sesi lokal.');
+      }
+    }
+
+    function resetAdminFeatured() {
+      sfx.click();
+      pendingHeroBgBase64 = '';
+      applyFeaturedConfig(DEFAULT_FEATURED_CONFIG);
+      localStorage.removeItem('fg_featured_config');
+      initAdminFeaturedInputs();
+      showToast('Banner Game Unggulan dikembalikan ke default.');
+      callBackend('saveFeaturedConfig', { config: DEFAULT_FEATURED_CONFIG });
+    }
+
+    async function syncFeaturedConfig() {
+      const cached = localStorage.getItem('fg_featured_config');
+      if (cached) {
+        try {
+          const parsed = JSON.parse(cached);
+          applyFeaturedConfig(parsed);
+        } catch (e) {}
+      }
+
+      const res = await callBackend('getFeaturedConfig');
+      if (res && res.success && res.config) {
+        localStorage.setItem('fg_featured_config', JSON.stringify(res.config));
+        applyFeaturedConfig(res.config);
       }
     }
 
@@ -1683,6 +1762,7 @@
     function openAdminModal() {
       sfx.click();
       document.getElementById('adminModal').style.display = 'flex';
+      initAdminFeaturedInputs();
       loadAdminPreviews();
     }
     function closeAdminModal() { sfx.click(); document.getElementById('adminModal').style.display = 'none'; }
@@ -2946,6 +3026,7 @@
         switchNav('home');
         loadDashboardMetrics();
         syncThumbnails();
+        syncFeaturedConfig();
       }
     });
   </script>
