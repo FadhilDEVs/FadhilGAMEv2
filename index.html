@@ -782,8 +782,49 @@
       display: flex; justify-content: space-between; align-items: center; width: 340px; margin-bottom: 8px;
     }
     .modal-game-title { font-family: 'Orbitron', sans-serif; font-size: 15px; font-weight: 800; color: var(--primary); letter-spacing: 1px; }
+    .btn-guide-pill {
+      padding: 4px 10px; background: rgba(0, 240, 255, 0.12); border: 1px solid rgba(0, 240, 255, 0.35);
+      border-radius: 8px; color: var(--primary); font-family: 'Orbitron', sans-serif; font-size: 9.5px; font-weight: 700;
+      cursor: pointer; transition: all 0.2s;
+    }
+    .btn-guide-pill:hover { background: var(--primary); color: #040813; }
     .game-viewport { border: 2px solid var(--primary); border-radius: 14px; box-shadow: 0 0 30px var(--primary-glow); overflow: hidden; max-width: 100%; position: relative; }
     #gameCanvas { display: block; background: #060914; max-width: 100%; height: auto; }
+
+    /* Panduan Pop-up Drawer di Dalam Game */
+    .space-guide-drawer {
+      display: none; position: absolute; inset: 0; background: rgba(6, 9, 19, 0.96);
+      backdrop-filter: blur(12px); z-index: 50; padding: 14px 12px; overflow-y: auto; text-align: left;
+    }
+    .space-guide-drawer.active { display: flex; flex-direction: column; gap: 10px; }
+    .guide-banner-head {
+      display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(0, 240, 255, 0.2); padding-bottom: 8px;
+    }
+    .guide-banner-title { font-family: 'Orbitron', sans-serif; font-size: 13px; font-weight: 900; color: var(--primary); }
+    .guide-banner-sub { font-size: 9px; color: #94a3b8; letter-spacing: 0.5px; }
+    .btn-close-guide { background: none; border: none; color: #cbd5e1; font-size: 16px; cursor: pointer; font-weight: 800; }
+    .guide-mascot-row {
+      display: flex; align-items: center; gap: 8px; background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(0, 240, 255, 0.25); border-radius: 8px; padding: 6px 8px; font-size: 10px; color: #cbd5e1;
+    }
+    .guide-sec-title {
+      font-family: 'Orbitron', sans-serif; font-size: 10px; font-weight: 800; color: #facc15; margin-top: 4px; display: flex; align-items: center; gap: 5px;
+    }
+    .guide-grid-mini { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; text-align: center; }
+    .guide-item-card {
+      background: rgba(14, 20, 38, 0.8); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 6px; padding: 5px 2px;
+    }
+    .guide-item-icon { font-size: 16px; line-height: 1.2; margin-bottom: 2px; }
+    .guide-item-name { font-size: 8.5px; font-weight: 700; color: #fff; }
+    .guide-item-pts { font-size: 8px; color: var(--primary); font-weight: 600; }
+    .guide-boss-cards { display: flex; flex-direction: column; gap: 6px; }
+    .guide-boss-card {
+      background: rgba(14, 20, 38, 0.85); border-radius: 8px; padding: 7px 10px; border-left: 3px solid #ef4444; font-size: 9.5px;
+    }
+    .guide-boss-card.b2 { border-left-color: #a855f7; }
+    .guide-boss-card.b3 { border-left-color: #facc15; }
+    .guide-boss-title { font-family: 'Orbitron', sans-serif; font-weight: 800; color: #fff; font-size: 10px; }
+    .guide-boss-desc { color: #94a3b8; font-size: 8.5px; margin-top: 1px; }
 
     /* On-Screen Mobile Pedals */
     .mobile-controls-row {
@@ -1185,9 +1226,61 @@
   <div class="modal" id="gameModal">
     <div class="modal-game-header">
       <div class="modal-game-title" id="activeGameTitle">ARCADE GAME</div>
+      <button type="button" class="btn-guide-pill" id="btnGuideModal" onclick="toggleSpaceGuide()">📖 Panduan & Lineup</button>
     </div>
     <div class="game-viewport">
-      <canvas id="gameCanvas" width="340" height="440"></canvas>
+      <canvas id="gameCanvas" width="340" height="460"></canvas>
+
+      <!-- Space Blaster Concept Guide Drawer -->
+      <div class="space-guide-drawer" id="spaceGuideDrawer">
+        <div class="guide-banner-head">
+          <div>
+            <div class="guide-banner-title">SPACE BLASTER</div>
+            <div class="guide-banner-sub">SHOOT • SURVIVE • BEAT THE BOSS</div>
+          </div>
+          <button class="btn-close-guide" onclick="toggleSpaceGuide()">✕</button>
+        </div>
+
+        <div class="guide-mascot-row">
+          <span style="font-size:18px;">🤖</span>
+          <span><strong>Mascot:</strong> Siap bertempur? Hancurkan semua meteor dan kalahkan 3 Boss armada alien!</span>
+        </div>
+
+        <div class="guide-sec-title">☄️ JENIS METEOR</div>
+        <div class="guide-grid-mini">
+          <div class="guide-item-card"><div class="guide-item-icon">🌑</div><div class="guide-item-name">Normal</div><div class="guide-item-pts">+1 Skor</div></div>
+          <div class="guide-item-card"><div class="guide-item-icon">🌋</div><div class="guide-item-name">Retak</div><div class="guide-item-pts">+2 Skor</div></div>
+          <div class="guide-item-card"><div class="guide-item-icon">❄️</div><div class="guide-item-name">Es</div><div class="guide-item-pts">+3 Skor</div></div>
+          <div class="guide-item-card"><div class="guide-item-icon">⭐</div><div class="guide-item-name">Emas</div><div class="guide-item-pts">+5 Skor</div></div>
+          <div class="guide-item-card"><div class="guide-item-icon">🔮</div><div class="guide-item-name">Gelap</div><div class="guide-item-pts">+10 Skor</div></div>
+        </div>
+
+        <div class="guide-sec-title">⚡ ITEM POWER UP</div>
+        <div class="guide-grid-mini" style="grid-template-columns: repeat(6, 1fr);">
+          <div class="guide-item-card"><div class="guide-item-icon">❤️</div><div class="guide-item-name">Heal</div><div class="guide-item-pts">+1 HP</div></div>
+          <div class="guide-item-card"><div class="guide-item-icon">🌟</div><div class="guide-item-name">Skor</div><div class="guide-item-pts">+50</div></div>
+          <div class="guide-item-card"><div class="guide-item-icon">⏫</div><div class="guide-item-name">Speed</div><div class="guide-item-pts">Cepat</div></div>
+          <div class="guide-item-card"><div class="guide-item-icon">🔱</div><div class="guide-item-name">Triple</div><div class="guide-item-pts">3 Peluru</div></div>
+          <div class="guide-item-card"><div class="guide-item-icon">🛡️</div><div class="guide-item-name">Shield</div><div class="guide-item-pts">5 Detik</div></div>
+          <div class="guide-item-card"><div class="guide-item-icon">🧲</div><div class="guide-item-name">Magnet</div><div class="guide-item-pts">Tarik</div></div>
+        </div>
+
+        <div class="guide-sec-title">☠️ BOSS LINEUP</div>
+        <div class="guide-boss-cards">
+          <div class="guide-boss-card">
+            <div class="guide-boss-title" style="color:#ef4444;">BOSS 1: TITAN DREADNOUGHT (Skor ≥ 100)</div>
+            <div class="guide-boss-desc">Kapal induk berat berpeluru plasma ganda merah berkecepatan tinggi.</div>
+          </div>
+          <div class="guide-boss-card b2">
+            <div class="guide-boss-title" style="color:#a855f7;">BOSS 2: VOID DESTROYER (Skor ≥ 300)</div>
+            <div class="guide-boss-desc">Kapal tempur siluman ungu-hijau dengan tembakan laser menyebar 3 arah.</div>
+          </div>
+          <div class="guide-boss-card b3">
+            <div class="guide-boss-title" style="color:#facc15;">BOSS 3: OMEGA ANNIHILATOR (Skor ≥ 600)</div>
+            <div class="guide-boss-desc">Benteng angkasa emas-merah berdaya tahan tinggi dengan berondongan 4 meriam plasma berat.</div>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="mobile-controls-row">
       <button class="pedal-btn" id="btnLeftPedal">◀ KIRI</button>
@@ -1863,6 +1956,10 @@
       unlockAchievement('first_play');
       currentGame = gameName;
       document.getElementById('activeGameTitle').innerText = gameName;
+      document.getElementById('btnGuideModal').style.display = (gameName === 'SPACE BLASTER') ? 'block' : 'none';
+      const guideDrawer = document.getElementById('spaceGuideDrawer');
+      if (guideDrawer) guideDrawer.classList.remove('active');
+
       gModal.style.display = 'flex';
       
       if (currentGame === 'SPACE BLASTER') initSpaceBlaster();
@@ -1870,9 +1967,17 @@
       else if (currentGame === 'PIXEL RACER') initPixelRacer();
     }
 
+    function toggleSpaceGuide() {
+      sfx.click();
+      const guideDrawer = document.getElementById('spaceGuideDrawer');
+      if (guideDrawer) guideDrawer.classList.toggle('active');
+    }
+
     function closeGameModal() {
       sfx.click();
       gModal.style.display = 'none';
+      const guideDrawer = document.getElementById('spaceGuideDrawer');
+      if (guideDrawer) guideDrawer.classList.remove('active');
       if (loopId) cancelAnimationFrame(loopId);
     }
 
@@ -1893,7 +1998,7 @@
     leftBtn.addEventListener('click', () => { sharedPlayerX = Math.max(20, sharedPlayerX - 35); triggerHaptic(15); });
     rightBtn.addEventListener('click', () => { sharedPlayerX = Math.min(300, sharedPlayerX + 35); triggerHaptic(15); });
 
-    let sbScore = 0, sbMeteors = [], sbBullets = [], sbSparks = [], sbPowerUps = [], sbFloatTexts = [];
+    let sbScore = 0, sbMeteors = [], sbBullets = [], sbSparks = [], sbPowerUps = [], sbFloatTexts = [], sbExplosions = [];
     let sbGameOver = false, sbCooldown = 0, sbLives = 3, sbMaxLives = 3;
     let sbPlayerHp = 100, sbPlayerMaxHp = 100, sbPlayerInvincible = 0;
     let sbPowerTimers = { triple: 0, speed: 0, shield: 0, magnet: 0 };
@@ -1902,48 +2007,451 @@
 
     function initSpaceBlaster() {
       sharedPlayerX = 150; sbScore = 0; sbMeteors = []; sbBullets = []; sbSparks = []; sbPowerUps = [];
-      sbFloatTexts = []; sbGameOver = false; sbCooldown = 0; sbLives = 3; sbPlayerHp = 100;
+      sbFloatTexts = []; sbExplosions = []; sbGameOver = false; sbCooldown = 0; sbLives = 3; sbPlayerHp = 100;
       sbPlayerInvincible = 0; sbPowerTimers = { triple: 0, speed: 0, shield: 0, magnet: 0 };
       sbBossActive = false; sbBoss = null; sbBossBullets = []; sbBossTier = 0; nextBossScoreThreshold = 100;
+      victoryNoticeTimer = 0; bossWarningTimer = 0;
       loopSpaceBlaster();
     }
 
+    // Model Kapal STRIKER Presisi Sesuai Gambar Referensi
     function drawStrikerShip(x, y) {
       gCtx.save();
-      gCtx.translate(x + 20, y + 18);
+      gCtx.translate(x + 20, y + 20);
       if (sbPlayerInvincible > 0 && Math.floor(sbPlayerInvincible / 3) % 2 === 0) gCtx.globalAlpha = 0.35;
 
-      // Thruster Flame
+      // Dual Engine Plasma Thrusters
       const f = Math.random() * 8 + (sbPowerTimers.speed > 0 ? 8 : 0);
       gCtx.fillStyle = '#00f0ff'; gCtx.shadowColor = '#00f0ff'; gCtx.shadowBlur = 14;
       gCtx.beginPath();
-      gCtx.moveTo(-10, 14); gCtx.lineTo(-6, 22 + f); gCtx.lineTo(-2, 14);
-      gCtx.moveTo(2, 14); gCtx.lineTo(6, 22 + f); gCtx.lineTo(10, 14);
+      gCtx.moveTo(-8, 14); gCtx.lineTo(-4, 24 + f); gCtx.lineTo(0, 14);
+      gCtx.moveTo(0, 14); gCtx.lineTo(4, 24 + f); gCtx.lineTo(8, 14);
       gCtx.fill();
 
-      // Fuselage STRIKER
-      gCtx.fillStyle = '#f8fafc'; gCtx.strokeStyle = '#0284c7'; gCtx.lineWidth = 1.5;
+      gCtx.fillStyle = '#ffffff';
       gCtx.beginPath();
-      gCtx.moveTo(0, -22); gCtx.lineTo(6, -6); gCtx.lineTo(10, 4); gCtx.lineTo(8, 14);
-      gCtx.lineTo(-8, 14); gCtx.lineTo(-10, 4); gCtx.lineTo(-6, -6);
+      gCtx.moveTo(-6, 14); gCtx.lineTo(-4, 20 + f * 0.5); gCtx.lineTo(-2, 14);
+      gCtx.moveTo(2, 14); gCtx.lineTo(4, 20 + f * 0.5); gCtx.lineTo(6, 14);
+      gCtx.fill();
+      gCtx.shadowBlur = 0;
+
+      // Delta Wings & Wingtip Plasma Pods
+      gCtx.fillStyle = '#0284c7'; gCtx.strokeStyle = '#38bdf8'; gCtx.lineWidth = 1.2;
+      gCtx.beginPath();
+      gCtx.moveTo(-8, 2); gCtx.lineTo(-22, 14); gCtx.lineTo(-18, 18); gCtx.lineTo(-8, 13);
+      gCtx.moveTo(8, 2); gCtx.lineTo(22, 14); gCtx.lineTo(18, 18); gCtx.lineTo(8, 13);
       gCtx.closePath(); gCtx.fill(); gCtx.stroke();
 
-      // Wings
-      gCtx.fillStyle = '#e2e8f0'; gCtx.strokeStyle = '#00f0ff'; gCtx.lineWidth = 1.2;
+      // Wingtip Cannons
+      gCtx.fillStyle = '#00f0ff';
+      gCtx.fillRect(-22, 4, 3, 9);
+      gCtx.fillRect(19, 4, 3, 9);
+
+      // White/Silver Aerodynamic Fuselage
+      gCtx.fillStyle = '#f8fafc'; gCtx.strokeStyle = '#0284c7'; gCtx.lineWidth = 1.8;
       gCtx.beginPath();
-      gCtx.moveTo(-8, 0); gCtx.lineTo(-22, 12); gCtx.lineTo(-18, 16); gCtx.lineTo(-8, 12);
-      gCtx.moveTo(8, 0); gCtx.lineTo(22, 12); gCtx.lineTo(18, 16); gCtx.lineTo(8, 12);
+      gCtx.moveTo(0, -24);
+      gCtx.lineTo(7, -8);
+      gCtx.lineTo(10, 4);
+      gCtx.lineTo(8, 15);
+      gCtx.lineTo(-8, 15);
+      gCtx.lineTo(-10, 4);
+      gCtx.lineTo(-7, -8);
+      gCtx.closePath();
       gCtx.fill(); gCtx.stroke();
 
-      // Cockpit
-      gCtx.fillStyle = '#00f0ff'; gCtx.beginPath(); gCtx.ellipse(0, -6, 3.5, 7.5, 0, 0, Math.PI * 2); gCtx.fill();
+      // Cobalt Center Insets
+      gCtx.fillStyle = '#0369a1';
+      gCtx.beginPath();
+      gCtx.moveTo(0, -14); gCtx.lineTo(4, 2); gCtx.lineTo(-4, 2); gCtx.closePath(); gCtx.fill();
+
+      // Teardrop Glowing Cockpit Glass
+      gCtx.fillStyle = '#00f0ff'; gCtx.shadowColor = '#00f0ff'; gCtx.shadowBlur = 10;
+      gCtx.beginPath(); gCtx.ellipse(0, -6, 3.5, 8, 0, 0, Math.PI * 2); gCtx.fill();
+      gCtx.fillStyle = '#e0f2fe';
+      gCtx.beginPath(); gCtx.ellipse(-1, -8, 1.5, 3.5, -0.3, 0, Math.PI * 2); gCtx.fill();
+      gCtx.shadowBlur = 0;
 
       // Shield Bubble
       if (sbPowerTimers.shield > 0 || sbBossActive) {
-        gCtx.strokeStyle = sbPowerTimers.shield > 0 ? 'rgba(168, 85, 247, 0.8)' : 'rgba(0, 240, 255, 0.8)';
-        gCtx.lineWidth = 2; gCtx.beginPath(); gCtx.arc(0, 0, 28, 0, Math.PI * 2); gCtx.stroke();
+        gCtx.strokeStyle = sbPowerTimers.shield > 0 ? 'rgba(168, 85, 247, 0.85)' : 'rgba(0, 240, 255, 0.85)';
+        gCtx.lineWidth = 2.2; gCtx.shadowColor = sbPowerTimers.shield > 0 ? '#c084fc' : '#00f0ff'; gCtx.shadowBlur = 12;
+        gCtx.beginPath(); gCtx.arc(0, 0, 28, 0, Math.PI * 2); gCtx.stroke();
+        gCtx.fillStyle = sbPowerTimers.shield > 0 ? 'rgba(168, 85, 247, 0.12)' : 'rgba(0, 240, 255, 0.12)';
+        gCtx.fill();
+        gCtx.shadowBlur = 0;
       }
       gCtx.restore();
+    }
+
+    // 5 Varian Meteorit Presisi Sesuai Gambar Referensi
+    function drawMeteor(m) {
+      gCtx.save();
+      gCtx.translate(m.x, m.y);
+      gCtx.rotate(m.rot);
+
+      if (m.type === 'cracked') {
+        // RETAK (+2 Skor): Batuan vulkanik gelap dengan retakan magma berpendar
+        gCtx.fillStyle = '#1c1917'; gCtx.strokeStyle = '#f97316'; gCtx.lineWidth = 2.2;
+        gCtx.shadowColor = '#f97316'; gCtx.shadowBlur = 12;
+        gCtx.beginPath();
+        for (let i = 0; i < m.points.length; i++) {
+          const pt = m.points[i];
+          if (i === 0) gCtx.moveTo(pt.x, pt.y); else gCtx.lineTo(pt.x, pt.y);
+        }
+        gCtx.closePath(); gCtx.fill(); gCtx.stroke();
+        gCtx.shadowBlur = 0;
+
+        // Magma Fissures
+        gCtx.strokeStyle = '#ea580c'; gCtx.lineWidth = 2;
+        gCtx.beginPath();
+        gCtx.moveTo(-m.radius * 0.6, -m.radius * 0.2);
+        gCtx.lineTo(0, 0);
+        gCtx.lineTo(m.radius * 0.6, m.radius * 0.3);
+        gCtx.moveTo(0, 0);
+        gCtx.lineTo(m.radius * 0.2, -m.radius * 0.6);
+        gCtx.stroke();
+
+        gCtx.fillStyle = '#facc15'; gCtx.shadowColor = '#facc15'; gCtx.shadowBlur = 8;
+        gCtx.beginPath(); gCtx.arc(0, 0, m.radius * 0.24, 0, Math.PI * 2); gCtx.fill();
+        gCtx.shadowBlur = 0;
+
+      } else if (m.type === 'ice') {
+        // ES (+3 Skor): Kristal es geometris biru cyan bersegi dengan glint
+        gCtx.fillStyle = '#0891b2'; gCtx.strokeStyle = '#67e8f9'; gCtx.lineWidth = 2.2;
+        gCtx.shadowColor = '#22d3ee'; gCtx.shadowBlur = 12;
+        gCtx.beginPath();
+        for (let i = 0; i < m.points.length; i++) {
+          const pt = m.points[i];
+          if (i === 0) gCtx.moveTo(pt.x, pt.y); else gCtx.lineTo(pt.x, pt.y);
+        }
+        gCtx.closePath(); gCtx.fill(); gCtx.stroke();
+        gCtx.shadowBlur = 0;
+
+        // Facets Inside
+        gCtx.fillStyle = 'rgba(224, 242, 254, 0.45)';
+        gCtx.beginPath();
+        gCtx.moveTo(m.points[0].x * 0.6, m.points[0].y * 0.6);
+        gCtx.lineTo(m.points[2].x * 0.6, m.points[2].y * 0.6);
+        gCtx.lineTo(0, 0);
+        gCtx.closePath(); gCtx.fill();
+
+        // White Glint
+        gCtx.fillStyle = '#ffffff';
+        gCtx.beginPath(); gCtx.arc(-m.radius * 0.3, -m.radius * 0.3, 2.5, 0, Math.PI * 2); gCtx.fill();
+
+      } else if (m.type === 'gold') {
+        // EMAS (+5 Skor): Bongkahan emas murni bersudut kristal berkilau
+        gCtx.fillStyle = '#ca8a04'; gCtx.strokeStyle = '#fef08a'; gCtx.lineWidth = 2.2;
+        gCtx.shadowColor = '#facc15'; gCtx.shadowBlur = 14;
+        gCtx.beginPath();
+        for (let i = 0; i < m.points.length; i++) {
+          const pt = m.points[i];
+          if (i === 0) gCtx.moveTo(pt.x, pt.y); else gCtx.lineTo(pt.x, pt.y);
+        }
+        gCtx.closePath(); gCtx.fill(); gCtx.stroke();
+        gCtx.shadowBlur = 0;
+
+        gCtx.fillStyle = '#facc15';
+        gCtx.beginPath();
+        gCtx.moveTo(m.points[1].x * 0.5, m.points[1].y * 0.5);
+        gCtx.lineTo(0, 0);
+        gCtx.lineTo(m.points[3].x * 0.5, m.points[3].y * 0.5);
+        gCtx.closePath(); gCtx.fill();
+
+        // Sparkle Cross
+        gCtx.fillStyle = '#ffffff';
+        gCtx.fillRect(-m.radius * 0.35 - 3, -m.radius * 0.35 - 1, 6, 2);
+        gCtx.fillRect(-m.radius * 0.35 - 1, -m.radius * 0.35 - 3, 2, 6);
+
+      } else if (m.type === 'dark') {
+        // GELAP (+10 Skor): Void asteroid ungu pekat dengan kawah neon violet
+        gCtx.fillStyle = '#3b0764'; gCtx.strokeStyle = '#c084fc'; gCtx.lineWidth = 2.4;
+        gCtx.shadowColor = '#a855f7'; gCtx.shadowBlur = 14;
+        gCtx.beginPath();
+        for (let i = 0; i < m.points.length; i++) {
+          const pt = m.points[i];
+          if (i === 0) gCtx.moveTo(pt.x, pt.y); else gCtx.lineTo(pt.x, pt.y);
+        }
+        gCtx.closePath(); gCtx.fill(); gCtx.stroke();
+        gCtx.shadowBlur = 0;
+
+        gCtx.fillStyle = '#7e22ce'; gCtx.shadowColor = '#d946ef'; gCtx.shadowBlur = 8;
+        gCtx.beginPath(); gCtx.arc(-m.radius * 0.25, -m.radius * 0.15, m.radius * 0.28, 0, Math.PI * 2); gCtx.fill();
+        gCtx.beginPath(); gCtx.arc(m.radius * 0.25, m.radius * 0.25, m.radius * 0.22, 0, Math.PI * 2); gCtx.fill();
+        gCtx.shadowBlur = 0;
+
+      } else {
+        // NORMAL (+1 Skor): Batuan abu-abu berkawah nyata dengan bayangan realistis
+        gCtx.fillStyle = '#64748b'; gCtx.strokeStyle = '#475569'; gCtx.lineWidth = 2;
+        gCtx.beginPath();
+        for (let i = 0; i < m.points.length; i++) {
+          const pt = m.points[i];
+          if (i === 0) gCtx.moveTo(pt.x, pt.y); else gCtx.lineTo(pt.x, pt.y);
+        }
+        gCtx.closePath(); gCtx.fill(); gCtx.stroke();
+
+        // Realistic Craters
+        gCtx.fillStyle = '#334155';
+        gCtx.beginPath(); gCtx.arc(-m.radius * 0.3, -m.radius * 0.2, m.radius * 0.25, 0, Math.PI * 2); gCtx.fill();
+        gCtx.fillStyle = '#94a3b8';
+        gCtx.beginPath(); gCtx.arc(-m.radius * 0.26, -m.radius * 0.16, m.radius * 0.22, 0, Math.PI * 2); gCtx.fill();
+        gCtx.fillStyle = '#1e293b';
+        gCtx.beginPath(); gCtx.arc(-m.radius * 0.28, -m.radius * 0.18, m.radius * 0.19, 0, Math.PI * 2); gCtx.fill();
+
+        gCtx.fillStyle = '#1e293b';
+        gCtx.beginPath(); gCtx.arc(m.radius * 0.3, m.radius * 0.28, m.radius * 0.22, 0, Math.PI * 2); gCtx.fill();
+        gCtx.beginPath(); gCtx.arc(-m.radius * 0.1, m.radius * 0.4, m.radius * 0.15, 0, Math.PI * 2); gCtx.fill();
+      }
+
+      gCtx.restore();
+    }
+
+    // 6 Item Power-Up Presisi Sesuai Gambar Referensi
+    function drawPowerUp(p) {
+      gCtx.save();
+      gCtx.translate(p.x, p.y);
+      const pulse = Math.sin(sbCooldown * 0.16 + p.x) * 2;
+
+      // Glowing Aura Ring
+      gCtx.fillStyle = p.bg; gCtx.shadowColor = p.glow; gCtx.shadowBlur = 12;
+      gCtx.beginPath(); gCtx.arc(0, 0, 11 + pulse * 0.5, 0, Math.PI * 2); gCtx.fill();
+      gCtx.strokeStyle = p.glow; gCtx.lineWidth = 1.6; gCtx.stroke();
+      gCtx.shadowBlur = 0;
+
+      if (p.type === 'heal') {
+        // HEAL (+1 HP): Hati merah menyala
+        gCtx.fillStyle = '#ef4444';
+        gCtx.beginPath();
+        gCtx.moveTo(0, 5);
+        gCtx.bezierCurveTo(-6, 1, -6, -5, 0, -3);
+        gCtx.bezierCurveTo(6, -5, 6, 1, 0, 5);
+        gCtx.fill();
+      } else if (p.type === 'score') {
+        // SKOR (+50): Bintang emas 5 sudut
+        gCtx.fillStyle = '#facc15'; gCtx.font = '700 13px Orbitron'; gCtx.textAlign = 'center'; gCtx.textBaseline = 'middle';
+        gCtx.fillText('★', 0, 1);
+      } else if (p.type === 'speed') {
+        // SPEED UP: 3 Chevron hijau bertingkat ke atas
+        gCtx.fillStyle = '#22c55e';
+        for (let i = -1; i <= 1; i++) {
+          gCtx.beginPath();
+          gCtx.moveTo(-5, i * 4 + 3); gCtx.lineTo(0, i * 4 - 1); gCtx.lineTo(5, i * 4 + 3);
+          gCtx.lineTo(0, i * 4 + 1); gCtx.closePath(); gCtx.fill();
+        }
+      } else if (p.type === 'triple') {
+        // TRIPLE SHOT: 3 Peluru plasma cyan berjejer
+        gCtx.fillStyle = '#00f0ff';
+        gCtx.fillRect(-5, -5, 2.2, 10);
+        gCtx.fillRect(-1.1, -7, 2.2, 14);
+        gCtx.fillRect(2.8, -5, 2.2, 10);
+      } else if (p.type === 'shield') {
+        // SHIELD (5 Detik): Perisai heksagonal ungu
+        gCtx.fillStyle = '#a855f7'; gCtx.strokeStyle = '#c084fc'; gCtx.lineWidth = 1.5;
+        gCtx.beginPath();
+        gCtx.moveTo(0, -6); gCtx.lineTo(6, -3); gCtx.lineTo(5, 3); gCtx.lineTo(0, 7); gCtx.lineTo(-5, 3); gCtx.lineTo(-6, -3);
+        gCtx.closePath(); gCtx.fill(); gCtx.stroke();
+      } else if (p.type === 'magnet') {
+        // MAGNET: Tapal kuda merah dengan kutub perak
+        gCtx.strokeStyle = '#ef4444'; gCtx.lineWidth = 3;
+        gCtx.beginPath(); gCtx.arc(0, -2, 5, Math.PI, 0, false); gCtx.stroke();
+        gCtx.fillStyle = '#cbd5e1';
+        gCtx.fillRect(-6.5, -2, 3, 4);
+        gCtx.fillRect(3.5, -2, 3, 4);
+      }
+      gCtx.restore();
+    }
+
+    // Efek Ledakan Starburst Presisi Sesuai Gambar Referensi
+    function createStarburstExplosion(x, y, isBig = false, color = '#f97316') {
+      sbExplosions.push({
+        x: x, y: y,
+        radius: isBig ? 32 : 18,
+        maxRadius: isBig ? 48 : 28,
+        life: isBig ? 24 : 16,
+        maxLife: isBig ? 24 : 16,
+        color: color
+      });
+
+      const count = isBig ? 24 : 14;
+      for (let i = 0; i < count; i++) {
+        const ang = Math.random() * Math.PI * 2;
+        const spd = isBig ? (3 + Math.random() * 5) : (2 + Math.random() * 3.5);
+        sbSparks.push({
+          x: x, y: y,
+          vx: Math.cos(ang) * spd,
+          vy: Math.sin(ang) * spd,
+          life: isBig ? 28 : 18,
+          color: Math.random() > 0.4 ? '#facc15' : color
+        });
+      }
+    }
+
+    function drawExplosions() {
+      for (let i = sbExplosions.length - 1; i >= 0; i--) {
+        const ex = sbExplosions[i];
+        ex.life--;
+        const ratio = ex.life / ex.maxLife;
+        const curR = ex.radius + (1 - ratio) * (ex.maxRadius - ex.radius);
+
+        gCtx.save();
+        gCtx.translate(ex.x, ex.y);
+
+        // Radiating 8-Spike Starburst Flare
+        gCtx.fillStyle = ex.color;
+        gCtx.shadowColor = '#facc15'; gCtx.shadowBlur = 16;
+        gCtx.beginPath();
+        for (let s = 0; s < 8; s++) {
+          const a1 = (s / 8) * Math.PI * 2;
+          const a2 = a1 + (Math.PI / 8);
+          const rOuter = curR * 1.35;
+          const rInner = curR * 0.4;
+          if (s === 0) gCtx.moveTo(Math.cos(a1) * rOuter, Math.sin(a1) * rOuter);
+          else gCtx.lineTo(Math.cos(a1) * rOuter, Math.sin(a1) * rOuter);
+          gCtx.lineTo(Math.cos(a2) * rInner, Math.sin(a2) * rInner);
+        }
+        gCtx.closePath(); gCtx.fill();
+
+        // Inner Molten Core
+        gCtx.fillStyle = '#fff';
+        gCtx.beginPath(); gCtx.arc(0, 0, curR * 0.45 * ratio, 0, Math.PI * 2); gCtx.fill();
+        gCtx.restore();
+
+        if (ex.life <= 0) sbExplosions.splice(i, 1);
+      }
+    }
+
+    // Model 3 BOSS Presisi Sesuai Gambar Referensi (Titan Dreadnought, Void Destroyer, Omega Annihilator)
+    function drawBoss(b) {
+      gCtx.save();
+      gCtx.translate(b.x + b.w / 2, b.y + b.h / 2);
+      const f = Math.random() * 8;
+
+      if (b.tier === 1) {
+        // BOSS 1: TITAN DREADNOUGHT (Heavy Warship) - Merah & Abu-abu dengan 3 Pendorong Api & Dual Cannons
+        // 3 Fiery Exhaust Plumes
+        gCtx.fillStyle = '#ef4444'; gCtx.shadowColor = '#f97316'; gCtx.shadowBlur = 18;
+        gCtx.beginPath();
+        gCtx.moveTo(-36, -b.h / 2 + 6); gCtx.lineTo(-30, -b.h / 2 - 12 - f); gCtx.lineTo(-24, -b.h / 2 + 6);
+        gCtx.moveTo(-6, -b.h / 2 + 6); gCtx.lineTo(0, -b.h / 2 - 16 - f); gCtx.lineTo(6, -b.h / 2 + 6);
+        gCtx.moveTo(24, -b.h / 2 + 6); gCtx.lineTo(30, -b.h / 2 - 12 - f); gCtx.lineTo(36, -b.h / 2 + 6);
+        gCtx.fill();
+
+        // Armor Hulls (Triple segmented pods)
+        gCtx.fillStyle = '#1e293b'; gCtx.strokeStyle = '#dc2626'; gCtx.lineWidth = 2.5;
+        gCtx.beginPath();
+        gCtx.moveTo(0, b.h / 2 + 10);
+        gCtx.lineTo(b.w / 2, 4);
+        gCtx.lineTo(b.w / 2 - 8, -b.h / 2);
+        gCtx.lineTo(-b.w / 2 + 8, -b.h / 2);
+        gCtx.lineTo(-b.w / 2, 4);
+        gCtx.closePath(); gCtx.fill(); gCtx.stroke();
+
+        // Heavy Crimson Armor Plates
+        gCtx.fillStyle = '#dc2626';
+        gCtx.fillRect(-b.w / 2 + 6, -10, 22, 24);
+        gCtx.fillRect(b.w / 2 - 28, -10, 22, 24);
+        gCtx.fillRect(-12, -b.h / 2 + 4, 24, 28);
+
+        // Dual Heavy Plasma Cannons
+        gCtx.fillStyle = '#f97316';
+        gCtx.fillRect(-22, b.h / 2 - 2, 8, 12);
+        gCtx.fillRect(14, b.h / 2 - 2, 8, 12);
+
+        // Glowing Central Red Optic Sensor Eye
+        gCtx.fillStyle = '#ffffff'; gCtx.shadowColor = '#ef4444'; gCtx.shadowBlur = 16;
+        gCtx.beginPath(); gCtx.arc(0, 4, 7, 0, Math.PI * 2); gCtx.fill();
+        gCtx.fillStyle = '#ef4444';
+        gCtx.beginPath(); gCtx.arc(0, 4, 4.5, 0, Math.PI * 2); gCtx.fill();
+        gCtx.shadowBlur = 0;
+
+      } else if (b.tier === 2) {
+        // BOSS 2: VOID DESTROYER (Stealth Fighter) - Sayap Kelelawar Ungu dengan Mata Optik Hijau Menyala
+        gCtx.fillStyle = '#a855f7'; gCtx.shadowColor = '#a855f7'; gCtx.shadowBlur = 16;
+        gCtx.beginPath();
+        gCtx.moveTo(-20, -b.h / 2 + 4); gCtx.lineTo(-14, -b.h / 2 - 10 - f); gCtx.lineTo(-8, -b.h / 2 + 4);
+        gCtx.moveTo(8, -b.h / 2 + 4); gCtx.lineTo(14, -b.h / 2 - 10 - f); gCtx.lineTo(20, -b.h / 2 + 4);
+        gCtx.fill();
+
+        // Swept-Forward Bat-Wings
+        gCtx.fillStyle = '#0f0d1e'; gCtx.strokeStyle = '#9333ea'; gCtx.lineWidth = 2.6;
+        gCtx.beginPath();
+        gCtx.moveTo(0, b.h / 2 + 12);
+        gCtx.lineTo(b.w / 2 + 12, b.h / 2);
+        gCtx.lineTo(b.w / 2 - 6, -b.h / 2);
+        gCtx.lineTo(0, -b.h / 4);
+        gCtx.lineTo(-b.w / 2 + 6, -b.h / 2);
+        gCtx.lineTo(-b.w / 2 - 12, b.h / 2);
+        gCtx.closePath(); gCtx.fill(); gCtx.stroke();
+
+        // Neon Violet Armor Ridges
+        gCtx.fillStyle = '#c084fc';
+        gCtx.beginPath();
+        gCtx.ellipse(-34, 6, 5, 12, -0.4, 0, Math.PI * 2);
+        gCtx.ellipse(34, 6, 5, 12, 0.4, 0, Math.PI * 2);
+        gCtx.fill();
+
+        // Glowing Toxic Alien Green Core
+        gCtx.fillStyle = '#22c55e'; gCtx.shadowColor = '#4ade80'; gCtx.shadowBlur = 22;
+        gCtx.beginPath();
+        gCtx.moveTo(0, -10); gCtx.lineTo(8, 2); gCtx.lineTo(0, 12); gCtx.lineTo(-8, 2);
+        gCtx.closePath(); gCtx.fill();
+        gCtx.fillStyle = '#ffffff';
+        gCtx.beginPath(); gCtx.arc(0, 1, 3, 0, Math.PI * 2); gCtx.fill();
+        gCtx.shadowBlur = 0;
+
+      } else {
+        // BOSS 3: OMEGA ANNIHILATOR (Space Fortress) - Benteng Emas Raksasa dengan 3 Turbin Fusi Suria
+        gCtx.fillStyle = '#f97316'; gCtx.shadowColor = '#ef4444'; gCtx.shadowBlur = 24;
+        gCtx.beginPath();
+        gCtx.moveTo(-42, -b.h / 2 + 6); gCtx.lineTo(-34, -b.h / 2 - 16 - f); gCtx.lineTo(-26, -b.h / 2 + 6);
+        gCtx.moveTo(-8, -b.h / 2 + 6); gCtx.lineTo(0, -b.h / 2 - 20 - f); gCtx.lineTo(8, -b.h / 2 + 6);
+        gCtx.moveTo(26, -b.h / 2 + 6); gCtx.lineTo(34, -b.h / 2 - 16 - f); gCtx.lineTo(42, -b.h / 2 + 6);
+        gCtx.fill();
+
+        // Fortress Golden Hull
+        gCtx.fillStyle = '#451a03'; gCtx.strokeStyle = '#facc15'; gCtx.lineWidth = 3;
+        gCtx.beginPath();
+        gCtx.moveTo(0, b.h / 2 + 16);
+        gCtx.lineTo(b.w / 2 + 14, 12);
+        gCtx.lineTo(b.w / 2, -b.h / 2);
+        gCtx.lineTo(0, -b.h / 3);
+        gCtx.lineTo(-b.w / 2, -b.h / 2);
+        gCtx.lineTo(-b.w / 2 - 14, 12);
+        gCtx.closePath(); gCtx.fill(); gCtx.stroke();
+
+        // Gold & Crimson Side Turrets
+        gCtx.fillStyle = '#ca8a04';
+        gCtx.fillRect(-42, -8, 22, 20);
+        gCtx.fillRect(20, -8, 22, 20);
+        gCtx.fillStyle = '#991b1b';
+        gCtx.fillRect(-16, -10, 32, 24);
+
+        // Quad Plasma Cannons Barrels
+        gCtx.fillStyle = '#facc15';
+        gCtx.fillRect(-36, b.h / 2 - 4, 6, 14);
+        gCtx.fillRect(-18, b.h / 2, 6, 14);
+        gCtx.fillRect(12, b.h / 2, 6, 14);
+        gCtx.fillRect(30, b.h / 2 - 4, 6, 14);
+
+        // 3 Giant Glowing Turbine Engines
+        gCtx.fillStyle = '#ef4444'; gCtx.shadowColor = '#f97316'; gCtx.shadowBlur = 20;
+        gCtx.beginPath();
+        gCtx.arc(-28, 0, 8, 0, Math.PI * 2);
+        gCtx.arc(0, 2, 12, 0, Math.PI * 2);
+        gCtx.arc(28, 0, 8, 0, Math.PI * 2);
+        gCtx.fill();
+
+        gCtx.fillStyle = '#fef08a';
+        gCtx.beginPath(); gCtx.arc(0, 2, 5, 0, Math.PI * 2); gCtx.fill();
+        gCtx.shadowBlur = 0;
+      }
+
+      gCtx.restore();
+    }
+
+    function addFloatText(text, x, y, color = '#facc15') {
+      sbFloatTexts.push({ text: text, x: x, y: y, life: 36, color: color });
     }
 
     function spawnNextBoss() {
@@ -1956,11 +2464,41 @@
       sbPlayerInvincible = 30;
 
       if (sbBossTier === 1) {
-        sbBoss = { name: "TITAN DREADNOUGHT", tier: 1, x: 124, y: -70, targetY: 55, w: 92, h: 50, hp: 75, maxHp: 75, dir: 1, speedX: 2.0, cooldown: 0, reward: 150, color: '#ef4444' };
+        sbBoss = {
+          name: "TITAN DREADNOUGHT",
+          subtitle: "HEAVY WARSHIP",
+          tier: 1,
+          x: 110, y: -80, targetY: 55,
+          w: 120, h: 68,
+          hp: 85, maxHp: 85,
+          dir: 1, speedX: 2.0,
+          cooldown: 0, reward: 150,
+          themeColor: '#ef4444'
+        };
       } else if (sbBossTier === 2) {
-        sbBoss = { name: "VOID DESTROYER", tier: 2, x: 118, y: -80, targetY: 60, w: 104, h: 54, hp: 120, maxHp: 120, dir: 1, speedX: 2.5, cooldown: 0, reward: 250, color: '#a855f7' };
+        sbBoss = {
+          name: "VOID DESTROYER",
+          subtitle: "STEALTH FIGHTER",
+          tier: 2,
+          x: 106, y: -85, targetY: 60,
+          w: 128, h: 64,
+          hp: 140, maxHp: 140,
+          dir: 1, speedX: 2.5,
+          cooldown: 0, reward: 250,
+          themeColor: '#a855f7'
+        };
       } else {
-        sbBoss = { name: "OMEGA ANNIHILATOR", tier: 3, x: 108, y: -90, targetY: 65, w: 118, h: 60, hp: 180, maxHp: 180, dir: 1, speedX: 3.0, cooldown: 0, reward: 400, color: '#facc15' };
+        sbBoss = {
+          name: "OMEGA ANNIHILATOR",
+          subtitle: "SPACE FORTRESS",
+          tier: 3,
+          x: 102, y: -95, targetY: 65,
+          w: 136, h: 74,
+          hp: 200, maxHp: 200,
+          dir: 1, speedX: 3.0,
+          cooldown: 0, reward: 450,
+          themeColor: '#facc15'
+        };
       }
     }
 
@@ -1973,7 +2511,7 @@
 
       if (sbScore >= nextBossScoreThreshold && !sbBossActive) spawnNextBoss();
 
-      // Laser Player Auto Fire
+      // Laser Player Plasma Fire
       const interval = sbPowerTimers.speed > 0 ? 8 : 12;
       if (sbCooldown % interval === 0) {
         if (sbPowerTimers.triple > 0) {
@@ -1987,75 +2525,179 @@
         sfx.laser();
       }
 
-      // Spawning Meteor (hanya jika Boss tidak aktif)
+      // Spawning 5 Jenis Meteor Sesuai Nilai Skor
       if (!sbBossActive && Math.random() < 0.045) {
         const rVal = Math.random();
-        let mType = 'normal', mHp = 1, mScore = 10, rad = 14 + Math.random() * 12;
-        if (rVal < 0.15) { mType = 'gold'; mHp = 2; mScore = 40; }
-        else if (rVal < 0.35) { mType = 'cracked'; mHp = 2; mScore = 25; }
-        else if (rVal < 0.55) { mType = 'ice'; mHp = 1; mScore = 20; }
-        else if (rVal < 0.70) { mType = 'dark'; mHp = 3; mScore = 35; }
-        sbMeteors.push({ x: rad + Math.random() * (340 - rad * 2), y: -rad * 2, radius: rad, rot: 0, rotSpeed: (Math.random() - 0.5) * 0.06, speed: 2.2 + Math.random() * 2, type: mType, hp: mHp, reward: mScore });
+        let mType = 'normal', mHp = 1, mScore = 1, rad = 14 + Math.random() * 12;
+        if (rVal < 0.12) { mType = 'dark'; mHp = 3; mScore = 10; rad = 17; }
+        else if (rVal < 0.28) { mType = 'gold'; mHp = 2; mScore = 5; rad = 15; }
+        else if (rVal < 0.50) { mType = 'ice'; mHp = 2; mScore = 3; rad = 14; }
+        else if (rVal < 0.72) { mType = 'cracked'; mHp = 2; mScore = 2; rad = 16; }
+
+        // Bumpy Polygon Points
+        const numSides = mType === 'ice' ? 6 : 8;
+        const pts = [];
+        for (let i = 0; i < numSides; i++) {
+          const a = (i / numSides) * Math.PI * 2;
+          const r = rad * (0.8 + Math.random() * 0.4);
+          pts.push({ x: Math.cos(a) * r, y: Math.sin(a) * r });
+        }
+
+        sbMeteors.push({
+          x: rad + Math.random() * (340 - rad * 2),
+          y: -rad * 2,
+          radius: rad,
+          points: pts,
+          rot: 0,
+          rotSpeed: (Math.random() - 0.5) * 0.06,
+          speed: (mType === 'ice' ? 3.0 : 2.0) + Math.random() * 2,
+          type: mType,
+          hp: mHp,
+          reward: mScore
+        });
       }
 
-      // Boss Logic
+      // Boss AI & Pola Serangan Persis Sesuai Gambar
       if (sbBossActive && sbBoss) {
         if (sbBoss.y < sbBoss.targetY) sbBoss.y += 1.6;
         else {
           sbBoss.x += sbBoss.dir * sbBoss.speedX;
           if (sbBoss.x <= 15 || sbBoss.x >= 340 - sbBoss.w - 15) sbBoss.dir *= -1;
           sbBoss.cooldown++;
-          if (sbBoss.cooldown % 32 === 0) {
-            sbBossBullets.push({ x: sbBoss.x + 20, y: sbBoss.y + sbBoss.h, vx: 0, vy: 5 });
-            sbBossBullets.push({ x: sbBoss.x + sbBoss.w - 20, y: sbBoss.y + sbBoss.h, vx: 0, vy: 5 });
-            sfx.bossLaser();
+
+          if (sbBoss.tier === 1) {
+            // DUAL PLASMA CANNONS (Sepasang peluru plasma merah-oranye ganda)
+            if (sbBoss.cooldown % 34 === 0) {
+              sbBossBullets.push({ x: sbBoss.x + 24, y: sbBoss.y + sbBoss.h, vx: 0, vy: 5.2, color: '#ef4444', rad: 5 });
+              sbBossBullets.push({ x: sbBoss.x + sbBoss.w - 24, y: sbBoss.y + sbBoss.h, vx: 0, vy: 5.2, color: '#ef4444', rad: 5 });
+              sfx.bossLaser();
+            }
+          } else if (sbBoss.tier === 2) {
+            // TRIPLE SPREAD LASERS (3 Tembakan sinar laser ungu menyebar ke kiri, tengah, kanan)
+            if (sbBoss.cooldown % 30 === 0) {
+              sbBossBullets.push({ x: sbBoss.x + sbBoss.w / 2, y: sbBoss.y + sbBoss.h, vx: 0, vy: 5.0, color: '#c084fc', rad: 4.5 });
+              sbBossBullets.push({ x: sbBoss.x + 18, y: sbBoss.y + sbBoss.h, vx: -1.8, vy: 4.6, color: '#c084fc', rad: 4.5 });
+              sbBossBullets.push({ x: sbBoss.x + sbBoss.w - 18, y: sbBoss.y + sbBoss.h, vx: 1.8, vy: 4.6, color: '#c084fc', rad: 4.5 });
+              sfx.bossLaser();
+            }
+          } else {
+            // QUAD PLASMA BARRAGE (Berondongan 4 meriam plasma berat emas-merah)
+            if (sbBoss.cooldown % 26 === 0) {
+              sbBossBullets.push({ x: sbBoss.x + 18, y: sbBoss.y + sbBoss.h, vx: -0.8, vy: 5.4, color: '#facc15', rad: 5.5 });
+              sbBossBullets.push({ x: sbBoss.x + 40, y: sbBoss.y + sbBoss.h, vx: -0.2, vy: 5.6, color: '#ef4444', rad: 5.5 });
+              sbBossBullets.push({ x: sbBoss.x + sbBoss.w - 40, y: sbBoss.y + sbBoss.h, vx: 0.2, vy: 5.6, color: '#ef4444', rad: 5.5 });
+              sbBossBullets.push({ x: sbBoss.x + sbBoss.w - 18, y: sbBoss.y + sbBoss.h, vx: 0.8, vy: 5.4, color: '#facc15', rad: 5.5 });
+              sfx.bossLaser();
+            }
           }
         }
       }
 
-      // Update Bullets
+      // Update Bullets & PowerUps
       for (let b of sbBullets) { b.x += b.vx || 0; b.y += b.vy || -7.8; }
       sbBullets = sbBullets.filter(b => b.y > -10);
-      for (let bb of sbBossBullets) bb.y += bb.vy;
+      for (let bb of sbBossBullets) { bb.x += bb.vx || 0; bb.y += bb.vy; }
       sbBossBullets = sbBossBullets.filter(bb => bb.y < 460);
 
-      // Hit Bullets to Boss
+      for (let s of sbSparks) { s.x += s.vx; s.y += s.vy; s.life--; }
+      sbSparks = sbSparks.filter(s => s.life > 0);
+
+      for (let ft of sbFloatTexts) { ft.y -= 0.8; ft.life--; }
+      sbFloatTexts = sbFloatTexts.filter(ft => ft.life > 0);
+
+      // Power-up Attraction (Magnet) & Collection
+      for (let i = sbPowerUps.length - 1; i >= 0; i--) {
+        const p = sbPowerUps[i];
+        p.y += 1.6;
+
+        if (sbPowerTimers.magnet > 0) {
+          const dx = (sharedPlayerX + 20) - p.x;
+          const dy = 395 - p.y;
+          const dist = Math.hypot(dx, dy);
+          if (dist < 180) { p.x += (dx / dist) * 4.5; p.y += (dy / dist) * 4.5; }
+        }
+
+        if (Math.hypot((sharedPlayerX + 20) - p.x, 395 - p.y) < 26) {
+          sfx.powerup();
+          if (p.type === 'heal') {
+            if (sbLives < sbMaxLives) sbLives++;
+            addFloatText('+1 HP ❤️', p.x, p.y, '#ef4444');
+          } else if (p.type === 'score') {
+            sbScore += 50;
+            addFloatText('+50 PTS 🌟', p.x, p.y, '#facc15');
+          } else if (p.type === 'speed') {
+            sbPowerTimers.speed = 360;
+            addFloatText('SPEED UP! ⏫', p.x, p.y, '#22c55e');
+          } else if (p.type === 'triple') {
+            sbPowerTimers.triple = 420;
+            addFloatText('TRIPLE SHOT! 🔱', p.x, p.y, '#00f0ff');
+          } else if (p.type === 'shield') {
+            sbPowerTimers.shield = 300;
+            addFloatText('SHIELD (5s)! 🛡️', p.x, p.y, '#a855f7');
+          } else if (p.type === 'magnet') {
+            sbPowerTimers.magnet = 360;
+            addFloatText('MAGNET! 🧲', p.x, p.y, '#ef4444');
+          }
+          sbPowerUps.splice(i, 1);
+        }
+      }
+      sbPowerUps = sbPowerUps.filter(p => p.y < 460);
+
+      // Peluru mengenai Boss
       if (sbBossActive && sbBoss) {
         for (let j = sbBullets.length - 1; j >= 0; j--) {
-          let b = sbBullets[j];
+          const b = sbBullets[j];
           if (b.x > sbBoss.x && b.x < sbBoss.x + sbBoss.w && b.y > sbBoss.y && b.y < sbBoss.y + sbBoss.h) {
             sfx.hit();
             sbBoss.hp -= 2;
+            createStarburstExplosion(b.x, b.y, false, sbBoss.themeColor);
             sbBullets.splice(j, 1);
+
             if (sbBoss.hp <= 0) {
               sfx.gameOver();
               unlockAchievement('boss_hunter');
+              createStarburstExplosion(sbBoss.x + sbBoss.w / 2, sbBoss.y + sbBoss.h / 2, true, sbBoss.themeColor);
+              createStarburstExplosion(sbBoss.x + 20, sbBoss.y + 20, true, '#facc15');
               sbScore += sbBoss.reward;
-              nextBossScoreThreshold = sbScore + 180;
+
+              // Drop Power-ups upon defeat
+              sbPowerUps.push({ x: sbBoss.x + 30, y: sbBoss.y + 20, type: 'heal', bg: 'rgba(239, 68, 68, 0.2)', glow: '#ef4444' });
+              sbPowerUps.push({ x: sbBoss.x + sbBoss.w - 30, y: sbBoss.y + 20, type: 'score', bg: 'rgba(250, 204, 21, 0.2)', glow: '#facc15' });
+
+              nextBossScoreThreshold = sbScore + 180 + (sbBossTier * 60);
+              showToast(`★ ${sbBoss.name} DIKALAHKAN! ★`);
               sbBossActive = false; sbBoss = null; sbBossBullets = [];
-              showToast("BOSS DIKALAHKAN!");
               break;
             }
           }
         }
       }
 
-      // Hit Boss Bullets to Player
+      // Peluru Boss mengenai Pemain
       if (sbBossActive) {
         for (let i = sbBossBullets.length - 1; i >= 0; i--) {
-          let bb = sbBossBullets[i];
-          if (Math.hypot((sharedPlayerX + 20) - bb.x, 395 - bb.y) < 18) {
+          const bb = sbBossBullets[i];
+          if (Math.hypot((sharedPlayerX + 20) - bb.x, 395 - bb.y) < 19) {
             sbBossBullets.splice(i, 1);
-            triggerHaptic(40);
-            if (sbPowerTimers.shield > 0) continue;
+            createStarburstExplosion(bb.x, bb.y, false, bb.color);
+            triggerHaptic(35);
+
+            if (sbPowerTimers.shield > 0) {
+              addFloatText('BLOCKED! 🛡️', sharedPlayerX + 20, 375, '#c084fc');
+              continue;
+            }
+
             if (sbPlayerInvincible <= 0) {
               if (sbPlayerHp > 0) {
                 sbPlayerHp -= 25;
                 sbPlayerInvincible = 25;
                 sfx.hit();
+                addFloatText('-25 SHIELD', sharedPlayerX + 20, 375, '#00f0ff');
               } else {
                 sbLives--;
                 sbPlayerInvincible = 45;
+                sfx.hit();
+                addFloatText('-1 HP! 💥', sharedPlayerX + 20, 375, '#ef4444');
                 if (sbLives <= 0) {
                   sbGameOver = true;
                   sfx.gameOver();
@@ -2067,73 +2709,188 @@
         }
       }
 
-      // Hit Bullets to Meteors
+      // Peluru mengenai Meteorit
       for (let i = sbMeteors.length - 1; i >= 0; i--) {
-        let m = sbMeteors[i];
+        const m = sbMeteors[i];
         m.y += m.speed; m.rot += m.rotSpeed;
+
         for (let j = sbBullets.length - 1; j >= 0; j--) {
-          let b = sbBullets[j];
+          const b = sbBullets[j];
           if (Math.hypot(b.x - m.x, b.y - m.y) < m.radius + 6) {
-            sfx.hit(); m.hp--; sbBullets.splice(j, 1);
+            sfx.hit();
+            m.hp--;
+            sbBullets.splice(j, 1);
+
             if (m.hp <= 0) {
               sbScore += m.reward;
+              const col = m.type === 'cracked' ? '#ea580c' : (m.type === 'ice' ? '#67e8f9' : (m.type === 'gold' ? '#facc15' : (m.type === 'dark' ? '#c084fc' : '#f97316')));
+              createStarburstExplosion(m.x, m.y, m.type === 'dark' || m.type === 'gold', col);
+
+              // Peluang menjatuhkan Power-Up item
+              const dropChance = m.type === 'gold' ? 1.0 : (m.type === 'dark' ? 0.65 : 0.22);
+              if (Math.random() < dropChance) {
+                const types = ['heal', 'score', 'speed', 'triple', 'shield', 'magnet'];
+                const pType = (m.type === 'gold') ? 'score' : types[Math.floor(Math.random() * types.length)];
+                const glows = { heal: '#ef4444', score: '#facc15', speed: '#22c55e', triple: '#00f0ff', shield: '#a855f7', magnet: '#ef4444' };
+                sbPowerUps.push({
+                  x: m.x, y: m.y,
+                  type: pType,
+                  bg: 'rgba(255,255,255,0.08)',
+                  glow: glows[pType] || '#facc15'
+                });
+              }
+
               sbMeteors.splice(i, 1);
               break;
+            } else {
+              createStarburstExplosion(b.x, b.y, false, '#facc15');
             }
           }
         }
+
+        // Tabrakan Meteor mengenai Pemain
         if (m && Math.hypot((sharedPlayerX + 20) - m.x, 395 - m.y) < m.radius + 16) {
+          createStarburstExplosion(m.x, m.y, true, '#ef4444');
           sbMeteors.splice(i, 1);
           triggerHaptic(50);
-          sbLives--;
-          if (sbLives <= 0) {
-            sbGameOver = true;
-            sfx.gameOver();
-            callBackend('saveScore', { username: currentUser, gameTitle: 'SPACE BLASTER', score: sbScore });
+
+          if (sbPowerTimers.shield > 0) {
+            addFloatText('BLOCKED! 🛡️', sharedPlayerX + 20, 375, '#c084fc');
+            continue;
+          }
+
+          if (sbPlayerInvincible <= 0) {
+            sbLives--;
+            sbPlayerInvincible = 45;
+            sfx.hit();
+            addFloatText('-1 HP! 💥', sharedPlayerX + 20, 375, '#ef4444');
+            if (sbLives <= 0) {
+              sbGameOver = true;
+              sfx.gameOver();
+              callBackend('saveScore', { username: currentUser, gameTitle: 'SPACE BLASTER', score: sbScore });
+            }
           }
         }
       }
       sbMeteors = sbMeteors.filter(m => m.y < 460);
 
-      // Render Space Blaster Canvas
+      // Render Screen Canvas
       gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height);
+
+      // Deep Space Twinkling Stars
       gCtx.fillStyle = '#f8fafc';
-      for (let s = 0; s < 16; s++) gCtx.fillRect((s * 33 + sbCooldown * 0.5) % 340, (s * 43 + sbCooldown * 2) % 440, 1.8, 1.8);
-
-      for (let b of sbBullets) { gCtx.fillStyle = '#00f0ff'; gCtx.fillRect(b.x - 1.5, b.y, 3, 10); }
-      for (let bb of sbBossBullets) { gCtx.fillStyle = '#ef4444'; gCtx.beginPath(); gCtx.arc(bb.x, bb.y, 4, 0, Math.PI * 2); gCtx.fill(); }
-
-      for (let m of sbMeteors) {
-        gCtx.save(); gCtx.translate(m.x, m.y); gCtx.rotate(m.rot);
-        gCtx.fillStyle = m.type === 'cracked' ? '#ea580c' : (m.type === 'ice' ? '#06b6d4' : (m.type === 'gold' ? '#facc15' : '#78716c'));
-        gCtx.beginPath(); gCtx.arc(0, 0, m.radius, 0, Math.PI * 2); gCtx.fill();
-        gCtx.restore();
+      for (let s = 0; s < 18; s++) {
+        const sy = (s * 37 + sbCooldown * (s % 3 + 1)) % 460;
+        const sx = (s * 29 + Math.sin(sbCooldown * 0.02 + s) * 6) % 340;
+        const sz = (s % 3 === 0) ? 2.2 : 1.4;
+        gCtx.fillRect(sx, sy, sz, sz);
       }
 
+      // Render Sparks & Starburst Explosions
+      for (let s of sbSparks) {
+        gCtx.fillStyle = s.color;
+        gCtx.fillRect(s.x, s.y, 2.4, 2.4);
+      }
+      drawExplosions();
+
+      // Render Power-Ups
+      for (let p of sbPowerUps) drawPowerUp(p);
+
+      // Render Lasers Player
+      for (let b of sbBullets) {
+        gCtx.fillStyle = '#00f0ff'; gCtx.shadowColor = '#00f0ff'; gCtx.shadowBlur = 10;
+        gCtx.fillRect(b.x - 1.5, b.y, 3, 11);
+        gCtx.fillStyle = '#ffffff';
+        gCtx.fillRect(b.x - 0.8, b.y + 2, 1.6, 7);
+      }
+      gCtx.shadowBlur = 0;
+
+      // Render Boss Bullets
+      for (let bb of sbBossBullets) {
+        gCtx.fillStyle = bb.color; gCtx.shadowColor = bb.color; gCtx.shadowBlur = 12;
+        gCtx.beginPath(); gCtx.arc(bb.x, bb.y, bb.rad || 5, 0, Math.PI * 2); gCtx.fill();
+        gCtx.fillStyle = '#ffffff';
+        gCtx.beginPath(); gCtx.arc(bb.x, bb.y, (bb.rad || 5) * 0.45, 0, Math.PI * 2); gCtx.fill();
+      }
+      gCtx.shadowBlur = 0;
+
+      // Render Meteors
+      for (let m of sbMeteors) drawMeteor(m);
+
+      // Render Boss
       if (sbBossActive && sbBoss) {
-        gCtx.fillStyle = sbBoss.color;
-        gCtx.fillRect(sbBoss.x, sbBoss.y, sbBoss.w, sbBoss.h);
-        gCtx.fillStyle = '#fff'; gCtx.font = '700 8.5px Orbitron';
-        gCtx.fillText(`${sbBoss.name}: ${sbBoss.hp}/${sbBoss.maxHp}`, sbBoss.x, sbBoss.y - 6);
+        drawBoss(sbBoss);
+
+        // High-Tech Boss HP Bar
+        gCtx.fillStyle = 'rgba(0, 0, 0, 0.8)';
+        gCtx.fillRect(20, 12, 300, 18);
+        gCtx.strokeStyle = sbBoss.themeColor; gCtx.lineWidth = 1.4;
+        gCtx.strokeRect(20, 12, 300, 18);
+
+        const hpRatio = Math.max(0, sbBoss.hp / sbBoss.maxHp);
+        gCtx.fillStyle = sbBoss.themeColor;
+        gCtx.fillRect(22, 14, 296 * hpRatio, 14);
+
+        gCtx.fillStyle = '#fff'; gCtx.font = '700 8.5px Orbitron'; gCtx.textAlign = 'center';
+        gCtx.fillText(`${sbBoss.name} [${sbBoss.subtitle}]: ${sbBoss.hp}/${sbBoss.maxHp}`, 170, 24);
+        gCtx.textAlign = 'left';
       }
 
-      drawStrikerShip(sharedPlayerX, 380);
+      // Render Player Ship
+      drawStrikerShip(sharedPlayerX, 395);
 
-      // HUD Lives & Score
-      gCtx.fillStyle = '#ef4444'; gCtx.font = '13px "Plus Jakarta Sans"';
-      let hearts = ''; for (let h = 0; h < sbLives; h++) hearts += '❤️ ';
-      gCtx.fillText(hearts, 14, 26);
-      gCtx.fillStyle = '#f8fafc'; gCtx.font = '700 12px Orbitron';
-      gCtx.fillText(`SCORE: ${sbScore}`, 120, 26);
+      // Floating Texts
+      for (let ft of sbFloatTexts) {
+        gCtx.fillStyle = ft.color; gCtx.font = '700 11px Orbitron';
+        gCtx.fillText(ft.text, ft.x - 12, ft.y);
+      }
 
+      // HUD Header (SCORE, ❤️❤️❤️, LEVEL)
+      gCtx.fillStyle = '#f8fafc'; gCtx.font = '700 11.5px Orbitron';
+      gCtx.fillText(`SCORE ${sbScore}`, 14, sbBossActive ? 46 : 24);
+
+      let hearts = '';
+      for (let h = 0; h < sbLives; h++) hearts += '❤️ ';
+      gCtx.font = '13px "Plus Jakarta Sans"';
+      gCtx.fillText(hearts, 14, sbBossActive ? 64 : 42);
+
+      const levelStr = sbScore >= 600 ? 'LEVEL 3' : (sbScore >= 300 ? 'LEVEL 2' : 'LEVEL 1');
+      gCtx.fillStyle = '#38bdf8'; gCtx.font = '700 10.5px Orbitron'; gCtx.textAlign = 'right';
+      gCtx.fillText(sbBossActive ? 'BOSS FIGHT' : levelStr, 326, sbBossActive ? 46 : 24);
+      gCtx.textAlign = 'left';
+
+      // Boss Shield Bar Player
       if (sbBossActive) {
-        gCtx.fillStyle = '#00f0ff'; gCtx.font = '700 9px Orbitron';
-        gCtx.fillText(`BOSS SHIELD: ${sbPlayerHp}%`, 14, 426);
+        gCtx.fillStyle = 'rgba(0, 0, 0, 0.8)';
+        gCtx.fillRect(14, 436, 120, 12);
+        gCtx.strokeStyle = '#00f0ff'; gCtx.lineWidth = 1.2;
+        gCtx.strokeRect(14, 436, 120, 12);
+
+        const pRatio = Math.max(0, sbPlayerHp / sbPlayerMaxHp);
+        gCtx.fillStyle = pRatio > 0.35 ? '#00f0ff' : '#ec4899';
+        gCtx.fillRect(15, 437, 118 * pRatio, 10);
+
+        gCtx.fillStyle = '#fff'; gCtx.font = '700 8.5px Orbitron';
+        gCtx.fillText(`SHIELD ${sbPlayerHp}%`, 140, 445);
+      }
+
+      // Warning Banner
+      if (bossWarningTimer > 0) {
+        gCtx.fillStyle = 'rgba(239, 68, 68, 0.25)';
+        gCtx.fillRect(0, 200, 340, 40);
+        gCtx.strokeStyle = '#ef4444'; gCtx.lineWidth = 1.5;
+        gCtx.strokeRect(0, 200, 340, 40);
+        gCtx.fillStyle = '#facc15'; gCtx.font = '900 12px Orbitron'; gCtx.textAlign = 'center';
+        gCtx.fillText('⚠️ BOSS ENCOUNTER DETECTED ⚠️', 170, 224);
+        gCtx.textAlign = 'left';
       }
 
       if (sbGameOver) {
-        gCtx.fillStyle = '#ec4899'; gCtx.font = '700 20px Orbitron'; gCtx.fillText('GAME OVER', 105, 210);
-        gCtx.fillStyle = '#94a3b8'; gCtx.font = '11px Plus Jakarta Sans'; gCtx.fillText('Klik kanvas untuk main lagi', 95, 235);
+        gCtx.fillStyle = '#ec4899'; gCtx.font = '700 20px Orbitron'; gCtx.textAlign = 'center';
+        gCtx.fillText('MISSION FAILED', 170, 220);
+        gCtx.fillStyle = '#94a3b8'; gCtx.font = '11px Plus Jakarta Sans';
+        gCtx.fillText('Klik kanvas untuk main lagi', 170, 246);
+        gCtx.textAlign = 'left';
       } else loopId = requestAnimationFrame(loopSpaceBlaster);
     }
 
