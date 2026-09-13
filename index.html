@@ -58,7 +58,6 @@
       border-radius: 16px;
     }
 
-    /* ================= AUTH VIEW ================= */
     #auth-view {
       position: relative;
       z-index: 10;
@@ -246,7 +245,6 @@
     .feature-heading { font-family: 'Orbitron', sans-serif; font-size: 11px; font-weight: 800; color: #fff; }
     .feature-desc { font-size: 9.5px; color: #94a3b8; line-height: 1.3; }
 
-    /* ================= DASHBOARD VIEW ================= */
     #dashboard-view {
       display: none; position: relative; z-index: 10; width: 100%; max-width: 1300px;
       margin: 0 auto; padding: 16px 16px 60px; flex-direction: column;
@@ -264,6 +262,16 @@
       cursor: pointer; transition: all 0.2s;
     }
     .nav-btn-icon.active { border-color: rgba(0, 240, 255, 0.4); color: var(--primary); background: rgba(0, 240, 255, 0.1); }
+
+    /* TOMBOL ADMIN KHUSUS */
+    .btn-admin-panel {
+      display: none; align-items: center; gap: 6px; padding: 6px 14px;
+      background: rgba(250, 204, 21, 0.15); border: 1px solid var(--accent-yellow);
+      border-radius: 8px; color: var(--accent-yellow); font-family: 'Orbitron', sans-serif;
+      font-size: 11px; font-weight: 800; cursor: pointer; transition: all 0.2s;
+      box-shadow: 0 0 12px rgba(250, 204, 21, 0.25);
+    }
+    .btn-admin-panel:hover { background: var(--accent-yellow); color: #060913; box-shadow: 0 0 20px rgba(250, 204, 21, 0.6); }
 
     .user-profile-badge {
       display: flex; align-items: center; gap: 8px; padding: 6px 14px; background: rgba(255, 255, 255, 0.05);
@@ -301,9 +309,8 @@
     .dashboard-layout { display: grid; grid-template-columns: 1fr 320px; gap: 20px; }
     .main-stream { display: flex; flex-direction: column; gap: 24px; }
 
-    /* ================= HERO BANNER DENGAN PANDUAN LANGSUNG ================= */
     .hero-banner {
-      position: relative; min-height: 330px; border-radius: 16px; overflow: hidden;
+      position: relative; min-height: 320px; border-radius: 16px; overflow: hidden;
       border: 1px solid rgba(0, 240, 255, 0.35); display: flex; flex-direction: column; justify-content: flex-end;
       padding: 24px;
       background: radial-gradient(circle at 80% 20%, rgba(99, 102, 241, 0.45) 0%, transparent 60%),
@@ -320,9 +327,7 @@
     }
     .hero-desc { font-size: 12px; color: #cbd5e1; max-width: 520px; line-height: 1.5; margin-bottom: 16px; }
 
-    .hero-actions-row {
-      display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 4px;
-    }
+    .hero-actions-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 4px; }
     .btn-hero-guide {
       display: inline-flex; align-items: center; gap: 6px; padding: 12px 18px;
       background: rgba(139, 92, 246, 0.2); color: #c4b5fd; border: 1px solid rgba(139, 92, 246, 0.5);
@@ -333,51 +338,6 @@
       background: rgba(139, 92, 246, 0.4); border-color: #a78bfa; color: #fff; transform: scale(1.03);
       box-shadow: 0 0 16px rgba(139, 92, 246, 0.45);
     }
-
-    .btn-guide-card {
-      padding: 7px 0; border-radius: 6px; background: rgba(139, 92, 246, 0.15);
-      border: 1px solid rgba(139, 92, 246, 0.4); color: #c4b5fd; font-family: 'Orbitron', sans-serif;
-      font-size: 9.5px; font-weight: 700; cursor: pointer; width: 100%; margin-bottom: 6px; transition: all 0.2s;
-      display: flex; align-items: center; justify-content: center; gap: 6px;
-    }
-    .btn-guide-card:hover {
-      background: rgba(139, 92, 246, 0.35); border-color: #a78bfa; color: #fff;
-      box-shadow: 0 0 12px rgba(139, 92, 246, 0.35); transform: translateY(-1px);
-    }
-
-    /* Modal Panduan & Lineup Spesifik Game */
-    .guide-modal-box {
-      background: #090e1f; border: 1px solid var(--border-hover); border-radius: 18px;
-      width: 94%; max-width: 580px; max-height: 86vh; overflow-y: auto; padding: 22px;
-      box-shadow: 0 0 45px rgba(0, 240, 255, 0.25); display: flex; flex-direction: column; gap: 14px;
-    }
-    .guide-modal-header {
-      display: flex; justify-content: space-between; align-items: flex-start;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08); padding-bottom: 12px;
-    }
-    .guide-modal-title { font-family: 'Orbitron', sans-serif; font-size: 16px; font-weight: 900; color: var(--primary); }
-    .guide-modal-sub { font-size: 11px; color: var(--text-muted); margin-top: 3px; }
-    .guide-section-title {
-      font-family: 'Orbitron', sans-serif; font-size: 10.5px; font-weight: 800; color: var(--accent-yellow);
-      display: flex; align-items: center; gap: 6px; margin-top: 4px;
-    }
-    .guide-items-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
-    .guide-badge-card {
-      background: rgba(18, 25, 46, 0.9); border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 10px; padding: 8px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 2px;
-    }
-    .guide-badge-icon { font-size: 18px; line-height: 1.2; }
-    .guide-badge-name { font-family: 'Orbitron', sans-serif; font-size: 9.5px; font-weight: 800; color: #fff; }
-    .guide-badge-desc { font-size: 8.5px; color: var(--primary); font-weight: 600; line-height: 1.3; }
-
-    .guide-lineup-row { display: flex; flex-direction: column; gap: 8px; }
-    .guide-lineup-card {
-      background: rgba(18, 25, 46, 0.9); border-radius: 10px; padding: 10px 12px;
-      border-left: 3px solid var(--primary); display: flex; flex-direction: column; gap: 3px;
-    }
-    .guide-lineup-name { font-family: 'Orbitron', sans-serif; font-weight: 800; font-size: 10.5px; color: #fff; }
-    .guide-lineup-desc { font-size: 9.5px; color: #94a3b8; line-height: 1.4; }
-
     .btn-hero-play {
       display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px;
       background: var(--primary); color: #040813; border: none; border-radius: 10px;
@@ -386,207 +346,59 @@
     }
     .btn-hero-play:hover { transform: scale(1.03); box-shadow: 0 0 24px var(--primary); }
 
-    .floating-slogan {
-      position: absolute; right: 28px; bottom: 28px; text-align: right;
-      font-family: 'Orbitron', sans-serif; font-size: 13px; font-weight: 800; color: rgba(255, 255, 255, 0.5);
-      font-style: italic; letter-spacing: 2px; pointer-events: none;
-    }
-
-    /* ================= GAME CARDS & THUMBNAILS (SESUAI GAMBAR REFERENSI) ================= */
     .section-header-wrap {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 16px;
-      flex-wrap: wrap;
-      gap: 12px;
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 16px; flex-wrap: wrap; gap: 12px;
     }
-    .section-title-left {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
+    .section-title-left { display: flex; align-items: center; gap: 12px; }
     .section-gamepad-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 12px;
-      background: rgba(0, 240, 255, 0.12);
-      border: 1px solid rgba(0, 240, 255, 0.35);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      width: 40px; height: 40px; border-radius: 12px; background: rgba(0, 240, 255, 0.12);
+      border: 1px solid rgba(0, 240, 255, 0.35); display: flex; align-items: center; justify-content: center;
       box-shadow: 0 0 16px rgba(0, 240, 255, 0.25);
     }
     .section-gamepad-icon svg { width: 22px; height: 22px; fill: var(--primary); }
-    .section-main-heading {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 16.5px;
-      font-weight: 900;
-      letter-spacing: 1px;
-      color: #fff;
-    }
+    .section-main-heading { font-family: 'Orbitron', sans-serif; font-size: 16.5px; font-weight: 900; letter-spacing: 1px; color: #fff; }
     .section-main-heading .text-cyan { color: var(--primary); }
     .section-sub-heading { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
 
-    .btn-all-collection {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 16px;
-      background: var(--primary);
-      color: #040813;
-      border: none;
-      border-radius: 10px;
-      font-family: 'Orbitron', sans-serif;
-      font-size: 11px;
-      font-weight: 900;
-      cursor: pointer;
-      box-shadow: 0 0 16px var(--primary-glow);
-      transition: all 0.2s;
-    }
-    .btn-all-collection:hover { transform: scale(1.03); box-shadow: 0 0 24px var(--primary); }
-
     .games-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
     .card-game {
-      background: #090e1f;
-      border-radius: 16px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+      background: #090e1f; border-radius: 16px; overflow: hidden;
+      display: flex; flex-direction: column; position: relative;
+      border: 1.5px solid var(--border-subtle); transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
     }
-    .card-game:hover { transform: translateY(-4px); }
-    
-    .card-game.theme-cyan {
-      border: 1.5px solid rgba(0, 240, 255, 0.35);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6), 0 0 16px rgba(0, 240, 255, 0.12);
-    }
-    .card-game.theme-cyan:hover {
-      border-color: var(--primary);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 24px rgba(0, 240, 255, 0.35);
-    }
-
-    .card-game.theme-purple {
-      border: 1.5px solid rgba(139, 92, 246, 0.45);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6), 0 0 16px rgba(139, 92, 246, 0.15);
-    }
-    .card-game.theme-purple:hover {
-      border-color: #a855f7;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 24px rgba(168, 85, 247, 0.4);
-    }
-
-    .card-game.theme-blue {
-      border: 1.5px solid rgba(14, 165, 233, 0.4);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6), 0 0 16px rgba(14, 165, 233, 0.15);
-    }
-    .card-game.theme-blue:hover {
-      border-color: #38bdf8;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 24px rgba(56, 189, 248, 0.35);
-    }
-
-    .card-game.theme-amber {
-      border: 1.5px solid rgba(245, 158, 11, 0.35);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6), 0 0 16px rgba(245, 158, 11, 0.12);
-    }
-    .card-game.theme-amber:hover {
-      border-color: #facc15;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 24px rgba(250, 204, 21, 0.3);
-    }
+    .card-game:hover { transform: translateY(-4px); border-color: var(--primary); box-shadow: 0 10px 30px rgba(0,0,0,0.8), 0 0 22px rgba(0, 240, 255, 0.3); }
 
     .card-thumb-wrap {
-      height: 145px;
-      position: relative;
-      overflow: hidden;
-      background: #040714;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      height: 145px; position: relative; overflow: hidden; background: #040714;
+      display: flex; align-items: center; justify-content: center;
     }
-    .card-thumb-svg {
-      width: 100%;
-      height: 100%;
-      display: block;
-      object-fit: cover;
-    }
+    .card-thumb-wrap img { width: 100%; height: 100%; object-fit: cover; }
+    .card-thumb-svg { width: 100%; height: 100%; display: block; object-fit: cover; }
 
     .card-badge-status {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      padding: 3.5px 9px;
-      border-radius: 20px;
-      font-size: 8.5px;
-      font-weight: 800;
-      font-family: 'Orbitron', sans-serif;
-      letter-spacing: 0.8px;
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      backdrop-filter: blur(8px);
-      z-index: 2;
+      position: absolute; top: 10px; right: 10px; padding: 3.5px 9px; border-radius: 20px;
+      font-size: 8.5px; font-weight: 800; font-family: 'Orbitron', sans-serif; letter-spacing: 0.8px;
+      display: inline-flex; align-items: center; gap: 5px; backdrop-filter: blur(8px); z-index: 2;
     }
     .badge-live-green {
-      background: rgba(6, 44, 30, 0.85);
-      border: 1px solid rgba(34, 197, 94, 0.65);
-      color: #4ade80;
+      background: rgba(6, 44, 30, 0.85); border: 1px solid rgba(34, 197, 94, 0.65); color: #4ade80;
       box-shadow: 0 0 10px rgba(34, 197, 94, 0.3);
     }
-    .badge-live-green .status-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: #22c55e;
-      box-shadow: 0 0 6px #22c55e;
-    }
-    .badge-coming-dark {
-      background: rgba(15, 23, 42, 0.88);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      color: #94a3b8;
-    }
+    .badge-live-green .status-dot { width: 6px; height: 6px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 6px #22c55e; }
+    .badge-coming-dark { background: rgba(15, 23, 42, 0.88); border: 1px solid rgba(255, 255, 255, 0.15); color: #94a3b8; }
 
     .card-body {
-      padding: 14px;
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
-      justify-content: space-between;
-      gap: 10px;
-      background: rgba(10, 15, 32, 0.95);
+      padding: 14px; display: flex; flex-direction: column; flex-grow: 1;
+      justify-content: space-between; gap: 10px; background: rgba(10, 15, 32, 0.95);
     }
-    .card-game-title {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 13px;
-      font-weight: 800;
-      letter-spacing: 0.8px;
-      color: #fff;
-      margin-bottom: 4px;
-    }
-    .card-game-desc {
-      font-size: 10.5px;
-      color: #94a3b8;
-      line-height: 1.45;
-      min-height: 32px;
-    }
+    .card-game-title { font-family: 'Orbitron', sans-serif; font-size: 13px; font-weight: 800; letter-spacing: 0.8px; color: #fff; margin-bottom: 4px; }
+    .card-game-desc { font-size: 10.5px; color: #94a3b8; line-height: 1.45; min-height: 32px; }
 
-    /* Tag Pills */
-    .tag-pill-row {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      flex-wrap: wrap;
-      margin: 2px 0 4px;
-    }
+    .tag-pill-row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin: 2px 0 4px; }
     .tag-pill {
-      padding: 3px 8px;
-      border-radius: 6px;
-      font-family: 'Orbitron', sans-serif;
-      font-size: 8px;
-      font-weight: 800;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      border-width: 1px;
-      border-style: solid;
+      padding: 3px 8px; border-radius: 6px; font-family: 'Orbitron', sans-serif; font-size: 8px;
+      font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase; border: 1px solid;
     }
     .tag-blue { background: rgba(14, 165, 233, 0.12); border-color: rgba(56, 189, 248, 0.4); color: #38bdf8; }
     .tag-purple { background: rgba(139, 92, 246, 0.14); border-color: rgba(167, 139, 250, 0.4); color: #c4b5fd; }
@@ -595,81 +407,34 @@
     .tag-cyan { background: rgba(0, 240, 255, 0.12); border-color: rgba(0, 240, 255, 0.4); color: #00f0ff; }
     .tag-amber { background: rgba(245, 158, 11, 0.14); border-color: rgba(251, 191, 36, 0.4); color: #fbbf24; }
 
-    .card-actions-col {
-      display: flex;
-      flex-direction: column;
-      gap: 7px;
-      margin-top: 4px;
-    }
+    /* TOMBOL GANDA: PANDUAN & MAIN */
+    .card-actions-col { display: flex; flex-direction: column; gap: 7px; margin-top: 4px; }
     .btn-guide-purple {
-      width: 100%;
-      padding: 8px 0;
-      border-radius: 8px;
-      background: rgba(26, 21, 56, 0.85);
-      border: 1px solid rgba(139, 92, 246, 0.4);
-      color: #c4b5fd;
-      font-family: 'Orbitron', sans-serif;
-      font-size: 9.5px;
-      font-weight: 800;
-      letter-spacing: 0.8px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      transition: all 0.2s;
+      width: 100%; padding: 8px 0; border-radius: 8px; background: rgba(26, 21, 56, 0.85);
+      border: 1px solid rgba(139, 92, 246, 0.4); color: #c4b5fd; font-family: 'Orbitron', sans-serif;
+      font-size: 9.5px; font-weight: 800; letter-spacing: 0.8px; cursor: pointer; display: flex;
+      align-items: center; justify-content: center; gap: 6px; transition: all 0.2s;
     }
     .btn-guide-purple:hover {
-      background: rgba(139, 92, 246, 0.3);
-      border-color: #a78bfa;
-      color: #fff;
-      box-shadow: 0 0 14px rgba(139, 92, 246, 0.35);
-      transform: translateY(-1px);
+      background: rgba(139, 92, 246, 0.35); border-color: #a78bfa; color: #fff;
+      box-shadow: 0 0 14px rgba(139, 92, 246, 0.35); transform: translateY(-1px);
     }
     .btn-play-solid {
-      width: 100%;
-      padding: 9.5px 0;
-      border-radius: 8px;
-      background: var(--primary);
-      border: none;
-      color: #040813;
-      font-family: 'Orbitron', sans-serif;
-      font-size: 11px;
-      font-weight: 900;
-      letter-spacing: 1px;
-      cursor: pointer;
-      box-shadow: 0 0 16px rgba(0, 240, 255, 0.35);
-      transition: all 0.2s;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
+      width: 100%; padding: 9.5px 0; border-radius: 8px; background: var(--primary);
+      border: none; color: #040813; font-family: 'Orbitron', sans-serif; font-size: 11px;
+      font-weight: 900; letter-spacing: 1px; cursor: pointer; box-shadow: 0 0 16px rgba(0, 240, 255, 0.35);
+      transition: all 0.2s; display: flex; align-items: center; justify-content: center; gap: 6px;
     }
-    .btn-play-solid:hover {
-      transform: scale(1.02);
-      box-shadow: 0 0 24px var(--primary);
-    }
+    .btn-play-solid:hover { transform: scale(1.02); box-shadow: 0 0 24px var(--primary); }
     .btn-disabled-dark {
-      width: 100%;
-      padding: 9.5px 0;
-      border-radius: 8px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      color: #64748b;
-      font-family: 'Orbitron', sans-serif;
-      font-size: 10.5px;
-      font-weight: 800;
-      letter-spacing: 1px;
-      cursor: not-allowed;
-      text-align: center;
+      width: 100%; padding: 9.5px 0; border-radius: 8px; background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08); color: #64748b; font-family: 'Orbitron', sans-serif;
+      font-size: 10.5px; font-weight: 800; letter-spacing: 1px; cursor: not-allowed; text-align: center;
     }
 
     .sidebar-stream { display: flex; flex-direction: column; gap: 16px; }
     .widget-panel { padding: 18px; }
-    .widget-title {
-      font-family: 'Orbitron', sans-serif; font-size: 12px; font-weight: 800; display: flex;
-      align-items: center; gap: 8px; color: #fff; margin-bottom: 14px;
-    }
+    .widget-title { font-family: 'Orbitron', sans-serif; font-size: 12px; font-weight: 800; display: flex; align-items: center; gap: 8px; color: #fff; margin-bottom: 14px; }
     .player-list { display: flex; flex-direction: column; gap: 8px; }
     .player-item {
       display: flex; align-items: center; justify-content: space-between; padding: 8px 10px;
@@ -714,14 +479,84 @@
     .achieve-info h4 { font-family: 'Orbitron', sans-serif; font-size: 12px; color: #fff; }
     .achieve-info p { font-size: 10.5px; color: var(--text-muted); margin-top: 3px; }
 
-    /* ================= GAME MODAL & KONTROL LENGKAP ================= */
+    /* MODAL UMUM */
     .modal {
       display: none; position: fixed; inset: 0; background: rgba(6, 9, 19, 0.94);
       backdrop-filter: blur(14px); z-index: 2000; justify-content: center; align-items: center; flex-direction: column; padding: 12px;
     }
-    .modal-game-header {
-      display: flex; justify-content: space-between; align-items: center; width: 340px; margin-bottom: 8px;
+    .btn-modal-close {
+      margin-top: 12px; padding: 8px 22px; background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 100px; color: #fff; font-size: 11px; font-weight: 600; cursor: pointer;
     }
+
+    /* PANDUAN & LINEUP MODAL */
+    .guide-modal-box {
+      background: #090e1f; border: 1px solid var(--border-hover); border-radius: 18px;
+      width: 94%; max-width: 580px; max-height: 86vh; overflow-y: auto; padding: 22px;
+      box-shadow: 0 0 45px rgba(0, 240, 255, 0.25); display: flex; flex-direction: column; gap: 14px;
+    }
+    .guide-modal-header {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08); padding-bottom: 12px;
+    }
+    .guide-modal-title { font-family: 'Orbitron', sans-serif; font-size: 16px; font-weight: 900; color: var(--primary); }
+    .guide-modal-sub { font-size: 11px; color: var(--text-muted); margin-top: 3px; }
+    .guide-section-title {
+      font-family: 'Orbitron', sans-serif; font-size: 10.5px; font-weight: 800; color: var(--accent-yellow);
+      display: flex; align-items: center; gap: 6px; margin-top: 4px;
+    }
+    .guide-items-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    .guide-badge-card {
+      background: rgba(18, 25, 46, 0.9); border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 10px; padding: 8px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 2px;
+    }
+    .guide-badge-icon { font-size: 18px; line-height: 1.2; }
+    .guide-badge-name { font-family: 'Orbitron', sans-serif; font-size: 9.5px; font-weight: 800; color: #fff; }
+    .guide-badge-desc { font-size: 8.5px; color: var(--primary); font-weight: 600; line-height: 1.3; }
+
+    .guide-lineup-row { display: flex; flex-direction: column; gap: 8px; }
+    .guide-lineup-card {
+      background: rgba(18, 25, 46, 0.9); border-radius: 10px; padding: 10px 12px;
+      border-left: 3px solid var(--primary); display: flex; flex-direction: column; gap: 3px;
+    }
+    .guide-lineup-name { font-family: 'Orbitron', sans-serif; font-weight: 800; font-size: 10.5px; color: #fff; }
+    .guide-lineup-desc { font-size: 9.5px; color: #94a3b8; line-height: 1.4; }
+
+    .admin-modal-box {
+      background: #090e1f; border: 1.5px solid var(--accent-yellow); border-radius: 18px;
+      width: 94%; max-width: 620px; max-height: 88vh; overflow-y: auto; padding: 22px;
+      box-shadow: 0 0 50px rgba(250, 204, 21, 0.3); display: flex; flex-direction: column; gap: 14px;
+    }
+    .admin-game-row {
+      background: rgba(18, 25, 46, 0.85); border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px; padding: 12px; display: flex; gap: 14px; align-items: center;
+    }
+    .admin-prev-box {
+      width: 120px; height: 68px; border-radius: 8px; border: 1px dashed var(--primary);
+      overflow: hidden; background: #040714; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .admin-prev-box img { width: 100%; height: 100%; object-fit: cover; }
+    .admin-row-content { flex-grow: 1; display: flex; flex-direction: column; gap: 6px; }
+    .admin-game-name { font-family: 'Orbitron', sans-serif; font-size: 12px; font-weight: 800; color: #fff; }
+    .admin-btn-group { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+    .admin-upload-label {
+      padding: 6px 12px; background: rgba(0, 240, 255, 0.15); border: 1px solid var(--primary);
+      color: var(--primary); border-radius: 6px; font-size: 10px; font-weight: 700; cursor: pointer; transition: all 0.2s;
+    }
+    .admin-upload-label:hover { background: var(--primary); color: #040813; }
+    .admin-save-btn {
+      padding: 6px 14px; background: var(--accent-green); border: none; color: #040813;
+      border-radius: 6px; font-family: 'Orbitron', sans-serif; font-size: 10px; font-weight: 800;
+      cursor: pointer; transition: all 0.2s;
+    }
+    .admin-save-btn:disabled { background: #334155; color: #64748b; cursor: not-allowed; }
+    .admin-reset-btn {
+      padding: 6px 10px; background: rgba(239, 68, 68, 0.15); border: 1px solid rgba(239, 68, 68, 0.4);
+      color: #f87171; border-radius: 6px; font-size: 10px; font-weight: 700; cursor: pointer;
+    }
+
+    /* IN-GAME VIEWPORT & MOBILE CONTROLS */
+    .modal-game-header { display: flex; justify-content: space-between; align-items: center; width: 340px; margin-bottom: 8px; }
     .modal-game-title { font-family: 'Orbitron', sans-serif; font-size: 15px; font-weight: 800; color: var(--primary); letter-spacing: 1px; }
     .game-viewport {
       border: 2px solid var(--primary); border-radius: 14px; box-shadow: 0 0 30px var(--primary-glow);
@@ -729,23 +564,14 @@
     }
     #gameCanvas { display: block; background: #060914; max-width: 100%; height: auto; }
 
-    .mobile-controls-row {
-      display: none; width: 340px; justify-content: space-between; gap: 10px; margin-top: 10px;
-    }
+    .mobile-controls-row { display: none; width: 340px; justify-content: space-between; gap: 10px; margin-top: 10px; }
     .pedal-btn {
       flex: 1; padding: 12px 6px; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(0, 240, 255, 0.3);
       border-radius: 10px; color: var(--primary); font-family: 'Orbitron', sans-serif; font-size: 11px; font-weight: 800; cursor: pointer;
     }
-    .pedal-btn.nitro-btn {
-      background: rgba(250, 204, 21, 0.15); border-color: rgba(250, 204, 21, 0.5); color: #facc15;
-    }
+    .pedal-btn.nitro-btn { background: rgba(250, 204, 21, 0.15); border-color: rgba(250, 204, 21, 0.5); color: #facc15; }
     .pedal-btn:active { background: var(--primary); color: #040813; }
     .pedal-btn.nitro-btn:active { background: #facc15; color: #040813; }
-
-    .btn-modal-close {
-      margin-top: 12px; padding: 8px 22px; background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 100px; color: #fff; font-size: 11px; font-weight: 600; cursor: pointer;
-    }
 
     #toast {
       position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%) translateY(100px);
@@ -780,14 +606,13 @@
       .speech-bubble-gamer::after { display: none; }
       .auth-bottom-features { grid-template-columns: 1fr; }
       .hero-title { font-size: 24px; }
-      .floating-slogan { display: none !important; }
       .games-grid { grid-template-columns: 1fr; }
       .speech-bubble { display: none; }
       .top-nav { padding: 12px 14px; }
       .mobile-controls-row { display: flex; }
       .achieve-grid { grid-template-columns: 1fr; }
-      .front-guide-row-items { grid-template-columns: repeat(5, 1fr); }
-      .front-guide-boss-row { grid-template-columns: 1fr; }
+      .admin-game-row { flex-direction: column; align-items: flex-start; }
+      .admin-prev-box { width: 100%; height: 110px; }
     }
   </style>
 </head>
@@ -854,7 +679,7 @@
           <div class="auth-input-group">
             <div class="auth-input-wrap">
               <svg class="auth-input-icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-              <input type="text" id="username" autocomplete="off" placeholder="Nama pengguna">
+              <input type="text" id="username" autocomplete="off" placeholder="Nama pengguna (contoh: admin)">
             </div>
           </div>
 
@@ -912,7 +737,6 @@
     </footer>
   </section>
 
-  <!-- ================= DASHBOARD VIEW ================= -->
   <section id="dashboard-view">
     <header class="top-nav glass-card">
       <div class="nav-row-main">
@@ -926,7 +750,9 @@
           <button class="nav-btn-icon" id="btn-bgm" onclick="toggleBgm()">🎵 BGM: OFF</button>
           <button class="nav-btn-icon" id="btn-fullscreen" onclick="toggleFullscreen()">⛶ LAYAR PENUH</button>
 
-          <!-- Avatar & Handle yang Disanitasi (Bebas Bug Tanggal) -->
+          <!-- TOMBOL ADMIN HANYA MUNCUL JIKA LOGIN SEBAGAI ADMIN -->
+          <button class="btn-admin-panel" id="btn-admin-panel" onclick="openAdminModal()">⚙ PANEL ADMIN</button>
+
           <div class="user-profile-badge" onclick="openProfileModal()">
             <span class="user-avatar" id="avatar-display">🤖</span>
             <span class="user-tag" id="user-display">P1: GUEST</span>
@@ -955,7 +781,6 @@
     <div id="tab-home" class="tab-content" style="display:block;">
       <div class="dashboard-layout">
         <div class="main-stream">
-          <!-- HERO BANNER DENGAN TOMBOL PANDUAN DAN MAIN -->
           <div class="hero-banner">
             <div class="hero-badge">★ GAME UNGGULAN (SIAP MAIN)</div>
             <h2 class="hero-title">SPACE BLASTER</h2>
@@ -965,10 +790,8 @@
               <button class="btn-hero-guide" onclick="openGameGuide('SPACE BLASTER')">📖 PANDUAN & LINEUP</button>
               <button class="btn-hero-play" onclick="launchGame('SPACE BLASTER')">▶ MAIN SEKARANG →</button>
             </div>
-            <div class="floating-slogan">DEFEAT<br>THE BOSS<br>SURVIVE</div>
           </div>
 
-          <!-- 3 Games Grid dengan Tombol Panduan di Setiap Kartu -->
           <div>
             <div class="section-header-wrap">
               <div class="section-title-left">
@@ -980,80 +803,26 @@
                   <p class="section-sub-heading">Mainkan mini game canvas 60 FPS dan raih rekor tertinggi!</p>
                 </div>
               </div>
-              <button class="btn-all-collection" onclick="switchNav('games')">
-                <svg viewBox="0 0 24 24" width="13" height="13"><path d="M4 4h4v4H4zm6 0h4v4h-4zm6 0h4v4h-4zM4 10h4v4H4zm6 0h4v4h-4zm6 0h4v4h-4zM4 16h4v4H4zm6 0h4v4h-4zm6 0h4v4h-4z" fill="currentColor"/></svg>
-                Semua Koleksi →
-              </button>
             </div>
 
             <div class="games-grid">
-              <!-- Game 1: Space Blaster (Tema Cyan + Artwork Sesuai Gambar Referensi) -->
-              <div class="card-game theme-cyan">
-                <div class="card-thumb-wrap">
+              <!-- Game 1: Space Blaster -->
+              <div class="card-game">
+                <div class="card-thumb-wrap" id="thumb-space-blaster">
                   <span class="card-badge-status badge-live-green"><span class="status-dot"></span> SIAP MAIN</span>
                   <svg class="card-thumb-svg" viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                      <radialGradient id="sbBg" cx="50%" cy="40%" r="70%">
-                        <stop offset="0%" stop-color="#141c38"/>
-                        <stop offset="60%" stop-color="#070c1e"/>
-                        <stop offset="100%" stop-color="#02040b"/>
-                      </radialGradient>
-                      <linearGradient id="sbTitleGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" stop-color="#ffedd5"/>
-                        <stop offset="50%" stop-color="#fb923c"/>
-                        <stop offset="100%" stop-color="#ea580c"/>
-                      </linearGradient>
-                      <linearGradient id="sbCyanTitle" x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop offset="0%" stop-color="#e0f2fe"/>
-                        <stop offset="50%" stop-color="#38bdf8"/>
-                        <stop offset="100%" stop-color="#00f0ff"/>
-                      </linearGradient>
-                      <filter id="sbGlow" x="-20%" y="-20%" width="140%" height="140%">
-                        <feGaussianBlur stdDeviation="3" result="blur"/>
-                        <feComposite in="SourceGraphic" in2="blur" operator="over"/>
-                      </filter>
-                    </defs>
-                    <rect width="320" height="180" fill="url(#sbBg)"/>
-                    <!-- Bintang Nebula -->
-                    <circle cx="30" cy="25" r="1.2" fill="#fff" opacity="0.8"/>
-                    <circle cx="75" cy="70" r="1" fill="#38bdf8" opacity="0.6"/>
-                    <circle cx="280" cy="35" r="1.5" fill="#fff" opacity="0.7"/>
-                    <circle cx="250" cy="110" r="1.2" fill="#facc15" opacity="0.5"/>
-                    <circle cx="110" cy="30" r="1" fill="#fff" opacity="0.5"/>
-                    <!-- Asteroid Lava Membara Kiri -->
-                    <g transform="translate(42, 90)">
-                      <polygon points="-24,-12 -8,-28 16,-20 28,-2 22,22 -2,26 -22,12" fill="#1c1917" stroke="#ea580c" stroke-width="2"/>
-                      <path d="M-10,-10 L4,2 L14,-6 M-6,12 L2,2 L-12,4" stroke="#f97316" stroke-width="2" fill="none"/>
-                      <circle cx="2" cy="2" r="3" fill="#facc15" filter="url(#sbGlow)"/>
+                    <rect width="320" height="180" fill="#040714"/>
+                    <circle cx="45" cy="40" r="1.5" fill="#fff" opacity="0.8"/>
+                    <circle cx="280" cy="50" r="1.8" fill="#00f0ff" opacity="0.7"/>
+                    <polygon points="30,120 48,95 70,110 65,135 40,140" fill="#1c1917" stroke="#ea580c" stroke-width="2"/>
+                    <polygon points="260,115 285,100 295,125 275,140" fill="#1c1917" stroke="#ea580c" stroke-width="2"/>
+                    <g transform="translate(160, 135)">
+                      <polygon points="-5,14 0,26 5,14" fill="#00f0ff"/>
+                      <polygon points="0,-20 6,-8 20,10 12,14 0,11 -12,14 -20,10 -6,-8" fill="#f8fafc" stroke="#00f0ff" stroke-width="1.4"/>
+                      <ellipse cx="0" cy="-4" rx="3" ry="6" fill="#00f0ff"/>
                     </g>
-                    <!-- Asteroid Lava Membara Kanan -->
-                    <g transform="translate(270, 95)">
-                      <polygon points="-22,-14 -6,-26 18,-18 26,-2 18,20 -4,24 -20,10" fill="#1c1917" stroke="#ea580c" stroke-width="2"/>
-                      <path d="M-8,-8 L2,4 L12,-4 M-4,10 L0,2" stroke="#f97316" stroke-width="2" fill="none"/>
-                      <circle cx="0" cy="2" r="3" fill="#facc15" filter="url(#sbGlow)"/>
-                    </g>
-                    <!-- Dual Laser Beams -->
-                    <line x1="152" y1="130" x2="142" y2="40" stroke="#00f0ff" stroke-width="2.5" filter="url(#sbGlow)"/>
-                    <line x1="168" y1="130" x2="178" y2="40" stroke="#00f0ff" stroke-width="2.5" filter="url(#sbGlow)"/>
-                    <!-- Striker Jet Center -->
-                    <g transform="translate(160, 138)">
-                      <!-- Api Thruster -->
-                      <polygon points="-6,16 0,28 6,16" fill="#00f0ff" filter="url(#sbGlow)"/>
-                      <polygon points="-3,16 0,22 3,16" fill="#ffffff"/>
-                      <!-- Wings -->
-                      <polygon points="0,-18 7,-6 24,12 18,16 6,12 0,14 -6,12 -18,16 -24,12 -7,-6" fill="#0284c7" stroke="#38bdf8" stroke-width="1.2"/>
-                      <!-- Body -->
-                      <polygon points="0,-22 6,-8 7,12 -7,12 -6,-8" fill="#f8fafc" stroke="#00f0ff" stroke-width="1.2"/>
-                      <polygon points="0,-14 3,-2 -3,-2" fill="#0369a1"/>
-                      <!-- Cockpit -->
-                      <ellipse cx="0" cy="-4" rx="2.5" ry="6" fill="#00f0ff" filter="url(#sbGlow)"/>
-                    </g>
-                    <!-- Title Logo "SPACE BLASTER" -->
-                    <g transform="translate(160, 38)" text-anchor="middle">
-                      <ellipse cx="0" cy="-2" rx="72" ry="16" fill="none" stroke="#00f0ff" stroke-width="1.2" opacity="0.4" transform="rotate(-6)"/>
-                      <text x="0" y="-8" font-family="'Orbitron', sans-serif" font-weight="900" font-size="15" fill="url(#sbCyanTitle)" letter-spacing="3" filter="url(#sbGlow)">SPACE</text>
-                      <text x="0" y="16" font-family="'Orbitron', sans-serif" font-weight="900" font-size="21" fill="url(#sbTitleGrad)" letter-spacing="2" filter="url(#sbGlow)">BLASTER</text>
-                    </g>
+                    <text x="160" y="38" font-family="'Orbitron', sans-serif" font-weight="900" font-size="16" fill="#00f0ff" text-anchor="middle" letter-spacing="3">SPACE</text>
+                    <text x="160" y="58" font-family="'Orbitron', sans-serif" font-weight="900" font-size="20" fill="#f97316" text-anchor="middle" letter-spacing="2">BLASTER</text>
                   </svg>
                 </div>
                 <div class="card-body">
@@ -1073,77 +842,23 @@
                 </div>
               </div>
 
-              <!-- Game 2: Neon Dodger (Tema Purple + Artwork Sesuai Gambar Referensi) -->
-              <div class="card-game theme-purple">
-                <div class="card-thumb-wrap">
+              <!-- Game 2: Neon Dodger -->
+              <div class="card-game">
+                <div class="card-thumb-wrap" id="thumb-neon-dodger">
                   <span class="card-badge-status badge-live-green"><span class="status-dot"></span> SIAP MAIN</span>
                   <svg class="card-thumb-svg" viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                      <linearGradient id="ndSky" x1="0%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" stop-color="#0a051b"/>
-                        <stop offset="50%" stop-color="#240c4a"/>
-                        <stop offset="85%" stop-color="#581c87"/>
-                        <stop offset="100%" stop-color="#ec4899"/>
-                      </linearGradient>
-                      <radialGradient id="ndSun" cx="50%" cy="50%" r="50%">
-                        <stop offset="0%" stop-color="#fef08a"/>
-                        <stop offset="50%" stop-color="#facc15"/>
-                        <stop offset="80%" stop-color="#ec4899"/>
-                        <stop offset="100%" stop-color="#a855f7"/>
-                      </radialGradient>
-                      <linearGradient id="ndNeonTitle" x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop offset="0%" stop-color="#e0f2fe"/>
-                        <stop offset="50%" stop-color="#c084fc"/>
-                        <stop offset="100%" stop-color="#f472b6"/>
-                      </linearGradient>
-                      <filter id="ndGlow" x="-20%" y="-20%" width="140%" height="140%">
-                        <feGaussianBlur stdDeviation="3" result="blur"/>
-                        <feComposite in="SourceGraphic" in2="blur" operator="over"/>
-                      </filter>
-                    </defs>
-                    <rect width="320" height="110" fill="url(#ndSky)"/>
-                    <!-- Retro Sunset with Laser Slices -->
-                    <g transform="translate(160, 95)">
-                      <circle cx="0" cy="0" r="38" fill="url(#ndSun)" filter="url(#ndGlow)"/>
-                      <!-- Stripes -->
-                      <line x1="-36" y1="-8" x2="36" y2="-8" stroke="#1c0738" stroke-width="1.8"/>
-                      <line x1="-37" y1="-2" x2="37" y2="-2" stroke="#1c0738" stroke-width="2.2"/>
-                      <line x1="-37" y1="5" x2="37" y2="5" stroke="#1c0738" stroke-width="2.8"/>
-                      <line x1="-34" y1="13" x2="34" y2="13" stroke="#1c0738" stroke-width="3.5"/>
+                    <rect width="320" height="180" fill="#0a051b"/>
+                    <circle cx="160" cy="90" r="36" fill="#ec4899"/>
+                    <polygon points="0,180 120,95 200,95 320,180" fill="#060312"/>
+                    <line x1="160" y1="95" x2="160" y2="180" stroke="#a855f7" stroke-width="2"/>
+                    <line x1="140" y1="95" x2="80" y2="180" stroke="#00f0ff" stroke-width="1.5"/>
+                    <line x1="180" y1="95" x2="240" y2="180" stroke="#00f0ff" stroke-width="1.5"/>
+                    <g transform="translate(160, 146)">
+                      <ellipse cx="0" cy="12" rx="22" ry="6" fill="#ec4899" opacity="0.8"/>
+                      <polygon points="-18,-4 18,-4 22,10 -22,10" fill="#ef4444"/>
                     </g>
-                    <!-- Cyber City Silhouettes -->
-                    <path d="M0,98 L18,98 L18,72 L26,72 L26,82 L38,82 L38,62 L48,62 L48,98 L75,98 L75,68 L88,68 L88,85 L98,85 L98,98 Z" fill="#12082b"/>
-                    <path d="M320,98 L302,98 L302,72 L294,72 L294,82 L282,82 L282,60 L272,60 L272,98 L245,98 L245,66 L232,66 L232,84 L222,84 L222,98 Z" fill="#12082b"/>
-                    <!-- Synthwave 3D Perspective Road Grid -->
-                    <polygon points="0,180 120,98 200,98 320,180" fill="#0b071e"/>
-                    <!-- Perspective Lines -->
-                    <line x1="160" y1="98" x2="160" y2="180" stroke="#a855f7" stroke-width="2" opacity="0.7"/>
-                    <line x1="150" y1="98" x2="100" y2="180" stroke="#00f0ff" stroke-width="1.5" opacity="0.6"/>
-                    <line x1="170" y1="98" x2="220" y2="180" stroke="#00f0ff" stroke-width="1.5" opacity="0.6"/>
-                    <line x1="135" y1="98" x2="30" y2="180" stroke="#ec4899" stroke-width="1.5" opacity="0.7"/>
-                    <line x1="185" y1="98" x2="290" y2="180" stroke="#ec4899" stroke-width="1.5" opacity="0.7"/>
-                    <!-- Horizontal Horizon Grids -->
-                    <line x1="105" y1="110" x2="215" y2="110" stroke="#a855f7" stroke-width="1" opacity="0.5"/>
-                    <line x1="85" y1="125" x2="235" y2="125" stroke="#a855f7" stroke-width="1.2" opacity="0.6"/>
-                    <line x1="55" y1="145" x2="265" y2="145" stroke="#a855f7" stroke-width="1.5" opacity="0.7"/>
-                    <line x1="20" y1="170" x2="300" y2="170" stroke="#00f0ff" stroke-width="1.8" opacity="0.8"/>
-                    <!-- Red Speeder / Supercar Rear -->
-                    <g transform="translate(160, 148)">
-                      <!-- Underglow -->
-                      <ellipse cx="0" cy="18" rx="26" ry="7" fill="#ec4899" filter="url(#ndGlow)" opacity="0.7"/>
-                      <!-- Car Body Rear -->
-                      <polygon points="-22,-6 22,-6 26,12 20,16 -20,16 -26,12" fill="#b91c1c" stroke="#ef4444" stroke-width="1.2"/>
-                      <polygon points="-16,-14 16,-14 20,-6 -20,-6" fill="#0f172a"/>
-                      <!-- Red Taillights -->
-                      <rect x="-22" y="0" width="12" height="4" rx="1.5" fill="#ef4444" filter="url(#ndGlow)"/>
-                      <rect x="10" y="0" width="12" height="4" rx="1.5" fill="#ef4444" filter="url(#ndGlow)"/>
-                      <rect x="-6" y="6" width="12" height="5" fill="#090d16"/>
-                    </g>
-                    <!-- Title Logo "NEON DODGER" -->
-                    <g transform="translate(160, 36)" text-anchor="middle">
-                      <text x="0" y="-4" font-family="'Orbitron', sans-serif" font-weight="900" font-size="16" fill="url(#ndNeonTitle)" letter-spacing="4" filter="url(#ndGlow)">NEON</text>
-                      <text x="0" y="16" font-family="'Orbitron', sans-serif" font-weight="900" font-size="19" fill="#f472b6" letter-spacing="3" font-style="italic" filter="url(#ndGlow)">DODGER</text>
-                    </g>
+                    <text x="160" y="38" font-family="'Orbitron', sans-serif" font-weight="900" font-size="16" fill="#00f0ff" text-anchor="middle" letter-spacing="4">NEON</text>
+                    <text x="160" y="58" font-family="'Orbitron', sans-serif" font-weight="900" font-size="19" fill="#f472b6" text-anchor="middle" letter-spacing="3">DODGER</text>
                   </svg>
                 </div>
                 <div class="card-body">
@@ -1163,77 +878,23 @@
                 </div>
               </div>
 
-              <!-- Game 3: Pixel Racer (Tema Blue + Artwork Sesuai Gambar Referensi) -->
-              <div class="card-game theme-blue">
-                <div class="card-thumb-wrap">
+              <!-- Game 3: Pixel Racer -->
+              <div class="card-game">
+                <div class="card-thumb-wrap" id="thumb-pixel-racer">
                   <span class="card-badge-status badge-live-green"><span class="status-dot"></span> SIAP MAIN</span>
                   <svg class="card-thumb-svg" viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                      <linearGradient id="prSky" x1="0%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" stop-color="#030712"/>
-                        <stop offset="60%" stop-color="#0c1e3d"/>
-                        <stop offset="100%" stop-color="#0284c7"/>
-                      </linearGradient>
-                      <linearGradient id="prTitleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop offset="0%" stop-color="#fef08a"/>
-                        <stop offset="50%" stop-color="#f97316"/>
-                        <stop offset="100%" stop-color="#ef4444"/>
-                      </linearGradient>
-                      <filter id="prGlow" x="-20%" y="-20%" width="140%" height="140%">
-                        <feGaussianBlur stdDeviation="3" result="blur"/>
-                        <feComposite in="SourceGraphic" in2="blur" operator="over"/>
-                      </filter>
-                    </defs>
-                    <rect width="320" height="180" fill="url(#prSky)"/>
-                    <!-- Cyberpunk Skyscrapers Background -->
-                    <g fill="#071226" opacity="0.9">
-                      <rect x="25" y="45" width="22" height="70"/>
-                      <rect x="60" y="30" width="28" height="85"/>
-                      <rect x="100" y="55" width="20" height="60"/>
-                      <rect x="200" y="50" width="24" height="65"/>
-                      <rect x="235" y="35" width="30" height="80"/>
-                      <rect x="275" y="50" width="22" height="65"/>
-                    </g>
-                    <!-- Distant Full Moon -->
-                    <circle cx="255" cy="40" r="14" fill="#38bdf8" opacity="0.35" filter="url(#prGlow)"/>
-                    <circle cx="255" cy="40" r="12" fill="#e0f2fe" opacity="0.8"/>
-                    <!-- Highway Asphalt & Speed Light Trails -->
-                    <polygon points="0,180 110,105 210,105 320,180" fill="#040914"/>
-                    <!-- Neon Curb Lanes -->
-                    <line x1="110" y1="105" x2="0" y2="180" stroke="#00f0ff" stroke-width="3" filter="url(#prGlow)"/>
-                    <line x1="210" y1="105" x2="320" y2="180" stroke="#00f0ff" stroke-width="3" filter="url(#prGlow)"/>
-                    <!-- Dash Lanes -->
-                    <line x1="145" y1="105" x2="105" y2="180" stroke="#38bdf8" stroke-width="1.8" stroke-dasharray="10,8"/>
-                    <line x1="175" y1="105" x2="215" y2="180" stroke="#38bdf8" stroke-width="1.8" stroke-dasharray="10,8"/>
-                    <!-- Supercar Center -->
+                    <rect width="320" height="180" fill="#030712"/>
+                    <polygon points="0,180 110,105 210,105 320,180" fill="#050b18"/>
+                    <line x1="110" y1="105" x2="0" y2="180" stroke="#00f0ff" stroke-width="3"/>
+                    <line x1="210" y1="105" x2="320" y2="180" stroke="#00f0ff" stroke-width="3"/>
+                    <line x1="160" y1="105" x2="160" y2="180" stroke="#facc15" stroke-width="2" stroke-dasharray="8,8"/>
                     <g transform="translate(160, 142)">
-                      <!-- Blue/Cyan Underglow -->
-                      <ellipse cx="0" cy="18" rx="28" ry="8" fill="#00f0ff" filter="url(#prGlow)" opacity="0.8"/>
-                      <!-- Exhaust Flames -->
-                      <polygon points="-8,18 -4,26 0,18" fill="#facc15" filter="url(#prGlow)"/>
-                      <polygon points="0,18 4,26 8,18" fill="#facc15" filter="url(#prGlow)"/>
-                      <!-- Wide Body Supercar -->
-                      <polygon points="-24,-8 24,-8 28,12 22,18 -22,18 -28,12" fill="#090d16" stroke="#0284c7" stroke-width="1.4"/>
-                      <polygon points="-16,-16 16,-16 20,-8 -20,-8" fill="#020617"/>
-                      <!-- Red Glowing Taillights Bar -->
-                      <rect x="-24" y="0" width="14" height="4" rx="1.5" fill="#ef4444" filter="url(#prGlow)"/>
-                      <rect x="10" y="0" width="14" height="4" rx="1.5" fill="#ef4444" filter="url(#prGlow)"/>
-                      <rect x="-24" y="0" width="48" height="2" fill="#f87171"/>
+                      <ellipse cx="0" cy="15" rx="24" ry="7" fill="#00f0ff" opacity="0.8"/>
+                      <polygon points="-20,-6 20,-6 24,10 18,15 -18,15 -24,10" fill="#090d16" stroke="#0284c7" stroke-width="1.4"/>
+                      <rect x="-18" y="0" width="36" height="3" fill="#ef4444"/>
                     </g>
-                    <!-- Title Logo "PIXEL RACER" -->
-                    <g transform="translate(160, 36)" text-anchor="middle">
-                      <!-- Checkered Flag Icon Behind -->
-                      <g transform="translate(48, -14)">
-                        <rect x="0" y="0" width="5" height="5" fill="#fff"/>
-                        <rect x="5" y="0" width="5" height="5" fill="#000"/>
-                        <rect x="0" y="5" width="5" height="5" fill="#000"/>
-                        <rect x="5" y="5" width="5" height="5" fill="#fff"/>
-                        <rect x="10" y="0" width="5" height="5" fill="#facc15"/>
-                        <rect x="10" y="5" width="5" height="5" fill="#000"/>
-                      </g>
-                      <text x="0" y="-4" font-family="'Orbitron', sans-serif" font-weight="900" font-size="16" fill="#e0f2fe" letter-spacing="3" filter="url(#prGlow)">PIXEL</text>
-                      <text x="0" y="16" font-family="'Orbitron', sans-serif" font-weight="900" font-size="20" fill="url(#prTitleGrad)" letter-spacing="2" filter="url(#prGlow)">RACER</text>
-                    </g>
+                    <text x="160" y="38" font-family="'Orbitron', sans-serif" font-weight="900" font-size="16" fill="#e0f2fe" text-anchor="middle" letter-spacing="3">PIXEL</text>
+                    <text x="160" y="58" font-family="'Orbitron', sans-serif" font-weight="900" font-size="20" fill="#f97316" text-anchor="middle" letter-spacing="2">RACER</text>
                   </svg>
                 </div>
                 <div class="card-body">
@@ -1253,66 +914,17 @@
                 </div>
               </div>
 
-              <!-- Game 4: Galaxy Quest (Tema Amber + Artwork Sesuai Gambar Referensi) -->
-              <div class="card-game theme-amber">
-                <div class="card-thumb-wrap">
+              <!-- Game 4: Galaxy Quest -->
+              <div class="card-game">
+                <div class="card-thumb-wrap" id="thumb-galaxy-quest">
                   <span class="card-badge-status badge-coming-dark">COMING SOON</span>
                   <svg class="card-thumb-svg" viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                      <linearGradient id="gqSky" x1="0%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" stop-color="#0a0518"/>
-                        <stop offset="50%" stop-color="#2c142b"/>
-                        <stop offset="85%" stop-color="#7c2d12"/>
-                        <stop offset="100%" stop-color="#ea580c"/>
-                      </linearGradient>
-                      <radialGradient id="gqPlanet" cx="45%" cy="40%" r="55%">
-                        <stop offset="0%" stop-color="#fed7aa"/>
-                        <stop offset="50%" stop-color="#f97316"/>
-                        <stop offset="90%" stop-color="#9a3412"/>
-                        <stop offset="100%" stop-color="#431407"/>
-                      </radialGradient>
-                      <linearGradient id="gqTitleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop offset="0%" stop-color="#fef3c7"/>
-                        <stop offset="50%" stop-color="#facc15"/>
-                        <stop offset="100%" stop-color="#f97316"/>
-                      </linearGradient>
-                      <filter id="gqGlow" x="-20%" y="-20%" width="140%" height="140%">
-                        <feGaussianBlur stdDeviation="3" result="blur"/>
-                        <feComposite in="SourceGraphic" in2="blur" operator="over"/>
-                      </filter>
-                    </defs>
-                    <rect width="320" height="180" fill="url(#gqSky)"/>
-                    <!-- Small Moons -->
-                    <circle cx="50" cy="50" r="7" fill="#ea580c" opacity="0.6"/>
-                    <circle cx="85" cy="65" r="4" fill="#fed7aa" opacity="0.5"/>
-                    <!-- Giant Ringed Planet (Saturn-like) -->
-                    <g transform="translate(230, 95)">
-                      <circle cx="0" cy="0" r="34" fill="url(#gqPlanet)" filter="url(#gqGlow)"/>
-                      <!-- Planet Rings -->
-                      <ellipse cx="0" cy="0" rx="72" ry="18" fill="none" stroke="#fed7aa" stroke-width="4.5" opacity="0.85" transform="rotate(-22)"/>
-                      <ellipse cx="0" cy="0" rx="60" ry="14" fill="none" stroke="#fb923c" stroke-width="2" opacity="0.7" transform="rotate(-22)"/>
-                    </g>
-                    <!-- Alien Planet Rocky Terrain Horizon -->
-                    <polygon points="0,180 0,148 40,140 85,152 140,142 190,154 250,145 320,152 320,180" fill="#431407"/>
-                    <polygon points="0,180 0,158 55,152 110,162 170,155 240,165 320,160 320,180" fill="#290d05"/>
-                    <!-- Tiny Astronaut Silhouette on Left Crater -->
-                    <g transform="translate(70, 142)">
-                      <!-- Helmet -->
-                      <circle cx="0" cy="-14" r="5" fill="#f8fafc"/>
-                      <ellipse cx="1" cy="-14" rx="2.5" ry="2" fill="#00f0ff"/>
-                      <!-- Body -->
-                      <rect x="-4" y="-9" width="8" height="10" rx="2" fill="#e2e8f0"/>
-                      <!-- Backpack -->
-                      <rect x="-7" y="-8" width="3" height="8" rx="1" fill="#94a3b8"/>
-                      <!-- Legs -->
-                      <line x1="-2.5" y1="1" x2="-3.5" y2="9" stroke="#cbd5e1" stroke-width="2.5"/>
-                      <line x1="2.5" y1="1" x2="3.5" y2="9" stroke="#cbd5e1" stroke-width="2.5"/>
-                    </g>
-                    <!-- Title Logo "GALAXY QUEST" -->
-                    <g transform="translate(160, 36)" text-anchor="middle">
-                      <text x="0" y="-4" font-family="'Orbitron', sans-serif" font-weight="900" font-size="16" fill="#f8fafc" letter-spacing="3" filter="url(#gqGlow)">GALAXY</text>
-                      <text x="0" y="16" font-family="'Orbitron', sans-serif" font-weight="900" font-size="19" fill="url(#gqTitleGrad)" letter-spacing="2" filter="url(#gqGlow)">★ QUEST</text>
-                    </g>
+                    <rect width="320" height="180" fill="#0a0518"/>
+                    <circle cx="210" cy="90" r="32" fill="#f97316"/>
+                    <ellipse cx="210" cy="90" rx="68" ry="16" fill="none" stroke="#fed7aa" stroke-width="4" transform="rotate(-20 210 90)"/>
+                    <polygon points="0,180 0,145 60,140 140,150 220,142 320,150 320,180" fill="#3b1104"/>
+                    <text x="160" y="38" font-family="'Orbitron', sans-serif" font-weight="900" font-size="16" fill="#f8fafc" text-anchor="middle" letter-spacing="3">GALAXY</text>
+                    <text x="160" y="58" font-family="'Orbitron', sans-serif" font-weight="900" font-size="19" fill="#facc15" text-anchor="middle" letter-spacing="2">★ QUEST</text>
                   </svg>
                 </div>
                 <div class="card-body">
@@ -1355,30 +967,52 @@
     <!-- TAB 2: SEMUA GAME -->
     <div id="tab-games" class="tab-content">
       <div style="font-family:'Orbitron',sans-serif; font-size:18px; margin-bottom:14px;">SEMUA KOLEKSI GAME</div>
-      <div class="games-grid">
-        <div class="card-game">
-          <div class="card-thumb" style="background-image:url('https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?q=80&w=500&auto=format&fit=crop');"><span class="card-badge-status status-live">SIAP</span></div>
-          <div class="card-body">
-            <h4 class="card-game-title">SPACE BLASTER</h4>
-            <button class="btn-guide-card" onclick="openGameGuide('SPACE BLASTER')">📖 PANDUAN & LINEUP</button>
-            <button class="btn-play-card" onclick="launchGame('SPACE BLASTER')">▶ MAIN</button>
+      <p style="font-size:12px; color:var(--text-muted); margin-bottom:18px;">Pilih game arcade canvas 60 FPS favoritmu.</p>
+    </div>
+
+    <!-- TAB 3: LEADERBOARD -->
+    <div id="tab-leaderboard" class="tab-content">
+      <div class="leaderboard-container">
+        <h2 style="font-family:'Orbitron',sans-serif; font-size:20px;">PAPAN PERINGKAT REKOR TERTINGGI (PERSONAL BEST)</h2>
+        <div class="podium-grid" id="podiumArea">
+          <div class="podium-card glass-card rank-2">
+            <div class="podium-badge">🥈</div>
+            <div class="podium-avatar" id="podium-2-av">🤖</div>
+            <div class="podium-name" id="podium-2-name">-</div>
+            <div class="podium-game" id="podium-2-game">Belum Ada</div>
+            <div class="podium-score" id="podium-2-score">0</div>
+          </div>
+          <div class="podium-card glass-card rank-1">
+            <div class="podium-badge">👑</div>
+            <div class="podium-avatar" id="podium-1-av">🤖</div>
+            <div class="podium-name" id="podium-1-name">-</div>
+            <div class="podium-game" id="podium-1-game">Belum Ada</div>
+            <div class="podium-score" id="podium-1-score">0</div>
+          </div>
+          <div class="podium-card glass-card rank-3">
+            <div class="podium-badge">🥉</div>
+            <div class="podium-avatar" id="podium-3-av">🤖</div>
+            <div class="podium-name" id="podium-3-name">-</div>
+            <div class="podium-game" id="podium-3-game">Belum Ada</div>
+            <div class="podium-score" id="podium-3-score">0</div>
           </div>
         </div>
-        <div class="card-game">
-          <div class="card-thumb" style="background-image:url('https://images.unsplash.com/photo-1508739773434-c26b3d09e071?q=80&w=500&auto=format&fit=crop');"><span class="card-badge-status status-live">SIAP</span></div>
-          <div class="card-body">
-            <h4 class="card-game-title">NEON DODGER</h4>
-            <button class="btn-guide-card" onclick="openGameGuide('NEON DODGER')">📖 PANDUAN & LINEUP</button>
-            <button class="btn-play-card" onclick="launchGame('NEON DODGER')">▶ MAIN</button>
-          </div>
-        </div>
-        <div class="card-game">
-          <div class="card-thumb" style="background-image:url('https://images.unsplash.com/photo-1514565131-fce0801e5785?q=80&w=500&auto=format&fit=crop');"><span class="card-badge-status status-live">SIAP</span></div>
-          <div class="card-body">
-            <h4 class="card-game-title">PIXEL RACER</h4>
-            <button class="btn-guide-card" onclick="openGameGuide('PIXEL RACER')">📖 PANDUAN & LINEUP</button>
-            <button class="btn-play-card" onclick="launchGame('PIXEL RACER')">▶ MAIN</button>
-          </div>
+
+        <div class="lb-table-wrap glass-card">
+          <table class="lb-table">
+            <thead>
+              <tr>
+                <th style="width:70px;">RANK</th>
+                <th>PEMAIN</th>
+                <th>GAME</th>
+                <th>SKOR TERTINGGI</th>
+                <th>TANGGAL</th>
+              </tr>
+            </thead>
+            <tbody id="leaderboardTableBody">
+              <tr><td colspan="5" style="text-align:center; padding:20px;">Memuat data leaderboard...</td></tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
@@ -1394,7 +1028,7 @@
       <div class="glass-card" style="padding:26px;">
         <h2 style="font-family:'Orbitron',sans-serif; font-size:22px; color:var(--primary);">TENTANG FADHIL GAME</h2>
         <p style="font-size:12.5px; color:#cbd5e1; margin-top:8px; line-height:1.6;">
-          Platform arcade modern berbasis GitHub Pages & Google Sheets API dengan mesin Canvas 60 FPS, suara sintetis 8-bit, dan sinkronisasi rekor personal-best tanpa penumpukan skor ganda.
+          Platform arcade modern berbasis GitHub Pages & Google Sheets API dengan mesin Canvas 60 FPS, suara sintetis 8-bit, sistem upload gambar Base64, dan sinkronisasi rekor personal-best tanpa penumpukan skor ganda.
         </p>
       </div>
     </div>
@@ -1404,22 +1038,6 @@
       <div>GitHub Pages & Google Sheets API</div>
     </footer>
   </section>
-
-  <!-- GAME MODAL -->
-  <div class="modal" id="gameModal">
-    <div class="modal-game-header">
-      <div class="modal-game-title" id="activeGameTitle">ARCADE GAME</div>
-    </div>
-    <div class="game-viewport">
-      <canvas id="gameCanvas" width="340" height="460"></canvas>
-    </div>
-    <div class="mobile-controls-row" id="mobileControlsRow">
-      <button class="pedal-btn" id="btnLeftPedal">◀ KIRI</button>
-      <button class="pedal-btn nitro-btn" id="btnNitroPedal" style="display:none;">⚡ NITRO</button>
-      <button class="pedal-btn" id="btnRightPedal">KANAN ▶</button>
-    </div>
-    <button class="btn-modal-close" onclick="closeGameModal()">✕ Tutup Permainan</button>
-  </div>
 
   <!-- MODAL PANDUAN & LINEUP SETIAP GAME -->
   <div class="modal" id="guideModal">
@@ -1439,7 +1057,90 @@
     </div>
   </div>
 
-  <!-- PROFILE MODAL -->
+  <!-- MODAL PANEL ADMIN (OPSI 2: UPLOAD IMAGE BASE64) -->
+  <div class="modal" id="adminModal">
+    <div class="admin-modal-box">
+      <div class="guide-modal-header">
+        <div>
+          <div class="guide-modal-title" style="color:var(--accent-yellow);">⚙ PANEL PENGELOLA THUMBNAIL (ADMIN)</div>
+          <div class="guide-modal-sub">Klik tombol unggah untuk mengganti foto dari galeri HP atau laptop tanpa link luar.</div>
+        </div>
+        <button type="button" class="btn-modal-close" style="margin-top:0; padding:4px 12px;" onclick="closeAdminModal()">✕</button>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:12px;">
+        <!-- Game 1: Space Blaster -->
+        <div class="admin-game-row">
+          <div class="admin-prev-box" id="admin-prev-space-blaster"></div>
+          <div class="admin-row-content">
+            <div class="admin-game-name">Space Blaster</div>
+            <div class="admin-btn-group">
+              <label class="admin-upload-label">
+                📁 Unggah Foto
+                <input type="file" accept="image/*" style="display:none;" onchange="handleImageUpload(event, 'space-blaster')">
+              </label>
+              <button class="admin-save-btn" id="admin-save-space-blaster" onclick="saveAdminThumbnail('space-blaster')" disabled>Simpan</button>
+              <button class="admin-reset-btn" onclick="resetThumbnail('space-blaster')">Reset</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Game 2: Neon Dodger -->
+        <div class="admin-game-row">
+          <div class="admin-prev-box" id="admin-prev-neon-dodger"></div>
+          <div class="admin-row-content">
+            <div class="admin-game-name">Neon Dodger</div>
+            <div class="admin-btn-group">
+              <label class="admin-upload-label">
+                📁 Unggah Foto
+                <input type="file" accept="image/*" style="display:none;" onchange="handleImageUpload(event, 'neon-dodger')">
+              </label>
+              <button class="admin-save-btn" id="admin-save-neon-dodger" onclick="saveAdminThumbnail('neon-dodger')" disabled>Simpan</button>
+              <button class="admin-reset-btn" onclick="resetThumbnail('neon-dodger')">Reset</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Game 3: Pixel Racer -->
+        <div class="admin-game-row">
+          <div class="admin-prev-box" id="admin-prev-pixel-racer"></div>
+          <div class="admin-row-content">
+            <div class="admin-game-name">Pixel Racer</div>
+            <div class="admin-btn-group">
+              <label class="admin-upload-label">
+                📁 Unggah Foto
+                <input type="file" accept="image/*" style="display:none;" onchange="handleImageUpload(event, 'pixel-racer')">
+              </label>
+              <button class="admin-save-btn" id="admin-save-pixel-racer" onclick="saveAdminThumbnail('pixel-racer')" disabled>Simpan</button>
+              <button class="admin-reset-btn" onclick="resetThumbnail('pixel-racer')">Reset</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Game 4: Galaxy Quest -->
+        <div class="admin-game-row">
+          <div class="admin-prev-box" id="admin-prev-galaxy-quest"></div>
+          <div class="admin-row-content">
+            <div class="admin-game-name">Galaxy Quest</div>
+            <div class="admin-btn-group">
+              <label class="admin-upload-label">
+                📁 Unggah Foto
+                <input type="file" accept="image/*" style="display:none;" onchange="handleImageUpload(event, 'galaxy-quest')">
+              </label>
+              <button class="admin-save-btn" id="admin-save-galaxy-quest" onclick="saveAdminThumbnail('galaxy-quest')" disabled>Simpan</button>
+              <button class="admin-reset-btn" onclick="resetThumbnail('galaxy-quest')">Reset</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex; justify-content:flex-end; margin-top:8px;">
+        <button class="btn-modal-close" style="margin-top:0;" onclick="closeAdminModal()">Tutup Panel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL PROFILE -->
   <div class="modal" id="profileModal">
     <div class="glass-card" style="width:320px; padding:20px; text-align:center;">
       <h3 style="font-family:'Orbitron',sans-serif; font-size:15px; color:var(--primary); margin-bottom:12px;">PILIH AVATAR PEMAIN</h3>
@@ -1455,6 +1156,22 @@
     </div>
   </div>
 
+  <!-- MODAL GAME -->
+  <div class="modal" id="gameModal">
+    <div class="modal-game-header">
+      <div class="modal-game-title" id="activeGameTitle">ARCADE GAME</div>
+    </div>
+    <div class="game-viewport">
+      <canvas id="gameCanvas" width="340" height="460"></canvas>
+    </div>
+    <div class="mobile-controls-row" id="mobileControlsRow">
+      <button class="pedal-btn" id="btnLeftPedal">◀ KIRI</button>
+      <button class="pedal-btn nitro-btn" id="btnNitroPedal" style="display:none;">⚡ NITRO</button>
+      <button class="pedal-btn" id="btnRightPedal">KANAN ▶</button>
+    </div>
+    <button class="btn-modal-close" onclick="closeGameModal()">✕ Tutup Permainan</button>
+  </div>
+
   <div id="toast"><span>⚡</span> <span id="toastMsg">Halo!</span></div>
 
   <script>
@@ -1462,10 +1179,14 @@
 
     let currentUser = localStorage.getItem('fadhil_user') || "";
     let currentAvatar = sanitizeAvatar(localStorage.getItem('fadhil_avatar') || "🤖");
+    let isAdminUser = localStorage.getItem('fadhil_is_admin') === "true";
     let regAvatar = "🤖";
     let isRegisterMode = false;
     let soundEnabled = true;
     let bgmEnabled = false;
+
+    let defaultThumbnailsSVG = {};
+    let pendingAdminThumbnails = {};
 
     function sanitizeAvatar(av) {
       if (!av || typeof av !== 'string') return '🤖';
@@ -1514,13 +1235,12 @@
         }
       } catch (errGet) {}
 
-      if (action === 'login' || action === 'register') {
-        return {
-          success: true,
-          username: data.username || "Pemain",
-          avatar: sanitizeAvatar(data.avatar || "🤖"),
-          message: "Masuk sesi mandiri."
-        };
+      // Fallback lokal jika offline
+      if (action === 'login') {
+        if (data.username && data.username.toLowerCase() === 'admin' && data.password === 'padilregy') {
+          return { success: true, username: 'Admin', avatar: '⚡', isAdmin: true, message: "Akses Admin Aktif (Lokal)" };
+        }
+        return { success: true, username: data.username || "Pemain", avatar: "🤖", isAdmin: false, message: "Masuk sesi mandiri." };
       }
       return { success: true };
     }
@@ -1536,8 +1256,7 @@
 
     const sfx = {
       click() {
-        if (!soundEnabled) return;
-        initAudio();
+        if (!soundEnabled) return; initAudio();
         const osc = audioCtx.createOscillator(), gain = audioCtx.createGain();
         osc.type = 'sine'; osc.frequency.setValueAtTime(450, audioCtx.currentTime);
         osc.frequency.exponentialRampToValueAtTime(800, audioCtx.currentTime + 0.05);
@@ -1545,8 +1264,7 @@
         osc.connect(gain); gain.connect(audioCtx.destination); osc.start(); osc.stop(audioCtx.currentTime + 0.05);
       },
       laser() {
-        if (!soundEnabled) return;
-        initAudio();
+        if (!soundEnabled) return; initAudio();
         const osc = audioCtx.createOscillator(), gain = audioCtx.createGain();
         osc.type = 'square'; osc.frequency.setValueAtTime(880, audioCtx.currentTime);
         osc.frequency.exponentialRampToValueAtTime(140, audioCtx.currentTime + 0.1);
@@ -1554,8 +1272,7 @@
         osc.connect(gain); gain.connect(audioCtx.destination); osc.start(); osc.stop(audioCtx.currentTime + 0.1);
       },
       bossLaser() {
-        if (!soundEnabled) return;
-        initAudio();
+        if (!soundEnabled) return; initAudio();
         const osc = audioCtx.createOscillator(), gain = audioCtx.createGain();
         osc.type = 'sawtooth'; osc.frequency.setValueAtTime(320, audioCtx.currentTime);
         osc.frequency.exponentialRampToValueAtTime(80, audioCtx.currentTime + 0.16);
@@ -1563,8 +1280,7 @@
         osc.connect(gain); gain.connect(audioCtx.destination); osc.start(); osc.stop(audioCtx.currentTime + 0.16);
       },
       hit() {
-        if (!soundEnabled) return;
-        initAudio();
+        if (!soundEnabled) return; initAudio();
         const osc = audioCtx.createOscillator(), gain = audioCtx.createGain();
         osc.type = 'sawtooth'; osc.frequency.setValueAtTime(200, audioCtx.currentTime);
         osc.frequency.exponentialRampToValueAtTime(40, audioCtx.currentTime + 0.15);
@@ -1572,8 +1288,7 @@
         osc.connect(gain); gain.connect(audioCtx.destination); osc.start(); osc.stop(audioCtx.currentTime + 0.15);
       },
       powerup() {
-        if (!soundEnabled) return;
-        initAudio();
+        if (!soundEnabled) return; initAudio();
         const osc = audioCtx.createOscillator(), gain = audioCtx.createGain();
         osc.type = 'sine'; osc.frequency.setValueAtTime(480, audioCtx.currentTime);
         osc.frequency.exponentialRampToValueAtTime(960, audioCtx.currentTime + 0.14);
@@ -1581,8 +1296,7 @@
         osc.connect(gain); gain.connect(audioCtx.destination); osc.start(); osc.stop(audioCtx.currentTime + 0.14);
       },
       nitro() {
-        if (!soundEnabled) return;
-        initAudio();
+        if (!soundEnabled) return; initAudio();
         const osc = audioCtx.createOscillator(), gain = audioCtx.createGain();
         osc.type = 'sawtooth'; osc.frequency.setValueAtTime(120, audioCtx.currentTime);
         osc.frequency.linearRampToValueAtTime(360, audioCtx.currentTime + 0.25);
@@ -1590,8 +1304,7 @@
         osc.connect(gain); gain.connect(audioCtx.destination); osc.start(); osc.stop(audioCtx.currentTime + 0.25);
       },
       gameOver() {
-        if (!soundEnabled) return;
-        initAudio();
+        if (!soundEnabled) return; initAudio();
         const osc = audioCtx.createOscillator(), gain = audioCtx.createGain();
         osc.type = 'triangle'; osc.frequency.setValueAtTime(300, audioCtx.currentTime);
         osc.frequency.exponentialRampToValueAtTime(50, audioCtx.currentTime + 0.4);
@@ -1600,9 +1313,7 @@
       }
     };
 
-    function triggerHaptic(duration = 25) {
-      if (navigator.vibrate) navigator.vibrate(duration);
-    }
+    function triggerHaptic(duration = 25) { if (navigator.vibrate) navigator.vibrate(duration); }
 
     function toggleBgm() {
       bgmEnabled = !bgmEnabled;
@@ -1628,26 +1339,18 @@
       }, 200);
     }
 
-    function stopSynthwaveBGM() {
-      if (bgmTimer) { clearInterval(bgmTimer); bgmTimer = null; }
-    }
+    function stopSynthwaveBGM() { if (bgmTimer) { clearInterval(bgmTimer); bgmTimer = null; } }
 
     function toggleSound() {
       soundEnabled = !soundEnabled;
       const btn = document.getElementById('btn-sound');
-      if (soundEnabled) {
-        btn.classList.add('active'); btn.innerText = "🔊 SFX: ON"; sfx.click();
-      } else {
-        btn.classList.remove('active'); btn.innerText = "🔇 SFX: OFF";
-      }
+      if (soundEnabled) { btn.classList.add('active'); btn.innerText = "🔊 SFX: ON"; sfx.click(); }
+      else { btn.classList.remove('active'); btn.innerText = "🔇 SFX: OFF"; }
     }
 
     function toggleFullscreen() {
-      if (!document.fullscreenElement) {
-        document.documentElement.requestFullscreen().catch(() => {});
-      } else {
-        document.exitFullscreen().catch(() => {});
-      }
+      if (!document.fullscreenElement) { document.documentElement.requestFullscreen().catch(() => {}); }
+      else { document.exitFullscreen().catch(() => {}); }
     }
 
     const ambCanvas = document.getElementById('ambientCanvas');
@@ -1804,9 +1507,6 @@
       rctx.restore();
     }, 100);
 
-    /* =========================================================================
-       PANDUAN & LINEUP ENGINE UNTUK SEMUA GAME
-       ========================================================================= */
     const GAME_GUIDES_DATA = {
       'SPACE BLASTER': {
         title: '🚀 SPACE BLASTER',
@@ -1977,15 +1677,117 @@
       document.getElementById('guideModal').style.display = 'flex';
     }
 
-    function closeGameGuide() {
+    function closeGameGuide() { sfx.click(); document.getElementById('guideModal').style.display = 'none'; }
+    function launchFromGuide() { if (activeGuideLaunchGame) { closeGameGuide(); launchGame(activeGuideLaunchGame); } }
+
+    function openAdminModal() {
       sfx.click();
-      document.getElementById('guideModal').style.display = 'none';
+      document.getElementById('adminModal').style.display = 'flex';
+      loadAdminPreviews();
+    }
+    function closeAdminModal() { sfx.click(); document.getElementById('adminModal').style.display = 'none'; }
+
+    function handleImageUpload(event, gameId) {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const img = new Image();
+        img.onload = function() {
+          // Kompresi resolusi 480x270 JPEG 0.65 (ringan ~18KB, di bawah batas sel Google Sheets 50.000 karakter)
+          const canvas = document.createElement('canvas');
+          canvas.width = 480;
+          canvas.height = 270;
+          const ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0, 480, 270);
+          const base64 = canvas.toDataURL('image/jpeg', 0.65);
+
+          pendingAdminThumbnails[gameId] = base64;
+          renderAdminPreviewBox(gameId, base64);
+          document.getElementById('admin-save-' + gameId).disabled = false;
+          showToast(`Foto ${gameId} siap disimpan!`);
+        };
+        img.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
     }
 
-    function launchFromGuide() {
-      if (activeGuideLaunchGame) {
-        closeGameGuide();
-        launchGame(activeGuideLaunchGame);
+    function renderAdminPreviewBox(gameId, base64) {
+      const box = document.getElementById('admin-prev-' + gameId);
+      if (box) {
+        box.innerHTML = `<img src="${base64}" alt="${gameId}">`;
+      }
+    }
+
+    function loadAdminPreviews() {
+      const games = ['space-blaster', 'neon-dodger', 'pixel-racer', 'galaxy-quest'];
+      games.forEach(gid => {
+        const cached = localStorage.getItem('fg_thumb_' + gid);
+        if (cached) {
+          renderAdminPreviewBox(gid, cached);
+        }
+      });
+    }
+
+    async function saveAdminThumbnail(gameId) {
+      const b64 = pendingAdminThumbnails[gameId];
+      if (!b64) return;
+
+      const btn = document.getElementById('admin-save-' + gameId);
+      btn.disabled = true;
+      btn.innerText = "Menyimpan...";
+
+      localStorage.setItem('fg_thumb_' + gameId, b64);
+      applyThumbnailToCard(gameId, b64);
+
+      const res = await callBackend('saveThumbnail', { gameId: gameId, imageBase64: b64 });
+      btn.innerText = "Simpan";
+      if (res && res.success) {
+        showToast(`Thumbnail ${gameId} berhasil disimpan ke Google Sheets!`);
+      } else {
+        showToast(`Tersimpan di sesi lokal.`);
+      }
+    }
+
+    async function resetThumbnail(gameId) {
+      localStorage.removeItem('fg_thumb_' + gameId);
+      const card = document.getElementById('thumb-' + gameId);
+      if (card && defaultThumbnailsSVG[gameId]) {
+        card.innerHTML = defaultThumbnailsSVG[gameId];
+      }
+      const box = document.getElementById('admin-prev-' + gameId);
+      if (box) box.innerHTML = '';
+      showToast(`Thumbnail ${gameId} dikembalikan ke default.`);
+      await callBackend('saveThumbnail', { gameId: gameId, imageBase64: '' });
+    }
+
+    function applyThumbnailToCard(gameId, base64) {
+      const card = document.getElementById('thumb-' + gameId);
+      if (!card || !base64) return;
+      const isComingSoon = (gameId === 'galaxy-quest');
+      const badgeHtml = isComingSoon 
+        ? `<span class="card-badge-status badge-coming-dark">COMING SOON</span>`
+        : `<span class="card-badge-status badge-live-green"><span class="status-dot"></span> SIAP MAIN</span>`;
+      card.innerHTML = `${badgeHtml}<img src="${base64}" alt="${gameId}">`;
+    }
+
+    async function syncThumbnails() {
+      const games = ['space-blaster', 'neon-dodger', 'pixel-racer', 'galaxy-quest'];
+      games.forEach(gid => {
+        const cached = localStorage.getItem('fg_thumb_' + gid);
+        if (cached) applyThumbnailToCard(gid, cached);
+      });
+
+      const res = await callBackend('getThumbnails');
+      if (res && res.success && res.thumbnails) {
+        Object.keys(res.thumbnails).forEach(gid => {
+          const b64 = res.thumbnails[gid];
+          if (b64) {
+            localStorage.setItem('fg_thumb_' + gid, b64);
+            applyThumbnailToCard(gid, b64);
+          }
+        });
       }
     }
 
@@ -2055,16 +1857,24 @@
         if (res.success) {
           currentUser = res.username || u;
           currentAvatar = sanitizeAvatar(res.avatar || regAvatar || "🤖");
+          isAdminUser = !!res.isAdmin;
+
           localStorage.setItem('fadhil_user', currentUser);
           localStorage.setItem('fadhil_avatar', currentAvatar);
+          localStorage.setItem('fadhil_is_admin', isAdminUser ? "true" : "false");
 
           document.getElementById('auth-view').style.display = 'none';
           document.getElementById('dashboard-view').style.display = 'flex';
           document.getElementById('user-display').innerText = `P1: ${currentUser.toUpperCase()}`;
           document.getElementById('avatar-display').innerText = currentAvatar;
+
+          // Munculkan tombol admin panel jika akun adalah admin
+          document.getElementById('btn-admin-panel').style.display = isAdminUser ? "inline-flex" : "none";
+
           switchNav('home');
           loadDashboardMetrics();
-          showToast(`Selamat datang, ${currentUser}!`);
+          syncThumbnails();
+          showToast(isAdminUser ? "Selamat datang, Administrator!" : `Selamat datang, ${currentUser}!`);
         } else {
           feedback.style.color = 'var(--accent-pink)'; feedback.innerText = res.message || "Nama atau kata sandi salah!";
         }
@@ -2072,9 +1882,12 @@
     }
 
     function logout() {
-      sfx.click(); currentUser = ""; localStorage.removeItem('fadhil_user');
+      sfx.click(); currentUser = ""; isAdminUser = false;
+      localStorage.removeItem('fadhil_user');
+      localStorage.removeItem('fadhil_is_admin');
       document.getElementById('username').value = ""; document.getElementById('password').value = "";
       document.getElementById('auth-feedback').innerText = "";
+      document.getElementById('btn-admin-panel').style.display = 'none';
       document.getElementById('dashboard-view').style.display = 'none';
       document.getElementById('auth-view').style.display = 'flex';
       stopSynthwaveBGM();
@@ -2114,8 +1927,7 @@
         document.getElementById('stat-total-players').innerText = data.totalPlayers || 0;
         document.getElementById('stat-total-played').innerText = data.totalPlayed || 0;
 
-        // DEDUKLIKASI KETAT PERSONAL BEST:
-        // Setiap pemain hanya muncul 1 KALI dengan skor tertingginya!
+        // DEDUPLIKASI KETAT PERSONAL BEST:
         const rawList = data.leaderboard || [];
         const personalBestMap = {};
 
@@ -2136,7 +1948,6 @@
           }
         });
 
-        // Urutkan dari skor tertinggi
         const lb = Object.values(personalBestMap).sort((a, b) => b.score - a.score);
         const top5 = lb.slice(0, 5);
 
@@ -2155,7 +1966,7 @@
           homeTopList.innerHTML = `<div class="empty-state">Belum ada rekor pemain.<br>Mainkan game dan jadilah yang pertama!</div>`;
         }
 
-        // Podium Top 3 (Hanya Pemain Berbeda / Best Score Unik)
+        // Podium Top 3 Personal Best
         if (lb.length > 0) {
           document.getElementById('podium-1-av').innerText = sanitizeAvatar(lb[0].avatar);
           document.getElementById('podium-1-name').innerText = lb[0].username;
@@ -2186,7 +1997,7 @@
           document.getElementById('podium-3-score').innerText = '0';
         }
 
-        // Tabel Leaderboard Penuh (Maksimal 30 Pemain Unik)
+        // Tabel Leaderboard Penuh (Maksimal 30 Pemain)
         const tableBody = document.getElementById('leaderboardTableBody');
         if (lb.length > 0) {
           tableBody.innerHTML = lb.slice(0, 30).map((it, idx) => `
@@ -2287,9 +2098,6 @@
     rightBtn.addEventListener('click', () => { sharedPlayerX = Math.min(300, sharedPlayerX + 35); triggerHaptic(15); });
     nitroBtn.addEventListener('click', () => { triggerNitroBoost(); });
 
-    /* =========================================================================
-       GAME 1: SPACE BLASTER (STRIKER, 5 METEOR, 6 POWER-UPS, 3 BOSS)
-       ========================================================================= */
     let sbScore = 0, sbMeteors = [], sbBullets = [], sbSparks = [], sbPowerUps = [], sbFloatTexts = [], sbExplosions = [];
     let sbGameOver = false, sbCooldown = 0, sbLives = 3, sbMaxLives = 3;
     let sbPlayerHp = 100, sbPlayerMaxHp = 100, sbPlayerInvincible = 0;
@@ -2708,7 +2516,6 @@
       }
       sbMeteors = sbMeteors.filter(m => m.y < 460);
 
-      // Render Screen Canvas
       gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height);
       gCtx.fillStyle = '#f8fafc';
       for (let s = 0; s < 18; s++) {
@@ -2786,9 +2593,6 @@
       } else loopId = requestAnimationFrame(loopSpaceBlaster);
     }
 
-    /* =========================================================================
-       GAME 2: NEON DODGER OVERHAUL (3D PERSPECTIVE SYNTHWAVE GRID)
-       ========================================================================= */
     let ndScore = 0, ndObstacles = [], ndItems = [], ndSparks = [], ndGameOver = false, ndFrame = 0;
     let ndShield = 0, ndSlowMo = 0, ndPlayerBank = 0, ndSpeedMultiplier = 1;
 
@@ -2803,7 +2607,6 @@
       gCtx.translate(x + 20, y + 16);
       gCtx.rotate(bank * 0.18);
 
-      // Dual Plasma Thruster Trails
       const fl1 = Math.random() * 8 + (ndSlowMo > 0 ? 3 : 8);
       gCtx.fillStyle = '#00f0ff'; gCtx.shadowColor = '#00f0ff'; gCtx.shadowBlur = 14;
       gCtx.beginPath();
@@ -2811,23 +2614,19 @@
       gCtx.moveTo(2, 10); gCtx.lineTo(6, 20 + fl1); gCtx.lineTo(10, 10);
       gCtx.fill();
 
-      // Main Speeder Chassis
       gCtx.fillStyle = '#0f172a'; gCtx.strokeStyle = '#00f0ff'; gCtx.lineWidth = 2;
       gCtx.beginPath();
       gCtx.moveTo(0, -20); gCtx.lineTo(18, 8); gCtx.lineTo(12, 14); gCtx.lineTo(0, 10);
       gCtx.lineTo(-12, 14); gCtx.lineTo(-18, 8); gCtx.closePath();
       gCtx.fill(); gCtx.stroke();
 
-      // Aerodynamic Neon Accents
       gCtx.fillStyle = '#38bdf8';
       gCtx.fillRect(-14, 4, 3, 8); gCtx.fillRect(11, 4, 3, 8);
 
-      // Glowing Cockpit
       gCtx.fillStyle = '#a855f7'; gCtx.shadowColor = '#c084fc'; gCtx.shadowBlur = 8;
       gCtx.beginPath(); gCtx.ellipse(0, -4, 4, 9, 0, 0, Math.PI * 2); gCtx.fill();
       gCtx.shadowBlur = 0;
 
-      // Shield Bubble
       if (ndShield > 0) {
         gCtx.strokeStyle = '#00f0ff'; gCtx.lineWidth = 2; gCtx.shadowColor = '#00f0ff'; gCtx.shadowBlur = 12;
         gCtx.beginPath(); gCtx.arc(0, 0, 24, 0, Math.PI * 2); gCtx.stroke(); gCtx.shadowBlur = 0;
@@ -2843,7 +2642,6 @@
       ndScore += (ndSlowMo > 0 ? 0.5 : 1);
       if (ndScore > 100) unlockAchievement('dodge_100');
 
-      // Spawning Obstacles (Laser Gate or Rotating EMP Mine)
       if (Math.random() < 0.045) {
         const isMine = Math.random() < 0.35;
         if (isMine) {
@@ -2854,13 +2652,11 @@
         }
       }
 
-      // Spawning Bonus Items (Crystals & Chrono Warp)
       if (Math.random() < 0.018) {
         const itType = Math.random() < 0.6 ? 'crystal' : 'warp';
         ndItems.push({ type: itType, x: 30 + Math.random() * 280, y: -20, rad: 10, speed: 2.8 * effectiveSpeed });
       }
 
-      // Update Obstacles & Collisions
       for (let i = ndObstacles.length - 1; i >= 0; i--) {
         const o = ndObstacles[i];
         o.y += o.speed;
@@ -2875,52 +2671,34 @@
 
         if (hit) {
           if (ndShield > 0) {
-            ndShield--;
-            sfx.hit();
-            triggerHaptic(40);
-            ndObstacles.splice(i, 1);
-            continue;
+            ndShield--; sfx.hit(); triggerHaptic(40);
+            ndObstacles.splice(i, 1); continue;
           }
-          ndGameOver = true;
-          sfx.gameOver();
-          triggerHaptic(60);
+          ndGameOver = true; sfx.gameOver(); triggerHaptic(60);
           callBackend('saveScore', { username: currentUser, gameTitle: 'NEON DODGER', score: Math.floor(ndScore), avatar: currentAvatar });
           break;
         }
       }
       ndObstacles = ndObstacles.filter(o => o.y < 460);
 
-      // Update Items Collection
       for (let i = ndItems.length - 1; i >= 0; i--) {
         const it = ndItems[i];
         it.y += it.speed;
         if (Math.hypot((sharedPlayerX + 20) - it.x, 395 - it.y) < it.rad + 18) {
           sfx.powerup();
-          if (it.type === 'crystal') {
-            ndScore += 25;
-            showToast('+25 PTS NEON CRYSTAL!');
-          } else {
-            ndSlowMo = 240; // 4 seconds slow-mo
-            ndShield = 1;
-            showToast('CHRONO WARP & SHIELD! ⏱️');
-          }
+          if (it.type === 'crystal') { ndScore += 25; showToast('+25 PTS NEON CRYSTAL!'); }
+          else { ndSlowMo = 240; ndShield = 1; showToast('CHRONO WARP & SHIELD! ⏱️'); }
           ndItems.splice(i, 1);
         }
       }
       ndItems = ndItems.filter(it => it.y < 460);
 
-      // Render Screen Canvas
       gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height);
-
-      // Synthwave Horizon Sun & Retro Floor
       const sunGrad = gCtx.createRadialGradient(170, 110, 5, 170, 110, 50);
-      sunGrad.addColorStop(0, '#facc15');
-      sunGrad.addColorStop(0.6, '#ec4899');
-      sunGrad.addColorStop(1, 'transparent');
+      sunGrad.addColorStop(0, '#facc15'); sunGrad.addColorStop(0.6, '#ec4899'); sunGrad.addColorStop(1, 'transparent');
       gCtx.fillStyle = sunGrad;
       gCtx.beginPath(); gCtx.arc(170, 110, 48, 0, Math.PI * 2); gCtx.fill();
 
-      // 3D Perspective Grid Runway
       gCtx.strokeStyle = 'rgba(139, 92, 246, 0.35)'; gCtx.lineWidth = 1.2;
       for (let x = -60; x <= 400; x += 40) {
         gCtx.beginPath(); gCtx.moveTo(170 + (x - 170) * 0.2, 110); gCtx.lineTo(x, 460); gCtx.stroke();
@@ -2934,7 +2712,6 @@
         }
       }
 
-      // Draw Items
       for (let it of ndItems) {
         gCtx.save(); gCtx.translate(it.x, it.y);
         gCtx.fillStyle = it.type === 'crystal' ? '#00f0ff' : '#a855f7';
@@ -2944,7 +2721,6 @@
         gCtx.closePath(); gCtx.fill(); gCtx.restore();
       }
 
-      // Draw Obstacles
       for (let o of ndObstacles) {
         if (o.type === 'mine') {
           gCtx.save(); gCtx.translate(o.x, o.y); gCtx.rotate(o.rot);
@@ -2965,21 +2741,14 @@
         }
       }
 
-      // Draw Speeder
       const targetBank = (sharedPlayerX - 150) / 150;
       ndPlayerBank += (targetBank - ndPlayerBank) * 0.15;
       drawCyberSpeeder(sharedPlayerX, 395, ndPlayerBank);
 
-      // HUD
       gCtx.fillStyle = '#f8fafc'; gCtx.font = '700 12px Orbitron';
       gCtx.fillText(`DISTANCE: ${Math.floor(ndScore)}m`, 14, 26);
-      if (ndSlowMo > 0) {
-        gCtx.fillStyle = '#00f0ff';
-        gCtx.fillText(`WARP ⏱️ ${Math.ceil(ndSlowMo / 60)}s`, 240, 26);
-      } else if (ndShield > 0) {
-        gCtx.fillStyle = '#a855f7';
-        gCtx.fillText('SHIELD ON 🛡️', 230, 26);
-      }
+      if (ndSlowMo > 0) { gCtx.fillStyle = '#00f0ff'; gCtx.fillText(`WARP ⏱️ ${Math.ceil(ndSlowMo / 60)}s`, 240, 26); }
+      else if (ndShield > 0) { gCtx.fillStyle = '#a855f7'; gCtx.fillText('SHIELD ON 🛡️', 230, 26); }
 
       if (ndGameOver) {
         gCtx.fillStyle = '#ec4899'; gCtx.font = '700 20px Orbitron'; gCtx.textAlign = 'center';
@@ -2989,9 +2758,6 @@
       } else loopId = requestAnimationFrame(loopNeonDodger);
     }
 
-    /* =========================================================================
-       GAME 3: PIXEL RACER OVERHAUL (OUTRUN STYLE CYBER SUPERCAR)
-       ========================================================================= */
     let prScore = 0, prTraffic = [], prPickups = [], prGameOver = false, prFuel = 100, prFrame = 0;
     let prNitro = 0, prNitroActive = false, prSteerTilt = 0;
 
@@ -3013,7 +2779,6 @@
       gCtx.translate(x + 16, y + 24);
       gCtx.rotate(tilt * 0.12);
 
-      // Nitro Flame Emitter
       if (isPlayer && prNitroActive) {
         const nf = Math.random() * 12 + 10;
         gCtx.fillStyle = '#facc15'; gCtx.shadowColor = '#facc15'; gCtx.shadowBlur = 18;
@@ -3023,25 +2788,20 @@
         gCtx.fill(); gCtx.shadowBlur = 0;
       }
 
-      // Wheels
       gCtx.fillStyle = '#0f172a';
       gCtx.fillRect(-16, -18, 4, 10); gCtx.fillRect(12, -18, 4, 10);
       gCtx.fillRect(-16, 10, 4, 10); gCtx.fillRect(12, 10, 4, 10);
 
-      // Chassis Aerodynamic Body
       gCtx.fillStyle = color; gCtx.strokeStyle = '#0f172a'; gCtx.lineWidth = 1.5;
       gCtx.beginPath();
       gCtx.roundRect(-13, -22, 26, 44, 6); gCtx.fill(); gCtx.stroke();
 
-      // Windshield & Roof
       gCtx.fillStyle = '#090d16';
       gCtx.beginPath(); gCtx.roundRect(-9, -10, 18, 22, 4); gCtx.fill();
 
-      // Taillights
       gCtx.fillStyle = '#ef4444'; gCtx.shadowColor = '#ef4444'; gCtx.shadowBlur = 8;
       gCtx.fillRect(-11, 20, 7, 2.5); gCtx.fillRect(4, 20, 7, 2.5);
 
-      // Headlights
       gCtx.fillStyle = '#fef08a'; gCtx.shadowColor = '#fef08a'; gCtx.shadowBlur = 8;
       gCtx.fillRect(-11, -22, 6, 2.5); gCtx.fillRect(5, -22, 6, 2.5);
       gCtx.shadowBlur = 0;
@@ -3062,7 +2822,6 @@
         callBackend('saveScore', { username: currentUser, gameTitle: 'PIXEL RACER', score: prScore, avatar: currentAvatar });
       }
 
-      // Spawning Traffic Vehicles (Trucks, Sedans, Hypercars)
       if (Math.random() < 0.042) {
         const lanes = [65, 155, 245];
         const laneX = lanes[Math.floor(Math.random() * lanes.length)] + (Math.random() - 0.5) * 20;
@@ -3075,20 +2834,17 @@
         prTraffic.push({ x: laneX, y: -50, w: 28, h: 46, color: sel.color, speed: sel.speed });
       }
 
-      // Spawning Fuel Cans & Gold Coins
       if (Math.random() < 0.025) {
         const isGas = Math.random() < 0.5;
         prPickups.push({ type: isGas ? 'fuel' : 'nitro', x: 50 + Math.random() * 240, y: -30, rad: 10, speed: 3.5 });
       }
 
-      // Update Traffic & Collisions
       for (let i = prTraffic.length - 1; i >= 0; i--) {
         const t = prTraffic[i];
         t.y += (t.speed + (prNitroActive ? 3.5 : 1.5));
 
         if (sharedPlayerX < t.x + t.w && sharedPlayerX + 28 > t.x && 380 < t.y + t.h && 425 > t.y) {
           if (prNitroActive) {
-            // Smash through with nitro invincibility!
             createStarburstExplosion(t.x + 14, t.y + 20, false, '#facc15');
             prScore += 50; sfx.hit(); triggerHaptic(30);
             prTraffic.splice(i, 1);
@@ -3101,33 +2857,23 @@
       }
       prTraffic = prTraffic.filter(t => t.y < 480);
 
-      // Update Pickups
       for (let i = prPickups.length - 1; i >= 0; i--) {
         const pk = prPickups[i];
         pk.y += (pk.speed + (prNitroActive ? 3.5 : 1.5));
 
         if (Math.hypot((sharedPlayerX + 14) - pk.x, 395 - pk.y) < 22) {
           sfx.powerup();
-          if (pk.type === 'fuel') {
-            prFuel = Math.min(100, prFuel + 25);
-            showToast('+25% FUEL REFILLED! ⛽');
-          } else {
-            prNitro = Math.min(100, prNitro + 35);
-            showToast('+35% NITRO TANK CHARGED! ⚡');
-          }
+          if (pk.type === 'fuel') { prFuel = Math.min(100, prFuel + 25); showToast('+25% FUEL REFILLED! ⛽'); }
+          else { prNitro = Math.min(100, prNitro + 35); showToast('+35% NITRO TANK CHARGED! ⚡'); }
           prPickups.splice(i, 1);
         }
       }
       prPickups = prPickups.filter(pk => pk.y < 480);
 
-      // Render Screen Canvas
       gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height);
-
-      // Road Asphalt & Roadside Neon Curbing
       gCtx.fillStyle = '#090d16'; gCtx.fillRect(35, 0, 270, 460);
       gCtx.fillStyle = '#00f0ff'; gCtx.fillRect(30, 0, 5, 460); gCtx.fillRect(305, 0, 5, 460);
 
-      // Road Dash Lane Dividers
       const roadOffset = (prFrame * 8 * speedMult) % 35;
       gCtx.strokeStyle = 'rgba(255, 255, 255, 0.35)'; gCtx.lineWidth = 3; gCtx.setLineDash([18, 17]);
       gCtx.lineDashOffset = -roadOffset;
@@ -3135,7 +2881,6 @@
       gCtx.beginPath(); gCtx.moveTo(215, 0); gCtx.lineTo(215, 460); gCtx.stroke();
       gCtx.setLineDash([]);
 
-      // Speed Hyperspace Tunnel Lines when Nitro Active
       if (prNitroActive) {
         gCtx.strokeStyle = 'rgba(0, 240, 255, 0.45)'; gCtx.lineWidth = 2;
         for (let l = 0; l < 8; l++) {
@@ -3144,7 +2889,6 @@
         }
       }
 
-      // Draw Pickups
       for (let pk of prPickups) {
         gCtx.save(); gCtx.translate(pk.x, pk.y);
         if (pk.type === 'fuel') {
@@ -3159,17 +2903,12 @@
         gCtx.restore();
       }
 
-      // Draw Traffic Cars
-      for (let t of prTraffic) {
-        drawSupercar(t.x, t.y, false, t.color, 0);
-      }
+      for (let t of prTraffic) { drawSupercar(t.x, t.y, false, t.color, 0); }
 
-      // Draw Player Supercar
       const carTargetTilt = (sharedPlayerX - 150) / 150;
       prSteerTilt += (carTargetTilt - prSteerTilt) * 0.2;
       drawSupercar(sharedPlayerX, 385, true, '#00f0ff', prSteerTilt);
 
-      // HUD Status
       gCtx.fillStyle = '#f8fafc'; gCtx.font = '700 12px Orbitron';
       gCtx.fillText(`DIST: ${prScore}m`, 14, 26);
       gCtx.fillText(`FUEL: ${Math.max(0, Math.round(prFuel))}%`, 130, 26);
@@ -3190,15 +2929,25 @@
       else if (currentGame === 'PIXEL RACER' && prGameOver) initPixelRacer();
     });
 
-    // Auto-restore session if saved in localStorage
-    if (currentUser) {
-      document.getElementById('auth-view').style.display = 'none';
-      document.getElementById('dashboard-view').style.display = 'flex';
-      document.getElementById('user-display').innerText = `P1: ${currentUser.toUpperCase()}`;
-      document.getElementById('avatar-display').innerText = currentAvatar;
-      switchNav('home');
-      loadDashboardMetrics();
-    }
+    window.addEventListener('DOMContentLoaded', () => {
+      // Menyimpan backup SVG bawaan kartu game
+      ['space-blaster', 'neon-dodger', 'pixel-racer', 'galaxy-quest'].forEach(gid => {
+        const el = document.getElementById('thumb-' + gid);
+        if (el) defaultThumbnailsSVG[gid] = el.innerHTML;
+      });
+
+      // Pulihkan sesi login jika sudah tersimpan di browser
+      if (currentUser) {
+        document.getElementById('auth-view').style.display = 'none';
+        document.getElementById('dashboard-view').style.display = 'flex';
+        document.getElementById('user-display').innerText = `P1: ${currentUser.toUpperCase()}`;
+        document.getElementById('avatar-display').innerText = currentAvatar;
+        document.getElementById('btn-admin-panel').style.display = isAdminUser ? "inline-flex" : "none";
+        switchNav('home');
+        loadDashboardMetrics();
+        syncThumbnails();
+      }
+    });
   </script>
 </body>
 </html>
