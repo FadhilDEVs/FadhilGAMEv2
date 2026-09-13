@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Fadhil GAME - Pusat Arcade Modern</title>
+  <title>Fadhil GAME - Modern Cyber Arcade</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,8 +12,8 @@
   <style>
     :root {
       --bg-main: #060913;
-      --surface: rgba(13, 18, 34, 0.85);
-      --surface-card: rgba(18, 25, 46, 0.75);
+      --surface: rgba(13, 18, 34, 0.88);
+      --surface-card: rgba(18, 25, 46, 0.78);
       --border-subtle: rgba(0, 240, 255, 0.16);
       --border-hover: rgba(0, 240, 255, 0.5);
       --primary: #00f0ff;
@@ -56,9 +56,6 @@
       border-radius: 16px;
     }
 
-    /* ============================================================
-       AUTH VIEW REDESIGN (SESUAI GAMBAR REFERENSI)
-       ============================================================ */
     #auth-view {
       position: relative;
       z-index: 10;
@@ -71,7 +68,6 @@
       margin: 0 auto;
     }
 
-    /* Auth Header Bar */
     .auth-top-header {
       display: flex;
       justify-content: space-between;
@@ -125,7 +121,6 @@
     }
     .auth-header-motto span { color: var(--primary); }
 
-    /* Auth 3-Columns Center Grid */
     .auth-main-grid {
       display: grid;
       grid-template-columns: 1.05fr 1.15fr 0.9fr;
@@ -135,7 +130,6 @@
       width: 100%;
     }
 
-    /* Left Side: Hero Tagline & Robot Gamer */
     .auth-hero-left {
       display: flex;
       flex-direction: column;
@@ -174,7 +168,6 @@
       max-width: 320px;
     }
 
-    /* Animatronic Robot Gamer Container */
     .robot-gamer-container {
       display: flex;
       align-items: flex-end;
@@ -216,20 +209,6 @@
       filter: drop-shadow(0 10px 25px rgba(0, 240, 255, 0.2));
     }
 
-    /* Center Card: Futuristic Login Box */
-    .auth-card-neon {
-      background: rgba(10, 15, 30, 0.88);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 2px solid transparent;
-      border-image: linear-gradient(135deg, var(--primary) 0%, var(--accent-purple) 50%, var(--accent-pink) 100%) 1;
-      border-radius: 24px;
-      padding: 34px 28px;
-      text-align: center;
-      position: relative;
-      box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.9), 0 0 35px rgba(0, 240, 255, 0.12);
-    }
-    /* Fallback border-radius with gradient border */
     .auth-card-neon-wrap {
       position: relative;
       padding: 2px;
@@ -241,6 +220,7 @@
       background: #080c1a;
       border-radius: 20px;
       padding: 32px 26px;
+      text-align: center;
     }
 
     .auth-card-logo-icon {
@@ -273,7 +253,6 @@
       text-transform: uppercase;
     }
 
-    /* Segmented Tab Pill: Login / Daftar Akun */
     .auth-segmented-tabs {
       display: flex;
       background: rgba(15, 23, 42, 0.8);
@@ -307,7 +286,6 @@
       box-shadow: 0 0 12px rgba(0, 240, 255, 0.2);
     }
 
-    /* Inputs with Embedded Icons & Password Toggle */
     .auth-input-group {
       margin-bottom: 14px;
       text-align: left;
@@ -394,7 +372,6 @@
     }
     .auth-footer-toggle strong { color: var(--primary); }
 
-    /* Right Side: Badges & Pixel Cat Island */
     .auth-badges-right {
       display: flex;
       flex-direction: column;
@@ -422,16 +399,9 @@
       color: #cbd5e1;
       letter-spacing: 1px;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-      transition: all 0.2s;
-    }
-    .floating-pill-item:hover {
-      border-color: var(--primary);
-      color: var(--primary);
-      transform: translateX(-4px);
     }
     .floating-pill-item .badge-icon { font-size: 14px; }
 
-    /* Pixel Cat Island */
     .pixel-cat-island {
       display: flex;
       flex-direction: column;
@@ -459,7 +429,6 @@
     }
     .cat-island-sign span { color: var(--accent-pink); }
 
-    /* Bottom Feature Bar (4 Pillars) */
     .auth-bottom-features {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -493,9 +462,6 @@
     .feature-heading { font-family: 'Orbitron', sans-serif; font-size: 11px; font-weight: 800; color: #fff; }
     .feature-desc { font-size: 9.5px; color: #94a3b8; line-height: 1.3; }
 
-    /* ============================================================
-       DASHBOARD VIEW
-       ============================================================ */
     #dashboard-view {
       display: none;
       position: relative;
@@ -665,7 +631,6 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* TAB 1: HOME */
     .dashboard-layout { display: grid; grid-template-columns: 1fr 320px; gap: 20px; }
     .main-stream { display: flex; flex-direction: column; gap: 24px; }
 
@@ -756,7 +721,6 @@
     .stat-val { font-family: 'Orbitron', sans-serif; font-size: 14px; font-weight: 800; color: var(--primary); margin: 2px 0; }
     .stat-lbl { font-size: 9px; color: var(--text-muted); }
 
-    /* TAB 2: SEMUA GAME */
     .filter-search-bar { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; width: 100%; margin: 16px 0; }
     .filter-tabs { display: flex; gap: 4px; background: rgba(14, 20, 36, 0.7); padding: 4px; border-radius: 10px; border: 1px solid var(--border-subtle); overflow-x: auto; }
     .tab-btn { padding: 6px 12px; border-radius: 6px; background: transparent; border: none; color: var(--text-muted); font-size: 11px; font-weight: 600; cursor: pointer; white-space: nowrap; }
@@ -764,7 +728,6 @@
     .search-input-box { display: flex; align-items: center; gap: 8px; background: rgba(14, 20, 36, 0.7); border: 1px solid var(--border-subtle); border-radius: 10px; padding: 6px 12px; flex-grow: 1; }
     .search-input-box input { background: transparent; border: none; outline: none; color: #fff; font-size: 12px; width: 100%; }
 
-    /* TAB 3: LEADERBOARD */
     .leaderboard-container { display: flex; flex-direction: column; gap: 20px; }
     .podium-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 8px; }
     .podium-card { padding: 20px; text-align: center; position: relative; overflow: hidden; }
@@ -784,7 +747,6 @@
     .lb-score-val { font-family: 'Orbitron', sans-serif; font-weight: 800; color: var(--primary); }
     .game-pill { display: inline-block; padding: 3px 8px; background: rgba(139, 92, 246, 0.15); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 6px; font-size: 10px; color: #c4b5fd; }
 
-    /* TAB 4: TENTANG */
     .about-container { display: flex; flex-direction: column; gap: 20px; }
     .about-hero { padding: 30px; background: radial-gradient(circle at 10% 20%, rgba(0, 240, 255, 0.15) 0%, transparent 50%), var(--surface); }
     .about-title { font-family: 'Orbitron', sans-serif; font-size: 24px; font-weight: 900; margin-bottom: 10px; background: linear-gradient(135deg, #fff, var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
@@ -796,12 +758,37 @@
     .tech-stack-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
     .tech-badge { padding: 6px 12px; border-radius: 8px; background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); font-size: 11px; font-weight: 600; color: #cbd5e1; }
 
+    /* Custom Cyber Toast Notification (Zero Alert Replacement) */
+    #cyberToast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid var(--primary);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 20px var(--primary-glow);
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 600;
+      z-index: 9999;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    #cyberToast.toast-show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
     footer {
       margin-top: 36px; padding-top: 16px; border-top: 1px solid rgba(255, 255, 255, 0.06);
       display: flex; justify-content: space-between; align-items: center; font-size: 10px; color: var(--text-muted); flex-wrap: wrap; gap: 10px;
     }
 
-    /* Modal Game */
     .modal {
       display: none; position: fixed; inset: 0; background: rgba(6, 9, 19, 0.92);
       backdrop-filter: blur(14px); z-index: 2000; justify-content: center; align-items: center; flex-direction: column; padding: 14px;
@@ -815,20 +802,17 @@
       border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 100px; color: #fff; font-size: 11px; font-weight: 600; cursor: pointer;
     }
 
-    /* ================= RESPONSIVE DESIGN ================= */
     @media (max-width: 1100px) {
       .auth-main-grid { grid-template-columns: 1fr 1.15fr; }
       .auth-badges-right { display: none; }
       .auth-bottom-features { grid-template-columns: repeat(2, 1fr); }
     }
-
     @media (max-width: 992px) {
       .dashboard-layout { grid-template-columns: 1fr; }
       .games-grid { grid-template-columns: repeat(2, 1fr); }
       .about-grid { grid-template-columns: 1fr; }
       .podium-grid { grid-template-columns: 1fr; }
     }
-
     @media (max-width: 768px) {
       #auth-view { padding: 14px 16px 24px; }
       .auth-header-motto { display: none; }
@@ -851,14 +835,17 @@
 </head>
 <body>
 
+  <!-- Ambient dynamic particle canvas -->
   <canvas id="ambientCanvas"></canvas>
 
-  <!-- ============================================================
-       VIEW 1: AUTH VIEW REDESIGN (SESUAI GAMBAR REFERENSI)
-       ============================================================ -->
+  <!-- Cyber Toast Notification -->
+  <div id="cyberToast">
+    <span id="toastIcon">🎮</span>
+    <span id="toastMsg">Selamat datang di Fadhil GAME!</span>
+  </div>
+
   <section id="auth-view">
     
-    <!-- Top Bar: Logo & Slogan -->
     <header class="auth-top-header">
       <div class="auth-brand">
         <div class="brand-logo-icon">
@@ -875,10 +862,8 @@
       </div>
     </header>
 
-    <!-- Center 3-Columns Grid -->
     <main class="auth-main-grid">
       
-      <!-- Kolom 1: Hero Tagline & Robot Gamer dengan Mata Tracking -->
       <div class="auth-hero-left">
         <h1 class="hero-tagline-title">
           GAME<br>
@@ -889,7 +874,6 @@
           Mainkan berbagai game seru, kumpulkan skor, dan jadi legenda di Fadhil GAME!
         </p>
 
-        <!-- Animatronic Robot Gamer (Interaktif Menatap Kursor) -->
         <div class="robot-gamer-container">
           <div class="speech-bubble-gamer">
             Ayo login dulu! Banyak game seru menunggumu!
@@ -898,7 +882,6 @@
         </div>
       </div>
 
-      <!-- Kolom 2: Kartu Form Login/Register Neon Glowing -->
       <div class="auth-card-neon-wrap">
         <div class="auth-card-inner">
           <div class="auth-card-logo-icon">
@@ -907,7 +890,6 @@
           <h2 class="auth-card-title">FADHIL GAME</h2>
           <div class="auth-card-sub">PLAY MORE, BE LEGENDARY</div>
 
-          <!-- Segmented Tab Pill -->
           <div class="auth-segmented-tabs">
             <button class="auth-tab-btn active" id="tab-btn-login" onclick="setAuthMode(false)">
               <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
@@ -919,7 +901,6 @@
             </button>
           </div>
 
-          <!-- Input Username -->
           <div class="auth-input-group">
             <div class="auth-input-wrap">
               <svg class="auth-input-icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
@@ -927,7 +908,6 @@
             </div>
           </div>
 
-          <!-- Input Password + Visibility Toggle -->
           <div class="auth-input-group">
             <div class="auth-input-wrap">
               <svg class="auth-input-icon" viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
@@ -938,7 +918,6 @@
             </div>
           </div>
 
-          <!-- Submit Button -->
           <button class="btn-auth-submit" id="btn-submit" onclick="submitAuth()">
             <span id="btn-submit-text">MASUK SEKARANG</span> &gt;
           </button>
@@ -951,7 +930,6 @@
         </div>
       </div>
 
-      <!-- Kolom 3: Floating Action Badges & Pixel Cat Island -->
       <div class="auth-badges-right">
         <div class="floating-pill-menu">
           <div class="floating-pill-item"><span class="badge-icon">🎮</span> PLAY</div>
@@ -971,7 +949,6 @@
 
     </main>
 
-    <!-- Bottom Features Pillar -->
     <footer class="auth-bottom-features">
       <div class="feature-pill-card">
         <div class="feature-icon-box">
@@ -1016,12 +993,8 @@
 
   </section>
 
-  <!-- ============================================================
-       VIEW 2: DASHBOARD VIEW
-       ============================================================ -->
   <section id="dashboard-view">
     
-    <!-- Top Navigation Bar -->
     <header class="top-nav glass-card">
       <div class="nav-row-main">
         <div class="logo-brand" onclick="switchNav('home')">
@@ -1055,12 +1028,11 @@
       </div>
     </header>
 
-    <!-- ================= TAB 1: HOME ================= -->
+    <!-- TAB 1: HOME -->
     <div id="tab-home" class="tab-content" style="display:block;">
       <div class="dashboard-layout">
         
         <div class="main-stream">
-          <!-- Hero Banner: Space Blaster -->
           <div class="hero-banner">
             <div class="hero-badge">★ GAME UNGGULAN (SIAP MAIN)</div>
             <h2 class="hero-title">SPACE BLASTER</h2>
@@ -1073,7 +1045,6 @@
             <div class="floating-slogan">DEFEAT<br>THE BOSS<br>SURVIVE</div>
           </div>
 
-          <!-- Game Pilihan -->
           <div>
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
               <div>
@@ -1084,7 +1055,6 @@
             </div>
 
             <div class="games-grid">
-              <!-- 1. Neon Dodger -->
               <div class="card-game">
                 <div class="card-thumb" style="background-image:url('https://images.unsplash.com/photo-1509198397868-475647b2a1e5?q=80&w=500&auto=format&fit=crop');">
                   <span class="card-badge-status status-live">SIAP MAIN</span>
@@ -1098,7 +1068,6 @@
                 </div>
               </div>
 
-              <!-- 2. Space Blaster -->
               <div class="card-game">
                 <div class="card-thumb" style="background-image:url('https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?q=80&w=500&auto=format&fit=crop');">
                   <span class="card-badge-status status-live">SIAP MAIN</span>
@@ -1112,7 +1081,6 @@
                 </div>
               </div>
 
-              <!-- 3. Pixel Racer -->
               <div class="card-game">
                 <div class="card-thumb" style="background-image:url('https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=400&auto=format&fit=crop');">
                   <span class="card-badge-status status-soon">COMING SOON</span>
@@ -1126,7 +1094,6 @@
                 </div>
               </div>
 
-              <!-- 4. Galaxy Quest -->
               <div class="card-game">
                 <div class="card-thumb" style="background-image:url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=400&auto=format&fit=crop');">
                   <span class="card-badge-status status-soon">COMING SOON</span>
@@ -1143,7 +1110,6 @@
           </div>
         </div>
 
-        <!-- Sidebar Stream -->
         <aside class="sidebar-stream">
           <div class="widget-panel glass-card">
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
@@ -1188,7 +1154,7 @@
       </div>
     </div>
 
-    <!-- ================= TAB 2: SEMUA GAME ================= -->
+    <!-- TAB 2: SEMUA GAME -->
     <div id="tab-games" class="tab-content">
       <div style="margin-bottom:20px;">
         <h2 style="font-family:'Orbitron',sans-serif; font-size:20px; font-weight:800;">SEMUA KOLEKSI GAME</h2>
@@ -1211,7 +1177,6 @@
       </div>
 
       <div class="games-grid" id="fullGamesGrid">
-        <!-- 1. Neon Dodger -->
         <div class="card-game" data-category="arcade" data-title="neon dodger">
           <div class="card-thumb" style="background-image:url('https://images.unsplash.com/photo-1509198397868-475647b2a1e5?q=80&w=500&auto=format&fit=crop');">
             <span class="card-badge-status status-live">SIAP MAIN</span>
@@ -1225,7 +1190,6 @@
           </div>
         </div>
 
-        <!-- 2. Space Blaster -->
         <div class="card-game" data-category="action" data-title="space blaster">
           <div class="card-thumb" style="background-image:url('https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?q=80&w=500&auto=format&fit=crop');">
             <span class="card-badge-status status-live">SIAP MAIN</span>
@@ -1239,7 +1203,6 @@
           </div>
         </div>
 
-        <!-- 3. Pixel Racer -->
         <div class="card-game" data-category="racing" data-title="pixel racer">
           <div class="card-thumb" style="background-image:url('https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=400&auto=format&fit=crop');">
             <span class="card-badge-status status-soon">COMING SOON</span>
@@ -1253,7 +1216,6 @@
           </div>
         </div>
 
-        <!-- 4. Galaxy Quest -->
         <div class="card-game" data-category="action" data-title="galaxy quest">
           <div class="card-thumb" style="background-image:url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=400&auto=format&fit=crop');">
             <span class="card-badge-status status-soon">COMING SOON</span>
@@ -1267,7 +1229,6 @@
           </div>
         </div>
 
-        <!-- 5. Arena Puzzle -->
         <div class="card-game" data-category="puzzle" data-title="arena puzzle">
           <div class="card-thumb" style="background-image:url('https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?q=80&w=400&auto=format&fit=crop');">
             <span class="card-badge-status status-soon">COMING SOON</span>
@@ -1281,7 +1242,6 @@
           </div>
         </div>
 
-        <!-- 6. Cyber Jump -->
         <div class="card-game" data-category="arcade" data-title="cyber jump">
           <div class="card-thumb" style="background-image:url('https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=400&auto=format&fit=crop');">
             <span class="card-badge-status status-soon">COMING SOON</span>
@@ -1295,7 +1255,6 @@
           </div>
         </div>
 
-        <!-- 7. Dragon Run -->
         <div class="card-game" data-category="action" data-title="dragon run">
           <div class="card-thumb" style="background-image:url('https://images.unsplash.com/photo-1563089145-599997674d42?q=80&w=400&auto=format&fit=crop');">
             <span class="card-badge-status status-soon">COMING SOON</span>
@@ -1309,7 +1268,6 @@
           </div>
         </div>
 
-        <!-- 8. Sky Defender -->
         <div class="card-game" data-category="action" data-title="sky defender">
           <div class="card-thumb" style="background-image:url('https://images.unsplash.com/photo-1508614589041-895b88991e3e?q=80&w=400&auto=format&fit=crop');">
             <span class="card-badge-status status-soon">COMING SOON</span>
@@ -1325,7 +1283,7 @@
       </div>
     </div>
 
-    <!-- ================= TAB 3: LEADERBOARD ================= -->
+    <!-- TAB 3: LEADERBOARD -->
     <div id="tab-leaderboard" class="tab-content">
       <div class="leaderboard-container">
         <div>
@@ -1377,18 +1335,19 @@
       </div>
     </div>
 
-    <!-- ================= TAB 4: TENTANG ================= -->
+    <!-- TAB 4: TENTANG -->
     <div id="tab-about" class="tab-content">
       <div class="about-container">
         <div class="about-hero glass-card">
           <h2 class="about-title">TENTANG FADHIL GAME</h2>
           <p style="font-size:13px; color:#cbd5e1; line-height:1.7; max-width:760px;">
-            <strong>Fadhil GAME</strong> adalah platform hiburan arcade modern berbasis web. Dirancang dengan mesin grafis Canvas 60 FPS, suara sintetis 8-Bit Web Audio API, serta sinkronisasi basis data personal-best langsung ke Google Sheets.
+            <strong>Fadhil GAME</strong> adalah platform hiburan arcade modern berbasis web yang di-hosting langsung di <strong>GitHub Pages</strong> dan terhubung ke backend serverless <strong>Google Apps Script + Google Sheets</strong>.
           </p>
           <div class="tech-stack-row">
             <span class="tech-badge">⚡ HTML5 Canvas 60 FPS</span>
             <span class="tech-badge">🔊 Web Audio API Synthesizer</span>
-            <span class="tech-badge">☁ Google Apps Script Backend</span>
+            <span class="tech-badge">🌐 Hosted on GitHub Pages</span>
+            <span class="tech-badge">☁ Google Apps Script REST API</span>
             <span class="tech-badge">📊 Google Sheets High-Score Database</span>
           </div>
         </div>
@@ -1421,15 +1380,14 @@
       </div>
     </div>
 
-    <!-- Footer -->
     <footer>
-      <div><strong>FADHIL GAME</strong> &nbsp;|&nbsp; Modern Arcade Platform</div>
-      <div>Terhubung ke Google Sheets Database</div>
+      <div><strong>FADHIL GAME</strong> &nbsp;|&nbsp; Modern Cyber Arcade Platform</div>
+      <div>Hosted on GitHub Pages &nbsp;•&nbsp; Google Sheets Database</div>
     </footer>
 
   </section>
 
-  <!-- ================= GAME MODAL ================= -->
+  <!-- Modal Game -->
   <div class="modal" id="gameModal">
     <div class="modal-header-info">
       <div class="modal-game-title" id="activeGameTitle">ARCADE GAME</div>
@@ -1441,12 +1399,39 @@
   </div>
 
   <script>
+    // Endpoint REST API Google Apps Script yang terhubung ke Google Sheets
+    const SCRIPT_API_URL = "https://script.google.com/macros/s/AKfycbwZbwG7_QUw4dzRCY72b8gnhqq2mCBNxbpVj593k_e2MNo6cbXKsu3tvB-H6CeKWhcG/exec";
+
     let currentUser = "";
     let soundEnabled = true;
 
-    // ==========================================
-    // 0. WEB AUDIO SYNTHESIZER (8-BIT SFX)
-    // ==========================================
+    // Zero-alert Cyber Toast Notification System
+    function showToast(msg, icon = '🎮') {
+      const toast = document.getElementById('cyberToast');
+      document.getElementById('toastMsg').innerText = msg;
+      document.getElementById('toastIcon').innerText = icon;
+      toast.classList.add('toast-show');
+      setTimeout(() => {
+        toast.classList.remove('toast-show');
+      }, 3200);
+    }
+
+    /**
+     * Helper pemanggil REST API ke Google Apps Script tanpa terkena blokir CORS
+     * Menggunakan metode POST dengan payload teks JSON
+     */
+    async function callAppsScriptApi(action, data = {}) {
+      const payload = { action: action, ...data };
+      const response = await fetch(SCRIPT_API_URL, {
+        method: 'POST',
+        body: JSON.stringify(payload)
+      });
+      if (!response.ok) {
+        throw new Error("HTTP error status: " + response.status);
+      }
+      return await response.json();
+    }
+
     const AudioContext = window.AudioContext || window.webkitAudioContext;
     let audioCtx = null;
 
@@ -1591,9 +1576,6 @@
       }
     }
 
-    // ==========================================
-    // 1. NAVIGASI TABS
-    // ==========================================
     function switchNav(tabKey) {
       sfx.click();
       document.querySelectorAll('.nav-item').forEach(btn => btn.classList.remove('active'));
@@ -1609,9 +1591,6 @@
       }
     }
 
-    // ==========================================
-    // 2. AMBIENT PARTICLE ENGINE
-    // ==========================================
     const ambCanvas = document.getElementById('ambientCanvas');
     const actx = ambCanvas.getContext('2d');
     let pWidth, pHeight, particles = [];
@@ -1651,21 +1630,17 @@
     }
     renderAmbient();
 
-    // ==========================================
-    // 3. AUTH VIEW ROBOT GAMER & EYE-TRACKING
-    // ==========================================
     const authRCanvas = document.getElementById('authRobotCanvas');
     const arctx = authRCanvas ? authRCanvas.getContext('2d') : null;
     let authTargetAngle = 0;
     let authRobotStep = 0;
     let authBlinkTimer = 0;
 
-    // Track cursor across screen for Auth Robot Eyes
     window.addEventListener('mousemove', (e) => {
       if (authRCanvas) {
         const rect = authRCanvas.getBoundingClientRect();
         const rx = rect.left + rect.width / 2;
-        const ry = rect.top + 50; // Head center
+        const ry = rect.top + 50;
         authTargetAngle = Math.atan2(e.clientY - ry, e.clientX - rx);
       }
     });
@@ -1679,7 +1654,6 @@
       }
     });
 
-    // 10 FPS Eye & Head Stop-Motion update
     setInterval(() => {
       let norm = (authTargetAngle + Math.PI) / (2 * Math.PI);
       authRobotStep = Math.floor(norm * 14);
@@ -1695,7 +1669,6 @@
 
       arctx.save();
 
-      // 1. Gaming Altar / Pedestal Platform
       arctx.fillStyle = '#0f172a';
       arctx.strokeStyle = '#00f0ff';
       arctx.lineWidth = 1.8;
@@ -1704,14 +1677,12 @@
       arctx.fill();
       arctx.stroke();
 
-      // Altar Neon Circuit Light
       arctx.fillStyle = '#00f0ff';
       arctx.shadowColor = '#00f0ff';
       arctx.shadowBlur = 8;
       arctx.fillRect(30, 138, 110, 3);
       arctx.shadowBlur = 0;
 
-      // 2. Lucky Question Box
       arctx.fillStyle = '#f59e0b';
       arctx.strokeStyle = '#facc15';
       arctx.lineWidth = 2;
@@ -1725,7 +1696,6 @@
       arctx.textAlign = 'center';
       arctx.fillText('?', 136, 122);
 
-      // 3. Robot Torso & Gamer Controller
       arctx.fillStyle = '#1e293b';
       arctx.strokeStyle = '#475569';
       arctx.lineWidth = 2;
@@ -1734,7 +1704,6 @@
       arctx.fill();
       arctx.stroke();
 
-      // Glowing Cyan Gamepad held in hands
       arctx.fillStyle = '#00f0ff';
       arctx.shadowColor = '#00f0ff';
       arctx.shadowBlur = 10;
@@ -1743,7 +1712,6 @@
       arctx.fill();
       arctx.shadowBlur = 0;
 
-      // D-Pad and Buttons on mini gamepad
       arctx.fillStyle = '#060913';
       arctx.fillRect(63, 112, 6, 6);
       arctx.beginPath();
@@ -1751,25 +1719,21 @@
       arctx.arc(88, 117, 2, 0, Math.PI * 2);
       arctx.fill();
 
-      // Robot Hands
       arctx.fillStyle = '#e2e8f0';
       arctx.beginPath();
       arctx.arc(55, 115, 6, 0, Math.PI * 2);
       arctx.arc(95, 115, 6, 0, Math.PI * 2);
       arctx.fill();
 
-      // 4. Robot Head & Headphones
       arctx.save();
       arctx.translate(75, 48);
 
-      // Cyan Glowing Gaming Headphones Band
       arctx.strokeStyle = '#00f0ff';
       arctx.lineWidth = 5;
       arctx.beginPath();
       arctx.arc(0, -5, 36, Math.PI, 0, false);
       arctx.stroke();
 
-      // Headphone Ear Cushions
       arctx.fillStyle = '#00f0ff';
       arctx.shadowColor = '#00f0ff';
       arctx.shadowBlur = 12;
@@ -1779,7 +1743,6 @@
       arctx.fill();
       arctx.shadowBlur = 0;
 
-      // Robot Helmet Shell (White & Deep Slate)
       arctx.fillStyle = '#f8fafc';
       arctx.strokeStyle = '#38bdf8';
       arctx.lineWidth = 2.5;
@@ -1788,13 +1751,11 @@
       arctx.fill();
       arctx.stroke();
 
-      // Dark Glass Visor Screen
       arctx.fillStyle = '#050914';
       arctx.beginPath();
       arctx.roundRect(-27, -19, 54, 38, 12);
       arctx.fill();
 
-      // 5. INTERACTIVE EYE TRACKING (Mengikuti kursor mouse / touch)
       const eyeOffsetX = Math.cos(angle) * 7;
       const eyeOffsetY = Math.sin(angle) * 4.5;
 
@@ -1803,11 +1764,9 @@
       arctx.shadowBlur = 12;
 
       if (isBlinking) {
-        // Blinking state (horizontal slit)
         arctx.fillRect(-16 + eyeOffsetX, 0 + eyeOffsetY, 12, 2.5);
         arctx.fillRect(4 + eyeOffsetX, 0 + eyeOffsetY, 12, 2.5);
       } else {
-        // Happy Curved Goggle Eyes (^^)
         arctx.beginPath();
         arctx.arc(-11 + eyeOffsetX, 1 + eyeOffsetY, 6, Math.PI + 0.2, -0.2, false);
         arctx.lineWidth = 3.5;
@@ -1819,13 +1778,10 @@
         arctx.stroke();
       }
 
-      arctx.restore(); // End Head
-      arctx.restore(); // End Robot
+      arctx.restore();
+      arctx.restore();
     }
 
-    // ==========================================
-    // 4. PIXEL CAT WITH HEADPHONES (CANVAS)
-    // ==========================================
     const catCanvas = document.getElementById('catCanvas');
     const catCtx = catCanvas ? catCanvas.getContext('2d') : null;
 
@@ -1835,39 +1791,33 @@
       catCtx.save();
       catCtx.translate(22, 10);
 
-      // Floating Island Base
       catCtx.fillStyle = '#1e1b4b';
       catCtx.fillRect(0, 48, 48, 8);
       catCtx.fillStyle = '#312e81';
       catCtx.fillRect(6, 56, 36, 6);
       catCtx.fillRect(14, 62, 20, 4);
 
-      // Cat Body (White Pixel Cat)
       catCtx.fillStyle = '#f8fafc';
-      catCtx.fillRect(10, 22, 28, 26); // Body
-      catCtx.fillRect(8, 12, 32, 22);  // Head
+      catCtx.fillRect(10, 22, 28, 26);
+      catCtx.fillRect(8, 12, 32, 22);
 
-      // Cat Ears
       catCtx.fillRect(8, 6, 8, 6);
       catCtx.fillRect(32, 6, 8, 6);
-      catCtx.fillStyle = '#f472b6'; // Pink inside ears
+      catCtx.fillStyle = '#f472b6';
       catCtx.fillRect(10, 8, 4, 4);
       catCtx.fillRect(34, 8, 4, 4);
 
-      // Cyan Headphones
       catCtx.fillStyle = '#00f0ff';
-      catCtx.fillRect(14, 4, 20, 4); // Band
-      catCtx.fillRect(4, 16, 6, 12);  // Left Cup
-      catCtx.fillRect(38, 16, 6, 12); // Right Cup
+      catCtx.fillRect(14, 4, 20, 4);
+      catCtx.fillRect(4, 16, 6, 12);
+      catCtx.fillRect(38, 16, 6, 12);
 
-      // Face Eyes & Nose
       catCtx.fillStyle = '#090d16';
-      catCtx.fillRect(14, 20, 4, 4); // Left Eye
-      catCtx.fillRect(30, 20, 4, 4); // Right Eye
+      catCtx.fillRect(14, 20, 4, 4);
+      catCtx.fillRect(30, 20, 4, 4);
       catCtx.fillStyle = '#f472b6';
-      catCtx.fillRect(23, 24, 3, 2); // Nose
+      catCtx.fillRect(23, 24, 3, 2);
 
-      // Cheeks Blush
       catCtx.fillStyle = 'rgba(244, 114, 182, 0.6)';
       catCtx.fillRect(10, 24, 4, 2);
       catCtx.fillRect(34, 24, 4, 2);
@@ -1876,9 +1826,6 @@
     }
     drawPixelCat();
 
-    // ==========================================
-    // 5. NAVBAR ROBOT STOP-MOTION MASCOT (10 FPS)
-    // ==========================================
     const rCanvas = document.getElementById('robotCanvas');
     const rctx = rCanvas.getContext('2d');
     let targetAngle = 0;
@@ -1930,9 +1877,6 @@
       rctx.restore();
     }
 
-    // ==========================================
-    // 6. AUTH & GOOGLE SHEETS DATA
-    // ==========================================
     let isRegisterMode = false;
 
     function setAuthMode(register) {
@@ -1976,7 +1920,7 @@
       }
     }
 
-    function submitAuth() {
+    async function submitAuth() {
       sfx.click();
       const u = document.getElementById('username').value.trim();
       const p = document.getElementById('password').value.trim();
@@ -1993,49 +1937,41 @@
       feedback.style.color = 'var(--primary)';
       feedback.innerText = "Menghubungkan ke server...";
 
-      if (isRegisterMode) {
-        google.script.run
-          .withSuccessHandler((res) => {
-            btn.disabled = false;
-            if (res.success) {
-              feedback.style.color = '#10b981';
-              feedback.innerText = res.message;
-              setAuthMode(false);
-            } else {
-              feedback.style.color = 'var(--accent-pink)';
-              feedback.innerText = res.message;
-            }
-          })
-          .withFailureHandler((err) => {
-            btn.disabled = false;
+      try {
+        if (isRegisterMode) {
+          const res = await callAppsScriptApi('register', { username: u, password: p });
+          btn.disabled = false;
+          if (res.success) {
+            feedback.style.color = '#10b981';
+            feedback.innerText = res.message;
+            showToast("Akun berhasil dibuat! Silakan masuk.", "✅");
+            setAuthMode(false);
+          } else {
             feedback.style.color = 'var(--accent-pink)';
-            feedback.innerText = "Error: " + err.message;
-          })
-          .registerUser(u, p);
-      } else {
-        google.script.run
-          .withSuccessHandler((res) => {
-            btn.disabled = false;
-            if (res.success) {
-              currentUser = res.username;
-              document.getElementById('auth-view').style.display = 'none';
-              document.getElementById('dashboard-view').style.display = 'flex';
-              document.getElementById('user-display').innerText = `P1: ${currentUser.toUpperCase()}`;
-              document.getElementById('avatar-initial').innerText = currentUser.charAt(0).toUpperCase();
-              
-              switchNav('home');
-              loadDashboardMetrics();
-            } else {
-              feedback.style.color = 'var(--accent-pink)';
-              feedback.innerText = res.message;
-            }
-          })
-          .withFailureHandler((err) => {
-            btn.disabled = false;
+            feedback.innerText = res.message;
+          }
+        } else {
+          const res = await callAppsScriptApi('login', { username: u, password: p });
+          btn.disabled = false;
+          if (res.success) {
+            currentUser = res.username;
+            document.getElementById('auth-view').style.display = 'none';
+            document.getElementById('dashboard-view').style.display = 'flex';
+            document.getElementById('user-display').innerText = `P1: ${currentUser.toUpperCase()}`;
+            document.getElementById('avatar-initial').innerText = currentUser.charAt(0).toUpperCase();
+            
+            showToast(`Selamat datang kembali, ${currentUser}!`, "🚀");
+            switchNav('home');
+            loadDashboardMetrics();
+          } else {
             feedback.style.color = 'var(--accent-pink)';
-            feedback.innerText = "Error: " + err.message;
-          })
-          .loginUser(u, p);
+            feedback.innerText = res.message;
+          }
+        }
+      } catch (err) {
+        btn.disabled = false;
+        feedback.style.color = 'var(--accent-pink)';
+        feedback.innerText = "Koneksi gagal: " + err.message;
       }
     }
 
@@ -2047,16 +1983,17 @@
       document.getElementById('auth-feedback').innerText = "";
       document.getElementById('dashboard-view').style.display = 'none';
       document.getElementById('auth-view').style.display = 'flex';
+      showToast("Anda telah keluar dari akun.", "👋");
     }
 
-    function loadDashboardMetrics() {
-      google.script.run.withSuccessHandler((data) => {
+    async function loadDashboardMetrics() {
+      try {
+        const data = await callAppsScriptApi('getDashboard');
         if (data && data.success) {
           document.getElementById('stat-total-games').innerText = data.totalGames;
           document.getElementById('stat-total-players').innerText = data.totalPlayers;
           document.getElementById('stat-total-played').innerText = data.totalPlayed;
 
-          // Sidebar Home Top Player
           const homeTopList = document.getElementById('homeTopPlayerList');
           if (data.topPlayers && data.topPlayers.length > 0) {
             let html = '';
@@ -2076,7 +2013,6 @@
             homeTopList.innerHTML = `<div class="empty-state">Belum ada rekor pemain.<br>Mainkan game dan raih skor pertama!</div>`;
           }
 
-          // Full Table Leaderboard
           const tableBody = document.getElementById('leaderboardTableBody');
           const lb = data.leaderboard || [];
 
@@ -2120,7 +2056,9 @@
             `;
           }
         }
-      }).getDashboardData();
+      } catch (err) {
+        console.error("Gagal memuat metrik dashboard:", err);
+      }
     }
 
     function filterCategory(cat, el) {
@@ -2149,9 +2087,6 @@
       });
     }
 
-    // ============================================================
-    // 7. IN-GAME CANVAS ENGINES
-    // ============================================================
     const gModal = document.getElementById('gameModal');
     const gCanvas = document.getElementById('gameCanvas');
     const gCtx = gCanvas.getContext('2d');
@@ -2189,9 +2124,6 @@
       }
     });
 
-    // ------------------------------------------------------------
-    // GAME A: NEON DODGER (CYBER SPEEDER VS ENERGY BARRIERS)
-    // ------------------------------------------------------------
     let ndScore = 0, ndObstacles = [], ndGameOver = false, ndFrame = 0;
 
     function initNeonDodger() {
@@ -2207,14 +2139,12 @@
       gCtx.save();
       gCtx.translate(x + 20, y + 16);
 
-      // Neon Thruster Exhaust Flame
       gCtx.fillStyle = '#00f0ff';
       gCtx.shadowColor = '#00f0ff';
       gCtx.shadowBlur = 12;
       const flameH = 8 + Math.random() * 8;
       gCtx.fillRect(-6, 12, 12, flameH);
 
-      // Body Hull
       gCtx.fillStyle = '#1e293b';
       gCtx.strokeStyle = '#00f0ff';
       gCtx.lineWidth = 2;
@@ -2229,13 +2159,11 @@
       gCtx.fill();
       gCtx.stroke();
 
-      // Cockpit Glass
       gCtx.fillStyle = '#00f0ff';
       gCtx.beginPath();
       gCtx.ellipse(0, -2, 4, 7, 0, 0, Math.PI * 2);
       gCtx.fill();
 
-      // Headlight Beams
       gCtx.fillStyle = 'rgba(0, 240, 255, 0.15)';
       gCtx.beginPath();
       gCtx.moveTo(-8, -10);
@@ -2256,15 +2184,12 @@
       gCtx.shadowColor = '#ec4899';
       gCtx.shadowBlur = 14;
 
-      // Pylons
       gCtx.fillRect(0, 0, 8, obs.h);
       gCtx.fillRect(obs.w - 8, 0, 8, obs.h);
 
-      // Electric Pulse Beam
       gCtx.fillStyle = 'rgba(236, 72, 153, 0.7)';
       gCtx.fillRect(8, obs.h / 2 - 3, obs.w - 16, 6);
 
-      // Warning Core
       gCtx.fillStyle = '#fff';
       gCtx.fillRect(obs.w / 2 - 6, obs.h / 2 - 2, 12, 4);
 
@@ -2299,8 +2224,9 @@
           ndGameOver = true;
           sfx.gameOver();
           if (currentUser) {
-            google.script.run.withSuccessHandler(() => loadDashboardMetrics())
-              .saveGameScore(currentUser, 'NEON DODGER', ndScore);
+            callAppsScriptApi('saveScore', { username: currentUser, gameTitle: 'NEON DODGER', score: ndScore })
+              .then(() => loadDashboardMetrics())
+              .catch(e => console.error(e));
           }
         }
       }
@@ -2339,20 +2265,13 @@
       }
     }
 
-    // ------------------------------------------------------------
-    // GAME B: SPACE BLASTER (FULL REDESIGN - CONCEPT SHEET ALIGNED)
-    // ------------------------------------------------------------
     let sbScore = 0, sbMeteors = [], sbBullets = [], sbSparks = [], sbPowerUps = [], sbFloatTexts = [];
     let sbGameOver = false, sbCooldown = 0;
 
-    // Player Lives & Shield Systems
     let sbLives = 3, sbMaxLives = 3;
     let sbPlayerHp = 100, sbPlayerMaxHp = 100, sbPlayerInvincible = 0;
-
-    // Active Power-Up Timers (frames @ 60fps)
     let sbPowerTimers = { triple: 0, speed: 0, shield: 0, magnet: 0 };
 
-    // Progressive Multi-Boss System
     let sbBossActive = false;
     let sbBoss = null, sbBossBullets = [];
     let sbBossTier = 0;
@@ -2391,7 +2310,6 @@
       loopSpaceBlaster();
     }
 
-    // Gambar Model Kapal: STRIKER
     function drawStrikerShip(x, y) {
       gCtx.save();
       gCtx.translate(x + 20, y + 18);
@@ -2400,7 +2318,6 @@
         gCtx.globalAlpha = 0.35;
       }
 
-      // 1. Dual Blue Plasma Thruster Flames
       const flicker = Math.random() * 9;
       const boostFlame = sbPowerTimers.speed > 0 ? 8 : 0;
       gCtx.fillStyle = '#00f0ff';
@@ -2429,7 +2346,6 @@
       gCtx.lineTo(8, 14);
       gCtx.fill();
 
-      // 2. Striker Main Fuselage
       gCtx.fillStyle = '#f8fafc';
       gCtx.strokeStyle = '#0284c7';
       gCtx.lineWidth = 1.5;
@@ -2453,7 +2369,6 @@
       gCtx.closePath();
       gCtx.fill();
 
-      // 3. Wings & Wingtip Cannons
       gCtx.fillStyle = '#e2e8f0';
       gCtx.strokeStyle = '#00f0ff';
       gCtx.lineWidth = 1.2;
@@ -2479,7 +2394,6 @@
       gCtx.fillRect(-22, 4, 3, 8);
       gCtx.fillRect(19, 4, 3, 8);
 
-      // 4. Cockpit Glass
       gCtx.fillStyle = '#00f0ff';
       gCtx.shadowColor = '#00f0ff';
       gCtx.shadowBlur = 8;
@@ -2487,7 +2401,6 @@
       gCtx.ellipse(0, -6, 3.2, 7.5, 0, 0, Math.PI * 2);
       gCtx.fill();
 
-      // 5. Shield Bubble
       if (sbPowerTimers.shield > 0 || sbBossActive) {
         const shieldPulse = Math.sin(sbCooldown * 0.15) * 2;
         const shieldColor = sbPowerTimers.shield > 0 ? 'rgba(168, 85, 247, ' : 'rgba(0, 240, 255, ';
@@ -2503,7 +2416,6 @@
         gCtx.fill();
       }
 
-      // Magnet Aura
       if (sbPowerTimers.magnet > 0) {
         gCtx.strokeStyle = 'rgba(239, 68, 68, 0.45)';
         gCtx.lineWidth = 1;
@@ -2515,7 +2427,6 @@
       gCtx.restore();
     }
 
-    // Gambar 5 Varian Meteorit (NORMAL, CRACKED, ICE, GOLD, DARK)
     function drawMeteor(m) {
       gCtx.save();
       gCtx.translate(m.x, m.y);
@@ -2647,7 +2558,6 @@
       gCtx.restore();
     }
 
-    // Gambar 6 Item Power-Up (HEAL, SCORE, SPEED, TRIPLE, SHIELD, MAGNET)
     function drawPowerUp(p) {
       gCtx.save();
       gCtx.translate(p.x, p.y);
@@ -2715,7 +2625,6 @@
       gCtx.restore();
     }
 
-    // Gambar Model 3 Boss (TITAN DREADNOUGHT, VOID DESTROYER, OMEGA ANNIHILATOR)
     function drawBoss(b) {
       gCtx.save();
       gCtx.translate(b.x + b.w / 2, b.y + b.h / 2);
@@ -2723,7 +2632,6 @@
       const f = Math.random() * 7;
 
       if (b.tier === 1) {
-        // BOSS 1: TITAN DREADNOUGHT
         gCtx.fillStyle = '#ef4444';
         gCtx.shadowColor = '#ef4444';
         gCtx.shadowBlur = 18;
@@ -2761,7 +2669,6 @@
         gCtx.fill();
       }
       else if (b.tier === 2) {
-        // BOSS 2: VOID DESTROYER
         gCtx.fillStyle = '#a855f7';
         gCtx.shadowColor = '#a855f7';
         gCtx.shadowBlur = 16;
@@ -2800,7 +2707,6 @@
         gCtx.fill();
       }
       else {
-        // BOSS 3: OMEGA ANNIHILATOR
         gCtx.fillStyle = '#f97316';
         gCtx.shadowColor = '#ef4444';
         gCtx.shadowBlur = 22;
@@ -3142,8 +3048,9 @@
                   sbGameOver = true;
                   sfx.gameOver();
                   if (currentUser) {
-                    google.script.run.withSuccessHandler(() => loadDashboardMetrics())
-                      .saveGameScore(currentUser, 'SPACE BLASTER', sbScore);
+                    callAppsScriptApi('saveScore', { username: currentUser, gameTitle: 'SPACE BLASTER', score: sbScore })
+                      .then(() => loadDashboardMetrics())
+                      .catch(e => console.error(e));
                   }
                 }
               }
@@ -3218,8 +3125,9 @@
                 sbGameOver = true;
                 sfx.gameOver();
                 if (currentUser) {
-                  google.script.run.withSuccessHandler(() => loadDashboardMetrics())
-                    .saveGameScore(currentUser, 'SPACE BLASTER', sbScore);
+                  callAppsScriptApi('saveScore', { username: currentUser, gameTitle: 'SPACE BLASTER', score: sbScore })
+                    .then(() => loadDashboardMetrics())
+                    .catch(e => console.error(e));
                 }
               }
             }
@@ -3228,7 +3136,6 @@
       }
       sbMeteors = sbMeteors.filter(m => m.y < 460);
 
-      // Render Screen
       gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height);
 
       gCtx.fillStyle = 'rgba(255, 255, 255, 0.55)';
@@ -3298,7 +3205,6 @@
         gCtx.fillText(ft.text, ft.x - 12, ft.y);
       }
 
-      // HUD
       let heartX = 14;
       for (let h = 0; h < sbMaxLives; h++) {
         gCtx.font = '13px "Plus Jakarta Sans"';
