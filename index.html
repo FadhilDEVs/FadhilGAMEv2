@@ -13,7 +13,7 @@
     :root {
       --bg-main: #060913;
       --surface: rgba(13, 18, 34, 0.88);
-      --surface-card: rgba(18, 25, 46, 0.8);
+      --surface-card: rgba(18, 25, 46, 0.82);
       --border-subtle: rgba(0, 240, 255, 0.18);
       --border-hover: rgba(0, 240, 255, 0.55);
       --primary: #00f0ff;
@@ -21,6 +21,7 @@
       --accent-purple: #8b5cf6;
       --accent-pink: #ec4899;
       --accent-yellow: #facc15;
+      --accent-green: #22c55e;
       --text-title: #f8fafc;
       --text-muted: #94a3b8;
     }
@@ -41,7 +42,6 @@
       position: relative;
     }
 
-    /* Ambient background canvas */
     #ambientCanvas {
       position: fixed;
       top: 0; left: 0;
@@ -58,6 +58,7 @@
       border-radius: 16px;
     }
 
+    /* ================= AUTH VIEW ================= */
     #auth-view {
       position: relative;
       z-index: 10;
@@ -78,20 +79,13 @@
       padding-bottom: 8px;
     }
 
-    .auth-brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
+    .auth-brand { display: flex; align-items: center; gap: 12px; }
     .brand-logo-icon {
       width: 40px; height: 40px;
       background: linear-gradient(135deg, rgba(0, 240, 255, 0.2), rgba(139, 92, 246, 0.3));
       border: 1px solid rgba(0, 240, 255, 0.4);
       border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: flex; align-items: center; justify-content: center;
       box-shadow: 0 0 15px rgba(0, 240, 255, 0.25);
     }
     .brand-logo-icon svg { width: 24px; height: 24px; fill: var(--primary); }
@@ -99,31 +93,19 @@
     .brand-text-wrap { display: flex; flex-direction: column; }
     .brand-main-title {
       font-family: 'Orbitron', sans-serif;
-      font-size: 18px;
-      font-weight: 900;
-      letter-spacing: 1.2px;
-      color: #fff;
+      font-size: 18px; font-weight: 900; letter-spacing: 1.2px; color: #fff;
     }
     .brand-sub-title {
-      font-size: 9.5px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      color: var(--primary);
-      text-transform: uppercase;
+      font-size: 9.5px; font-weight: 700; letter-spacing: 1.5px;
+      color: var(--primary); text-transform: uppercase;
     }
 
     .auth-header-motto {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      color: #64748b;
-      display: flex;
-      gap: 10px;
+      font-family: 'Orbitron', sans-serif; font-size: 11px; font-weight: 700;
+      letter-spacing: 2px; color: #64748b; display: flex; gap: 10px;
     }
     .auth-header-motto span { color: var(--primary); }
 
-    /* Grid 3 Kolom Auth */
     .auth-main-grid {
       display: grid;
       grid-template-columns: 1.05fr 1.15fr 0.9fr;
@@ -133,558 +115,271 @@
       width: 100%;
     }
 
-    /* Kolom Kiri: Hero & Robot Gamer */
-    .auth-hero-left {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
+    .auth-hero-left { display: flex; flex-direction: column; gap: 16px; }
     .hero-tagline-title {
       font-family: 'Orbitron', sans-serif;
-      font-size: 38px;
-      font-weight: 900;
-      line-height: 1.08;
-      letter-spacing: 1.5px;
-      color: #fff;
+      font-size: 38px; font-weight: 900; line-height: 1.08; letter-spacing: 1.5px; color: #fff;
     }
     .hero-tagline-title .gradient-text {
       background: linear-gradient(90deg, var(--primary), var(--accent-purple));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      display: block;
-      position: relative;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      display: block; position: relative;
     }
     .hero-tagline-title .gradient-text::after {
-      content: '';
-      position: absolute;
-      left: 0; bottom: -4px;
-      width: 70px; height: 3px;
-      background: var(--primary);
-      border-radius: 2px;
-      box-shadow: 0 0 10px var(--primary);
+      content: ''; position: absolute; left: 0; bottom: -4px; width: 70px; height: 3px;
+      background: var(--primary); border-radius: 2px; box-shadow: 0 0 10px var(--primary);
     }
 
-    .hero-tagline-sub {
-      font-size: 13px;
-      color: #94a3b8;
-      line-height: 1.5;
-      max-width: 320px;
-    }
+    .hero-tagline-sub { font-size: 13px; color: #94a3b8; line-height: 1.5; max-width: 320px; }
 
-    .robot-gamer-container {
-      display: flex;
-      align-items: flex-end;
-      gap: 12px;
-      position: relative;
-      margin-top: 6px;
-    }
-
+    .robot-gamer-container { display: flex; align-items: flex-end; gap: 12px; position: relative; margin-top: 6px; }
     .speech-bubble-gamer {
-      background: rgba(15, 23, 42, 0.92);
-      border: 1px solid rgba(0, 240, 255, 0.35);
-      border-radius: 12px;
-      padding: 10px 14px;
-      font-size: 11px;
-      font-weight: 600;
-      color: #e2e8f0;
-      max-width: 170px;
-      line-height: 1.4;
+      background: rgba(15, 23, 42, 0.92); border: 1px solid rgba(0, 240, 255, 0.35); border-radius: 12px;
+      padding: 10px 14px; font-size: 11px; font-weight: 600; color: #e2e8f0; max-width: 170px; line-height: 1.4;
       box-shadow: 0 6px 20px rgba(0,0,0,0.5), 0 0 15px rgba(0, 240, 255, 0.15);
-      position: relative;
-      animation: floatBubble 2.5s ease-in-out infinite alternate;
+      position: relative; animation: floatBubble 2.5s ease-in-out infinite alternate;
     }
     .speech-bubble-gamer::after {
-      content: '';
-      position: absolute;
-      right: -8px; bottom: 24px;
-      border-width: 6px 0 6px 8px;
-      border-style: solid;
-      border-color: transparent transparent transparent rgba(0, 240, 255, 0.35);
+      content: ''; position: absolute; right: -8px; bottom: 24px; border-width: 6px 0 6px 8px;
+      border-style: solid; border-color: transparent transparent transparent rgba(0, 240, 255, 0.35);
     }
-    @keyframes floatBubble {
-      0% { transform: translateY(0); }
-      100% { transform: translateY(-4px); }
-    }
+    @keyframes floatBubble { 0% { transform: translateY(0); } 100% { transform: translateY(-4px); } }
 
-    #authRobotCanvas {
-      width: 170px; height: 160px;
-      display: block;
-      filter: drop-shadow(0 10px 25px rgba(0, 240, 255, 0.2));
-    }
+    #authRobotCanvas { width: 170px; height: 160px; display: block; filter: drop-shadow(0 10px 25px rgba(0, 240, 255, 0.2)); }
 
     .auth-card-neon-wrap {
-      position: relative;
-      padding: 2px;
-      border-radius: 24px;
+      position: relative; padding: 2px; border-radius: 24px;
       background: linear-gradient(135deg, var(--primary) 0%, var(--accent-purple) 60%, var(--accent-pink) 100%);
       box-shadow: 0 0 32px rgba(0, 240, 255, 0.2);
     }
-    .auth-card-inner {
-      background: #080c1a;
-      border-radius: 22px;
-      padding: 30px 26px;
-      text-align: center;
-    }
-
+    .auth-card-inner { background: #080c1a; border-radius: 22px; padding: 30px 26px; text-align: center; }
     .auth-card-logo-icon {
-      width: 46px; height: 46px;
-      background: linear-gradient(135deg, rgba(0, 240, 255, 0.15), rgba(236, 72, 153, 0.25));
-      border: 1px solid rgba(0, 240, 255, 0.4);
-      border-radius: 14px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 10px;
-      box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+      width: 46px; height: 46px; background: linear-gradient(135deg, rgba(0, 240, 255, 0.15), rgba(236, 72, 153, 0.25));
+      border: 1px solid rgba(0, 240, 255, 0.4); border-radius: 14px; display: inline-flex; align-items: center;
+      justify-content: center; margin-bottom: 10px; box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
     }
     .auth-card-logo-icon svg { width: 26px; height: 26px; fill: var(--primary); }
-
-    .auth-card-title {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 20px;
-      font-weight: 900;
-      letter-spacing: 1px;
-      color: #fff;
-    }
-    .auth-card-sub {
-      font-size: 9.5px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      color: var(--primary);
-      margin-top: 2px;
-      margin-bottom: 16px;
-      text-transform: uppercase;
-    }
+    .auth-card-title { font-family: 'Orbitron', sans-serif; font-size: 20px; font-weight: 900; letter-spacing: 1px; color: #fff; }
+    .auth-card-sub { font-size: 9.5px; font-weight: 700; letter-spacing: 1.5px; color: var(--primary); margin: 2px 0 16px; text-transform: uppercase; }
 
     .auth-segmented-tabs {
-      display: flex;
-      background: rgba(15, 23, 42, 0.85);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 10px;
-      padding: 3px;
-      margin-bottom: 16px;
-      gap: 4px;
+      display: flex; background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 10px; padding: 3px; margin-bottom: 16px; gap: 4px;
     }
     .auth-tab-btn {
-      flex: 1;
-      padding: 9px 0;
-      background: transparent;
-      border: none;
-      border-radius: 8px;
-      color: var(--text-muted);
-      font-size: 11.5px;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      cursor: pointer;
-      transition: all 0.2s;
+      flex: 1; padding: 9px 0; background: transparent; border: none; border-radius: 8px;
+      color: var(--text-muted); font-size: 11.5px; font-weight: 700; display: flex; align-items: center;
+      justify-content: center; gap: 6px; cursor: pointer; transition: all 0.2s;
     }
     .auth-tab-btn svg { width: 14px; height: 14px; fill: currentColor; }
     .auth-tab-btn.active {
-      background: rgba(0, 240, 255, 0.15);
-      border: 1px solid rgba(0, 240, 255, 0.4);
-      color: var(--primary);
-      box-shadow: 0 0 12px rgba(0, 240, 255, 0.2);
+      background: rgba(0, 240, 255, 0.15); border: 1px solid rgba(0, 240, 255, 0.4);
+      color: var(--primary); box-shadow: 0 0 12px rgba(0, 240, 255, 0.2);
     }
 
-    .auth-input-group {
-      margin-bottom: 12px;
-      text-align: left;
-    }
+    .auth-input-group { margin-bottom: 12px; text-align: left; }
     .auth-input-wrap {
-      display: flex;
-      align-items: center;
-      background: rgba(14, 20, 38, 0.9);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 10px;
-      padding: 0 14px;
-      transition: all 0.2s;
+      display: flex; align-items: center; background: rgba(14, 20, 38, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 10px; padding: 0 14px; transition: all 0.2s;
     }
-    .auth-input-wrap:focus-within {
-      border-color: var(--primary);
-      box-shadow: 0 0 15px var(--primary-glow);
-    }
-    .auth-input-icon {
-      width: 16px; height: 16px;
-      fill: #64748b;
-      margin-right: 10px;
-      flex-shrink: 0;
-    }
-    .auth-input-wrap input {
-      width: 100%;
-      padding: 12px 0;
-      background: transparent;
-      border: none;
-      outline: none;
-      color: #fff;
-      font-size: 12.5px;
-    }
+    .auth-input-wrap:focus-within { border-color: var(--primary); box-shadow: 0 0 15px var(--primary-glow); }
+    .auth-input-icon { width: 16px; height: 16px; fill: #64748b; margin-right: 10px; flex-shrink: 0; }
+    .auth-input-wrap input { width: 100%; padding: 12px 0; background: transparent; border: none; outline: none; color: #fff; font-size: 12.5px; }
     .auth-input-wrap input::placeholder { color: #64748b; }
-    .btn-eye-toggle {
-      background: none;
-      border: none;
-      padding: 4px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #64748b;
-    }
+    .btn-eye-toggle { background: none; border: none; padding: 4px; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #64748b; }
     .btn-eye-toggle svg { width: 16px; height: 16px; fill: currentColor; }
     .btn-eye-toggle:hover { color: var(--primary); }
 
-    /* Pilihan avatar saat mendaftar */
-    .avatar-picker-row {
-      display: none;
-      justify-content: center;
-      gap: 8px;
-      margin-bottom: 14px;
-    }
+    .avatar-picker-row { display: none; justify-content: center; gap: 8px; margin-bottom: 14px; }
     .avatar-choice-btn {
-      width: 36px; height: 36px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.05);
-      border: 2px solid transparent;
-      font-size: 18px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: all 0.2s;
+      width: 36px; height: 36px; border-radius: 50%; background: rgba(255, 255, 255, 0.05);
+      border: 2px solid transparent; font-size: 18px; display: flex; align-items: center;
+      justify-content: center; cursor: pointer; transition: all 0.2s;
     }
-    .avatar-choice-btn.selected {
-      border-color: var(--primary);
-      background: rgba(0, 240, 255, 0.2);
-      transform: scale(1.1);
-    }
+    .avatar-choice-btn.selected { border-color: var(--primary); background: rgba(0, 240, 255, 0.2); transform: scale(1.1); }
 
     .btn-auth-submit {
-      width: 100%;
-      padding: 13px;
-      border: none;
-      border-radius: 10px;
+      width: 100%; padding: 13px; border: none; border-radius: 10px;
       background: linear-gradient(90deg, #00f0ff 0%, #8b5cf6 50%, #d946ef 100%);
-      color: #040813;
-      font-family: 'Orbitron', sans-serif;
-      font-weight: 900;
-      font-size: 12px;
-      letter-spacing: 1.2px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      cursor: pointer;
-      box-shadow: 0 6px 20px rgba(0, 240, 255, 0.4);
-      margin-top: 10px;
-      transition: all 0.2s;
+      color: #040813; font-family: 'Orbitron', sans-serif; font-weight: 900; font-size: 12px;
+      letter-spacing: 1.2px; display: flex; align-items: center; justify-content: center; gap: 8px;
+      cursor: pointer; box-shadow: 0 6px 20px rgba(0, 240, 255, 0.4); margin-top: 10px; transition: all 0.2s;
     }
-    .btn-auth-submit:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 25px rgba(0, 240, 255, 0.6);
-    }
-    .btn-auth-submit:disabled {
-      background: #334155;
-      color: #64748b;
-      cursor: wait;
-      transform: none;
-      box-shadow: none;
-    }
+    .btn-auth-submit:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(0, 240, 255, 0.6); }
+    .btn-auth-submit:disabled { background: #334155; color: #64748b; cursor: wait; transform: none; box-shadow: none; }
 
-    .auth-footer-toggle {
-      margin-top: 14px;
-      font-size: 11px;
-      color: var(--text-muted);
-      cursor: pointer;
-    }
+    .auth-footer-toggle { margin-top: 14px; font-size: 11px; color: var(--text-muted); cursor: pointer; }
     .auth-footer-toggle strong { color: var(--primary); }
 
-    .auth-badges-right {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 16px;
-    }
-    .floating-pill-menu {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      width: 190px;
-    }
+    .auth-badges-right { display: flex; flex-direction: column; align-items: flex-end; gap: 16px; }
+    .floating-pill-menu { display: flex; flex-direction: column; gap: 10px; width: 190px; }
     .floating-pill-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 9px 16px;
-      background: rgba(14, 20, 38, 0.7);
-      border: 1px solid rgba(0, 240, 255, 0.2);
-      border-radius: 10px;
-      font-family: 'Orbitron', sans-serif;
-      font-size: 11px;
-      font-weight: 800;
-      color: #cbd5e1;
-      letter-spacing: 1px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-      transition: all 0.2s;
+      display: flex; align-items: center; gap: 10px; padding: 9px 16px; background: rgba(14, 20, 38, 0.7);
+      border: 1px solid rgba(0, 240, 255, 0.2); border-radius: 10px; font-family: 'Orbitron', sans-serif;
+      font-size: 11px; font-weight: 800; color: #cbd5e1; letter-spacing: 1px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); transition: all 0.2s;
     }
-    .floating-pill-item:hover {
-      border-color: var(--primary);
-      color: var(--primary);
-      transform: translateX(-4px);
-    }
+    .floating-pill-item:hover { border-color: var(--primary); color: var(--primary); transform: translateX(-4px); }
 
-    .pixel-cat-island {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-top: 8px;
-    }
-    #catCanvas {
-      width: 90px; height: 75px;
-      image-rendering: pixelated;
-    }
+    .pixel-cat-island { display: flex; flex-direction: column; align-items: center; margin-top: 8px; }
+    #catCanvas { width: 90px; height: 75px; image-rendering: pixelated; }
     .cat-island-sign {
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(139, 92, 246, 0.4);
-      border-radius: 8px;
-      padding: 6px 12px;
-      font-family: 'Orbitron', sans-serif;
-      font-size: 8.5px;
-      font-weight: 800;
-      color: #cbd5e1;
-      letter-spacing: 1px;
-      text-align: center;
-      line-height: 1.3;
-      margin-top: -6px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+      background: rgba(15, 23, 42, 0.9); border: 1px solid rgba(139, 92, 246, 0.4); border-radius: 8px;
+      padding: 6px 12px; font-family: 'Orbitron', sans-serif; font-size: 8.5px; font-weight: 800;
+      color: #cbd5e1; letter-spacing: 1px; text-align: center; line-height: 1.3; margin-top: -6px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
     }
     .cat-island-sign span { color: var(--accent-pink); }
 
     .auth-bottom-features {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      width: 100%;
-      padding-top: 14px;
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; width: 100%; padding-top: 14px;
       border-top: 1px solid rgba(255, 255, 255, 0.08);
     }
     .feature-pill-card {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 12px 14px;
-      background: rgba(14, 20, 38, 0.5);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      border-radius: 12px;
+      display: flex; align-items: center; gap: 12px; padding: 12px 14px; background: rgba(14, 20, 38, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 12px;
     }
     .feature-icon-box {
-      width: 32px; height: 32px;
-      border-radius: 8px;
-      background: rgba(0, 240, 255, 0.12);
-      border: 1px solid rgba(0, 240, 255, 0.25);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
+      width: 32px; height: 32px; border-radius: 8px; background: rgba(0, 240, 255, 0.12);
+      border: 1px solid rgba(0, 240, 255, 0.25); display: flex; align-items: center; justify-content: center; flex-shrink: 0;
     }
     .feature-icon-box svg { width: 18px; height: 18px; fill: var(--primary); }
     .feature-texts { display: flex; flex-direction: column; text-align: left; }
     .feature-heading { font-family: 'Orbitron', sans-serif; font-size: 11px; font-weight: 800; color: #fff; }
     .feature-desc { font-size: 9.5px; color: #94a3b8; line-height: 1.3; }
 
+    /* ================= DASHBOARD VIEW ================= */
     #dashboard-view {
-      display: none;
-      position: relative;
-      z-index: 10;
-      width: 100%;
-      max-width: 1300px;
-      margin: 0 auto;
-      padding: 16px 16px 60px;
-      flex-direction: column;
+      display: none; position: relative; z-index: 10; width: 100%; max-width: 1300px;
+      margin: 0 auto; padding: 16px 16px 60px; flex-direction: column;
     }
 
-    .top-nav {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      padding: 16px 20px;
-      margin-bottom: 20px;
-    }
-    .nav-row-main {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: 100%;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-    .logo-brand {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-family: 'Orbitron', sans-serif;
-      font-size: 18px;
-      font-weight: 900;
-      color: #fff;
-      cursor: pointer;
-    }
+    .top-nav { display: flex; flex-direction: column; gap: 14px; padding: 16px 20px; margin-bottom: 20px; }
+    .nav-row-main { display: flex; justify-content: space-between; align-items: center; width: 100%; flex-wrap: wrap; gap: 12px; }
+    .logo-brand { display: flex; align-items: center; gap: 8px; font-family: 'Orbitron', sans-serif; font-size: 18px; font-weight: 900; color: #fff; cursor: pointer; }
     .logo-brand svg { width: 24px; height: 24px; fill: var(--primary); }
 
     .nav-user-actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-
     .nav-btn-icon {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      padding: 6px 12px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 8px;
-      color: #cbd5e1;
-      font-size: 11px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s;
+      display: flex; align-items: center; gap: 5px; padding: 6px 12px; background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 8px; color: #cbd5e1; font-size: 11px; font-weight: 600;
+      cursor: pointer; transition: all 0.2s;
     }
-    .nav-btn-icon.active {
-      border-color: rgba(0, 240, 255, 0.4);
-      color: var(--primary);
-      background: rgba(0, 240, 255, 0.1);
-    }
+    .nav-btn-icon.active { border-color: rgba(0, 240, 255, 0.4); color: var(--primary); background: rgba(0, 240, 255, 0.1); }
 
     .user-profile-badge {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 12px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 50px;
-      cursor: pointer;
+      display: flex; align-items: center; gap: 8px; padding: 6px 14px; background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(0, 240, 255, 0.3); border-radius: 50px; cursor: pointer;
     }
-    .user-avatar {
-      font-size: 16px;
-      line-height: 1;
-    }
-    .user-tag {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 11px;
-      font-weight: 700;
-      color: #fff;
-    }
+    .user-avatar { font-size: 18px; line-height: 1; flex-shrink: 0; }
+    .user-tag { font-family: 'Orbitron', sans-serif; font-size: 11px; font-weight: 700; color: #fff; white-space: nowrap; }
     .btn-logout {
-      padding: 6px 12px;
-      background: rgba(236, 72, 153, 0.12);
-      border: 1px solid rgba(236, 72, 153, 0.3);
-      border-radius: 8px;
-      color: #f472b6;
-      font-size: 11px;
-      font-weight: 600;
-      cursor: pointer;
+      padding: 6px 12px; background: rgba(236, 72, 153, 0.12); border: 1px solid rgba(236, 72, 153, 0.3);
+      border-radius: 8px; color: #f472b6; font-size: 11px; font-weight: 600; cursor: pointer;
     }
 
-    .nav-row-sub {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: 100%;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      padding-bottom: 2px;
-      scrollbar-width: none;
-    }
+    .nav-row-sub { display: flex; justify-content: space-between; align-items: center; width: 100%; gap: 12px; flex-wrap: wrap; }
+    .nav-links { display: flex; align-items: center; gap: 6px; overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 2px; scrollbar-width: none; }
     .nav-links::-webkit-scrollbar { display: none; }
 
     .nav-item {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      padding: 7px 14px;
-      border-radius: 8px;
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--text-muted);
-      background: transparent;
-      border: 1px solid transparent;
-      white-space: nowrap;
-      cursor: pointer;
-      transition: all 0.2s;
+      display: flex; align-items: center; gap: 6px; padding: 7px 14px; border-radius: 8px;
+      font-size: 12px; font-weight: 600; color: var(--text-muted); background: transparent; border: 1px solid transparent;
+      white-space: nowrap; cursor: pointer; transition: all 0.2s;
     }
     .nav-item:hover { color: #fff; background: rgba(255, 255, 255, 0.04); }
-    .nav-item.active {
-      background: rgba(0, 240, 255, 0.15);
-      color: var(--primary);
-      border-color: rgba(0, 240, 255, 0.3);
-    }
+    .nav-item.active { background: rgba(0, 240, 255, 0.15); color: var(--primary); border-color: rgba(0, 240, 255, 0.3); }
 
     .mascot-bubble-wrap { display: flex; align-items: center; gap: 8px; }
     .speech-bubble {
-      background: rgba(20, 30, 55, 0.85);
-      border: 1px solid rgba(0, 240, 255, 0.3);
-      padding: 4px 8px;
-      border-radius: 6px;
-      font-size: 10px;
-      font-weight: 600;
-      color: #e2e8f0;
-      white-space: nowrap;
+      background: rgba(20, 30, 55, 0.85); border: 1px solid rgba(0, 240, 255, 0.3); padding: 4px 8px;
+      border-radius: 6px; font-size: 10px; font-weight: 600; color: #e2e8f0; white-space: nowrap;
     }
-    #robotCanvas {
-      width: 58px; height: 38px;
-      border-radius: 10px;
-      background: rgba(9, 14, 28, 0.9);
-      border: 1px solid rgba(0, 240, 255, 0.4);
-    }
+    #robotCanvas { width: 58px; height: 38px; border-radius: 10px; background: rgba(9, 14, 28, 0.9); border: 1px solid rgba(0, 240, 255, 0.4); }
 
     .tab-content { display: none; animation: fadeIn 0.25s ease-out; }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(6px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
 
     .dashboard-layout { display: grid; grid-template-columns: 1fr 320px; gap: 20px; }
     .main-stream { display: flex; flex-direction: column; gap: 24px; }
 
+    /* ================= HERO BANNER DENGAN PANDUAN LANGSUNG ================= */
     .hero-banner {
-      position: relative;
-      min-height: 290px;
-      border-radius: 16px;
-      overflow: hidden;
-      border: 1px solid rgba(0, 240, 255, 0.3);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
+      position: relative; min-height: 330px; border-radius: 16px; overflow: hidden;
+      border: 1px solid rgba(0, 240, 255, 0.35); display: flex; flex-direction: column; justify-content: flex-end;
       padding: 24px;
-      background: radial-gradient(circle at 80% 20%, rgba(99, 102, 241, 0.4) 0%, transparent 60%),
-                  linear-gradient(180deg, rgba(6, 9, 19, 0.2) 0%, rgba(6, 9, 19, 0.95) 90%),
+      background: radial-gradient(circle at 80% 20%, rgba(99, 102, 241, 0.45) 0%, transparent 60%),
+                  linear-gradient(180deg, rgba(6, 9, 19, 0.3) 0%, rgba(6, 9, 19, 0.96) 92%),
                   url('https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?q=80&w=1200&auto=format&fit=crop') center/cover;
     }
     .hero-badge {
-      display: inline-flex; align-items: center; gap: 6px;
-      color: var(--accent-yellow); font-size: 10px; font-weight: 700; letter-spacing: 1px; margin-bottom: 6px;
+      display: inline-flex; align-items: center; gap: 6px; color: var(--accent-yellow);
+      font-size: 10px; font-weight: 700; letter-spacing: 1px; margin-bottom: 6px;
     }
     .hero-title {
       font-family: 'Orbitron', sans-serif; font-size: 32px; font-weight: 900; letter-spacing: 1.5px;
       color: #fff; text-shadow: 0 0 20px rgba(0, 240, 255, 0.6); margin-bottom: 6px;
     }
-    .hero-desc { font-size: 12px; color: #cbd5e1; max-width: 490px; line-height: 1.5; margin-bottom: 16px; }
+    .hero-desc { font-size: 12px; color: #cbd5e1; max-width: 520px; line-height: 1.5; margin-bottom: 14px; }
+
+    /* FRONT PANDUAN & LINEUP CARD (TEPAT DI ATAS TOMBOL MAIN) */
+    .front-guide-panel {
+      background: rgba(10, 16, 33, 0.88);
+      border: 1px solid rgba(0, 240, 255, 0.3);
+      border-radius: 12px;
+      padding: 12px 14px;
+      margin-bottom: 14px;
+      max-width: 620px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    }
+    .front-guide-header {
+      display: flex; justify-content: space-between; align-items: center; cursor: pointer;
+    }
+    .front-guide-title {
+      font-family: 'Orbitron', sans-serif; font-size: 11px; font-weight: 800; color: var(--primary);
+      display: flex; align-items: center; gap: 8px; letter-spacing: 0.8px;
+    }
+    .front-guide-toggle-btn {
+      font-size: 10px; color: var(--text-muted); font-weight: 700; font-family: 'Orbitron', sans-serif;
+      padding: 2px 8px; border-radius: 6px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .front-guide-body {
+      display: flex; flex-direction: column; gap: 10px; margin-top: 10px; padding-top: 10px;
+      border-top: 1px solid rgba(0, 240, 255, 0.15);
+    }
+    .front-guide-sec-title {
+      font-family: 'Orbitron', sans-serif; font-size: 9.5px; font-weight: 800; color: var(--accent-yellow);
+      display: flex; align-items: center; gap: 6px;
+    }
+    .front-guide-row-items {
+      display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; text-align: center;
+    }
+    .front-guide-badge-card {
+      background: rgba(18, 25, 46, 0.85); border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px; padding: 6px 2px;
+    }
+    .front-guide-badge-icon { font-size: 15px; line-height: 1.2; }
+    .front-guide-badge-name { font-size: 8.5px; font-weight: 700; color: #fff; margin-top: 2px; }
+    .front-guide-badge-sub { font-size: 8px; color: var(--primary); font-weight: 600; }
+
+    .front-guide-boss-row {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; text-align: left;
+    }
+    .front-guide-boss-card {
+      background: rgba(18, 25, 46, 0.85); border-radius: 8px; padding: 6px 8px;
+      border-left: 3px solid #ef4444; font-size: 8.5px;
+    }
+    .front-guide-boss-card.b2 { border-left-color: #a855f7; }
+    .front-guide-boss-card.b3 { border-left-color: #facc15; }
+    .front-guide-boss-name { font-family: 'Orbitron', sans-serif; font-weight: 800; color: #fff; font-size: 8.5px; }
+    .front-guide-boss-desc { font-size: 8px; color: #94a3b8; margin-top: 2px; line-height: 1.3; }
 
     .btn-hero-play {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 12px 22px; background: var(--primary); color: #040813; border: none; border-radius: 10px;
-      font-family: 'Orbitron', sans-serif; font-size: 12px; font-weight: 800; cursor: pointer;
-      box-shadow: 0 0 15px var(--primary-glow);
-      transition: all 0.2s;
+      display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px;
+      background: var(--primary); color: #040813; border: none; border-radius: 10px;
+      font-family: 'Orbitron', sans-serif; font-size: 12px; font-weight: 900; cursor: pointer;
+      box-shadow: 0 0 16px var(--primary-glow); transition: all 0.2s;
     }
-    .btn-hero-play:hover { transform: scale(1.03); box-shadow: 0 0 22px var(--primary); }
+    .btn-hero-play:hover { transform: scale(1.03); box-shadow: 0 0 24px var(--primary); }
 
     .floating-slogan {
       position: absolute; right: 28px; bottom: 28px; text-align: right;
@@ -697,7 +392,7 @@
       background: var(--surface-card); border: 1px solid var(--border-subtle); border-radius: 12px;
       overflow: hidden; display: flex; flex-direction: column; position: relative;
     }
-    .card-thumb { height: 100px; position: relative; background-size: cover; background-position: center; }
+    .card-thumb { height: 110px; position: relative; background-size: cover; background-position: center; }
     .card-badge-status {
       position: absolute; top: 8px; right: 8px; padding: 3px 8px; border-radius: 6px;
       font-size: 9px; font-weight: 700; font-family: 'Orbitron', sans-serif;
@@ -731,9 +426,9 @@
       display: flex; align-items: center; justify-content: space-between; padding: 8px 10px;
       border-radius: 8px; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.04);
     }
-    .player-rank-info { display: flex; align-items: center; gap: 8px; }
+    .player-rank-info { display: flex; align-items: center; gap: 8px; min-width: 0; }
     .rank-num { font-family: 'Orbitron', sans-serif; font-size: 11px; font-weight: 700; color: var(--text-muted); }
-    .player-handle { font-size: 11px; font-weight: 600; display: flex; align-items: center; gap: 4px; }
+    .player-handle { font-size: 11px; font-weight: 600; display: flex; align-items: center; gap: 6px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
     .player-score { font-family: 'Orbitron', sans-serif; font-size: 11px; font-weight: 700; color: var(--primary); }
     .empty-state { font-size: 11px; color: var(--text-muted); text-align: center; padding: 12px 6px; line-height: 1.4; }
 
@@ -749,7 +444,7 @@
     .podium-card.rank-2 { border-color: #cbd5e1; }
     .podium-card.rank-3 { border-color: #fb923c; }
     .podium-badge { font-size: 26px; margin-bottom: 4px; }
-    .podium-avatar { font-size: 24px; margin-bottom: 4px; }
+    .podium-avatar { font-size: 26px; margin-bottom: 4px; }
     .podium-name { font-family: 'Orbitron', sans-serif; font-size: 14px; font-weight: 800; color: #fff; }
     .podium-game { font-size: 11px; color: var(--primary); margin: 4px 0 8px; }
     .podium-score { font-family: 'Orbitron', sans-serif; font-size: 18px; font-weight: 900; color: #facc15; }
@@ -762,18 +457,15 @@
     .lb-score-val { font-family: 'Orbitron', sans-serif; font-weight: 800; color: var(--primary); }
     .game-pill { display: inline-block; padding: 3px 8px; background: rgba(139, 92, 246, 0.15); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 6px; font-size: 10px; color: #c4b5fd; font-weight: 700; }
 
-    /* Prestasi Badges Grid */
     .achieve-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-    .achieve-card {
-      padding: 16px; display: flex; align-items: center; gap: 14px;
-      transition: all 0.2s; border: 1px solid var(--border-subtle);
-    }
+    .achieve-card { padding: 16px; display: flex; align-items: center; gap: 14px; transition: all 0.2s; border: 1px solid var(--border-subtle); }
     .achieve-card.unlocked { border-color: rgba(250, 204, 21, 0.5); background: rgba(250, 204, 21, 0.05); }
     .achieve-icon { font-size: 32px; filter: grayscale(1); opacity: 0.4; }
     .achieve-card.unlocked .achieve-icon { filter: none; opacity: 1; }
     .achieve-info h4 { font-family: 'Orbitron', sans-serif; font-size: 12px; color: #fff; }
     .achieve-info p { font-size: 10.5px; color: var(--text-muted); margin-top: 3px; }
 
+    /* ================= GAME MODAL & KONTROL LENGKAP ================= */
     .modal {
       display: none; position: fixed; inset: 0; background: rgba(6, 9, 19, 0.94);
       backdrop-filter: blur(14px); z-index: 2000; justify-content: center; align-items: center; flex-direction: column; padding: 12px;
@@ -782,66 +474,30 @@
       display: flex; justify-content: space-between; align-items: center; width: 340px; margin-bottom: 8px;
     }
     .modal-game-title { font-family: 'Orbitron', sans-serif; font-size: 15px; font-weight: 800; color: var(--primary); letter-spacing: 1px; }
-    .btn-guide-pill {
-      padding: 4px 10px; background: rgba(0, 240, 255, 0.12); border: 1px solid rgba(0, 240, 255, 0.35);
-      border-radius: 8px; color: var(--primary); font-family: 'Orbitron', sans-serif; font-size: 9.5px; font-weight: 700;
-      cursor: pointer; transition: all 0.2s;
+    .game-viewport {
+      border: 2px solid var(--primary); border-radius: 14px; box-shadow: 0 0 30px var(--primary-glow);
+      overflow: hidden; max-width: 100%; position: relative;
     }
-    .btn-guide-pill:hover { background: var(--primary); color: #040813; }
-    .game-viewport { border: 2px solid var(--primary); border-radius: 14px; box-shadow: 0 0 30px var(--primary-glow); overflow: hidden; max-width: 100%; position: relative; }
     #gameCanvas { display: block; background: #060914; max-width: 100%; height: auto; }
 
-    /* Panduan Pop-up Drawer di Dalam Game */
-    .space-guide-drawer {
-      display: none; position: absolute; inset: 0; background: rgba(6, 9, 19, 0.96);
-      backdrop-filter: blur(12px); z-index: 50; padding: 14px 12px; overflow-y: auto; text-align: left;
-    }
-    .space-guide-drawer.active { display: flex; flex-direction: column; gap: 10px; }
-    .guide-banner-head {
-      display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(0, 240, 255, 0.2); padding-bottom: 8px;
-    }
-    .guide-banner-title { font-family: 'Orbitron', sans-serif; font-size: 13px; font-weight: 900; color: var(--primary); }
-    .guide-banner-sub { font-size: 9px; color: #94a3b8; letter-spacing: 0.5px; }
-    .btn-close-guide { background: none; border: none; color: #cbd5e1; font-size: 16px; cursor: pointer; font-weight: 800; }
-    .guide-mascot-row {
-      display: flex; align-items: center; gap: 8px; background: rgba(15, 23, 42, 0.7);
-      border: 1px solid rgba(0, 240, 255, 0.25); border-radius: 8px; padding: 6px 8px; font-size: 10px; color: #cbd5e1;
-    }
-    .guide-sec-title {
-      font-family: 'Orbitron', sans-serif; font-size: 10px; font-weight: 800; color: #facc15; margin-top: 4px; display: flex; align-items: center; gap: 5px;
-    }
-    .guide-grid-mini { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; text-align: center; }
-    .guide-item-card {
-      background: rgba(14, 20, 38, 0.8); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 6px; padding: 5px 2px;
-    }
-    .guide-item-icon { font-size: 16px; line-height: 1.2; margin-bottom: 2px; }
-    .guide-item-name { font-size: 8.5px; font-weight: 700; color: #fff; }
-    .guide-item-pts { font-size: 8px; color: var(--primary); font-weight: 600; }
-    .guide-boss-cards { display: flex; flex-direction: column; gap: 6px; }
-    .guide-boss-card {
-      background: rgba(14, 20, 38, 0.85); border-radius: 8px; padding: 7px 10px; border-left: 3px solid #ef4444; font-size: 9.5px;
-    }
-    .guide-boss-card.b2 { border-left-color: #a855f7; }
-    .guide-boss-card.b3 { border-left-color: #facc15; }
-    .guide-boss-title { font-family: 'Orbitron', sans-serif; font-weight: 800; color: #fff; font-size: 10px; }
-    .guide-boss-desc { color: #94a3b8; font-size: 8.5px; margin-top: 1px; }
-
-    /* On-Screen Mobile Pedals */
     .mobile-controls-row {
-      display: none; width: 340px; justify-content: space-between; gap: 12px; margin-top: 10px;
+      display: none; width: 340px; justify-content: space-between; gap: 10px; margin-top: 10px;
     }
     .pedal-btn {
-      flex: 1; padding: 12px; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(0, 240, 255, 0.3);
-      border-radius: 10px; color: var(--primary); font-family: 'Orbitron', sans-serif; font-size: 12px; font-weight: 800; cursor: pointer;
+      flex: 1; padding: 12px 6px; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(0, 240, 255, 0.3);
+      border-radius: 10px; color: var(--primary); font-family: 'Orbitron', sans-serif; font-size: 11px; font-weight: 800; cursor: pointer;
+    }
+    .pedal-btn.nitro-btn {
+      background: rgba(250, 204, 21, 0.15); border-color: rgba(250, 204, 21, 0.5); color: #facc15;
     }
     .pedal-btn:active { background: var(--primary); color: #040813; }
+    .pedal-btn.nitro-btn:active { background: #facc15; color: #040813; }
 
     .btn-modal-close {
       margin-top: 12px; padding: 8px 22px; background: rgba(255, 255, 255, 0.08);
       border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 100px; color: #fff; font-size: 11px; font-weight: 600; cursor: pointer;
     }
 
-    /* Cyber Toast */
     #toast {
       position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%) translateY(100px);
       background: rgba(15, 23, 42, 0.95); border: 1px solid var(--primary); border-radius: 12px;
@@ -851,7 +507,6 @@
     }
     #toast.show { transform: translateX(-50%) translateY(0); }
 
-    /* Responsive Queries */
     @media (max-width: 1100px) {
       .auth-main-grid { grid-template-columns: 1fr 1.15fr; }
       .auth-badges-right { display: none; }
@@ -882,16 +537,16 @@
       .top-nav { padding: 12px 14px; }
       .mobile-controls-row { display: flex; }
       .achieve-grid { grid-template-columns: 1fr; }
+      .front-guide-row-items { grid-template-columns: repeat(5, 1fr); }
+      .front-guide-boss-row { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Ambient Particle Canvas -->
   <canvas id="ambientCanvas"></canvas>
 
   <section id="auth-view">
-    <!-- Top Bar -->
     <header class="auth-top-header">
       <div class="auth-brand">
         <div class="brand-logo-icon">
@@ -907,29 +562,18 @@
       </div>
     </header>
 
-    <!-- Main 3-Columns Center Grid -->
     <main class="auth-main-grid">
-      <!-- Kolom 1: Hero Tagline & Robot Gamer Animasi Mata -->
       <div class="auth-hero-left">
         <h1 class="hero-tagline-title">
-          GAME<br>
-          BEYOND<br>
-          <span class="gradient-text">LIMITS</span>
+          GAME<br>BEYOND<br><span class="gradient-text">LIMITS</span>
         </h1>
-        <p class="hero-tagline-sub">
-          Mainkan berbagai game seru, kumpulkan skor, dan jadi legenda di Fadhil GAME!
-        </p>
-
-        <!-- Animatronik Robot Gamer (Eye-Tracking Cursor) -->
+        <p class="hero-tagline-sub">Mainkan berbagai game seru, kumpulkan skor, dan jadi legenda di Fadhil GAME!</p>
         <div class="robot-gamer-container">
-          <div class="speech-bubble-gamer">
-            Ayo login dulu! Banyak game seru menunggumu!
-          </div>
+          <div class="speech-bubble-gamer">Ayo login dulu! Banyak game seru menunggumu!</div>
           <canvas id="authRobotCanvas" width="170" height="160"></canvas>
         </div>
       </div>
 
-      <!-- Kolom 2: Kartu Form Login/Register Neon Glowing -->
       <div class="auth-card-neon-wrap">
         <div class="auth-card-inner">
           <div class="auth-card-logo-icon">
@@ -938,7 +582,6 @@
           <h2 class="auth-card-title">FADHIL GAME</h2>
           <div class="auth-card-sub">PLAY MORE, BE LEGENDARY</div>
 
-          <!-- Segmented Tab Pill -->
           <div class="auth-segmented-tabs">
             <button class="auth-tab-btn active" id="tab-btn-login" onclick="setAuthMode(false)">
               <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
@@ -950,7 +593,6 @@
             </button>
           </div>
 
-          <!-- Pilihan Avatar saat Daftar -->
           <div class="avatar-picker-row" id="avatarPickerRow">
             <button type="button" class="avatar-choice-btn selected" onclick="pickRegAvatar('🤖')">🤖</button>
             <button type="button" class="avatar-choice-btn" onclick="pickRegAvatar('🥷')">🥷</button>
@@ -960,7 +602,6 @@
             <button type="button" class="avatar-choice-btn" onclick="pickRegAvatar('⚡')">⚡</button>
           </div>
 
-          <!-- Input Username -->
           <div class="auth-input-group">
             <div class="auth-input-wrap">
               <svg class="auth-input-icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
@@ -968,7 +609,6 @@
             </div>
           </div>
 
-          <!-- Input Password + Toggle Eye -->
           <div class="auth-input-group">
             <div class="auth-input-wrap">
               <svg class="auth-input-icon" viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
@@ -979,20 +619,16 @@
             </div>
           </div>
 
-          <!-- Tombol Submit -->
           <button class="btn-auth-submit" id="btn-submit" onclick="submitAuth()">
             <span id="btn-submit-text">MASUK SEKARANG</span> &gt;
           </button>
-
           <div id="auth-feedback" style="font-size:11.5px; font-weight:700; margin-top:10px; min-height:16px;"></div>
-
           <div class="auth-footer-toggle" onclick="toggleAuth()">
             <span id="toggle-label">Belum punya akun? <strong>Daftar Sekarang</strong></span>
           </div>
         </div>
       </div>
 
-      <!-- Kolom 3: Floating Action Badges & Pixel Cat Island -->
       <div class="auth-badges-right">
         <div class="floating-pill-menu">
           <div class="floating-pill-item">🎮 PLAY</div>
@@ -1000,18 +636,13 @@
           <div class="floating-pill-item">🏆 COMPETE</div>
           <div class="floating-pill-item">👑 BE LEGENDARY</div>
         </div>
-
         <div class="pixel-cat-island">
           <canvas id="catCanvas" width="90" height="75"></canvas>
-          <div class="cat-island-sign">
-            + GOOD GAMES<br>
-            BRIGHTER DAYS <span>♥</span>
-          </div>
+          <div class="cat-island-sign">+ GOOD GAMES<br>BRIGHTER DAYS <span>♥</span></div>
         </div>
       </div>
     </main>
 
-    <!-- Bottom Features Bar -->
     <footer class="auth-bottom-features">
       <div class="feature-pill-card">
         <div class="feature-icon-box"><svg viewBox="0 0 24 24"><path d="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-10 7H8v3H6v-3H3v-2h3V8h2v3h3v2zm4.5 2c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm3-3c-.83 0-1.5-.67-1.5-1.5S17.67 9 18.5 9s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg></div>
@@ -1032,6 +663,7 @@
     </footer>
   </section>
 
+  <!-- ================= DASHBOARD VIEW ================= -->
   <section id="dashboard-view">
     <header class="top-nav glass-card">
       <div class="nav-row-main">
@@ -1045,6 +677,7 @@
           <button class="nav-btn-icon" id="btn-bgm" onclick="toggleBgm()">🎵 BGM: OFF</button>
           <button class="nav-btn-icon" id="btn-fullscreen" onclick="toggleFullscreen()">⛶ LAYAR PENUH</button>
 
+          <!-- Avatar & Handle yang Disanitasi (Bebas Bug Tanggal) -->
           <div class="user-profile-badge" onclick="openProfileModal()">
             <span class="user-avatar" id="avatar-display">🤖</span>
             <span class="user-tag" id="user-display">P1: GUEST</span>
@@ -1073,18 +706,66 @@
     <div id="tab-home" class="tab-content" style="display:block;">
       <div class="dashboard-layout">
         <div class="main-stream">
-          <!-- Hero Banner Space Blaster -->
+          <!-- HERO BANNER DENGAN PANDUAN LANGSUNG DI DEPAN DI ATAS TOMBOL MAIN -->
           <div class="hero-banner">
             <div class="hero-badge">★ GAME UNGGULAN (SIAP MAIN)</div>
             <h2 class="hero-title">SPACE BLASTER</h2>
             <p class="hero-desc">Kendalikan jet STRIKER, hancurkan 5 tipe meteorit, kumpulkan 6 power-up spesial, dan kalahkan 3 armada Boss alien!</p>
+
+            <!-- PANDUAN & LINEUP DI DEPAN DI ATAS TOMBOL MAIN -->
+            <div class="front-guide-panel">
+              <div class="front-guide-header" onclick="toggleFrontGuide()">
+                <div class="front-guide-title">
+                  <span>📖</span> PANDUAN & LINEUP SPACE BLASTER
+                </div>
+                <button type="button" class="front-guide-toggle-btn" id="btnFrontGuideToggle">TUTUP ▲</button>
+              </div>
+
+              <div class="front-guide-body" id="frontGuideBody">
+                <div class="front-guide-sec-title">☄️ 5 JENIS METEORIT</div>
+                <div class="front-guide-row-items">
+                  <div class="front-guide-badge-card"><div class="front-guide-badge-icon">🌑</div><div class="front-guide-badge-name">Normal</div><div class="front-guide-badge-sub">+1 Skor</div></div>
+                  <div class="front-guide-badge-card"><div class="front-guide-badge-icon">🌋</div><div class="front-guide-badge-name">Retak</div><div class="front-guide-badge-sub">+2 Skor</div></div>
+                  <div class="front-guide-badge-card"><div class="front-guide-badge-icon">❄️</div><div class="front-guide-badge-name">Es</div><div class="front-guide-badge-sub">+3 Skor</div></div>
+                  <div class="front-guide-badge-card"><div class="front-guide-badge-icon">⭐</div><div class="front-guide-badge-name">Emas</div><div class="front-guide-badge-sub">+5 Skor</div></div>
+                  <div class="front-guide-badge-card"><div class="front-guide-badge-icon">🔮</div><div class="front-guide-badge-name">Gelap</div><div class="front-guide-badge-sub">+10 Skor</div></div>
+                </div>
+
+                <div class="front-guide-sec-title">⚡ 6 POWER-UP ITEMS</div>
+                <div class="front-guide-row-items" style="grid-template-columns: repeat(6, 1fr);">
+                  <div class="front-guide-badge-card"><div class="front-guide-badge-icon">❤️</div><div class="front-guide-badge-name">Heal</div><div class="front-guide-badge-sub">+1 HP</div></div>
+                  <div class="front-guide-badge-card"><div class="front-guide-badge-icon">🌟</div><div class="front-guide-badge-name">Skor</div><div class="front-guide-badge-sub">+50 Pts</div></div>
+                  <div class="front-guide-badge-card"><div class="front-guide-badge-icon">⏫</div><div class="front-guide-badge-name">Speed</div><div class="front-guide-badge-sub">Cepat</div></div>
+                  <div class="front-guide-badge-card"><div class="front-guide-badge-icon">🔱</div><div class="front-guide-badge-name">Triple</div><div class="front-guide-badge-sub">3 Laser</div></div>
+                  <div class="front-guide-badge-card"><div class="front-guide-badge-icon">🛡️</div><div class="front-guide-badge-name">Shield</div><div class="front-guide-badge-sub">Kebal 5s</div></div>
+                  <div class="front-guide-badge-card"><div class="front-guide-badge-icon">🧲</div><div class="front-guide-badge-name">Magnet</div><div class="front-guide-badge-sub">Tarik Item</div></div>
+                </div>
+
+                <div class="front-guide-sec-title">☠️ BOSS LINEUP</div>
+                <div class="front-guide-boss-row">
+                  <div class="front-guide-boss-card">
+                    <div class="front-guide-boss-name" style="color:#ef4444;">BOSS 1: TITAN (≥100)</div>
+                    <div class="front-guide-boss-desc">Heavy Warship • Meriam plasma ganda merah berkecepatan tinggi.</div>
+                  </div>
+                  <div class="front-guide-boss-card b2">
+                    <div class="front-guide-boss-name" style="color:#a855f7;">BOSS 2: VOID (≥300)</div>
+                    <div class="front-guide-boss-desc">Stealth Fighter • Laser menyebar 3 arah kiri, tengah, kanan.</div>
+                  </div>
+                  <div class="front-guide-boss-card b3">
+                    <div class="front-guide-boss-name" style="color:#facc15;">BOSS 3: OMEGA (≥600)</div>
+                    <div class="front-guide-boss-desc">Space Fortress • 4 Meriam plasma berat berondongan emas-merah.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <div>
               <button class="btn-hero-play" onclick="launchGame('SPACE BLASTER')">▶ MAIN SEKARANG →</button>
             </div>
             <div class="floating-slogan">DEFEAT<br>THE BOSS<br>SURVIVE</div>
           </div>
 
-          <!-- 3 Game Playable Grid -->
+          <!-- 3 Games Grid -->
           <div>
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
               <div>
@@ -1095,7 +776,6 @@
             </div>
 
             <div class="games-grid">
-              <!-- Game 1: Space Blaster -->
               <div class="card-game">
                 <div class="card-thumb" style="background-image:url('https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?q=80&w=500&auto=format&fit=crop');">
                   <span class="card-badge-status status-live">SIAP MAIN</span>
@@ -1103,43 +783,40 @@
                 <div class="card-body">
                   <div>
                     <h4 class="card-game-title">SPACE BLASTER</h4>
-                    <p class="card-game-desc">Tembak meteorit & 3 armada Boss alien.</p>
+                    <p class="card-game-desc">Jet tempur, 5 meteorit, 6 power-up, & 3 Boss alien.</p>
                   </div>
                   <button class="btn-play-card" onclick="launchGame('SPACE BLASTER')">▶ MAIN</button>
                 </div>
               </div>
 
-              <!-- Game 2: Neon Dodger -->
               <div class="card-game">
                 <div class="card-thumb" style="background-image:url('https://images.unsplash.com/photo-1509198397868-475647b2a1e5?q=80&w=500&auto=format&fit=crop');">
-                  <span class="card-badge-status status-live">SIAP MAIN</span>
+                  <span class="card-badge-status status-live">REDESIGN V2</span>
                 </div>
                 <div class="card-body">
                   <div>
                     <h4 class="card-game-title">NEON DODGER</h4>
-                    <p class="card-game-desc">Hindari dinding pembatas energi neon.</p>
+                    <p class="card-game-desc">Hovercraft 3D synthwave, gerbang laser, EMP, & warp item.</p>
                   </div>
                   <button class="btn-play-card" onclick="launchGame('NEON DODGER')">▶ MAIN</button>
                 </div>
               </div>
 
-              <!-- Game 3: Pixel Racer -->
               <div class="card-game">
-                <div class="card-thumb" style="background-image:url('https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=400&auto=format&fit=crop');">
-                  <span class="card-badge-status status-live">SIAP MAIN</span>
+                <div class="card-thumb" style="background-image:url('https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=500&auto=format&fit=crop');">
+                  <span class="card-badge-status status-live">REDESIGN V2</span>
                 </div>
                 <div class="card-body">
                   <div>
                     <h4 class="card-game-title">PIXEL RACER</h4>
-                    <p class="card-game-desc">Balapan jalan raya vertikal & nitro.</p>
+                    <p class="card-game-desc">Supercar cyberpunk, 3 lajur neon, nitro turbo, & truk lawan.</p>
                   </div>
                   <button class="btn-play-card" onclick="launchGame('PIXEL RACER')">▶ MAIN</button>
                 </div>
               </div>
 
-              <!-- Game 4: Galaxy Quest (Soon) -->
               <div class="card-game">
-                <div class="card-thumb" style="background-image:url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=400&auto=format&fit=crop');">
+                <div class="card-thumb" style="background-image:url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=500&auto=format&fit=crop');">
                   <span class="card-badge-status status-soon">COMING SOON</span>
                 </div>
                 <div class="card-body">
@@ -1154,7 +831,6 @@
           </div>
         </div>
 
-        <!-- Sidebar Widgets -->
         <aside class="sidebar-stream">
           <div class="widget-panel glass-card">
             <div class="widget-title"><span style="color:#facc15;">🏆</span> TOP PLAYER GLOBAL</div>
@@ -1178,7 +854,7 @@
       <div class="games-grid">
         <div class="card-game"><div class="card-thumb" style="background-image:url('https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?q=80&w=500&auto=format&fit=crop');"><span class="card-badge-status status-live">SIAP</span></div><div class="card-body"><h4 class="card-game-title">SPACE BLASTER</h4><button class="btn-play-card" onclick="launchGame('SPACE BLASTER')">▶ MAIN</button></div></div>
         <div class="card-game"><div class="card-thumb" style="background-image:url('https://images.unsplash.com/photo-1509198397868-475647b2a1e5?q=80&w=500&auto=format&fit=crop');"><span class="card-badge-status status-live">SIAP</span></div><div class="card-body"><h4 class="card-game-title">NEON DODGER</h4><button class="btn-play-card" onclick="launchGame('NEON DODGER')">▶ MAIN</button></div></div>
-        <div class="card-game"><div class="card-thumb" style="background-image:url('https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=400&auto=format&fit=crop');"><span class="card-badge-status status-live">SIAP</span></div><div class="card-body"><h4 class="card-game-title">PIXEL RACER</h4><button class="btn-play-card" onclick="launchGame('PIXEL RACER')">▶ MAIN</button></div></div>
+        <div class="card-game"><div class="card-thumb" style="background-image:url('https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=500&auto=format&fit=crop');"><span class="card-badge-status status-live">SIAP</span></div><div class="card-body"><h4 class="card-game-title">PIXEL RACER</h4><button class="btn-play-card" onclick="launchGame('PIXEL RACER')">▶ MAIN</button></div></div>
       </div>
     </div>
 
@@ -1226,64 +902,13 @@
   <div class="modal" id="gameModal">
     <div class="modal-game-header">
       <div class="modal-game-title" id="activeGameTitle">ARCADE GAME</div>
-      <button type="button" class="btn-guide-pill" id="btnGuideModal" onclick="toggleSpaceGuide()">📖 Panduan & Lineup</button>
     </div>
     <div class="game-viewport">
       <canvas id="gameCanvas" width="340" height="460"></canvas>
-
-      <!-- Space Blaster Concept Guide Drawer -->
-      <div class="space-guide-drawer" id="spaceGuideDrawer">
-        <div class="guide-banner-head">
-          <div>
-            <div class="guide-banner-title">SPACE BLASTER</div>
-            <div class="guide-banner-sub">SHOOT • SURVIVE • BEAT THE BOSS</div>
-          </div>
-          <button class="btn-close-guide" onclick="toggleSpaceGuide()">✕</button>
-        </div>
-
-        <div class="guide-mascot-row">
-          <span style="font-size:18px;">🤖</span>
-          <span><strong>Mascot:</strong> Siap bertempur? Hancurkan semua meteor dan kalahkan 3 Boss armada alien!</span>
-        </div>
-
-        <div class="guide-sec-title">☄️ JENIS METEOR</div>
-        <div class="guide-grid-mini">
-          <div class="guide-item-card"><div class="guide-item-icon">🌑</div><div class="guide-item-name">Normal</div><div class="guide-item-pts">+1 Skor</div></div>
-          <div class="guide-item-card"><div class="guide-item-icon">🌋</div><div class="guide-item-name">Retak</div><div class="guide-item-pts">+2 Skor</div></div>
-          <div class="guide-item-card"><div class="guide-item-icon">❄️</div><div class="guide-item-name">Es</div><div class="guide-item-pts">+3 Skor</div></div>
-          <div class="guide-item-card"><div class="guide-item-icon">⭐</div><div class="guide-item-name">Emas</div><div class="guide-item-pts">+5 Skor</div></div>
-          <div class="guide-item-card"><div class="guide-item-icon">🔮</div><div class="guide-item-name">Gelap</div><div class="guide-item-pts">+10 Skor</div></div>
-        </div>
-
-        <div class="guide-sec-title">⚡ ITEM POWER UP</div>
-        <div class="guide-grid-mini" style="grid-template-columns: repeat(6, 1fr);">
-          <div class="guide-item-card"><div class="guide-item-icon">❤️</div><div class="guide-item-name">Heal</div><div class="guide-item-pts">+1 HP</div></div>
-          <div class="guide-item-card"><div class="guide-item-icon">🌟</div><div class="guide-item-name">Skor</div><div class="guide-item-pts">+50</div></div>
-          <div class="guide-item-card"><div class="guide-item-icon">⏫</div><div class="guide-item-name">Speed</div><div class="guide-item-pts">Cepat</div></div>
-          <div class="guide-item-card"><div class="guide-item-icon">🔱</div><div class="guide-item-name">Triple</div><div class="guide-item-pts">3 Peluru</div></div>
-          <div class="guide-item-card"><div class="guide-item-icon">🛡️</div><div class="guide-item-name">Shield</div><div class="guide-item-pts">5 Detik</div></div>
-          <div class="guide-item-card"><div class="guide-item-icon">🧲</div><div class="guide-item-name">Magnet</div><div class="guide-item-pts">Tarik</div></div>
-        </div>
-
-        <div class="guide-sec-title">☠️ BOSS LINEUP</div>
-        <div class="guide-boss-cards">
-          <div class="guide-boss-card">
-            <div class="guide-boss-title" style="color:#ef4444;">BOSS 1: TITAN DREADNOUGHT (Skor ≥ 100)</div>
-            <div class="guide-boss-desc">Kapal induk berat berpeluru plasma ganda merah berkecepatan tinggi.</div>
-          </div>
-          <div class="guide-boss-card b2">
-            <div class="guide-boss-title" style="color:#a855f7;">BOSS 2: VOID DESTROYER (Skor ≥ 300)</div>
-            <div class="guide-boss-desc">Kapal tempur siluman ungu-hijau dengan tembakan laser menyebar 3 arah.</div>
-          </div>
-          <div class="guide-boss-card b3">
-            <div class="guide-boss-title" style="color:#facc15;">BOSS 3: OMEGA ANNIHILATOR (Skor ≥ 600)</div>
-            <div class="guide-boss-desc">Benteng angkasa emas-merah berdaya tahan tinggi dengan berondongan 4 meriam plasma berat.</div>
-          </div>
-        </div>
-      </div>
     </div>
-    <div class="mobile-controls-row">
+    <div class="mobile-controls-row" id="mobileControlsRow">
       <button class="pedal-btn" id="btnLeftPedal">◀ KIRI</button>
+      <button class="pedal-btn nitro-btn" id="btnNitroPedal" style="display:none;">⚡ NITRO</button>
       <button class="pedal-btn" id="btnRightPedal">KANAN ▶</button>
     </div>
     <button class="btn-modal-close" onclick="closeGameModal()">✕ Tutup Permainan</button>
@@ -1305,21 +930,27 @@
     </div>
   </div>
 
-  <!-- CYBER TOAST -->
   <div id="toast"><span>⚡</span> <span id="toastMsg">Halo!</span></div>
 
   <script>
-    // Konfigurasi Endpoint Apps Script
     const SCRIPT_API_URL = "https://script.google.com/macros/s/AKfycbwZbwG7_QUw4dzRCY72b8gnhqq2mCBNxbpVj593k_e2MNo6cbXKsu3tvB-H6CeKWhcG/exec";
 
-    let currentUser = "";
-    let currentAvatar = "🤖";
+    let currentUser = localStorage.getItem('fadhil_user') || "";
+    let currentAvatar = sanitizeAvatar(localStorage.getItem('fadhil_avatar') || "🤖");
     let regAvatar = "🤖";
     let isRegisterMode = false;
     let soundEnabled = true;
     let bgmEnabled = false;
 
-    // Toast Helper
+    function sanitizeAvatar(av) {
+      if (!av || typeof av !== 'string') return '🤖';
+      const clean = av.trim();
+      if (clean.length > 5 || clean.includes('GMT') || clean.includes('202') || clean.includes(':') || clean.includes('Waktu')) {
+        return '🤖';
+      }
+      return clean;
+    }
+
     function showToast(msg) {
       const toast = document.getElementById('toast');
       const toastMsg = document.getElementById('toastMsg');
@@ -1331,7 +962,6 @@
     async function callBackend(action, data = {}) {
       const payload = { action, ...data };
       
-      // Strategi 1: POST dengan text/plain (CORS preflight bypass)
       try {
         const response = await fetch(SCRIPT_API_URL, {
           method: 'POST',
@@ -1340,14 +970,12 @@
           redirect: 'follow'
         });
         if (response.ok) {
-          const resJson = await response.json();
-          return resJson;
+          const res = await response.json();
+          if (res && res.avatar) res.avatar = sanitizeAvatar(res.avatar);
+          return res;
         }
-      } catch (errPost) {
-        // Lanjut ke strategi 2 jika POST gagal
-      }
+      } catch (errPost) {}
 
-      // Strategi 2: GET fallback dengan parameter URL
       try {
         const queryParams = new URLSearchParams(payload);
         const response = await fetch(`${SCRIPT_API_URL}?${queryParams.toString()}`, {
@@ -1355,19 +983,18 @@
           redirect: 'follow'
         });
         if (response.ok) {
-          return await response.json();
+          const res = await response.json();
+          if (res && res.avatar) res.avatar = sanitizeAvatar(res.avatar);
+          return res;
         }
-      } catch (errGet) {
-        // Lanjut ke mode simulasi aman
-      }
+      } catch (errGet) {}
 
-      // Strategi 3: Offline / Session Fallback aman
       if (action === 'login' || action === 'register') {
         return {
           success: true,
           username: data.username || "Pemain",
-          avatar: data.avatar || "🤖",
-          message: "Masuk dalam mode mandiri."
+          avatar: sanitizeAvatar(data.avatar || "🤖"),
+          message: "Masuk sesi mandiri."
         };
       }
       return { success: true };
@@ -1375,7 +1002,7 @@
 
     const AudioContext = window.AudioContext || window.webkitAudioContext;
     let audioCtx = null;
-    let bgmOsc = null, bgmGain = null, bgmTimer = null;
+    let bgmTimer = null;
 
     function initAudio() {
       if (!audioCtx) audioCtx = new AudioContext();
@@ -1387,73 +1014,64 @@
         if (!soundEnabled) return;
         initAudio();
         const osc = audioCtx.createOscillator(), gain = audioCtx.createGain();
-        osc.type = 'sine';
-        osc.frequency.setValueAtTime(450, audioCtx.currentTime);
+        osc.type = 'sine'; osc.frequency.setValueAtTime(450, audioCtx.currentTime);
         osc.frequency.exponentialRampToValueAtTime(800, audioCtx.currentTime + 0.05);
-        gain.gain.setValueAtTime(0.1, audioCtx.currentTime);
-        gain.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 0.05);
-        osc.connect(gain); gain.connect(audioCtx.destination);
-        osc.start(); osc.stop(audioCtx.currentTime + 0.05);
+        gain.gain.setValueAtTime(0.1, audioCtx.currentTime); gain.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 0.05);
+        osc.connect(gain); gain.connect(audioCtx.destination); osc.start(); osc.stop(audioCtx.currentTime + 0.05);
       },
       laser() {
         if (!soundEnabled) return;
         initAudio();
         const osc = audioCtx.createOscillator(), gain = audioCtx.createGain();
-        osc.type = 'square';
-        osc.frequency.setValueAtTime(880, audioCtx.currentTime);
+        osc.type = 'square'; osc.frequency.setValueAtTime(880, audioCtx.currentTime);
         osc.frequency.exponentialRampToValueAtTime(140, audioCtx.currentTime + 0.1);
-        gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
-        gain.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 0.1);
-        osc.connect(gain); gain.connect(audioCtx.destination);
-        osc.start(); osc.stop(audioCtx.currentTime + 0.1);
+        gain.gain.setValueAtTime(0.08, audioCtx.currentTime); gain.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 0.1);
+        osc.connect(gain); gain.connect(audioCtx.destination); osc.start(); osc.stop(audioCtx.currentTime + 0.1);
       },
       bossLaser() {
         if (!soundEnabled) return;
         initAudio();
         const osc = audioCtx.createOscillator(), gain = audioCtx.createGain();
-        osc.type = 'sawtooth';
-        osc.frequency.setValueAtTime(320, audioCtx.currentTime);
+        osc.type = 'sawtooth'; osc.frequency.setValueAtTime(320, audioCtx.currentTime);
         osc.frequency.exponentialRampToValueAtTime(80, audioCtx.currentTime + 0.16);
-        gain.gain.setValueAtTime(0.12, audioCtx.currentTime);
-        gain.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 0.16);
-        osc.connect(gain); gain.connect(audioCtx.destination);
-        osc.start(); osc.stop(audioCtx.currentTime + 0.16);
+        gain.gain.setValueAtTime(0.12, audioCtx.currentTime); gain.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 0.16);
+        osc.connect(gain); gain.connect(audioCtx.destination); osc.start(); osc.stop(audioCtx.currentTime + 0.16);
       },
       hit() {
         if (!soundEnabled) return;
         initAudio();
         const osc = audioCtx.createOscillator(), gain = audioCtx.createGain();
-        osc.type = 'sawtooth';
-        osc.frequency.setValueAtTime(200, audioCtx.currentTime);
+        osc.type = 'sawtooth'; osc.frequency.setValueAtTime(200, audioCtx.currentTime);
         osc.frequency.exponentialRampToValueAtTime(40, audioCtx.currentTime + 0.15);
-        gain.gain.setValueAtTime(0.18, audioCtx.currentTime);
-        gain.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 0.15);
-        osc.connect(gain); gain.connect(audioCtx.destination);
-        osc.start(); osc.stop(audioCtx.currentTime + 0.15);
+        gain.gain.setValueAtTime(0.18, audioCtx.currentTime); gain.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 0.15);
+        osc.connect(gain); gain.connect(audioCtx.destination); osc.start(); osc.stop(audioCtx.currentTime + 0.15);
       },
       powerup() {
         if (!soundEnabled) return;
         initAudio();
         const osc = audioCtx.createOscillator(), gain = audioCtx.createGain();
-        osc.type = 'sine';
-        osc.frequency.setValueAtTime(480, audioCtx.currentTime);
+        osc.type = 'sine'; osc.frequency.setValueAtTime(480, audioCtx.currentTime);
         osc.frequency.exponentialRampToValueAtTime(960, audioCtx.currentTime + 0.14);
-        gain.gain.setValueAtTime(0.15, audioCtx.currentTime);
-        gain.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 0.14);
-        osc.connect(gain); gain.connect(audioCtx.destination);
-        osc.start(); osc.stop(audioCtx.currentTime + 0.14);
+        gain.gain.setValueAtTime(0.15, audioCtx.currentTime); gain.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 0.14);
+        osc.connect(gain); gain.connect(audioCtx.destination); osc.start(); osc.stop(audioCtx.currentTime + 0.14);
+      },
+      nitro() {
+        if (!soundEnabled) return;
+        initAudio();
+        const osc = audioCtx.createOscillator(), gain = audioCtx.createGain();
+        osc.type = 'sawtooth'; osc.frequency.setValueAtTime(120, audioCtx.currentTime);
+        osc.frequency.linearRampToValueAtTime(360, audioCtx.currentTime + 0.25);
+        gain.gain.setValueAtTime(0.15, audioCtx.currentTime); gain.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 0.25);
+        osc.connect(gain); gain.connect(audioCtx.destination); osc.start(); osc.stop(audioCtx.currentTime + 0.25);
       },
       gameOver() {
         if (!soundEnabled) return;
         initAudio();
         const osc = audioCtx.createOscillator(), gain = audioCtx.createGain();
-        osc.type = 'triangle';
-        osc.frequency.setValueAtTime(300, audioCtx.currentTime);
+        osc.type = 'triangle'; osc.frequency.setValueAtTime(300, audioCtx.currentTime);
         osc.frequency.exponentialRampToValueAtTime(50, audioCtx.currentTime + 0.4);
-        gain.gain.setValueAtTime(0.25, audioCtx.currentTime);
-        gain.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 0.4);
-        osc.connect(gain); gain.connect(audioCtx.destination);
-        osc.start(); osc.stop(audioCtx.currentTime + 0.4);
+        gain.gain.setValueAtTime(0.25, audioCtx.currentTime); gain.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 0.4);
+        osc.connect(gain); gain.connect(audioCtx.destination); osc.start(); osc.stop(audioCtx.currentTime + 0.4);
       }
     };
 
@@ -1461,19 +1079,13 @@
       if (navigator.vibrate) navigator.vibrate(duration);
     }
 
-    // BGM Synthwave Generator
     function toggleBgm() {
       bgmEnabled = !bgmEnabled;
       const btn = document.getElementById('btn-bgm');
       if (bgmEnabled) {
-        initAudio();
-        btn.classList.add('active');
-        btn.innerText = "🎵 BGM: ON";
-        startSynthwaveBGM();
+        initAudio(); btn.classList.add('active'); btn.innerText = "🎵 BGM: ON"; startSynthwaveBGM();
       } else {
-        btn.classList.remove('active');
-        btn.innerText = "🎵 BGM: OFF";
-        stopSynthwaveBGM();
+        btn.classList.remove('active'); btn.innerText = "🎵 BGM: OFF"; stopSynthwaveBGM();
       }
     }
 
@@ -1484,12 +1096,9 @@
       bgmTimer = setInterval(() => {
         if (!bgmEnabled || !audioCtx) return;
         const osc = audioCtx.createOscillator(), gain = audioCtx.createGain();
-        osc.type = 'sawtooth';
-        osc.frequency.setValueAtTime(bassNotes[step % bassNotes.length], audioCtx.currentTime);
-        gain.gain.setValueAtTime(0.04, audioCtx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.18);
-        osc.connect(gain); gain.connect(audioCtx.destination);
-        osc.start(); osc.stop(audioCtx.currentTime + 0.18);
+        osc.type = 'sawtooth'; osc.frequency.setValueAtTime(bassNotes[step % bassNotes.length], audioCtx.currentTime);
+        gain.gain.setValueAtTime(0.04, audioCtx.currentTime); gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.18);
+        osc.connect(gain); gain.connect(audioCtx.destination); osc.start(); osc.stop(audioCtx.currentTime + 0.18);
         step++;
       }, 200);
     }
@@ -1527,10 +1136,8 @@
       const count = Math.floor((pWidth * pHeight) / 16000);
       for (let i = 0; i < count; i++) {
         particles.push({
-          x: Math.random() * pWidth,
-          y: Math.random() * pHeight,
-          vx: (Math.random() - 0.5) * 0.35,
-          vy: (Math.random() - 0.5) * 0.35,
+          x: Math.random() * pWidth, y: Math.random() * pHeight,
+          vx: (Math.random() - 0.5) * 0.35, vy: (Math.random() - 0.5) * 0.35,
           radius: Math.random() * 2 + 1
         });
       }
@@ -1544,10 +1151,8 @@
         p.x += p.vx; p.y += p.vy;
         if (p.x < 0 || p.x > pWidth) p.vx *= -1;
         if (p.y < 0 || p.y > pHeight) p.vy *= -1;
-        actx.beginPath();
-        actx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        actx.fillStyle = 'rgba(0, 240, 255, 0.35)';
-        actx.fill();
+        actx.beginPath(); actx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        actx.fillStyle = 'rgba(0, 240, 255, 0.35)'; actx.fill();
       }
       requestAnimationFrame(renderAmbient);
     }
@@ -1555,9 +1160,7 @@
 
     const authRCanvas = document.getElementById('authRobotCanvas');
     const arctx = authRCanvas ? authRCanvas.getContext('2d') : null;
-    let authTargetAngle = 0;
-    let authRobotStep = 0;
-    let authBlinkTimer = 0;
+    let authTargetAngle = 0, authRobotStep = 0, authBlinkTimer = 0;
 
     window.addEventListener('mousemove', (e) => {
       if (authRCanvas) {
@@ -1587,95 +1190,51 @@
       const isBlinking = (authBlinkTimer % 35 === 0);
 
       arctx.save();
-      // Pedestal Platform
-      arctx.fillStyle = '#0f172a';
-      arctx.strokeStyle = '#00f0ff';
-      arctx.lineWidth = 1.8;
-      arctx.beginPath();
-      arctx.roundRect(15, 128, 140, 24, 8);
-      arctx.fill(); arctx.stroke();
+      arctx.fillStyle = '#0f172a'; arctx.strokeStyle = '#00f0ff'; arctx.lineWidth = 1.8;
+      arctx.beginPath(); arctx.roundRect(15, 128, 140, 24, 8); arctx.fill(); arctx.stroke();
 
-      // Pedestal Neon Circuit
-      arctx.fillStyle = '#00f0ff';
-      arctx.shadowColor = '#00f0ff'; arctx.shadowBlur = 8;
-      arctx.fillRect(30, 138, 110, 3);
-      arctx.shadowBlur = 0;
+      arctx.fillStyle = '#00f0ff'; arctx.shadowColor = '#00f0ff'; arctx.shadowBlur = 8;
+      arctx.fillRect(30, 138, 110, 3); arctx.shadowBlur = 0;
 
-      // Question Box
-      arctx.fillStyle = '#f59e0b';
-      arctx.strokeStyle = '#facc15';
-      arctx.lineWidth = 2;
-      arctx.beginPath();
-      arctx.roundRect(122, 102, 28, 28, 6);
-      arctx.fill(); arctx.stroke();
-      arctx.fillStyle = '#fff';
-      arctx.font = '900 14px Orbitron';
-      arctx.textAlign = 'center';
+      arctx.fillStyle = '#f59e0b'; arctx.strokeStyle = '#facc15'; arctx.lineWidth = 2;
+      arctx.beginPath(); arctx.roundRect(122, 102, 28, 28, 6); arctx.fill(); arctx.stroke();
+      arctx.fillStyle = '#fff'; arctx.font = '900 14px Orbitron'; arctx.textAlign = 'center';
       arctx.fillText('?', 136, 122);
 
-      // Robot Body
-      arctx.fillStyle = '#1e293b';
-      arctx.strokeStyle = '#475569';
-      arctx.lineWidth = 2;
-      arctx.beginPath();
-      arctx.roundRect(46, 85, 58, 45, 12);
-      arctx.fill(); arctx.stroke();
+      arctx.fillStyle = '#1e293b'; arctx.strokeStyle = '#475569'; arctx.lineWidth = 2;
+      arctx.beginPath(); arctx.roundRect(46, 85, 58, 45, 12); arctx.fill(); arctx.stroke();
 
-      // Glowing Gamepad
-      arctx.fillStyle = '#00f0ff';
-      arctx.shadowColor = '#00f0ff'; arctx.shadowBlur = 10;
-      arctx.beginPath();
-      arctx.roundRect(57, 106, 36, 18, 6);
-      arctx.fill();
-      arctx.shadowBlur = 0;
+      arctx.fillStyle = '#00f0ff'; arctx.shadowColor = '#00f0ff'; arctx.shadowBlur = 10;
+      arctx.beginPath(); arctx.roundRect(57, 106, 36, 18, 6); arctx.fill(); arctx.shadowBlur = 0;
 
-      // Robot Hands
-      arctx.fillStyle = '#e2e8f0';
-      arctx.beginPath();
-      arctx.arc(55, 115, 6, 0, Math.PI * 2);
-      arctx.arc(95, 115, 6, 0, Math.PI * 2);
-      arctx.fill();
+      arctx.fillStyle = '#e2e8f0'; arctx.beginPath();
+      arctx.arc(55, 115, 6, 0, Math.PI * 2); arctx.arc(95, 115, 6, 0, Math.PI * 2); arctx.fill();
 
-      // Robot Head & Eye-Tracking
-      arctx.save();
-      arctx.translate(75, 48);
-
-      // Cyan Headphones
+      arctx.save(); arctx.translate(75, 48);
       arctx.strokeStyle = '#00f0ff'; arctx.lineWidth = 5;
       arctx.beginPath(); arctx.arc(0, -5, 36, Math.PI, 0, false); arctx.stroke();
 
-      arctx.fillStyle = '#00f0ff';
-      arctx.shadowColor = '#00f0ff'; arctx.shadowBlur = 12;
+      arctx.fillStyle = '#00f0ff'; arctx.shadowColor = '#00f0ff'; arctx.shadowBlur = 12;
       arctx.beginPath();
       arctx.ellipse(-38, 0, 7, 14, 0, 0, Math.PI * 2);
       arctx.ellipse(38, 0, 7, 14, 0, 0, Math.PI * 2);
-      arctx.fill();
-      arctx.shadowBlur = 0;
+      arctx.fill(); arctx.shadowBlur = 0;
 
-      // Helmet Shell
       arctx.fillStyle = '#f8fafc'; arctx.strokeStyle = '#38bdf8'; arctx.lineWidth = 2.5;
       arctx.beginPath(); arctx.roundRect(-34, -26, 68, 52, 18); arctx.fill(); arctx.stroke();
 
-      // Dark Screen Visor
-      arctx.fillStyle = '#050914';
-      arctx.beginPath(); arctx.roundRect(-27, -19, 54, 38, 12); arctx.fill();
+      arctx.fillStyle = '#050914'; arctx.beginPath(); arctx.roundRect(-27, -19, 54, 38, 12); arctx.fill();
 
-      // Dynamic Eye Tracking
-      const eyeOffsetX = Math.cos(angle) * 7;
-      const eyeOffsetY = Math.sin(angle) * 4.5;
-      arctx.fillStyle = '#00f0ff';
-      arctx.shadowColor = '#00f0ff'; arctx.shadowBlur = 12;
+      const eyeOffsetX = Math.cos(angle) * 7, eyeOffsetY = Math.sin(angle) * 4.5;
+      arctx.fillStyle = '#00f0ff'; arctx.shadowColor = '#00f0ff'; arctx.shadowBlur = 12;
 
       if (isBlinking) {
         arctx.fillRect(-16 + eyeOffsetX, 0 + eyeOffsetY, 12, 2.5);
         arctx.fillRect(4 + eyeOffsetX, 0 + eyeOffsetY, 12, 2.5);
       } else {
-        arctx.beginPath();
-        arctx.arc(-11 + eyeOffsetX, 1 + eyeOffsetY, 6, Math.PI + 0.2, -0.2, false);
+        arctx.beginPath(); arctx.arc(-11 + eyeOffsetX, 1 + eyeOffsetY, 6, Math.PI + 0.2, -0.2, false);
         arctx.lineWidth = 3.5; arctx.strokeStyle = '#00f0ff'; arctx.stroke();
-        arctx.beginPath();
-        arctx.arc(11 + eyeOffsetX, 1 + eyeOffsetY, 6, Math.PI + 0.2, -0.2, false);
-        arctx.stroke();
+        arctx.beginPath(); arctx.arc(11 + eyeOffsetX, 1 + eyeOffsetY, 6, Math.PI + 0.2, -0.2, false); arctx.stroke();
       }
       arctx.restore();
       arctx.restore();
@@ -1686,8 +1245,7 @@
     function drawPixelCat() {
       if (!catCtx) return;
       catCtx.clearRect(0, 0, catCanvas.width, catCanvas.height);
-      catCtx.save();
-      catCtx.translate(22, 10);
+      catCtx.save(); catCtx.translate(22, 10);
       catCtx.fillStyle = '#1e1b4b'; catCtx.fillRect(0, 48, 48, 8);
       catCtx.fillStyle = '#312e81'; catCtx.fillRect(6, 56, 36, 6);
       catCtx.fillStyle = '#f8fafc'; catCtx.fillRect(10, 22, 28, 26); catCtx.fillRect(8, 12, 32, 22);
@@ -1699,7 +1257,6 @@
     }
     drawPixelCat();
 
-    // Navbar Mascot
     const rCanvas = document.getElementById('robotCanvas');
     const rctx = rCanvas.getContext('2d');
     let navRobotStep = 0, navTargetAngle = 0;
@@ -1722,9 +1279,21 @@
       rctx.restore();
     }, 100);
 
-    function setAuthMode(register) {
+    function toggleFrontGuide() {
       sfx.click();
-      isRegisterMode = register;
+      const body = document.getElementById('frontGuideBody');
+      const btn = document.getElementById('btnFrontGuideToggle');
+      if (body.style.display === 'none') {
+        body.style.display = 'flex';
+        btn.innerText = 'TUTUP ▲';
+      } else {
+        body.style.display = 'none';
+        btn.innerText = 'BUKA ▼';
+      }
+    }
+
+    function setAuthMode(register) {
+      sfx.click(); isRegisterMode = register;
       const btnLogin = document.getElementById('tab-btn-login');
       const btnReg = document.getElementById('tab-btn-register');
       const submitBtnText = document.getElementById('btn-submit-text');
@@ -1749,8 +1318,7 @@
     function toggleAuth() { setAuthMode(!isRegisterMode); }
 
     function pickRegAvatar(av) {
-      sfx.click();
-      regAvatar = av;
+      sfx.click(); regAvatar = sanitizeAvatar(av);
       document.querySelectorAll('.avatar-choice-btn').forEach(b => b.classList.remove('selected'));
       event.target.classList.add('selected');
     }
@@ -1769,33 +1337,30 @@
       const btn = document.getElementById('btn-submit');
 
       if (!u || !p) {
-        feedback.style.color = 'var(--accent-pink)';
-        feedback.innerText = "Nama dan kata sandi harus diisi!";
+        feedback.style.color = 'var(--accent-pink)'; feedback.innerText = "Nama dan kata sandi harus diisi!";
         return;
       }
 
-      btn.disabled = true;
-      feedback.style.color = 'var(--primary)';
-      feedback.innerText = "Menghubungkan ke server...";
+      btn.disabled = true; feedback.style.color = 'var(--primary)'; feedback.innerText = "Menghubungkan ke server...";
 
       if (isRegisterMode) {
         const res = await callBackend('register', { username: u, password: p, avatar: regAvatar });
         btn.disabled = false;
         if (res.success) {
-          feedback.style.color = '#10b981';
-          feedback.innerText = res.message || "Pendaftaran sukses! Silakan login.";
-          setAuthMode(false);
-          showToast("Pendaftaran akun berhasil!");
+          feedback.style.color = '#10b981'; feedback.innerText = res.message || "Pendaftaran sukses! Silakan login.";
+          setAuthMode(false); showToast("Pendaftaran akun berhasil!");
         } else {
-          feedback.style.color = 'var(--accent-pink)';
-          feedback.innerText = res.message || "Pendaftaran gagal!";
+          feedback.style.color = 'var(--accent-pink)'; feedback.innerText = res.message || "Pendaftaran gagal!";
         }
       } else {
         const res = await callBackend('login', { username: u, password: p });
         btn.disabled = false;
         if (res.success) {
           currentUser = res.username || u;
-          currentAvatar = res.avatar || regAvatar || "🤖";
+          currentAvatar = sanitizeAvatar(res.avatar || regAvatar || "🤖");
+          localStorage.setItem('fadhil_user', currentUser);
+          localStorage.setItem('fadhil_avatar', currentAvatar);
+
           document.getElementById('auth-view').style.display = 'none';
           document.getElementById('dashboard-view').style.display = 'flex';
           document.getElementById('user-display').innerText = `P1: ${currentUser.toUpperCase()}`;
@@ -1804,17 +1369,14 @@
           loadDashboardMetrics();
           showToast(`Selamat datang, ${currentUser}!`);
         } else {
-          feedback.style.color = 'var(--accent-pink)';
-          feedback.innerText = res.message || "Nama atau kata sandi salah!";
+          feedback.style.color = 'var(--accent-pink)'; feedback.innerText = res.message || "Nama atau kata sandi salah!";
         }
       }
     }
 
     function logout() {
-      sfx.click();
-      currentUser = "";
-      document.getElementById('username').value = "";
-      document.getElementById('password').value = "";
+      sfx.click(); currentUser = ""; localStorage.removeItem('fadhil_user');
+      document.getElementById('username').value = ""; document.getElementById('password').value = "";
       document.getElementById('auth-feedback').innerText = "";
       document.getElementById('dashboard-view').style.display = 'none';
       document.getElementById('auth-view').style.display = 'flex';
@@ -1825,11 +1387,12 @@
     function closeProfileModal() { sfx.click(); document.getElementById('profileModal').style.display = 'none'; }
     async function updatePlayerAvatar(av) {
       sfx.click();
-      currentAvatar = av;
+      currentAvatar = sanitizeAvatar(av);
+      localStorage.setItem('fadhil_avatar', currentAvatar);
       document.getElementById('avatar-display').innerText = currentAvatar;
       closeProfileModal();
-      showToast(`Avatar diubah ke ${av}`);
-      await callBackend('updateAvatar', { username: currentUser, avatar: av });
+      showToast(`Avatar diubah ke ${currentAvatar}`);
+      await callBackend('updateAvatar', { username: currentUser, avatar: currentAvatar });
       loadDashboardMetrics();
     }
 
@@ -1860,7 +1423,7 @@
             <div class="player-item">
               <div class="player-rank-info">
                 <span class="rank-num">#${idx + 1}</span>
-                <span class="player-handle">${p.avatar || '🤖'} ${p.username}</span>
+                <span class="player-handle"><span>${sanitizeAvatar(p.avatar)}</span> ${p.username}</span>
               </div>
               <span class="player-score">${Number(p.score).toLocaleString('id-ID')}</span>
             </div>
@@ -1871,19 +1434,19 @@
 
         const lb = data.leaderboard || [];
         if (lb.length > 0) {
-          document.getElementById('podium-1-av').innerText = lb[0].avatar || '🤖';
+          document.getElementById('podium-1-av').innerText = sanitizeAvatar(lb[0].avatar);
           document.getElementById('podium-1-name').innerText = lb[0].username;
           document.getElementById('podium-1-game').innerText = lb[0].game;
           document.getElementById('podium-1-score').innerText = Number(lb[0].score).toLocaleString('id-ID');
         }
         if (lb.length > 1) {
-          document.getElementById('podium-2-av').innerText = lb[1].avatar || '🥷';
+          document.getElementById('podium-2-av').innerText = sanitizeAvatar(lb[1].avatar);
           document.getElementById('podium-2-name').innerText = lb[1].username;
           document.getElementById('podium-2-game').innerText = lb[1].game;
           document.getElementById('podium-2-score').innerText = Number(lb[1].score).toLocaleString('id-ID');
         }
         if (lb.length > 2) {
-          document.getElementById('podium-3-av').innerText = lb[2].avatar || '🚀';
+          document.getElementById('podium-3-av').innerText = sanitizeAvatar(lb[2].avatar);
           document.getElementById('podium-3-name').innerText = lb[2].username;
           document.getElementById('podium-3-game').innerText = lb[2].game;
           document.getElementById('podium-3-score').innerText = Number(lb[2].score).toLocaleString('id-ID');
@@ -1894,7 +1457,7 @@
           tableBody.innerHTML = lb.map((it, idx) => `
             <tr>
               <td style="font-family:'Orbitron',sans-serif; font-weight:700; color:${idx < 3 ? '#facc15' : 'var(--text-muted)'};">#${idx + 1}</td>
-              <td style="font-weight:600; color:#fff;">${it.avatar || '🤖'} ${it.username}</td>
+              <td style="font-weight:600; color:#fff;"><span>${sanitizeAvatar(it.avatar)}</span> ${it.username}</td>
               <td><span class="game-pill">${it.game}</span></td>
               <td class="lb-score-val">${Number(it.score).toLocaleString('id-ID')}</td>
               <td style="font-size:11px; color:var(--text-muted);">${it.date || '-'}</td>
@@ -1914,16 +1477,16 @@
       { id: 'collector', title: 'Power Collector', desc: 'Kumpulkan 5 power-up antariksa', icon: '⭐' },
       { id: 'legend', title: 'Top 3 Legend', desc: 'Raih podium peringkat 3 besar', icon: '👑' }
     ];
-    let unlockedBadges = {};
+    let unlockedBadges = JSON.parse(localStorage.getItem('fadhil_badges') || '{}');
 
     function unlockAchievement(id) {
       if (!unlockedBadges[id]) {
         unlockedBadges[id] = true;
+        localStorage.setItem('fadhil_badges', JSON.stringify(unlockedBadges));
         const ac = ACHIEVEMENTS.find(a => a.id === id);
         if (ac) {
           showToast(`Lencana Terbuka: ${ac.icon} ${ac.title}!`);
-          triggerHaptic(60);
-          sfx.powerup();
+          triggerHaptic(60); sfx.powerup();
         }
       }
     }
@@ -1956,10 +1519,7 @@
       unlockAchievement('first_play');
       currentGame = gameName;
       document.getElementById('activeGameTitle').innerText = gameName;
-      document.getElementById('btnGuideModal').style.display = (gameName === 'SPACE BLASTER') ? 'block' : 'none';
-      const guideDrawer = document.getElementById('spaceGuideDrawer');
-      if (guideDrawer) guideDrawer.classList.remove('active');
-
+      document.getElementById('btnNitroPedal').style.display = (gameName === 'PIXEL RACER') ? 'block' : 'none';
       gModal.style.display = 'flex';
       
       if (currentGame === 'SPACE BLASTER') initSpaceBlaster();
@@ -1967,21 +1527,12 @@
       else if (currentGame === 'PIXEL RACER') initPixelRacer();
     }
 
-    function toggleSpaceGuide() {
-      sfx.click();
-      const guideDrawer = document.getElementById('spaceGuideDrawer');
-      if (guideDrawer) guideDrawer.classList.toggle('active');
-    }
-
     function closeGameModal() {
       sfx.click();
       gModal.style.display = 'none';
-      const guideDrawer = document.getElementById('spaceGuideDrawer');
-      if (guideDrawer) guideDrawer.classList.remove('active');
       if (loopId) cancelAnimationFrame(loopId);
     }
 
-    // Pointer dan Pedal Sentuh
     gCanvas.addEventListener('mousemove', (e) => {
       const rect = gCanvas.getBoundingClientRect();
       sharedPlayerX = e.clientX - rect.left - 20;
@@ -1995,9 +1546,15 @@
 
     const leftBtn = document.getElementById('btnLeftPedal');
     const rightBtn = document.getElementById('btnRightPedal');
+    const nitroBtn = document.getElementById('btnNitroPedal');
+
     leftBtn.addEventListener('click', () => { sharedPlayerX = Math.max(20, sharedPlayerX - 35); triggerHaptic(15); });
     rightBtn.addEventListener('click', () => { sharedPlayerX = Math.min(300, sharedPlayerX + 35); triggerHaptic(15); });
+    nitroBtn.addEventListener('click', () => { triggerNitroBoost(); });
 
+    /* =========================================================================
+       GAME 1: SPACE BLASTER (STRIKER, 5 METEOR, 6 POWER-UPS, 3 BOSS)
+       ========================================================================= */
     let sbScore = 0, sbMeteors = [], sbBullets = [], sbSparks = [], sbPowerUps = [], sbFloatTexts = [], sbExplosions = [];
     let sbGameOver = false, sbCooldown = 0, sbLives = 3, sbMaxLives = 3;
     let sbPlayerHp = 100, sbPlayerMaxHp = 100, sbPlayerInvincible = 0;
@@ -2014,13 +1571,11 @@
       loopSpaceBlaster();
     }
 
-    // Model Kapal STRIKER Presisi Sesuai Gambar Referensi
     function drawStrikerShip(x, y) {
       gCtx.save();
       gCtx.translate(x + 20, y + 20);
       if (sbPlayerInvincible > 0 && Math.floor(sbPlayerInvincible / 3) % 2 === 0) gCtx.globalAlpha = 0.35;
 
-      // Dual Engine Plasma Thrusters
       const f = Math.random() * 8 + (sbPowerTimers.speed > 0 ? 8 : 0);
       gCtx.fillStyle = '#00f0ff'; gCtx.shadowColor = '#00f0ff'; gCtx.shadowBlur = 14;
       gCtx.beginPath();
@@ -2035,255 +1590,124 @@
       gCtx.fill();
       gCtx.shadowBlur = 0;
 
-      // Delta Wings & Wingtip Plasma Pods
       gCtx.fillStyle = '#0284c7'; gCtx.strokeStyle = '#38bdf8'; gCtx.lineWidth = 1.2;
       gCtx.beginPath();
       gCtx.moveTo(-8, 2); gCtx.lineTo(-22, 14); gCtx.lineTo(-18, 18); gCtx.lineTo(-8, 13);
       gCtx.moveTo(8, 2); gCtx.lineTo(22, 14); gCtx.lineTo(18, 18); gCtx.lineTo(8, 13);
       gCtx.closePath(); gCtx.fill(); gCtx.stroke();
 
-      // Wingtip Cannons
       gCtx.fillStyle = '#00f0ff';
       gCtx.fillRect(-22, 4, 3, 9);
       gCtx.fillRect(19, 4, 3, 9);
 
-      // White/Silver Aerodynamic Fuselage
       gCtx.fillStyle = '#f8fafc'; gCtx.strokeStyle = '#0284c7'; gCtx.lineWidth = 1.8;
       gCtx.beginPath();
-      gCtx.moveTo(0, -24);
-      gCtx.lineTo(7, -8);
-      gCtx.lineTo(10, 4);
-      gCtx.lineTo(8, 15);
-      gCtx.lineTo(-8, 15);
-      gCtx.lineTo(-10, 4);
-      gCtx.lineTo(-7, -8);
-      gCtx.closePath();
-      gCtx.fill(); gCtx.stroke();
+      gCtx.moveTo(0, -24); gCtx.lineTo(7, -8); gCtx.lineTo(10, 4); gCtx.lineTo(8, 15);
+      gCtx.lineTo(-8, 15); gCtx.lineTo(-10, 4); gCtx.lineTo(-7, -8);
+      gCtx.closePath(); gCtx.fill(); gCtx.stroke();
 
-      // Cobalt Center Insets
-      gCtx.fillStyle = '#0369a1';
-      gCtx.beginPath();
+      gCtx.fillStyle = '#0369a1'; gCtx.beginPath();
       gCtx.moveTo(0, -14); gCtx.lineTo(4, 2); gCtx.lineTo(-4, 2); gCtx.closePath(); gCtx.fill();
 
-      // Teardrop Glowing Cockpit Glass
       gCtx.fillStyle = '#00f0ff'; gCtx.shadowColor = '#00f0ff'; gCtx.shadowBlur = 10;
       gCtx.beginPath(); gCtx.ellipse(0, -6, 3.5, 8, 0, 0, Math.PI * 2); gCtx.fill();
       gCtx.fillStyle = '#e0f2fe';
       gCtx.beginPath(); gCtx.ellipse(-1, -8, 1.5, 3.5, -0.3, 0, Math.PI * 2); gCtx.fill();
       gCtx.shadowBlur = 0;
 
-      // Shield Bubble
       if (sbPowerTimers.shield > 0 || sbBossActive) {
         gCtx.strokeStyle = sbPowerTimers.shield > 0 ? 'rgba(168, 85, 247, 0.85)' : 'rgba(0, 240, 255, 0.85)';
         gCtx.lineWidth = 2.2; gCtx.shadowColor = sbPowerTimers.shield > 0 ? '#c084fc' : '#00f0ff'; gCtx.shadowBlur = 12;
         gCtx.beginPath(); gCtx.arc(0, 0, 28, 0, Math.PI * 2); gCtx.stroke();
         gCtx.fillStyle = sbPowerTimers.shield > 0 ? 'rgba(168, 85, 247, 0.12)' : 'rgba(0, 240, 255, 0.12)';
-        gCtx.fill();
-        gCtx.shadowBlur = 0;
+        gCtx.fill(); gCtx.shadowBlur = 0;
       }
       gCtx.restore();
     }
 
-    // 5 Varian Meteorit Presisi Sesuai Gambar Referensi
     function drawMeteor(m) {
-      gCtx.save();
-      gCtx.translate(m.x, m.y);
-      gCtx.rotate(m.rot);
+      gCtx.save(); gCtx.translate(m.x, m.y); gCtx.rotate(m.rot);
 
       if (m.type === 'cracked') {
-        // RETAK (+2 Skor): Batuan vulkanik gelap dengan retakan magma berpendar
         gCtx.fillStyle = '#1c1917'; gCtx.strokeStyle = '#f97316'; gCtx.lineWidth = 2.2;
-        gCtx.shadowColor = '#f97316'; gCtx.shadowBlur = 12;
-        gCtx.beginPath();
+        gCtx.shadowColor = '#f97316'; gCtx.shadowBlur = 12; gCtx.beginPath();
         for (let i = 0; i < m.points.length; i++) {
-          const pt = m.points[i];
-          if (i === 0) gCtx.moveTo(pt.x, pt.y); else gCtx.lineTo(pt.x, pt.y);
+          if (i === 0) gCtx.moveTo(m.points[i].x, m.points[i].y); else gCtx.lineTo(m.points[i].x, m.points[i].y);
         }
-        gCtx.closePath(); gCtx.fill(); gCtx.stroke();
-        gCtx.shadowBlur = 0;
-
-        // Magma Fissures
-        gCtx.strokeStyle = '#ea580c'; gCtx.lineWidth = 2;
-        gCtx.beginPath();
-        gCtx.moveTo(-m.radius * 0.6, -m.radius * 0.2);
-        gCtx.lineTo(0, 0);
-        gCtx.lineTo(m.radius * 0.6, m.radius * 0.3);
-        gCtx.moveTo(0, 0);
-        gCtx.lineTo(m.radius * 0.2, -m.radius * 0.6);
-        gCtx.stroke();
-
-        gCtx.fillStyle = '#facc15'; gCtx.shadowColor = '#facc15'; gCtx.shadowBlur = 8;
-        gCtx.beginPath(); gCtx.arc(0, 0, m.radius * 0.24, 0, Math.PI * 2); gCtx.fill();
-        gCtx.shadowBlur = 0;
-
+        gCtx.closePath(); gCtx.fill(); gCtx.stroke(); gCtx.shadowBlur = 0;
+        gCtx.strokeStyle = '#ea580c'; gCtx.lineWidth = 2; gCtx.beginPath();
+        gCtx.moveTo(-m.radius * 0.6, -m.radius * 0.2); gCtx.lineTo(0, 0); gCtx.lineTo(m.radius * 0.6, m.radius * 0.3);
+        gCtx.moveTo(0, 0); gCtx.lineTo(m.radius * 0.2, -m.radius * 0.6); gCtx.stroke();
       } else if (m.type === 'ice') {
-        // ES (+3 Skor): Kristal es geometris biru cyan bersegi dengan glint
         gCtx.fillStyle = '#0891b2'; gCtx.strokeStyle = '#67e8f9'; gCtx.lineWidth = 2.2;
-        gCtx.shadowColor = '#22d3ee'; gCtx.shadowBlur = 12;
-        gCtx.beginPath();
+        gCtx.shadowColor = '#22d3ee'; gCtx.shadowBlur = 12; gCtx.beginPath();
         for (let i = 0; i < m.points.length; i++) {
-          const pt = m.points[i];
-          if (i === 0) gCtx.moveTo(pt.x, pt.y); else gCtx.lineTo(pt.x, pt.y);
+          if (i === 0) gCtx.moveTo(m.points[i].x, m.points[i].y); else gCtx.lineTo(m.points[i].x, m.points[i].y);
         }
-        gCtx.closePath(); gCtx.fill(); gCtx.stroke();
-        gCtx.shadowBlur = 0;
-
-        // Facets Inside
-        gCtx.fillStyle = 'rgba(224, 242, 254, 0.45)';
-        gCtx.beginPath();
-        gCtx.moveTo(m.points[0].x * 0.6, m.points[0].y * 0.6);
-        gCtx.lineTo(m.points[2].x * 0.6, m.points[2].y * 0.6);
-        gCtx.lineTo(0, 0);
-        gCtx.closePath(); gCtx.fill();
-
-        // White Glint
-        gCtx.fillStyle = '#ffffff';
-        gCtx.beginPath(); gCtx.arc(-m.radius * 0.3, -m.radius * 0.3, 2.5, 0, Math.PI * 2); gCtx.fill();
-
+        gCtx.closePath(); gCtx.fill(); gCtx.stroke(); gCtx.shadowBlur = 0;
       } else if (m.type === 'gold') {
-        // EMAS (+5 Skor): Bongkahan emas murni bersudut kristal berkilau
         gCtx.fillStyle = '#ca8a04'; gCtx.strokeStyle = '#fef08a'; gCtx.lineWidth = 2.2;
-        gCtx.shadowColor = '#facc15'; gCtx.shadowBlur = 14;
-        gCtx.beginPath();
+        gCtx.shadowColor = '#facc15'; gCtx.shadowBlur = 14; gCtx.beginPath();
         for (let i = 0; i < m.points.length; i++) {
-          const pt = m.points[i];
-          if (i === 0) gCtx.moveTo(pt.x, pt.y); else gCtx.lineTo(pt.x, pt.y);
+          if (i === 0) gCtx.moveTo(m.points[i].x, m.points[i].y); else gCtx.lineTo(m.points[i].x, m.points[i].y);
         }
-        gCtx.closePath(); gCtx.fill(); gCtx.stroke();
-        gCtx.shadowBlur = 0;
-
-        gCtx.fillStyle = '#facc15';
-        gCtx.beginPath();
-        gCtx.moveTo(m.points[1].x * 0.5, m.points[1].y * 0.5);
-        gCtx.lineTo(0, 0);
-        gCtx.lineTo(m.points[3].x * 0.5, m.points[3].y * 0.5);
-        gCtx.closePath(); gCtx.fill();
-
-        // Sparkle Cross
-        gCtx.fillStyle = '#ffffff';
-        gCtx.fillRect(-m.radius * 0.35 - 3, -m.radius * 0.35 - 1, 6, 2);
-        gCtx.fillRect(-m.radius * 0.35 - 1, -m.radius * 0.35 - 3, 2, 6);
-
+        gCtx.closePath(); gCtx.fill(); gCtx.stroke(); gCtx.shadowBlur = 0;
       } else if (m.type === 'dark') {
-        // GELAP (+10 Skor): Void asteroid ungu pekat dengan kawah neon violet
         gCtx.fillStyle = '#3b0764'; gCtx.strokeStyle = '#c084fc'; gCtx.lineWidth = 2.4;
-        gCtx.shadowColor = '#a855f7'; gCtx.shadowBlur = 14;
-        gCtx.beginPath();
+        gCtx.shadowColor = '#a855f7'; gCtx.shadowBlur = 14; gCtx.beginPath();
         for (let i = 0; i < m.points.length; i++) {
-          const pt = m.points[i];
-          if (i === 0) gCtx.moveTo(pt.x, pt.y); else gCtx.lineTo(pt.x, pt.y);
+          if (i === 0) gCtx.moveTo(m.points[i].x, m.points[i].y); else gCtx.lineTo(m.points[i].x, m.points[i].y);
         }
-        gCtx.closePath(); gCtx.fill(); gCtx.stroke();
-        gCtx.shadowBlur = 0;
-
-        gCtx.fillStyle = '#7e22ce'; gCtx.shadowColor = '#d946ef'; gCtx.shadowBlur = 8;
-        gCtx.beginPath(); gCtx.arc(-m.radius * 0.25, -m.radius * 0.15, m.radius * 0.28, 0, Math.PI * 2); gCtx.fill();
-        gCtx.beginPath(); gCtx.arc(m.radius * 0.25, m.radius * 0.25, m.radius * 0.22, 0, Math.PI * 2); gCtx.fill();
-        gCtx.shadowBlur = 0;
-
+        gCtx.closePath(); gCtx.fill(); gCtx.stroke(); gCtx.shadowBlur = 0;
       } else {
-        // NORMAL (+1 Skor): Batuan abu-abu berkawah nyata dengan bayangan realistis
-        gCtx.fillStyle = '#64748b'; gCtx.strokeStyle = '#475569'; gCtx.lineWidth = 2;
-        gCtx.beginPath();
+        gCtx.fillStyle = '#64748b'; gCtx.strokeStyle = '#475569'; gCtx.lineWidth = 2; gCtx.beginPath();
         for (let i = 0; i < m.points.length; i++) {
-          const pt = m.points[i];
-          if (i === 0) gCtx.moveTo(pt.x, pt.y); else gCtx.lineTo(pt.x, pt.y);
+          if (i === 0) gCtx.moveTo(m.points[i].x, m.points[i].y); else gCtx.lineTo(m.points[i].x, m.points[i].y);
         }
         gCtx.closePath(); gCtx.fill(); gCtx.stroke();
-
-        // Realistic Craters
-        gCtx.fillStyle = '#334155';
-        gCtx.beginPath(); gCtx.arc(-m.radius * 0.3, -m.radius * 0.2, m.radius * 0.25, 0, Math.PI * 2); gCtx.fill();
-        gCtx.fillStyle = '#94a3b8';
-        gCtx.beginPath(); gCtx.arc(-m.radius * 0.26, -m.radius * 0.16, m.radius * 0.22, 0, Math.PI * 2); gCtx.fill();
-        gCtx.fillStyle = '#1e293b';
-        gCtx.beginPath(); gCtx.arc(-m.radius * 0.28, -m.radius * 0.18, m.radius * 0.19, 0, Math.PI * 2); gCtx.fill();
-
-        gCtx.fillStyle = '#1e293b';
-        gCtx.beginPath(); gCtx.arc(m.radius * 0.3, m.radius * 0.28, m.radius * 0.22, 0, Math.PI * 2); gCtx.fill();
-        gCtx.beginPath(); gCtx.arc(-m.radius * 0.1, m.radius * 0.4, m.radius * 0.15, 0, Math.PI * 2); gCtx.fill();
       }
-
       gCtx.restore();
     }
 
-    // 6 Item Power-Up Presisi Sesuai Gambar Referensi
     function drawPowerUp(p) {
-      gCtx.save();
-      gCtx.translate(p.x, p.y);
+      gCtx.save(); gCtx.translate(p.x, p.y);
       const pulse = Math.sin(sbCooldown * 0.16 + p.x) * 2;
-
-      // Glowing Aura Ring
       gCtx.fillStyle = p.bg; gCtx.shadowColor = p.glow; gCtx.shadowBlur = 12;
       gCtx.beginPath(); gCtx.arc(0, 0, 11 + pulse * 0.5, 0, Math.PI * 2); gCtx.fill();
-      gCtx.strokeStyle = p.glow; gCtx.lineWidth = 1.6; gCtx.stroke();
-      gCtx.shadowBlur = 0;
+      gCtx.strokeStyle = p.glow; gCtx.lineWidth = 1.6; gCtx.stroke(); gCtx.shadowBlur = 0;
 
       if (p.type === 'heal') {
-        // HEAL (+1 HP): Hati merah menyala
-        gCtx.fillStyle = '#ef4444';
-        gCtx.beginPath();
-        gCtx.moveTo(0, 5);
-        gCtx.bezierCurveTo(-6, 1, -6, -5, 0, -3);
-        gCtx.bezierCurveTo(6, -5, 6, 1, 0, 5);
-        gCtx.fill();
+        gCtx.fillStyle = '#ef4444'; gCtx.beginPath(); gCtx.moveTo(0, 5);
+        gCtx.bezierCurveTo(-6, 1, -6, -5, 0, -3); gCtx.bezierCurveTo(6, -5, 6, 1, 0, 5); gCtx.fill();
       } else if (p.type === 'score') {
-        // SKOR (+50): Bintang emas 5 sudut
         gCtx.fillStyle = '#facc15'; gCtx.font = '700 13px Orbitron'; gCtx.textAlign = 'center'; gCtx.textBaseline = 'middle';
         gCtx.fillText('★', 0, 1);
       } else if (p.type === 'speed') {
-        // SPEED UP: 3 Chevron hijau bertingkat ke atas
         gCtx.fillStyle = '#22c55e';
         for (let i = -1; i <= 1; i++) {
-          gCtx.beginPath();
-          gCtx.moveTo(-5, i * 4 + 3); gCtx.lineTo(0, i * 4 - 1); gCtx.lineTo(5, i * 4 + 3);
+          gCtx.beginPath(); gCtx.moveTo(-5, i * 4 + 3); gCtx.lineTo(0, i * 4 - 1); gCtx.lineTo(5, i * 4 + 3);
           gCtx.lineTo(0, i * 4 + 1); gCtx.closePath(); gCtx.fill();
         }
       } else if (p.type === 'triple') {
-        // TRIPLE SHOT: 3 Peluru plasma cyan berjejer
-        gCtx.fillStyle = '#00f0ff';
-        gCtx.fillRect(-5, -5, 2.2, 10);
-        gCtx.fillRect(-1.1, -7, 2.2, 14);
-        gCtx.fillRect(2.8, -5, 2.2, 10);
+        gCtx.fillStyle = '#00f0ff'; gCtx.fillRect(-5, -5, 2.2, 10); gCtx.fillRect(-1.1, -7, 2.2, 14); gCtx.fillRect(2.8, -5, 2.2, 10);
       } else if (p.type === 'shield') {
-        // SHIELD (5 Detik): Perisai heksagonal ungu
         gCtx.fillStyle = '#a855f7'; gCtx.strokeStyle = '#c084fc'; gCtx.lineWidth = 1.5;
-        gCtx.beginPath();
-        gCtx.moveTo(0, -6); gCtx.lineTo(6, -3); gCtx.lineTo(5, 3); gCtx.lineTo(0, 7); gCtx.lineTo(-5, 3); gCtx.lineTo(-6, -3);
+        gCtx.beginPath(); gCtx.moveTo(0, -6); gCtx.lineTo(6, -3); gCtx.lineTo(5, 3); gCtx.lineTo(0, 7); gCtx.lineTo(-5, 3); gCtx.lineTo(-6, -3);
         gCtx.closePath(); gCtx.fill(); gCtx.stroke();
       } else if (p.type === 'magnet') {
-        // MAGNET: Tapal kuda merah dengan kutub perak
         gCtx.strokeStyle = '#ef4444'; gCtx.lineWidth = 3;
         gCtx.beginPath(); gCtx.arc(0, -2, 5, Math.PI, 0, false); gCtx.stroke();
-        gCtx.fillStyle = '#cbd5e1';
-        gCtx.fillRect(-6.5, -2, 3, 4);
-        gCtx.fillRect(3.5, -2, 3, 4);
+        gCtx.fillStyle = '#cbd5e1'; gCtx.fillRect(-6.5, -2, 3, 4); gCtx.fillRect(3.5, -2, 3, 4);
       }
       gCtx.restore();
     }
 
-    // Efek Ledakan Starburst Presisi Sesuai Gambar Referensi
     function createStarburstExplosion(x, y, isBig = false, color = '#f97316') {
-      sbExplosions.push({
-        x: x, y: y,
-        radius: isBig ? 32 : 18,
-        maxRadius: isBig ? 48 : 28,
-        life: isBig ? 24 : 16,
-        maxLife: isBig ? 24 : 16,
-        color: color
-      });
-
+      sbExplosions.push({ x, y, radius: isBig ? 32 : 18, maxRadius: isBig ? 48 : 28, life: isBig ? 24 : 16, maxLife: isBig ? 24 : 16, color });
       const count = isBig ? 24 : 14;
       for (let i = 0; i < count; i++) {
-        const ang = Math.random() * Math.PI * 2;
-        const spd = isBig ? (3 + Math.random() * 5) : (2 + Math.random() * 3.5);
-        sbSparks.push({
-          x: x, y: y,
-          vx: Math.cos(ang) * spd,
-          vy: Math.sin(ang) * spd,
-          life: isBig ? 28 : 18,
-          color: Math.random() > 0.4 ? '#facc15' : color
-        });
+        const ang = Math.random() * Math.PI * 2, spd = isBig ? (3 + Math.random() * 5) : (2 + Math.random() * 3.5);
+        sbSparks.push({ x, y, vx: Math.cos(ang) * spd, vy: Math.sin(ang) * spd, life: isBig ? 28 : 18, color: Math.random() > 0.4 ? '#facc15' : color });
       }
     }
 
@@ -2293,212 +1717,88 @@
         ex.life--;
         const ratio = ex.life / ex.maxLife;
         const curR = ex.radius + (1 - ratio) * (ex.maxRadius - ex.radius);
-
-        gCtx.save();
-        gCtx.translate(ex.x, ex.y);
-
-        // Radiating 8-Spike Starburst Flare
-        gCtx.fillStyle = ex.color;
-        gCtx.shadowColor = '#facc15'; gCtx.shadowBlur = 16;
+        gCtx.save(); gCtx.translate(ex.x, ex.y);
+        gCtx.fillStyle = ex.color; gCtx.shadowColor = '#facc15'; gCtx.shadowBlur = 16;
         gCtx.beginPath();
         for (let s = 0; s < 8; s++) {
-          const a1 = (s / 8) * Math.PI * 2;
-          const a2 = a1 + (Math.PI / 8);
-          const rOuter = curR * 1.35;
-          const rInner = curR * 0.4;
-          if (s === 0) gCtx.moveTo(Math.cos(a1) * rOuter, Math.sin(a1) * rOuter);
-          else gCtx.lineTo(Math.cos(a1) * rOuter, Math.sin(a1) * rOuter);
-          gCtx.lineTo(Math.cos(a2) * rInner, Math.sin(a2) * rInner);
+          const a1 = (s / 8) * Math.PI * 2, a2 = a1 + (Math.PI / 8);
+          if (s === 0) gCtx.moveTo(Math.cos(a1) * curR * 1.35, Math.sin(a1) * curR * 1.35);
+          else gCtx.lineTo(Math.cos(a1) * curR * 1.35, Math.sin(a1) * curR * 1.35);
+          gCtx.lineTo(Math.cos(a2) * curR * 0.4, Math.sin(a2) * curR * 0.4);
         }
         gCtx.closePath(); gCtx.fill();
-
-        // Inner Molten Core
-        gCtx.fillStyle = '#fff';
-        gCtx.beginPath(); gCtx.arc(0, 0, curR * 0.45 * ratio, 0, Math.PI * 2); gCtx.fill();
+        gCtx.fillStyle = '#fff'; gCtx.beginPath(); gCtx.arc(0, 0, curR * 0.45 * ratio, 0, Math.PI * 2); gCtx.fill();
         gCtx.restore();
-
         if (ex.life <= 0) sbExplosions.splice(i, 1);
       }
     }
 
-    // Model 3 BOSS Presisi Sesuai Gambar Referensi (Titan Dreadnought, Void Destroyer, Omega Annihilator)
     function drawBoss(b) {
-      gCtx.save();
-      gCtx.translate(b.x + b.w / 2, b.y + b.h / 2);
+      gCtx.save(); gCtx.translate(b.x + b.w / 2, b.y + b.h / 2);
       const f = Math.random() * 8;
 
       if (b.tier === 1) {
-        // BOSS 1: TITAN DREADNOUGHT (Heavy Warship) - Merah & Abu-abu dengan 3 Pendorong Api & Dual Cannons
-        // 3 Fiery Exhaust Plumes
-        gCtx.fillStyle = '#ef4444'; gCtx.shadowColor = '#f97316'; gCtx.shadowBlur = 18;
-        gCtx.beginPath();
+        gCtx.fillStyle = '#ef4444'; gCtx.shadowColor = '#f97316'; gCtx.shadowBlur = 18; gCtx.beginPath();
         gCtx.moveTo(-36, -b.h / 2 + 6); gCtx.lineTo(-30, -b.h / 2 - 12 - f); gCtx.lineTo(-24, -b.h / 2 + 6);
         gCtx.moveTo(-6, -b.h / 2 + 6); gCtx.lineTo(0, -b.h / 2 - 16 - f); gCtx.lineTo(6, -b.h / 2 + 6);
         gCtx.moveTo(24, -b.h / 2 + 6); gCtx.lineTo(30, -b.h / 2 - 12 - f); gCtx.lineTo(36, -b.h / 2 + 6);
         gCtx.fill();
 
-        // Armor Hulls (Triple segmented pods)
-        gCtx.fillStyle = '#1e293b'; gCtx.strokeStyle = '#dc2626'; gCtx.lineWidth = 2.5;
-        gCtx.beginPath();
-        gCtx.moveTo(0, b.h / 2 + 10);
-        gCtx.lineTo(b.w / 2, 4);
-        gCtx.lineTo(b.w / 2 - 8, -b.h / 2);
-        gCtx.lineTo(-b.w / 2 + 8, -b.h / 2);
-        gCtx.lineTo(-b.w / 2, 4);
-        gCtx.closePath(); gCtx.fill(); gCtx.stroke();
+        gCtx.fillStyle = '#1e293b'; gCtx.strokeStyle = '#dc2626'; gCtx.lineWidth = 2.5; gCtx.beginPath();
+        gCtx.moveTo(0, b.h / 2 + 10); gCtx.lineTo(b.w / 2, 4); gCtx.lineTo(b.w / 2 - 8, -b.h / 2);
+        gCtx.lineTo(-b.w / 2 + 8, -b.h / 2); gCtx.lineTo(-b.w / 2, 4); gCtx.closePath(); gCtx.fill(); gCtx.stroke();
 
-        // Heavy Crimson Armor Plates
         gCtx.fillStyle = '#dc2626';
-        gCtx.fillRect(-b.w / 2 + 6, -10, 22, 24);
-        gCtx.fillRect(b.w / 2 - 28, -10, 22, 24);
-        gCtx.fillRect(-12, -b.h / 2 + 4, 24, 28);
+        gCtx.fillRect(-b.w / 2 + 6, -10, 22, 24); gCtx.fillRect(b.w / 2 - 28, -10, 22, 24); gCtx.fillRect(-12, -b.h / 2 + 4, 24, 28);
+        gCtx.fillStyle = '#f97316'; gCtx.fillRect(-22, b.h / 2 - 2, 8, 12); gCtx.fillRect(14, b.h / 2 - 2, 8, 12);
 
-        // Dual Heavy Plasma Cannons
-        gCtx.fillStyle = '#f97316';
-        gCtx.fillRect(-22, b.h / 2 - 2, 8, 12);
-        gCtx.fillRect(14, b.h / 2 - 2, 8, 12);
-
-        // Glowing Central Red Optic Sensor Eye
         gCtx.fillStyle = '#ffffff'; gCtx.shadowColor = '#ef4444'; gCtx.shadowBlur = 16;
         gCtx.beginPath(); gCtx.arc(0, 4, 7, 0, Math.PI * 2); gCtx.fill();
-        gCtx.fillStyle = '#ef4444';
-        gCtx.beginPath(); gCtx.arc(0, 4, 4.5, 0, Math.PI * 2); gCtx.fill();
-        gCtx.shadowBlur = 0;
-
+        gCtx.fillStyle = '#ef4444'; gCtx.beginPath(); gCtx.arc(0, 4, 4.5, 0, Math.PI * 2); gCtx.fill(); gCtx.shadowBlur = 0;
       } else if (b.tier === 2) {
-        // BOSS 2: VOID DESTROYER (Stealth Fighter) - Sayap Kelelawar Ungu dengan Mata Optik Hijau Menyala
-        gCtx.fillStyle = '#a855f7'; gCtx.shadowColor = '#a855f7'; gCtx.shadowBlur = 16;
-        gCtx.beginPath();
+        gCtx.fillStyle = '#a855f7'; gCtx.shadowColor = '#a855f7'; gCtx.shadowBlur = 16; gCtx.beginPath();
         gCtx.moveTo(-20, -b.h / 2 + 4); gCtx.lineTo(-14, -b.h / 2 - 10 - f); gCtx.lineTo(-8, -b.h / 2 + 4);
-        gCtx.moveTo(8, -b.h / 2 + 4); gCtx.lineTo(14, -b.h / 2 - 10 - f); gCtx.lineTo(20, -b.h / 2 + 4);
-        gCtx.fill();
+        gCtx.moveTo(8, -b.h / 2 + 4); gCtx.lineTo(14, -b.h / 2 - 10 - f); gCtx.lineTo(20, -b.h / 2 + 4); gCtx.fill();
 
-        // Swept-Forward Bat-Wings
-        gCtx.fillStyle = '#0f0d1e'; gCtx.strokeStyle = '#9333ea'; gCtx.lineWidth = 2.6;
-        gCtx.beginPath();
-        gCtx.moveTo(0, b.h / 2 + 12);
-        gCtx.lineTo(b.w / 2 + 12, b.h / 2);
-        gCtx.lineTo(b.w / 2 - 6, -b.h / 2);
-        gCtx.lineTo(0, -b.h / 4);
-        gCtx.lineTo(-b.w / 2 + 6, -b.h / 2);
-        gCtx.lineTo(-b.w / 2 - 12, b.h / 2);
+        gCtx.fillStyle = '#0f0d1e'; gCtx.strokeStyle = '#9333ea'; gCtx.lineWidth = 2.6; gCtx.beginPath();
+        gCtx.moveTo(0, b.h / 2 + 12); gCtx.lineTo(b.w / 2 + 12, b.h / 2); gCtx.lineTo(b.w / 2 - 6, -b.h / 2);
+        gCtx.lineTo(0, -b.h / 4); gCtx.lineTo(-b.w / 2 + 6, -b.h / 2); gCtx.lineTo(-b.w / 2 - 12, b.h / 2);
         gCtx.closePath(); gCtx.fill(); gCtx.stroke();
 
-        // Neon Violet Armor Ridges
-        gCtx.fillStyle = '#c084fc';
-        gCtx.beginPath();
-        gCtx.ellipse(-34, 6, 5, 12, -0.4, 0, Math.PI * 2);
-        gCtx.ellipse(34, 6, 5, 12, 0.4, 0, Math.PI * 2);
-        gCtx.fill();
-
-        // Glowing Toxic Alien Green Core
-        gCtx.fillStyle = '#22c55e'; gCtx.shadowColor = '#4ade80'; gCtx.shadowBlur = 22;
-        gCtx.beginPath();
-        gCtx.moveTo(0, -10); gCtx.lineTo(8, 2); gCtx.lineTo(0, 12); gCtx.lineTo(-8, 2);
-        gCtx.closePath(); gCtx.fill();
-        gCtx.fillStyle = '#ffffff';
-        gCtx.beginPath(); gCtx.arc(0, 1, 3, 0, Math.PI * 2); gCtx.fill();
-        gCtx.shadowBlur = 0;
-
+        gCtx.fillStyle = '#22c55e'; gCtx.shadowColor = '#4ade80'; gCtx.shadowBlur = 22; gCtx.beginPath();
+        gCtx.moveTo(0, -10); gCtx.lineTo(8, 2); gCtx.lineTo(0, 12); gCtx.lineTo(-8, 2); gCtx.closePath(); gCtx.fill();
+        gCtx.fillStyle = '#ffffff'; gCtx.beginPath(); gCtx.arc(0, 1, 3, 0, Math.PI * 2); gCtx.fill(); gCtx.shadowBlur = 0;
       } else {
-        // BOSS 3: OMEGA ANNIHILATOR (Space Fortress) - Benteng Emas Raksasa dengan 3 Turbin Fusi Suria
-        gCtx.fillStyle = '#f97316'; gCtx.shadowColor = '#ef4444'; gCtx.shadowBlur = 24;
-        gCtx.beginPath();
+        gCtx.fillStyle = '#f97316'; gCtx.shadowColor = '#ef4444'; gCtx.shadowBlur = 24; gCtx.beginPath();
         gCtx.moveTo(-42, -b.h / 2 + 6); gCtx.lineTo(-34, -b.h / 2 - 16 - f); gCtx.lineTo(-26, -b.h / 2 + 6);
         gCtx.moveTo(-8, -b.h / 2 + 6); gCtx.lineTo(0, -b.h / 2 - 20 - f); gCtx.lineTo(8, -b.h / 2 + 6);
-        gCtx.moveTo(26, -b.h / 2 + 6); gCtx.lineTo(34, -b.h / 2 - 16 - f); gCtx.lineTo(42, -b.h / 2 + 6);
-        gCtx.fill();
+        gCtx.moveTo(26, -b.h / 2 + 6); gCtx.lineTo(34, -b.h / 2 - 16 - f); gCtx.lineTo(42, -b.h / 2 + 6); gCtx.fill();
 
-        // Fortress Golden Hull
-        gCtx.fillStyle = '#451a03'; gCtx.strokeStyle = '#facc15'; gCtx.lineWidth = 3;
-        gCtx.beginPath();
-        gCtx.moveTo(0, b.h / 2 + 16);
-        gCtx.lineTo(b.w / 2 + 14, 12);
-        gCtx.lineTo(b.w / 2, -b.h / 2);
-        gCtx.lineTo(0, -b.h / 3);
-        gCtx.lineTo(-b.w / 2, -b.h / 2);
-        gCtx.lineTo(-b.w / 2 - 14, 12);
-        gCtx.closePath(); gCtx.fill(); gCtx.stroke();
+        gCtx.fillStyle = '#451a03'; gCtx.strokeStyle = '#facc15'; gCtx.lineWidth = 3; gCtx.beginPath();
+        gCtx.moveTo(0, b.h / 2 + 16); gCtx.lineTo(b.w / 2 + 14, 12); gCtx.lineTo(b.w / 2, -b.h / 2);
+        gCtx.lineTo(0, -b.h / 3); gCtx.lineTo(-b.w / 2, -b.h / 2); gCtx.lineTo(-b.w / 2 - 14, 12); gCtx.closePath(); gCtx.fill(); gCtx.stroke();
 
-        // Gold & Crimson Side Turrets
-        gCtx.fillStyle = '#ca8a04';
-        gCtx.fillRect(-42, -8, 22, 20);
-        gCtx.fillRect(20, -8, 22, 20);
-        gCtx.fillStyle = '#991b1b';
-        gCtx.fillRect(-16, -10, 32, 24);
-
-        // Quad Plasma Cannons Barrels
-        gCtx.fillStyle = '#facc15';
-        gCtx.fillRect(-36, b.h / 2 - 4, 6, 14);
-        gCtx.fillRect(-18, b.h / 2, 6, 14);
-        gCtx.fillRect(12, b.h / 2, 6, 14);
-        gCtx.fillRect(30, b.h / 2 - 4, 6, 14);
-
-        // 3 Giant Glowing Turbine Engines
-        gCtx.fillStyle = '#ef4444'; gCtx.shadowColor = '#f97316'; gCtx.shadowBlur = 20;
-        gCtx.beginPath();
-        gCtx.arc(-28, 0, 8, 0, Math.PI * 2);
-        gCtx.arc(0, 2, 12, 0, Math.PI * 2);
-        gCtx.arc(28, 0, 8, 0, Math.PI * 2);
-        gCtx.fill();
-
-        gCtx.fillStyle = '#fef08a';
-        gCtx.beginPath(); gCtx.arc(0, 2, 5, 0, Math.PI * 2); gCtx.fill();
-        gCtx.shadowBlur = 0;
+        gCtx.fillStyle = '#ef4444'; gCtx.shadowColor = '#f97316'; gCtx.shadowBlur = 20; gCtx.beginPath();
+        gCtx.arc(-28, 0, 8, 0, Math.PI * 2); gCtx.arc(0, 2, 12, 0, Math.PI * 2); gCtx.arc(28, 0, 8, 0, Math.PI * 2); gCtx.fill();
+        gCtx.fillStyle = '#fef08a'; gCtx.beginPath(); gCtx.arc(0, 2, 5, 0, Math.PI * 2); gCtx.fill(); gCtx.shadowBlur = 0;
       }
-
       gCtx.restore();
     }
 
     function addFloatText(text, x, y, color = '#facc15') {
-      sbFloatTexts.push({ text: text, x: x, y: y, life: 36, color: color });
+      sbFloatTexts.push({ text, x, y, life: 36, color });
     }
 
     function spawnNextBoss() {
-      sbBossTier++;
-      sbBossActive = true;
-      bossWarningTimer = 90;
-      sfx.bossLaser();
-      sbMeteors = [];
-      sbPlayerHp = 100;
-      sbPlayerInvincible = 30;
+      sbBossTier++; sbBossActive = true; bossWarningTimer = 90; sfx.bossLaser();
+      sbMeteors = []; sbPlayerHp = 100; sbPlayerInvincible = 30;
 
       if (sbBossTier === 1) {
-        sbBoss = {
-          name: "TITAN DREADNOUGHT",
-          subtitle: "HEAVY WARSHIP",
-          tier: 1,
-          x: 110, y: -80, targetY: 55,
-          w: 120, h: 68,
-          hp: 85, maxHp: 85,
-          dir: 1, speedX: 2.0,
-          cooldown: 0, reward: 150,
-          themeColor: '#ef4444'
-        };
+        sbBoss = { name: "TITAN DREADNOUGHT", subtitle: "HEAVY WARSHIP", tier: 1, x: 110, y: -80, targetY: 55, w: 120, h: 68, hp: 85, maxHp: 85, dir: 1, speedX: 2.0, cooldown: 0, reward: 150, themeColor: '#ef4444' };
       } else if (sbBossTier === 2) {
-        sbBoss = {
-          name: "VOID DESTROYER",
-          subtitle: "STEALTH FIGHTER",
-          tier: 2,
-          x: 106, y: -85, targetY: 60,
-          w: 128, h: 64,
-          hp: 140, maxHp: 140,
-          dir: 1, speedX: 2.5,
-          cooldown: 0, reward: 250,
-          themeColor: '#a855f7'
-        };
+        sbBoss = { name: "VOID DESTROYER", subtitle: "STEALTH FIGHTER", tier: 2, x: 106, y: -85, targetY: 60, w: 128, h: 64, hp: 140, maxHp: 140, dir: 1, speedX: 2.5, cooldown: 0, reward: 250, themeColor: '#a855f7' };
       } else {
-        sbBoss = {
-          name: "OMEGA ANNIHILATOR",
-          subtitle: "SPACE FORTRESS",
-          tier: 3,
-          x: 102, y: -95, targetY: 65,
-          w: 136, h: 74,
-          hp: 200, maxHp: 200,
-          dir: 1, speedX: 3.0,
-          cooldown: 0, reward: 450,
-          themeColor: '#facc15'
-        };
+        sbBoss = { name: "OMEGA ANNIHILATOR", subtitle: "SPACE FORTRESS", tier: 3, x: 102, y: -95, targetY: 65, w: 136, h: 74, hp: 200, maxHp: 200, dir: 1, speedX: 3.0, cooldown: 0, reward: 450, themeColor: '#facc15' };
       }
     }
 
@@ -2511,7 +1811,6 @@
 
       if (sbScore >= nextBossScoreThreshold && !sbBossActive) spawnNextBoss();
 
-      // Laser Player Plasma Fire
       const interval = sbPowerTimers.speed > 0 ? 8 : 12;
       if (sbCooldown % interval === 0) {
         if (sbPowerTimers.triple > 0) {
@@ -2525,7 +1824,6 @@
         sfx.laser();
       }
 
-      // Spawning 5 Jenis Meteor Sesuai Nilai Skor
       if (!sbBossActive && Math.random() < 0.045) {
         const rVal = Math.random();
         let mType = 'normal', mHp = 1, mScore = 1, rad = 14 + Math.random() * 12;
@@ -2534,30 +1832,14 @@
         else if (rVal < 0.50) { mType = 'ice'; mHp = 2; mScore = 3; rad = 14; }
         else if (rVal < 0.72) { mType = 'cracked'; mHp = 2; mScore = 2; rad = 16; }
 
-        // Bumpy Polygon Points
-        const numSides = mType === 'ice' ? 6 : 8;
-        const pts = [];
+        const numSides = mType === 'ice' ? 6 : 8, pts = [];
         for (let i = 0; i < numSides; i++) {
-          const a = (i / numSides) * Math.PI * 2;
-          const r = rad * (0.8 + Math.random() * 0.4);
+          const a = (i / numSides) * Math.PI * 2, r = rad * (0.8 + Math.random() * 0.4);
           pts.push({ x: Math.cos(a) * r, y: Math.sin(a) * r });
         }
-
-        sbMeteors.push({
-          x: rad + Math.random() * (340 - rad * 2),
-          y: -rad * 2,
-          radius: rad,
-          points: pts,
-          rot: 0,
-          rotSpeed: (Math.random() - 0.5) * 0.06,
-          speed: (mType === 'ice' ? 3.0 : 2.0) + Math.random() * 2,
-          type: mType,
-          hp: mHp,
-          reward: mScore
-        });
+        sbMeteors.push({ x: rad + Math.random() * (340 - rad * 2), y: -rad * 2, radius: rad, points: pts, rot: 0, rotSpeed: (Math.random() - 0.5) * 0.06, speed: (mType === 'ice' ? 3.0 : 2.0) + Math.random() * 2, type: mType, hp: mHp, reward: mScore });
       }
 
-      // Boss AI & Pola Serangan Persis Sesuai Gambar
       if (sbBossActive && sbBoss) {
         if (sbBoss.y < sbBoss.targetY) sbBoss.y += 1.6;
         else {
@@ -2565,35 +1847,25 @@
           if (sbBoss.x <= 15 || sbBoss.x >= 340 - sbBoss.w - 15) sbBoss.dir *= -1;
           sbBoss.cooldown++;
 
-          if (sbBoss.tier === 1) {
-            // DUAL PLASMA CANNONS (Sepasang peluru plasma merah-oranye ganda)
-            if (sbBoss.cooldown % 34 === 0) {
-              sbBossBullets.push({ x: sbBoss.x + 24, y: sbBoss.y + sbBoss.h, vx: 0, vy: 5.2, color: '#ef4444', rad: 5 });
-              sbBossBullets.push({ x: sbBoss.x + sbBoss.w - 24, y: sbBoss.y + sbBoss.h, vx: 0, vy: 5.2, color: '#ef4444', rad: 5 });
-              sfx.bossLaser();
-            }
-          } else if (sbBoss.tier === 2) {
-            // TRIPLE SPREAD LASERS (3 Tembakan sinar laser ungu menyebar ke kiri, tengah, kanan)
-            if (sbBoss.cooldown % 30 === 0) {
-              sbBossBullets.push({ x: sbBoss.x + sbBoss.w / 2, y: sbBoss.y + sbBoss.h, vx: 0, vy: 5.0, color: '#c084fc', rad: 4.5 });
-              sbBossBullets.push({ x: sbBoss.x + 18, y: sbBoss.y + sbBoss.h, vx: -1.8, vy: 4.6, color: '#c084fc', rad: 4.5 });
-              sbBossBullets.push({ x: sbBoss.x + sbBoss.w - 18, y: sbBoss.y + sbBoss.h, vx: 1.8, vy: 4.6, color: '#c084fc', rad: 4.5 });
-              sfx.bossLaser();
-            }
-          } else {
-            // QUAD PLASMA BARRAGE (Berondongan 4 meriam plasma berat emas-merah)
-            if (sbBoss.cooldown % 26 === 0) {
-              sbBossBullets.push({ x: sbBoss.x + 18, y: sbBoss.y + sbBoss.h, vx: -0.8, vy: 5.4, color: '#facc15', rad: 5.5 });
-              sbBossBullets.push({ x: sbBoss.x + 40, y: sbBoss.y + sbBoss.h, vx: -0.2, vy: 5.6, color: '#ef4444', rad: 5.5 });
-              sbBossBullets.push({ x: sbBoss.x + sbBoss.w - 40, y: sbBoss.y + sbBoss.h, vx: 0.2, vy: 5.6, color: '#ef4444', rad: 5.5 });
-              sbBossBullets.push({ x: sbBoss.x + sbBoss.w - 18, y: sbBoss.y + sbBoss.h, vx: 0.8, vy: 5.4, color: '#facc15', rad: 5.5 });
-              sfx.bossLaser();
-            }
+          if (sbBoss.tier === 1 && sbBoss.cooldown % 34 === 0) {
+            sbBossBullets.push({ x: sbBoss.x + 24, y: sbBoss.y + sbBoss.h, vx: 0, vy: 5.2, color: '#ef4444', rad: 5 });
+            sbBossBullets.push({ x: sbBoss.x + sbBoss.w - 24, y: sbBoss.y + sbBoss.h, vx: 0, vy: 5.2, color: '#ef4444', rad: 5 });
+            sfx.bossLaser();
+          } else if (sbBoss.tier === 2 && sbBoss.cooldown % 30 === 0) {
+            sbBossBullets.push({ x: sbBoss.x + sbBoss.w / 2, y: sbBoss.y + sbBoss.h, vx: 0, vy: 5.0, color: '#c084fc', rad: 4.5 });
+            sbBossBullets.push({ x: sbBoss.x + 18, y: sbBoss.y + sbBoss.h, vx: -1.8, vy: 4.6, color: '#c084fc', rad: 4.5 });
+            sbBossBullets.push({ x: sbBoss.x + sbBoss.w - 18, y: sbBoss.y + sbBoss.h, vx: 1.8, vy: 4.6, color: '#c084fc', rad: 4.5 });
+            sfx.bossLaser();
+          } else if (sbBoss.tier === 3 && sbBoss.cooldown % 26 === 0) {
+            sbBossBullets.push({ x: sbBoss.x + 18, y: sbBoss.y + sbBoss.h, vx: -0.8, vy: 5.4, color: '#facc15', rad: 5.5 });
+            sbBossBullets.push({ x: sbBoss.x + 40, y: sbBoss.y + sbBoss.h, vx: -0.2, vy: 5.6, color: '#ef4444', rad: 5.5 });
+            sbBossBullets.push({ x: sbBoss.x + sbBoss.w - 40, y: sbBoss.y + sbBoss.h, vx: 0.2, vy: 5.6, color: '#ef4444', rad: 5.5 });
+            sbBossBullets.push({ x: sbBoss.x + sbBoss.w - 18, y: sbBoss.y + sbBoss.h, vx: 0.8, vy: 5.4, color: '#facc15', rad: 5.5 });
+            sfx.bossLaser();
           }
         }
       }
 
-      // Update Bullets & PowerUps
       for (let b of sbBullets) { b.x += b.vx || 0; b.y += b.vy || -7.8; }
       sbBullets = sbBullets.filter(b => b.y > -10);
       for (let bb of sbBossBullets) { bb.x += bb.vx || 0; bb.y += bb.vy; }
@@ -2601,69 +1873,40 @@
 
       for (let s of sbSparks) { s.x += s.vx; s.y += s.vy; s.life--; }
       sbSparks = sbSparks.filter(s => s.life > 0);
-
       for (let ft of sbFloatTexts) { ft.y -= 0.8; ft.life--; }
       sbFloatTexts = sbFloatTexts.filter(ft => ft.life > 0);
 
-      // Power-up Attraction (Magnet) & Collection
       for (let i = sbPowerUps.length - 1; i >= 0; i--) {
-        const p = sbPowerUps[i];
-        p.y += 1.6;
-
+        const p = sbPowerUps[i]; p.y += 1.6;
         if (sbPowerTimers.magnet > 0) {
-          const dx = (sharedPlayerX + 20) - p.x;
-          const dy = 395 - p.y;
-          const dist = Math.hypot(dx, dy);
+          const dx = (sharedPlayerX + 20) - p.x, dy = 395 - p.y, dist = Math.hypot(dx, dy);
           if (dist < 180) { p.x += (dx / dist) * 4.5; p.y += (dy / dist) * 4.5; }
         }
-
         if (Math.hypot((sharedPlayerX + 20) - p.x, 395 - p.y) < 26) {
           sfx.powerup();
-          if (p.type === 'heal') {
-            if (sbLives < sbMaxLives) sbLives++;
-            addFloatText('+1 HP ❤️', p.x, p.y, '#ef4444');
-          } else if (p.type === 'score') {
-            sbScore += 50;
-            addFloatText('+50 PTS 🌟', p.x, p.y, '#facc15');
-          } else if (p.type === 'speed') {
-            sbPowerTimers.speed = 360;
-            addFloatText('SPEED UP! ⏫', p.x, p.y, '#22c55e');
-          } else if (p.type === 'triple') {
-            sbPowerTimers.triple = 420;
-            addFloatText('TRIPLE SHOT! 🔱', p.x, p.y, '#00f0ff');
-          } else if (p.type === 'shield') {
-            sbPowerTimers.shield = 300;
-            addFloatText('SHIELD (5s)! 🛡️', p.x, p.y, '#a855f7');
-          } else if (p.type === 'magnet') {
-            sbPowerTimers.magnet = 360;
-            addFloatText('MAGNET! 🧲', p.x, p.y, '#ef4444');
-          }
+          if (p.type === 'heal') { if (sbLives < sbMaxLives) sbLives++; addFloatText('+1 HP ❤️', p.x, p.y, '#ef4444'); }
+          else if (p.type === 'score') { sbScore += 50; addFloatText('+50 PTS 🌟', p.x, p.y, '#facc15'); }
+          else if (p.type === 'speed') { sbPowerTimers.speed = 360; addFloatText('SPEED UP! ⏫', p.x, p.y, '#22c55e'); }
+          else if (p.type === 'triple') { sbPowerTimers.triple = 420; addFloatText('TRIPLE SHOT! 🔱', p.x, p.y, '#00f0ff'); }
+          else if (p.type === 'shield') { sbPowerTimers.shield = 300; addFloatText('SHIELD (5s)! 🛡️', p.x, p.y, '#a855f7'); }
+          else if (p.type === 'magnet') { sbPowerTimers.magnet = 360; addFloatText('MAGNET! 🧲', p.x, p.y, '#ef4444'); }
           sbPowerUps.splice(i, 1);
         }
       }
       sbPowerUps = sbPowerUps.filter(p => p.y < 460);
 
-      // Peluru mengenai Boss
       if (sbBossActive && sbBoss) {
         for (let j = sbBullets.length - 1; j >= 0; j--) {
           const b = sbBullets[j];
           if (b.x > sbBoss.x && b.x < sbBoss.x + sbBoss.w && b.y > sbBoss.y && b.y < sbBoss.y + sbBoss.h) {
-            sfx.hit();
-            sbBoss.hp -= 2;
-            createStarburstExplosion(b.x, b.y, false, sbBoss.themeColor);
-            sbBullets.splice(j, 1);
-
+            sfx.hit(); sbBoss.hp -= 2; createStarburstExplosion(b.x, b.y, false, sbBoss.themeColor); sbBullets.splice(j, 1);
             if (sbBoss.hp <= 0) {
-              sfx.gameOver();
-              unlockAchievement('boss_hunter');
+              sfx.gameOver(); unlockAchievement('boss_hunter');
               createStarburstExplosion(sbBoss.x + sbBoss.w / 2, sbBoss.y + sbBoss.h / 2, true, sbBoss.themeColor);
               createStarburstExplosion(sbBoss.x + 20, sbBoss.y + 20, true, '#facc15');
               sbScore += sbBoss.reward;
-
-              // Drop Power-ups upon defeat
               sbPowerUps.push({ x: sbBoss.x + 30, y: sbBoss.y + 20, type: 'heal', bg: 'rgba(239, 68, 68, 0.2)', glow: '#ef4444' });
               sbPowerUps.push({ x: sbBoss.x + sbBoss.w - 30, y: sbBoss.y + 20, type: 'score', bg: 'rgba(250, 204, 21, 0.2)', glow: '#facc15' });
-
               nextBossScoreThreshold = sbScore + 180 + (sbBossTier * 60);
               showToast(`★ ${sbBoss.name} DIKALAHKAN! ★`);
               sbBossActive = false; sbBoss = null; sbBossBullets = [];
@@ -2673,35 +1916,20 @@
         }
       }
 
-      // Peluru Boss mengenai Pemain
       if (sbBossActive) {
         for (let i = sbBossBullets.length - 1; i >= 0; i--) {
           const bb = sbBossBullets[i];
           if (Math.hypot((sharedPlayerX + 20) - bb.x, 395 - bb.y) < 19) {
-            sbBossBullets.splice(i, 1);
-            createStarburstExplosion(bb.x, bb.y, false, bb.color);
-            triggerHaptic(35);
-
-            if (sbPowerTimers.shield > 0) {
-              addFloatText('BLOCKED! 🛡️', sharedPlayerX + 20, 375, '#c084fc');
-              continue;
-            }
-
+            sbBossBullets.splice(i, 1); createStarburstExplosion(bb.x, bb.y, false, bb.color); triggerHaptic(35);
+            if (sbPowerTimers.shield > 0) { addFloatText('BLOCKED! 🛡️', sharedPlayerX + 20, 375, '#c084fc'); continue; }
             if (sbPlayerInvincible <= 0) {
               if (sbPlayerHp > 0) {
-                sbPlayerHp -= 25;
-                sbPlayerInvincible = 25;
-                sfx.hit();
-                addFloatText('-25 SHIELD', sharedPlayerX + 20, 375, '#00f0ff');
+                sbPlayerHp -= 25; sbPlayerInvincible = 25; sfx.hit(); addFloatText('-25 SHIELD', sharedPlayerX + 20, 375, '#00f0ff');
               } else {
-                sbLives--;
-                sbPlayerInvincible = 45;
-                sfx.hit();
-                addFloatText('-1 HP! 💥', sharedPlayerX + 20, 375, '#ef4444');
+                sbLives--; sbPlayerInvincible = 45; sfx.hit(); addFloatText('-1 HP! 💥', sharedPlayerX + 20, 375, '#ef4444');
                 if (sbLives <= 0) {
-                  sbGameOver = true;
-                  sfx.gameOver();
-                  callBackend('saveScore', { username: currentUser, gameTitle: 'SPACE BLASTER', score: sbScore });
+                  sbGameOver = true; sfx.gameOver();
+                  callBackend('saveScore', { username: currentUser, gameTitle: 'SPACE BLASTER', score: sbScore, avatar: currentAvatar });
                 }
               }
             }
@@ -2709,65 +1937,36 @@
         }
       }
 
-      // Peluru mengenai Meteorit
       for (let i = sbMeteors.length - 1; i >= 0; i--) {
-        const m = sbMeteors[i];
-        m.y += m.speed; m.rot += m.rotSpeed;
-
+        const m = sbMeteors[i]; m.y += m.speed; m.rot += m.rotSpeed;
         for (let j = sbBullets.length - 1; j >= 0; j--) {
           const b = sbBullets[j];
           if (Math.hypot(b.x - m.x, b.y - m.y) < m.radius + 6) {
-            sfx.hit();
-            m.hp--;
-            sbBullets.splice(j, 1);
-
+            sfx.hit(); m.hp--; sbBullets.splice(j, 1);
             if (m.hp <= 0) {
               sbScore += m.reward;
               const col = m.type === 'cracked' ? '#ea580c' : (m.type === 'ice' ? '#67e8f9' : (m.type === 'gold' ? '#facc15' : (m.type === 'dark' ? '#c084fc' : '#f97316')));
               createStarburstExplosion(m.x, m.y, m.type === 'dark' || m.type === 'gold', col);
-
-              // Peluang menjatuhkan Power-Up item
               const dropChance = m.type === 'gold' ? 1.0 : (m.type === 'dark' ? 0.65 : 0.22);
               if (Math.random() < dropChance) {
                 const types = ['heal', 'score', 'speed', 'triple', 'shield', 'magnet'];
                 const pType = (m.type === 'gold') ? 'score' : types[Math.floor(Math.random() * types.length)];
                 const glows = { heal: '#ef4444', score: '#facc15', speed: '#22c55e', triple: '#00f0ff', shield: '#a855f7', magnet: '#ef4444' };
-                sbPowerUps.push({
-                  x: m.x, y: m.y,
-                  type: pType,
-                  bg: 'rgba(255,255,255,0.08)',
-                  glow: glows[pType] || '#facc15'
-                });
+                sbPowerUps.push({ x: m.x, y: m.y, type: pType, bg: 'rgba(255,255,255,0.08)', glow: glows[pType] || '#facc15' });
               }
-
-              sbMeteors.splice(i, 1);
-              break;
-            } else {
-              createStarburstExplosion(b.x, b.y, false, '#facc15');
-            }
+              sbMeteors.splice(i, 1); break;
+            } else { createStarburstExplosion(b.x, b.y, false, '#facc15'); }
           }
         }
 
-        // Tabrakan Meteor mengenai Pemain
         if (m && Math.hypot((sharedPlayerX + 20) - m.x, 395 - m.y) < m.radius + 16) {
-          createStarburstExplosion(m.x, m.y, true, '#ef4444');
-          sbMeteors.splice(i, 1);
-          triggerHaptic(50);
-
-          if (sbPowerTimers.shield > 0) {
-            addFloatText('BLOCKED! 🛡️', sharedPlayerX + 20, 375, '#c084fc');
-            continue;
-          }
-
+          createStarburstExplosion(m.x, m.y, true, '#ef4444'); sbMeteors.splice(i, 1); triggerHaptic(50);
+          if (sbPowerTimers.shield > 0) { addFloatText('BLOCKED! 🛡️', sharedPlayerX + 20, 375, '#c084fc'); continue; }
           if (sbPlayerInvincible <= 0) {
-            sbLives--;
-            sbPlayerInvincible = 45;
-            sfx.hit();
-            addFloatText('-1 HP! 💥', sharedPlayerX + 20, 375, '#ef4444');
+            sbLives--; sbPlayerInvincible = 45; sfx.hit(); addFloatText('-1 HP! 💥', sharedPlayerX + 20, 375, '#ef4444');
             if (sbLives <= 0) {
-              sbGameOver = true;
-              sfx.gameOver();
-              callBackend('saveScore', { username: currentUser, gameTitle: 'SPACE BLASTER', score: sbScore });
+              sbGameOver = true; sfx.gameOver();
+              callBackend('saveScore', { username: currentUser, gameTitle: 'SPACE BLASTER', score: sbScore, avatar: currentAvatar });
             }
           }
         }
@@ -2776,217 +1975,495 @@
 
       // Render Screen Canvas
       gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height);
-
-      // Deep Space Twinkling Stars
       gCtx.fillStyle = '#f8fafc';
       for (let s = 0; s < 18; s++) {
-        const sy = (s * 37 + sbCooldown * (s % 3 + 1)) % 460;
-        const sx = (s * 29 + Math.sin(sbCooldown * 0.02 + s) * 6) % 340;
-        const sz = (s % 3 === 0) ? 2.2 : 1.4;
-        gCtx.fillRect(sx, sy, sz, sz);
+        const sy = (s * 37 + sbCooldown * (s % 3 + 1)) % 460, sx = (s * 29 + Math.sin(sbCooldown * 0.02 + s) * 6) % 340;
+        gCtx.fillRect(sx, sy, (s % 3 === 0) ? 2.2 : 1.4, (s % 3 === 0) ? 2.2 : 1.4);
       }
 
-      // Render Sparks & Starburst Explosions
-      for (let s of sbSparks) {
-        gCtx.fillStyle = s.color;
-        gCtx.fillRect(s.x, s.y, 2.4, 2.4);
-      }
+      for (let s of sbSparks) { gCtx.fillStyle = s.color; gCtx.fillRect(s.x, s.y, 2.4, 2.4); }
       drawExplosions();
-
-      // Render Power-Ups
       for (let p of sbPowerUps) drawPowerUp(p);
 
-      // Render Lasers Player
       for (let b of sbBullets) {
         gCtx.fillStyle = '#00f0ff'; gCtx.shadowColor = '#00f0ff'; gCtx.shadowBlur = 10;
         gCtx.fillRect(b.x - 1.5, b.y, 3, 11);
-        gCtx.fillStyle = '#ffffff';
-        gCtx.fillRect(b.x - 0.8, b.y + 2, 1.6, 7);
+        gCtx.fillStyle = '#ffffff'; gCtx.fillRect(b.x - 0.8, b.y + 2, 1.6, 7);
       }
       gCtx.shadowBlur = 0;
 
-      // Render Boss Bullets
       for (let bb of sbBossBullets) {
         gCtx.fillStyle = bb.color; gCtx.shadowColor = bb.color; gCtx.shadowBlur = 12;
         gCtx.beginPath(); gCtx.arc(bb.x, bb.y, bb.rad || 5, 0, Math.PI * 2); gCtx.fill();
-        gCtx.fillStyle = '#ffffff';
-        gCtx.beginPath(); gCtx.arc(bb.x, bb.y, (bb.rad || 5) * 0.45, 0, Math.PI * 2); gCtx.fill();
+        gCtx.fillStyle = '#ffffff'; gCtx.beginPath(); gCtx.arc(bb.x, bb.y, (bb.rad || 5) * 0.45, 0, Math.PI * 2); gCtx.fill();
       }
       gCtx.shadowBlur = 0;
 
-      // Render Meteors
       for (let m of sbMeteors) drawMeteor(m);
 
-      // Render Boss
       if (sbBossActive && sbBoss) {
         drawBoss(sbBoss);
-
-        // High-Tech Boss HP Bar
-        gCtx.fillStyle = 'rgba(0, 0, 0, 0.8)';
-        gCtx.fillRect(20, 12, 300, 18);
-        gCtx.strokeStyle = sbBoss.themeColor; gCtx.lineWidth = 1.4;
-        gCtx.strokeRect(20, 12, 300, 18);
-
+        gCtx.fillStyle = 'rgba(0, 0, 0, 0.8)'; gCtx.fillRect(20, 12, 300, 18);
+        gCtx.strokeStyle = sbBoss.themeColor; gCtx.lineWidth = 1.4; gCtx.strokeRect(20, 12, 300, 18);
         const hpRatio = Math.max(0, sbBoss.hp / sbBoss.maxHp);
-        gCtx.fillStyle = sbBoss.themeColor;
-        gCtx.fillRect(22, 14, 296 * hpRatio, 14);
-
+        gCtx.fillStyle = sbBoss.themeColor; gCtx.fillRect(22, 14, 296 * hpRatio, 14);
         gCtx.fillStyle = '#fff'; gCtx.font = '700 8.5px Orbitron'; gCtx.textAlign = 'center';
-        gCtx.fillText(`${sbBoss.name} [${sbBoss.subtitle}]: ${sbBoss.hp}/${sbBoss.maxHp}`, 170, 24);
-        gCtx.textAlign = 'left';
+        gCtx.fillText(`${sbBoss.name} [${sbBoss.subtitle}]: ${sbBoss.hp}/${sbBoss.maxHp}`, 170, 24); gCtx.textAlign = 'left';
       }
 
-      // Render Player Ship
       drawStrikerShip(sharedPlayerX, 395);
 
-      // Floating Texts
       for (let ft of sbFloatTexts) {
-        gCtx.fillStyle = ft.color; gCtx.font = '700 11px Orbitron';
-        gCtx.fillText(ft.text, ft.x - 12, ft.y);
+        gCtx.fillStyle = ft.color; gCtx.font = '700 11px Orbitron'; gCtx.fillText(ft.text, ft.x - 12, ft.y);
       }
 
-      // HUD Header (SCORE, ❤️❤️❤️, LEVEL)
       gCtx.fillStyle = '#f8fafc'; gCtx.font = '700 11.5px Orbitron';
       gCtx.fillText(`SCORE ${sbScore}`, 14, sbBossActive ? 46 : 24);
 
       let hearts = '';
       for (let h = 0; h < sbLives; h++) hearts += '❤️ ';
-      gCtx.font = '13px "Plus Jakarta Sans"';
-      gCtx.fillText(hearts, 14, sbBossActive ? 64 : 42);
+      gCtx.font = '13px "Plus Jakarta Sans"'; gCtx.fillText(hearts, 14, sbBossActive ? 64 : 42);
 
       const levelStr = sbScore >= 600 ? 'LEVEL 3' : (sbScore >= 300 ? 'LEVEL 2' : 'LEVEL 1');
       gCtx.fillStyle = '#38bdf8'; gCtx.font = '700 10.5px Orbitron'; gCtx.textAlign = 'right';
-      gCtx.fillText(sbBossActive ? 'BOSS FIGHT' : levelStr, 326, sbBossActive ? 46 : 24);
-      gCtx.textAlign = 'left';
+      gCtx.fillText(sbBossActive ? 'BOSS FIGHT' : levelStr, 326, sbBossActive ? 46 : 24); gCtx.textAlign = 'left';
 
-      // Boss Shield Bar Player
       if (sbBossActive) {
-        gCtx.fillStyle = 'rgba(0, 0, 0, 0.8)';
-        gCtx.fillRect(14, 436, 120, 12);
-        gCtx.strokeStyle = '#00f0ff'; gCtx.lineWidth = 1.2;
-        gCtx.strokeRect(14, 436, 120, 12);
-
+        gCtx.fillStyle = 'rgba(0, 0, 0, 0.8)'; gCtx.fillRect(14, 436, 120, 12);
+        gCtx.strokeStyle = '#00f0ff'; gCtx.lineWidth = 1.2; gCtx.strokeRect(14, 436, 120, 12);
         const pRatio = Math.max(0, sbPlayerHp / sbPlayerMaxHp);
-        gCtx.fillStyle = pRatio > 0.35 ? '#00f0ff' : '#ec4899';
-        gCtx.fillRect(15, 437, 118 * pRatio, 10);
-
-        gCtx.fillStyle = '#fff'; gCtx.font = '700 8.5px Orbitron';
-        gCtx.fillText(`SHIELD ${sbPlayerHp}%`, 140, 445);
+        gCtx.fillStyle = pRatio > 0.35 ? '#00f0ff' : '#ec4899'; gCtx.fillRect(15, 437, 118 * pRatio, 10);
+        gCtx.fillStyle = '#fff'; gCtx.font = '700 8.5px Orbitron'; gCtx.fillText(`SHIELD ${sbPlayerHp}%`, 140, 445);
       }
 
-      // Warning Banner
       if (bossWarningTimer > 0) {
-        gCtx.fillStyle = 'rgba(239, 68, 68, 0.25)';
-        gCtx.fillRect(0, 200, 340, 40);
-        gCtx.strokeStyle = '#ef4444'; gCtx.lineWidth = 1.5;
-        gCtx.strokeRect(0, 200, 340, 40);
+        gCtx.fillStyle = 'rgba(239, 68, 68, 0.25)'; gCtx.fillRect(0, 200, 340, 40);
+        gCtx.strokeStyle = '#ef4444'; gCtx.lineWidth = 1.5; gCtx.strokeRect(0, 200, 340, 40);
         gCtx.fillStyle = '#facc15'; gCtx.font = '900 12px Orbitron'; gCtx.textAlign = 'center';
-        gCtx.fillText('⚠️ BOSS ENCOUNTER DETECTED ⚠️', 170, 224);
-        gCtx.textAlign = 'left';
+        gCtx.fillText('⚠️ BOSS ENCOUNTER DETECTED ⚠️', 170, 224); gCtx.textAlign = 'left';
       }
 
       if (sbGameOver) {
         gCtx.fillStyle = '#ec4899'; gCtx.font = '700 20px Orbitron'; gCtx.textAlign = 'center';
         gCtx.fillText('MISSION FAILED', 170, 220);
         gCtx.fillStyle = '#94a3b8'; gCtx.font = '11px Plus Jakarta Sans';
-        gCtx.fillText('Klik kanvas untuk main lagi', 170, 246);
-        gCtx.textAlign = 'left';
+        gCtx.fillText('Klik kanvas untuk main lagi', 170, 246); gCtx.textAlign = 'left';
       } else loopId = requestAnimationFrame(loopSpaceBlaster);
     }
 
-    let ndScore = 0, ndObstacles = [], ndGameOver = false;
-    function initNeonDodger() { sharedPlayerX = 150; ndScore = 0; ndObstacles = []; ndGameOver = false; loopNeonDodger(); }
+    /* =========================================================================
+       GAME 2: NEON DODGER OVERHAUL (3D PERSPECTIVE SYNTHWAVE GRID)
+       ========================================================================= */
+    let ndScore = 0, ndObstacles = [], ndItems = [], ndSparks = [], ndGameOver = false, ndFrame = 0;
+    let ndShield = 0, ndSlowMo = 0, ndPlayerBank = 0, ndSpeedMultiplier = 1;
+
+    function initNeonDodger() {
+      sharedPlayerX = 150; ndScore = 0; ndObstacles = []; ndItems = []; ndSparks = []; ndGameOver = false;
+      ndFrame = 0; ndShield = 0; ndSlowMo = 0; ndPlayerBank = 0; ndSpeedMultiplier = 1;
+      loopNeonDodger();
+    }
+
+    function drawCyberSpeeder(x, y, bank = 0) {
+      gCtx.save();
+      gCtx.translate(x + 20, y + 16);
+      gCtx.rotate(bank * 0.18);
+
+      // Dual Plasma Thruster Trails
+      const fl1 = Math.random() * 8 + (ndSlowMo > 0 ? 3 : 8);
+      gCtx.fillStyle = '#00f0ff'; gCtx.shadowColor = '#00f0ff'; gCtx.shadowBlur = 14;
+      gCtx.beginPath();
+      gCtx.moveTo(-10, 10); gCtx.lineTo(-6, 20 + fl1); gCtx.lineTo(-2, 10);
+      gCtx.moveTo(2, 10); gCtx.lineTo(6, 20 + fl1); gCtx.lineTo(10, 10);
+      gCtx.fill();
+
+      // Main Speeder Chassis
+      gCtx.fillStyle = '#0f172a'; gCtx.strokeStyle = '#00f0ff'; gCtx.lineWidth = 2;
+      gCtx.beginPath();
+      gCtx.moveTo(0, -20); gCtx.lineTo(18, 8); gCtx.lineTo(12, 14); gCtx.lineTo(0, 10);
+      gCtx.lineTo(-12, 14); gCtx.lineTo(-18, 8); gCtx.closePath();
+      gCtx.fill(); gCtx.stroke();
+
+      // Aerodynamic Neon Accents
+      gCtx.fillStyle = '#38bdf8';
+      gCtx.fillRect(-14, 4, 3, 8); gCtx.fillRect(11, 4, 3, 8);
+
+      // Glowing Cockpit
+      gCtx.fillStyle = '#a855f7'; gCtx.shadowColor = '#c084fc'; gCtx.shadowBlur = 8;
+      gCtx.beginPath(); gCtx.ellipse(0, -4, 4, 9, 0, 0, Math.PI * 2); gCtx.fill();
+      gCtx.shadowBlur = 0;
+
+      // Shield Bubble
+      if (ndShield > 0) {
+        gCtx.strokeStyle = '#00f0ff'; gCtx.lineWidth = 2; gCtx.shadowColor = '#00f0ff'; gCtx.shadowBlur = 12;
+        gCtx.beginPath(); gCtx.arc(0, 0, 24, 0, Math.PI * 2); gCtx.stroke(); gCtx.shadowBlur = 0;
+      }
+      gCtx.restore();
+    }
 
     function loopNeonDodger() {
-      ndScore++;
+      ndFrame++;
+      if (ndSlowMo > 0) ndSlowMo--;
+
+      const effectiveSpeed = ndSlowMo > 0 ? 0.5 : 1.0;
+      ndScore += (ndSlowMo > 0 ? 0.5 : 1);
       if (ndScore > 100) unlockAchievement('dodge_100');
+
+      // Spawning Obstacles (Laser Gate or Rotating EMP Mine)
       if (Math.random() < 0.045) {
-        const barW = 60 + Math.random() * 40;
-        ndObstacles.push({ x: Math.random() * (340 - barW), y: -24, w: barW, h: 18, speed: 3.5 + Math.random() * 3 });
+        const isMine = Math.random() < 0.35;
+        if (isMine) {
+          ndObstacles.push({ type: 'mine', x: 20 + Math.random() * 300, y: -30, rad: 16, rot: 0, speed: (3.8 + Math.random() * 2) * effectiveSpeed });
+        } else {
+          const barW = 75 + Math.random() * 45;
+          ndObstacles.push({ type: 'gate', x: Math.random() * (340 - barW), y: -30, w: barW, h: 18, speed: (3.6 + Math.random() * 2) * effectiveSpeed });
+        }
       }
-      for (let o of ndObstacles) {
+
+      // Spawning Bonus Items (Crystals & Chrono Warp)
+      if (Math.random() < 0.018) {
+        const itType = Math.random() < 0.6 ? 'crystal' : 'warp';
+        ndItems.push({ type: itType, x: 30 + Math.random() * 280, y: -20, rad: 10, speed: 2.8 * effectiveSpeed });
+      }
+
+      // Update Obstacles & Collisions
+      for (let i = ndObstacles.length - 1; i >= 0; i--) {
+        const o = ndObstacles[i];
         o.y += o.speed;
-        if (sharedPlayerX + 6 < o.x + o.w && sharedPlayerX + 34 > o.x && 380 < o.y + o.h && 406 > o.y) {
-          ndGameOver = true; sfx.gameOver(); triggerHaptic(60);
-          callBackend('saveScore', { username: currentUser, gameTitle: 'NEON DODGER', score: ndScore });
+        if (o.type === 'mine') o.rot += 0.08;
+
+        let hit = false;
+        if (o.type === 'mine') {
+          hit = Math.hypot((sharedPlayerX + 20) - o.x, 395 - o.y) < o.rad + 14;
+        } else {
+          hit = (sharedPlayerX + 6 < o.x + o.w && sharedPlayerX + 34 > o.x && 380 < o.y + o.h && 410 > o.y);
+        }
+
+        if (hit) {
+          if (ndShield > 0) {
+            ndShield--;
+            sfx.hit();
+            triggerHaptic(40);
+            ndObstacles.splice(i, 1);
+            continue;
+          }
+          ndGameOver = true;
+          sfx.gameOver();
+          triggerHaptic(60);
+          callBackend('saveScore', { username: currentUser, gameTitle: 'NEON DODGER', score: Math.floor(ndScore), avatar: currentAvatar });
+          break;
         }
       }
       ndObstacles = ndObstacles.filter(o => o.y < 460);
 
+      // Update Items Collection
+      for (let i = ndItems.length - 1; i >= 0; i--) {
+        const it = ndItems[i];
+        it.y += it.speed;
+        if (Math.hypot((sharedPlayerX + 20) - it.x, 395 - it.y) < it.rad + 18) {
+          sfx.powerup();
+          if (it.type === 'crystal') {
+            ndScore += 25;
+            showToast('+25 PTS NEON CRYSTAL!');
+          } else {
+            ndSlowMo = 240; // 4 seconds slow-mo
+            ndShield = 1;
+            showToast('CHRONO WARP & SHIELD! ⏱️');
+          }
+          ndItems.splice(i, 1);
+        }
+      }
+      ndItems = ndItems.filter(it => it.y < 460);
+
+      // Render Screen Canvas
       gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height);
-      // Speeder
-      gCtx.fillStyle = '#00f0ff'; gCtx.fillRect(sharedPlayerX, 380, 36, 16);
-      // Barriers
-      for (let o of ndObstacles) { gCtx.fillStyle = '#ec4899'; gCtx.fillRect(o.x, o.y, o.w, o.h); }
+
+      // Synthwave Horizon Sun & Retro Floor
+      const sunGrad = gCtx.createRadialGradient(170, 110, 5, 170, 110, 50);
+      sunGrad.addColorStop(0, '#facc15');
+      sunGrad.addColorStop(0.6, '#ec4899');
+      sunGrad.addColorStop(1, 'transparent');
+      gCtx.fillStyle = sunGrad;
+      gCtx.beginPath(); gCtx.arc(170, 110, 48, 0, Math.PI * 2); gCtx.fill();
+
+      // 3D Perspective Grid Runway
+      gCtx.strokeStyle = 'rgba(139, 92, 246, 0.35)'; gCtx.lineWidth = 1.2;
+      for (let x = -60; x <= 400; x += 40) {
+        gCtx.beginPath(); gCtx.moveTo(170 + (x - 170) * 0.2, 110); gCtx.lineTo(x, 460); gCtx.stroke();
+      }
+      const gridOffset = (ndFrame * 4 * effectiveSpeed) % 36;
+      for (let y = 110; y <= 460; y += 28) {
+        const py = y + gridOffset;
+        if (py <= 460) {
+          gCtx.strokeStyle = `rgba(0, 240, 255, ${(py - 110) / 350 * 0.4})`;
+          gCtx.beginPath(); gCtx.moveTo(0, py); gCtx.lineTo(340, py); gCtx.stroke();
+        }
+      }
+
+      // Draw Items
+      for (let it of ndItems) {
+        gCtx.save(); gCtx.translate(it.x, it.y);
+        gCtx.fillStyle = it.type === 'crystal' ? '#00f0ff' : '#a855f7';
+        gCtx.shadowColor = gCtx.fillStyle; gCtx.shadowBlur = 10;
+        gCtx.beginPath();
+        gCtx.moveTo(0, -it.rad); gCtx.lineTo(it.rad, 0); gCtx.lineTo(0, it.rad); gCtx.lineTo(-it.rad, 0);
+        gCtx.closePath(); gCtx.fill(); gCtx.restore();
+      }
+
+      // Draw Obstacles
+      for (let o of ndObstacles) {
+        if (o.type === 'mine') {
+          gCtx.save(); gCtx.translate(o.x, o.y); gCtx.rotate(o.rot);
+          gCtx.fillStyle = '#ef4444'; gCtx.shadowColor = '#ef4444'; gCtx.shadowBlur = 12;
+          gCtx.beginPath(); gCtx.arc(0, 0, o.rad * 0.7, 0, Math.PI * 2); gCtx.fill();
+          for (let sp = 0; sp < 6; sp++) {
+            const a = (sp / 6) * Math.PI * 2;
+            gCtx.fillRect(Math.cos(a) * 8 - 2, Math.sin(a) * 8 - 2, 4, 4);
+          }
+          gCtx.restore();
+        } else {
+          gCtx.save(); gCtx.translate(o.x, o.y);
+          gCtx.fillStyle = '#ec4899'; gCtx.shadowColor = '#ec4899'; gCtx.shadowBlur = 14;
+          gCtx.fillRect(0, 0, 8, o.h); gCtx.fillRect(o.w - 8, 0, 8, o.h);
+          gCtx.fillStyle = 'rgba(236, 72, 153, 0.75)'; gCtx.fillRect(8, o.h / 2 - 3, o.w - 16, 6);
+          gCtx.fillStyle = '#fff'; gCtx.fillRect(o.w / 2 - 8, o.h / 2 - 2, 16, 4);
+          gCtx.restore();
+        }
+      }
+
+      // Draw Speeder
+      const targetBank = (sharedPlayerX - 150) / 150;
+      ndPlayerBank += (targetBank - ndPlayerBank) * 0.15;
+      drawCyberSpeeder(sharedPlayerX, 395, ndPlayerBank);
+
       // HUD
-      gCtx.fillStyle = '#f8fafc'; gCtx.font = '13px Orbitron'; gCtx.fillText(`DISTANCE: ${ndScore}m`, 14, 26);
+      gCtx.fillStyle = '#f8fafc'; gCtx.font = '700 12px Orbitron';
+      gCtx.fillText(`DISTANCE: ${Math.floor(ndScore)}m`, 14, 26);
+      if (ndSlowMo > 0) {
+        gCtx.fillStyle = '#00f0ff';
+        gCtx.fillText(`WARP ⏱️ ${Math.ceil(ndSlowMo / 60)}s`, 240, 26);
+      } else if (ndShield > 0) {
+        gCtx.fillStyle = '#a855f7';
+        gCtx.fillText('SHIELD ON 🛡️', 230, 26);
+      }
 
       if (ndGameOver) {
-        gCtx.fillStyle = '#ec4899'; gCtx.font = '700 20px Orbitron'; gCtx.fillText('CRASHED!', 110, 210);
-        gCtx.fillStyle = '#94a3b8'; gCtx.font = '11px Plus Jakarta Sans'; gCtx.fillText('Klik kanvas untuk coba lagi', 95, 235);
+        gCtx.fillStyle = '#ec4899'; gCtx.font = '700 20px Orbitron'; gCtx.textAlign = 'center';
+        gCtx.fillText('CRASHED!', 170, 220);
+        gCtx.fillStyle = '#94a3b8'; gCtx.font = '11px Plus Jakarta Sans';
+        gCtx.fillText('Klik kanvas untuk main lagi', 170, 246); gCtx.textAlign = 'left';
       } else loopId = requestAnimationFrame(loopNeonDodger);
     }
 
-    let prScore = 0, prTraffic = [], prGameOver = false, prFuel = 100;
-    function initPixelRacer() { sharedPlayerX = 150; prScore = 0; prTraffic = []; prGameOver = false; prFuel = 100; loopPixelRacer(); }
+    /* =========================================================================
+       GAME 3: PIXEL RACER OVERHAUL (OUTRUN STYLE CYBER SUPERCAR)
+       ========================================================================= */
+    let prScore = 0, prTraffic = [], prPickups = [], prGameOver = false, prFuel = 100, prFrame = 0;
+    let prNitro = 0, prNitroActive = false, prSteerTilt = 0;
+
+    function initPixelRacer() {
+      sharedPlayerX = 150; prScore = 0; prTraffic = []; prPickups = []; prGameOver = false;
+      prFuel = 100; prFrame = 0; prNitro = 50; prNitroActive = false; prSteerTilt = 0;
+      loopPixelRacer();
+    }
+
+    function triggerNitroBoost() {
+      if (prNitro >= 25 && !prNitroActive) {
+        prNitro -= 25; prNitroActive = true; sfx.nitro(); triggerHaptic(50);
+        setTimeout(() => { prNitroActive = false; }, 2500);
+      }
+    }
+
+    function drawSupercar(x, y, isPlayer = false, color = '#38bdf8', tilt = 0) {
+      gCtx.save();
+      gCtx.translate(x + 16, y + 24);
+      gCtx.rotate(tilt * 0.12);
+
+      // Nitro Flame Emitter
+      if (isPlayer && prNitroActive) {
+        const nf = Math.random() * 12 + 10;
+        gCtx.fillStyle = '#facc15'; gCtx.shadowColor = '#facc15'; gCtx.shadowBlur = 18;
+        gCtx.beginPath();
+        gCtx.moveTo(-8, 22); gCtx.lineTo(-4, 26 + nf); gCtx.lineTo(0, 22);
+        gCtx.moveTo(0, 22); gCtx.lineTo(4, 26 + nf); gCtx.lineTo(8, 22);
+        gCtx.fill(); gCtx.shadowBlur = 0;
+      }
+
+      // Wheels
+      gCtx.fillStyle = '#0f172a';
+      gCtx.fillRect(-16, -18, 4, 10); gCtx.fillRect(12, -18, 4, 10);
+      gCtx.fillRect(-16, 10, 4, 10); gCtx.fillRect(12, 10, 4, 10);
+
+      // Chassis Aerodynamic Body
+      gCtx.fillStyle = color; gCtx.strokeStyle = '#0f172a'; gCtx.lineWidth = 1.5;
+      gCtx.beginPath();
+      gCtx.roundRect(-13, -22, 26, 44, 6); gCtx.fill(); gCtx.stroke();
+
+      // Windshield & Roof
+      gCtx.fillStyle = '#090d16';
+      gCtx.beginPath(); gCtx.roundRect(-9, -10, 18, 22, 4); gCtx.fill();
+
+      // Taillights
+      gCtx.fillStyle = '#ef4444'; gCtx.shadowColor = '#ef4444'; gCtx.shadowBlur = 8;
+      gCtx.fillRect(-11, 20, 7, 2.5); gCtx.fillRect(4, 20, 7, 2.5);
+
+      // Headlights
+      gCtx.fillStyle = '#fef08a'; gCtx.shadowColor = '#fef08a'; gCtx.shadowBlur = 8;
+      gCtx.fillRect(-11, -22, 6, 2.5); gCtx.fillRect(5, -22, 6, 2.5);
+      gCtx.shadowBlur = 0;
+
+      gCtx.restore();
+    }
 
     function loopPixelRacer() {
-      prScore++; prFuel -= 0.08;
+      prFrame++;
+      const speedMult = prNitroActive ? 2.4 : 1.0;
+      prScore += Math.floor(1 * speedMult);
+      prFuel -= (prNitroActive ? 0.12 : 0.07);
+
       if (prScore > 200) unlockAchievement('nitro_king');
+
       if (prFuel <= 0) {
         prGameOver = true; sfx.gameOver();
-        callBackend('saveScore', { username: currentUser, gameTitle: 'PIXEL RACER', score: prScore });
+        callBackend('saveScore', { username: currentUser, gameTitle: 'PIXEL RACER', score: prScore, avatar: currentAvatar });
       }
-      if (Math.random() < 0.04) {
-        prTraffic.push({ x: 30 + Math.random() * 260, y: -30, w: 24, h: 42, speed: 3 + Math.random() * 3, isFuel: Math.random() < 0.25 });
+
+      // Spawning Traffic Vehicles (Trucks, Sedans, Hypercars)
+      if (Math.random() < 0.042) {
+        const lanes = [65, 155, 245];
+        const laneX = lanes[Math.floor(Math.random() * lanes.length)] + (Math.random() - 0.5) * 20;
+        const types = [
+          { color: '#ef4444', speed: 3.0 },
+          { color: '#a855f7', speed: 4.2 },
+          { color: '#f97316', speed: 2.2 }
+        ];
+        const sel = types[Math.floor(Math.random() * types.length)];
+        prTraffic.push({ x: laneX, y: -50, w: 28, h: 46, color: sel.color, speed: sel.speed });
       }
+
+      // Spawning Fuel Cans & Gold Coins
+      if (Math.random() < 0.025) {
+        const isGas = Math.random() < 0.5;
+        prPickups.push({ type: isGas ? 'fuel' : 'nitro', x: 50 + Math.random() * 240, y: -30, rad: 10, speed: 3.5 });
+      }
+
+      // Update Traffic & Collisions
       for (let i = prTraffic.length - 1; i >= 0; i--) {
-        let t = prTraffic[i]; t.y += t.speed;
-        if (sharedPlayerX < t.x + t.w && sharedPlayerX + 28 > t.x && 370 < t.y + t.h && 415 > t.y) {
-          if (t.isFuel) {
-            prFuel = Math.min(100, prFuel + 25); sfx.powerup(); prTraffic.splice(i, 1);
-          } else {
-            prGameOver = true; sfx.gameOver(); triggerHaptic(60);
-            callBackend('saveScore', { username: currentUser, gameTitle: 'PIXEL RACER', score: prScore });
+        const t = prTraffic[i];
+        t.y += (t.speed + (prNitroActive ? 3.5 : 1.5));
+
+        if (sharedPlayerX < t.x + t.w && sharedPlayerX + 28 > t.x && 380 < t.y + t.h && 425 > t.y) {
+          if (prNitroActive) {
+            // Smash through with nitro invincibility!
+            createStarburstExplosion(t.x + 14, t.y + 20, false, '#facc15');
+            prScore += 50; sfx.hit(); triggerHaptic(30);
+            prTraffic.splice(i, 1);
+            continue;
           }
+          prGameOver = true; sfx.gameOver(); triggerHaptic(60);
+          callBackend('saveScore', { username: currentUser, gameTitle: 'PIXEL RACER', score: prScore, avatar: currentAvatar });
+          break;
         }
       }
-      prTraffic = prTraffic.filter(t => t.y < 460);
+      prTraffic = prTraffic.filter(t => t.y < 480);
 
+      // Update Pickups
+      for (let i = prPickups.length - 1; i >= 0; i--) {
+        const pk = prPickups[i];
+        pk.y += (pk.speed + (prNitroActive ? 3.5 : 1.5));
+
+        if (Math.hypot((sharedPlayerX + 14) - pk.x, 395 - pk.y) < 22) {
+          sfx.powerup();
+          if (pk.type === 'fuel') {
+            prFuel = Math.min(100, prFuel + 25);
+            showToast('+25% FUEL REFILLED! ⛽');
+          } else {
+            prNitro = Math.min(100, prNitro + 35);
+            showToast('+35% NITRO TANK CHARGED! ⚡');
+          }
+          prPickups.splice(i, 1);
+        }
+      }
+      prPickups = prPickups.filter(pk => pk.y < 480);
+
+      // Render Screen Canvas
       gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height);
-      // Road Lines
-      gCtx.strokeStyle = 'rgba(255,255,255,0.2)'; gCtx.lineWidth = 4;
-      gCtx.setLineDash([20, 15]); gCtx.beginPath(); gCtx.moveTo(170, 0); gCtx.lineTo(170, 440); gCtx.stroke(); gCtx.setLineDash([]);
 
-      // Player Car
-      gCtx.fillStyle = '#38bdf8'; gCtx.fillRect(sharedPlayerX, 375, 28, 45);
-      gCtx.fillStyle = '#facc15'; gCtx.fillRect(sharedPlayerX + 4, 415, 6, 8); gCtx.fillRect(sharedPlayerX + 18, 415, 6, 8);
+      // Road Asphalt & Roadside Neon Curbing
+      gCtx.fillStyle = '#090d16'; gCtx.fillRect(35, 0, 270, 460);
+      gCtx.fillStyle = '#00f0ff'; gCtx.fillRect(30, 0, 5, 460); gCtx.fillRect(305, 0, 5, 460);
 
-      // Traffic & Fuel
-      for (let t of prTraffic) {
-        if (t.isFuel) {
-          gCtx.fillStyle = '#22c55e'; gCtx.beginPath(); gCtx.arc(t.x + 12, t.y + 12, 10, 0, Math.PI * 2); gCtx.fill();
-        } else {
-          gCtx.fillStyle = '#ef4444'; gCtx.fillRect(t.x, t.y, t.w, t.h);
+      // Road Dash Lane Dividers
+      const roadOffset = (prFrame * 8 * speedMult) % 35;
+      gCtx.strokeStyle = 'rgba(255, 255, 255, 0.35)'; gCtx.lineWidth = 3; gCtx.setLineDash([18, 17]);
+      gCtx.lineDashOffset = -roadOffset;
+      gCtx.beginPath(); gCtx.moveTo(125, 0); gCtx.lineTo(125, 460); gCtx.stroke();
+      gCtx.beginPath(); gCtx.moveTo(215, 0); gCtx.lineTo(215, 460); gCtx.stroke();
+      gCtx.setLineDash([]);
+
+      // Speed Hyperspace Tunnel Lines when Nitro Active
+      if (prNitroActive) {
+        gCtx.strokeStyle = 'rgba(0, 240, 255, 0.45)'; gCtx.lineWidth = 2;
+        for (let l = 0; l < 8; l++) {
+          const lx = (l * 42 + prFrame * 5) % 340, ly = (l * 65 + prFrame * 15) % 460;
+          gCtx.beginPath(); gCtx.moveTo(lx, ly); gCtx.lineTo(lx, ly + 40); gCtx.stroke();
         }
       }
 
-      // HUD
-      gCtx.fillStyle = '#f8fafc'; gCtx.font = '12px Orbitron'; gCtx.fillText(`DISTANCE: ${prScore}m`, 14, 26);
-      gCtx.fillText(`FUEL: ${Math.max(0, Math.round(prFuel))}%`, 230, 26);
+      // Draw Pickups
+      for (let pk of prPickups) {
+        gCtx.save(); gCtx.translate(pk.x, pk.y);
+        if (pk.type === 'fuel') {
+          gCtx.fillStyle = '#22c55e'; gCtx.shadowColor = '#22c55e'; gCtx.shadowBlur = 10;
+          gCtx.fillRect(-7, -8, 14, 16); gCtx.fillStyle = '#fff'; gCtx.font = '700 8px Orbitron';
+          gCtx.textAlign = 'center'; gCtx.fillText('F', 0, 4);
+        } else {
+          gCtx.fillStyle = '#facc15'; gCtx.shadowColor = '#facc15'; gCtx.shadowBlur = 10;
+          gCtx.beginPath(); gCtx.arc(0, 0, 9, 0, Math.PI * 2); gCtx.fill();
+          gCtx.fillStyle = '#040813'; gCtx.font = '700 9px Orbitron'; gCtx.textAlign = 'center'; gCtx.fillText('N', 0, 3);
+        }
+        gCtx.restore();
+      }
+
+      // Draw Traffic Cars
+      for (let t of prTraffic) {
+        drawSupercar(t.x, t.y, false, t.color, 0);
+      }
+
+      // Draw Player Supercar
+      const carTargetTilt = (sharedPlayerX - 150) / 150;
+      prSteerTilt += (carTargetTilt - prSteerTilt) * 0.2;
+      drawSupercar(sharedPlayerX, 385, true, '#00f0ff', prSteerTilt);
+
+      // HUD Status
+      gCtx.fillStyle = '#f8fafc'; gCtx.font = '700 12px Orbitron';
+      gCtx.fillText(`DIST: ${prScore}m`, 14, 26);
+      gCtx.fillText(`FUEL: ${Math.max(0, Math.round(prFuel))}%`, 130, 26);
+      gCtx.fillStyle = prNitro >= 25 ? '#facc15' : '#64748b';
+      gCtx.fillText(`NITRO: ${Math.round(prNitro)}%`, 235, 26);
 
       if (prGameOver) {
-        gCtx.fillStyle = '#ec4899'; gCtx.font = '700 20px Orbitron'; gCtx.fillText('RACE OVER', 105, 210);
-        gCtx.fillStyle = '#94a3b8'; gCtx.font = '11px Plus Jakarta Sans'; gCtx.fillText('Klik kanvas untuk balapan lagi', 85, 235);
+        gCtx.fillStyle = '#ec4899'; gCtx.font = '700 20px Orbitron'; gCtx.textAlign = 'center';
+        gCtx.fillText(prFuel <= 0 ? 'OUT OF FUEL!' : 'WRECKED!', 170, 220);
+        gCtx.fillStyle = '#94a3b8'; gCtx.font = '11px Plus Jakarta Sans';
+        gCtx.fillText('Klik kanvas untuk balapan lagi', 170, 246); gCtx.textAlign = 'left';
       } else loopId = requestAnimationFrame(loopPixelRacer);
     }
 
-    // Canvas click restart
     gCanvas.addEventListener('click', () => {
       if (currentGame === 'SPACE BLASTER' && sbGameOver) initSpaceBlaster();
       else if (currentGame === 'NEON DODGER' && ndGameOver) initNeonDodger();
       else if (currentGame === 'PIXEL RACER' && prGameOver) initPixelRacer();
     });
+
+    // Auto-restore session if saved in localStorage
+    if (currentUser) {
+      document.getElementById('auth-view').style.display = 'none';
+      document.getElementById('dashboard-view').style.display = 'flex';
+      document.getElementById('user-display').innerText = `P1: ${currentUser.toUpperCase()}`;
+      document.getElementById('avatar-display').innerText = currentAvatar;
+      switchNav('home');
+      loadDashboardMetrics();
+    }
   </script>
 </body>
 </html>
