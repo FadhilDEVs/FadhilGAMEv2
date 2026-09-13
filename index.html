@@ -318,60 +318,65 @@
       font-family: 'Orbitron', sans-serif; font-size: 32px; font-weight: 900; letter-spacing: 1.5px;
       color: #fff; text-shadow: 0 0 20px rgba(0, 240, 255, 0.6); margin-bottom: 6px;
     }
-    .hero-desc { font-size: 12px; color: #cbd5e1; max-width: 520px; line-height: 1.5; margin-bottom: 14px; }
+    .hero-desc { font-size: 12px; color: #cbd5e1; max-width: 520px; line-height: 1.5; margin-bottom: 16px; }
 
-    /* FRONT PANDUAN & LINEUP CARD (TEPAT DI ATAS TOMBOL MAIN) */
-    .front-guide-panel {
-      background: rgba(10, 16, 33, 0.88);
-      border: 1px solid rgba(0, 240, 255, 0.3);
-      border-radius: 12px;
-      padding: 12px 14px;
-      margin-bottom: 14px;
-      max-width: 620px;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    .hero-actions-row {
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 4px;
     }
-    .front-guide-header {
-      display: flex; justify-content: space-between; align-items: center; cursor: pointer;
+    .btn-hero-guide {
+      display: inline-flex; align-items: center; gap: 6px; padding: 12px 18px;
+      background: rgba(139, 92, 246, 0.2); color: #c4b5fd; border: 1px solid rgba(139, 92, 246, 0.5);
+      border-radius: 10px; font-family: 'Orbitron', sans-serif; font-size: 11px; font-weight: 800; cursor: pointer;
+      backdrop-filter: blur(8px); transition: all 0.2s;
     }
-    .front-guide-title {
-      font-family: 'Orbitron', sans-serif; font-size: 11px; font-weight: 800; color: var(--primary);
-      display: flex; align-items: center; gap: 8px; letter-spacing: 0.8px;
+    .btn-hero-guide:hover {
+      background: rgba(139, 92, 246, 0.4); border-color: #a78bfa; color: #fff; transform: scale(1.03);
+      box-shadow: 0 0 16px rgba(139, 92, 246, 0.45);
     }
-    .front-guide-toggle-btn {
-      font-size: 10px; color: var(--text-muted); font-weight: 700; font-family: 'Orbitron', sans-serif;
-      padding: 2px 8px; border-radius: 6px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    .front-guide-body {
-      display: flex; flex-direction: column; gap: 10px; margin-top: 10px; padding-top: 10px;
-      border-top: 1px solid rgba(0, 240, 255, 0.15);
-    }
-    .front-guide-sec-title {
-      font-family: 'Orbitron', sans-serif; font-size: 9.5px; font-weight: 800; color: var(--accent-yellow);
-      display: flex; align-items: center; gap: 6px;
-    }
-    .front-guide-row-items {
-      display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; text-align: center;
-    }
-    .front-guide-badge-card {
-      background: rgba(18, 25, 46, 0.85); border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 8px; padding: 6px 2px;
-    }
-    .front-guide-badge-icon { font-size: 15px; line-height: 1.2; }
-    .front-guide-badge-name { font-size: 8.5px; font-weight: 700; color: #fff; margin-top: 2px; }
-    .front-guide-badge-sub { font-size: 8px; color: var(--primary); font-weight: 600; }
 
-    .front-guide-boss-row {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; text-align: left;
+    .btn-guide-card {
+      padding: 7px 0; border-radius: 6px; background: rgba(139, 92, 246, 0.15);
+      border: 1px solid rgba(139, 92, 246, 0.4); color: #c4b5fd; font-family: 'Orbitron', sans-serif;
+      font-size: 9.5px; font-weight: 700; cursor: pointer; width: 100%; margin-bottom: 6px; transition: all 0.2s;
+      display: flex; align-items: center; justify-content: center; gap: 6px;
     }
-    .front-guide-boss-card {
-      background: rgba(18, 25, 46, 0.85); border-radius: 8px; padding: 6px 8px;
-      border-left: 3px solid #ef4444; font-size: 8.5px;
+    .btn-guide-card:hover {
+      background: rgba(139, 92, 246, 0.35); border-color: #a78bfa; color: #fff;
+      box-shadow: 0 0 12px rgba(139, 92, 246, 0.35); transform: translateY(-1px);
     }
-    .front-guide-boss-card.b2 { border-left-color: #a855f7; }
-    .front-guide-boss-card.b3 { border-left-color: #facc15; }
-    .front-guide-boss-name { font-family: 'Orbitron', sans-serif; font-weight: 800; color: #fff; font-size: 8.5px; }
-    .front-guide-boss-desc { font-size: 8px; color: #94a3b8; margin-top: 2px; line-height: 1.3; }
+
+    /* Modal Panduan & Lineup Spesifik Game */
+    .guide-modal-box {
+      background: #090e1f; border: 1px solid var(--border-hover); border-radius: 18px;
+      width: 94%; max-width: 580px; max-height: 86vh; overflow-y: auto; padding: 22px;
+      box-shadow: 0 0 45px rgba(0, 240, 255, 0.25); display: flex; flex-direction: column; gap: 14px;
+    }
+    .guide-modal-header {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08); padding-bottom: 12px;
+    }
+    .guide-modal-title { font-family: 'Orbitron', sans-serif; font-size: 16px; font-weight: 900; color: var(--primary); }
+    .guide-modal-sub { font-size: 11px; color: var(--text-muted); margin-top: 3px; }
+    .guide-section-title {
+      font-family: 'Orbitron', sans-serif; font-size: 10.5px; font-weight: 800; color: var(--accent-yellow);
+      display: flex; align-items: center; gap: 6px; margin-top: 4px;
+    }
+    .guide-items-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    .guide-badge-card {
+      background: rgba(18, 25, 46, 0.9); border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 10px; padding: 8px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 2px;
+    }
+    .guide-badge-icon { font-size: 18px; line-height: 1.2; }
+    .guide-badge-name { font-family: 'Orbitron', sans-serif; font-size: 9.5px; font-weight: 800; color: #fff; }
+    .guide-badge-desc { font-size: 8.5px; color: var(--primary); font-weight: 600; line-height: 1.3; }
+
+    .guide-lineup-row { display: flex; flex-direction: column; gap: 8px; }
+    .guide-lineup-card {
+      background: rgba(18, 25, 46, 0.9); border-radius: 10px; padding: 10px 12px;
+      border-left: 3px solid var(--primary); display: flex; flex-direction: column; gap: 3px;
+    }
+    .guide-lineup-name { font-family: 'Orbitron', sans-serif; font-weight: 800; font-size: 10.5px; color: #fff; }
+    .guide-lineup-desc { font-size: 9.5px; color: #94a3b8; line-height: 1.4; }
 
     .btn-hero-play {
       display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px;
@@ -387,32 +392,276 @@
       font-style: italic; letter-spacing: 2px; pointer-events: none;
     }
 
-    .games-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
-    .card-game {
-      background: var(--surface-card); border: 1px solid var(--border-subtle); border-radius: 12px;
-      overflow: hidden; display: flex; flex-direction: column; position: relative;
+    /* ================= GAME CARDS & THUMBNAILS (SESUAI GAMBAR REFERENSI) ================= */
+    .section-header-wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+      gap: 12px;
     }
-    .card-thumb { height: 110px; position: relative; background-size: cover; background-position: center; }
-    .card-badge-status {
-      position: absolute; top: 8px; right: 8px; padding: 3px 8px; border-radius: 6px;
-      font-size: 9px; font-weight: 700; font-family: 'Orbitron', sans-serif;
+    .section-title-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
-    .status-live { background: rgba(0, 240, 255, 0.2); border: 1px solid var(--primary); color: var(--primary); }
-    .status-soon { background: rgba(0, 0, 0, 0.6); border: 1px solid rgba(255, 255, 255, 0.2); color: #94a3b8; }
-    .card-body { padding: 12px; display: flex; flex-direction: column; flex-grow: 1; justify-content: space-between; }
-    .card-game-title { font-family: 'Orbitron', sans-serif; font-size: 11px; font-weight: 700; color: #fff; margin-bottom: 4px; }
-    .card-game-desc { font-size: 10px; color: var(--text-muted); line-height: 1.4; margin-bottom: 10px; height: 28px; overflow: hidden; }
+    .section-gamepad-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: rgba(0, 240, 255, 0.12);
+      border: 1px solid rgba(0, 240, 255, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 16px rgba(0, 240, 255, 0.25);
+    }
+    .section-gamepad-icon svg { width: 22px; height: 22px; fill: var(--primary); }
+    .section-main-heading {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 16.5px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      color: #fff;
+    }
+    .section-main-heading .text-cyan { color: var(--primary); }
+    .section-sub-heading { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
 
-    .btn-play-card {
-      padding: 8px 0; border-radius: 6px; background: rgba(0, 240, 255, 0.15);
-      border: 1px solid rgba(0, 240, 255, 0.4); color: var(--primary); font-family: 'Orbitron', sans-serif;
-      font-size: 10px; font-weight: 700; cursor: pointer; width: 100%; transition: all 0.2s;
+    .btn-all-collection {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background: var(--primary);
+      color: #040813;
+      border: none;
+      border-radius: 10px;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 11px;
+      font-weight: 900;
+      cursor: pointer;
+      box-shadow: 0 0 16px var(--primary-glow);
+      transition: all 0.2s;
     }
-    .btn-play-card:hover { background: var(--primary); color: #060913; }
-    .btn-soon-card {
-      padding: 8px 0; border-radius: 6px; background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.08); color: #64748b; font-family: 'Orbitron', sans-serif;
-      font-size: 10px; font-weight: 700; cursor: not-allowed; width: 100%;
+    .btn-all-collection:hover { transform: scale(1.03); box-shadow: 0 0 24px var(--primary); }
+
+    .games-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .card-game {
+      background: #090e1f;
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+    }
+    .card-game:hover { transform: translateY(-4px); }
+    
+    .card-game.theme-cyan {
+      border: 1.5px solid rgba(0, 240, 255, 0.35);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6), 0 0 16px rgba(0, 240, 255, 0.12);
+    }
+    .card-game.theme-cyan:hover {
+      border-color: var(--primary);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 24px rgba(0, 240, 255, 0.35);
+    }
+
+    .card-game.theme-purple {
+      border: 1.5px solid rgba(139, 92, 246, 0.45);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6), 0 0 16px rgba(139, 92, 246, 0.15);
+    }
+    .card-game.theme-purple:hover {
+      border-color: #a855f7;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 24px rgba(168, 85, 247, 0.4);
+    }
+
+    .card-game.theme-blue {
+      border: 1.5px solid rgba(14, 165, 233, 0.4);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6), 0 0 16px rgba(14, 165, 233, 0.15);
+    }
+    .card-game.theme-blue:hover {
+      border-color: #38bdf8;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 24px rgba(56, 189, 248, 0.35);
+    }
+
+    .card-game.theme-amber {
+      border: 1.5px solid rgba(245, 158, 11, 0.35);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6), 0 0 16px rgba(245, 158, 11, 0.12);
+    }
+    .card-game.theme-amber:hover {
+      border-color: #facc15;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 24px rgba(250, 204, 21, 0.3);
+    }
+
+    .card-thumb-wrap {
+      height: 145px;
+      position: relative;
+      overflow: hidden;
+      background: #040714;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .card-thumb-svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .card-badge-status {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      padding: 3.5px 9px;
+      border-radius: 20px;
+      font-size: 8.5px;
+      font-weight: 800;
+      font-family: 'Orbitron', sans-serif;
+      letter-spacing: 0.8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      backdrop-filter: blur(8px);
+      z-index: 2;
+    }
+    .badge-live-green {
+      background: rgba(6, 44, 30, 0.85);
+      border: 1px solid rgba(34, 197, 94, 0.65);
+      color: #4ade80;
+      box-shadow: 0 0 10px rgba(34, 197, 94, 0.3);
+    }
+    .badge-live-green .status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #22c55e;
+      box-shadow: 0 0 6px #22c55e;
+    }
+    .badge-coming-dark {
+      background: rgba(15, 23, 42, 0.88);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #94a3b8;
+    }
+
+    .card-body {
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: space-between;
+      gap: 10px;
+      background: rgba(10, 15, 32, 0.95);
+    }
+    .card-game-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .card-game-desc {
+      font-size: 10.5px;
+      color: #94a3b8;
+      line-height: 1.45;
+      min-height: 32px;
+    }
+
+    /* Tag Pills */
+    .tag-pill-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin: 2px 0 4px;
+    }
+    .tag-pill {
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 8px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      border-width: 1px;
+      border-style: solid;
+    }
+    .tag-blue { background: rgba(14, 165, 233, 0.12); border-color: rgba(56, 189, 248, 0.4); color: #38bdf8; }
+    .tag-purple { background: rgba(139, 92, 246, 0.14); border-color: rgba(167, 139, 250, 0.4); color: #c4b5fd; }
+    .tag-red { background: rgba(239, 68, 68, 0.14); border-color: rgba(248, 113, 113, 0.4); color: #f87171; }
+    .tag-pink { background: rgba(236, 72, 153, 0.14); border-color: rgba(244, 114, 182, 0.4); color: #f472b6; }
+    .tag-cyan { background: rgba(0, 240, 255, 0.12); border-color: rgba(0, 240, 255, 0.4); color: #00f0ff; }
+    .tag-amber { background: rgba(245, 158, 11, 0.14); border-color: rgba(251, 191, 36, 0.4); color: #fbbf24; }
+
+    .card-actions-col {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      margin-top: 4px;
+    }
+    .btn-guide-purple {
+      width: 100%;
+      padding: 8px 0;
+      border-radius: 8px;
+      background: rgba(26, 21, 56, 0.85);
+      border: 1px solid rgba(139, 92, 246, 0.4);
+      color: #c4b5fd;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 9.5px;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+    .btn-guide-purple:hover {
+      background: rgba(139, 92, 246, 0.3);
+      border-color: #a78bfa;
+      color: #fff;
+      box-shadow: 0 0 14px rgba(139, 92, 246, 0.35);
+      transform: translateY(-1px);
+    }
+    .btn-play-solid {
+      width: 100%;
+      padding: 9.5px 0;
+      border-radius: 8px;
+      background: var(--primary);
+      border: none;
+      color: #040813;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      cursor: pointer;
+      box-shadow: 0 0 16px rgba(0, 240, 255, 0.35);
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+    .btn-play-solid:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 24px var(--primary);
+    }
+    .btn-disabled-dark {
+      width: 100%;
+      padding: 9.5px 0;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #64748b;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 10.5px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      cursor: not-allowed;
+      text-align: center;
     }
 
     .sidebar-stream { display: flex; flex-direction: column; gap: 16px; }
@@ -706,125 +955,380 @@
     <div id="tab-home" class="tab-content" style="display:block;">
       <div class="dashboard-layout">
         <div class="main-stream">
-          <!-- HERO BANNER DENGAN PANDUAN LANGSUNG DI DEPAN DI ATAS TOMBOL MAIN -->
+          <!-- HERO BANNER DENGAN TOMBOL PANDUAN DAN MAIN -->
           <div class="hero-banner">
             <div class="hero-badge">★ GAME UNGGULAN (SIAP MAIN)</div>
             <h2 class="hero-title">SPACE BLASTER</h2>
             <p class="hero-desc">Kendalikan jet STRIKER, hancurkan 5 tipe meteorit, kumpulkan 6 power-up spesial, dan kalahkan 3 armada Boss alien!</p>
 
-            <!-- PANDUAN & LINEUP DI DEPAN DI ATAS TOMBOL MAIN -->
-            <div class="front-guide-panel">
-              <div class="front-guide-header" onclick="toggleFrontGuide()">
-                <div class="front-guide-title">
-                  <span>📖</span> PANDUAN & LINEUP SPACE BLASTER
-                </div>
-                <button type="button" class="front-guide-toggle-btn" id="btnFrontGuideToggle">TUTUP ▲</button>
-              </div>
-
-              <div class="front-guide-body" id="frontGuideBody">
-                <div class="front-guide-sec-title">☄️ 5 JENIS METEORIT</div>
-                <div class="front-guide-row-items">
-                  <div class="front-guide-badge-card"><div class="front-guide-badge-icon">🌑</div><div class="front-guide-badge-name">Normal</div><div class="front-guide-badge-sub">+1 Skor</div></div>
-                  <div class="front-guide-badge-card"><div class="front-guide-badge-icon">🌋</div><div class="front-guide-badge-name">Retak</div><div class="front-guide-badge-sub">+2 Skor</div></div>
-                  <div class="front-guide-badge-card"><div class="front-guide-badge-icon">❄️</div><div class="front-guide-badge-name">Es</div><div class="front-guide-badge-sub">+3 Skor</div></div>
-                  <div class="front-guide-badge-card"><div class="front-guide-badge-icon">⭐</div><div class="front-guide-badge-name">Emas</div><div class="front-guide-badge-sub">+5 Skor</div></div>
-                  <div class="front-guide-badge-card"><div class="front-guide-badge-icon">🔮</div><div class="front-guide-badge-name">Gelap</div><div class="front-guide-badge-sub">+10 Skor</div></div>
-                </div>
-
-                <div class="front-guide-sec-title">⚡ 6 POWER-UP ITEMS</div>
-                <div class="front-guide-row-items" style="grid-template-columns: repeat(6, 1fr);">
-                  <div class="front-guide-badge-card"><div class="front-guide-badge-icon">❤️</div><div class="front-guide-badge-name">Heal</div><div class="front-guide-badge-sub">+1 HP</div></div>
-                  <div class="front-guide-badge-card"><div class="front-guide-badge-icon">🌟</div><div class="front-guide-badge-name">Skor</div><div class="front-guide-badge-sub">+50 Pts</div></div>
-                  <div class="front-guide-badge-card"><div class="front-guide-badge-icon">⏫</div><div class="front-guide-badge-name">Speed</div><div class="front-guide-badge-sub">Cepat</div></div>
-                  <div class="front-guide-badge-card"><div class="front-guide-badge-icon">🔱</div><div class="front-guide-badge-name">Triple</div><div class="front-guide-badge-sub">3 Laser</div></div>
-                  <div class="front-guide-badge-card"><div class="front-guide-badge-icon">🛡️</div><div class="front-guide-badge-name">Shield</div><div class="front-guide-badge-sub">Kebal 5s</div></div>
-                  <div class="front-guide-badge-card"><div class="front-guide-badge-icon">🧲</div><div class="front-guide-badge-name">Magnet</div><div class="front-guide-badge-sub">Tarik Item</div></div>
-                </div>
-
-                <div class="front-guide-sec-title">☠️ BOSS LINEUP</div>
-                <div class="front-guide-boss-row">
-                  <div class="front-guide-boss-card">
-                    <div class="front-guide-boss-name" style="color:#ef4444;">BOSS 1: TITAN (≥100)</div>
-                    <div class="front-guide-boss-desc">Heavy Warship • Meriam plasma ganda merah berkecepatan tinggi.</div>
-                  </div>
-                  <div class="front-guide-boss-card b2">
-                    <div class="front-guide-boss-name" style="color:#a855f7;">BOSS 2: VOID (≥300)</div>
-                    <div class="front-guide-boss-desc">Stealth Fighter • Laser menyebar 3 arah kiri, tengah, kanan.</div>
-                  </div>
-                  <div class="front-guide-boss-card b3">
-                    <div class="front-guide-boss-name" style="color:#facc15;">BOSS 3: OMEGA (≥600)</div>
-                    <div class="front-guide-boss-desc">Space Fortress • 4 Meriam plasma berat berondongan emas-merah.</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div>
+            <div class="hero-actions-row">
+              <button class="btn-hero-guide" onclick="openGameGuide('SPACE BLASTER')">📖 PANDUAN & LINEUP</button>
               <button class="btn-hero-play" onclick="launchGame('SPACE BLASTER')">▶ MAIN SEKARANG →</button>
             </div>
             <div class="floating-slogan">DEFEAT<br>THE BOSS<br>SURVIVE</div>
           </div>
 
-          <!-- 3 Games Grid -->
+          <!-- 3 Games Grid dengan Tombol Panduan di Setiap Kartu -->
           <div>
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
-              <div>
-                <h3 style="font-family:'Orbitron',sans-serif; font-size:16px;">GAME PILIHAN SIAP MAIN</h3>
-                <p style="font-size:11px; color:var(--text-muted);">Mainkan mini game canvas 60 FPS dan raih rekor tertinggi!</p>
+            <div class="section-header-wrap">
+              <div class="section-title-left">
+                <div class="section-gamepad-icon">
+                  <svg viewBox="0 0 24 24"><path d="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-10 7H8v3H6v-3H3v-2h3V8h2v3h3v2zm4.5 2c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm3-3c-.83 0-1.5-.67-1.5-1.5S17.67 9 18.5 9s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+                </div>
+                <div>
+                  <h3 class="section-main-heading">GAME PILIHAN <span class="text-cyan">SIAP MAIN</span></h3>
+                  <p class="section-sub-heading">Mainkan mini game canvas 60 FPS dan raih rekor tertinggi!</p>
+                </div>
               </div>
-              <button class="btn-hero-play" style="padding:6px 14px; font-size:11px;" onclick="switchNav('games')">Semua Koleksi →</button>
+              <button class="btn-all-collection" onclick="switchNav('games')">
+                <svg viewBox="0 0 24 24" width="13" height="13"><path d="M4 4h4v4H4zm6 0h4v4h-4zm6 0h4v4h-4zM4 10h4v4H4zm6 0h4v4h-4zm6 0h4v4h-4zM4 16h4v4H4zm6 0h4v4h-4zm6 0h4v4h-4z" fill="currentColor"/></svg>
+                Semua Koleksi →
+              </button>
             </div>
 
             <div class="games-grid">
-              <div class="card-game">
-                <div class="card-thumb" style="background-image:url('https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?q=80&w=500&auto=format&fit=crop');">
-                  <span class="card-badge-status status-live">SIAP MAIN</span>
+              <!-- Game 1: Space Blaster (Tema Cyan + Artwork Sesuai Gambar Referensi) -->
+              <div class="card-game theme-cyan">
+                <div class="card-thumb-wrap">
+                  <span class="card-badge-status badge-live-green"><span class="status-dot"></span> SIAP MAIN</span>
+                  <svg class="card-thumb-svg" viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                      <radialGradient id="sbBg" cx="50%" cy="40%" r="70%">
+                        <stop offset="0%" stop-color="#141c38"/>
+                        <stop offset="60%" stop-color="#070c1e"/>
+                        <stop offset="100%" stop-color="#02040b"/>
+                      </radialGradient>
+                      <linearGradient id="sbTitleGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stop-color="#ffedd5"/>
+                        <stop offset="50%" stop-color="#fb923c"/>
+                        <stop offset="100%" stop-color="#ea580c"/>
+                      </linearGradient>
+                      <linearGradient id="sbCyanTitle" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#e0f2fe"/>
+                        <stop offset="50%" stop-color="#38bdf8"/>
+                        <stop offset="100%" stop-color="#00f0ff"/>
+                      </linearGradient>
+                      <filter id="sbGlow" x="-20%" y="-20%" width="140%" height="140%">
+                        <feGaussianBlur stdDeviation="3" result="blur"/>
+                        <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+                      </filter>
+                    </defs>
+                    <rect width="320" height="180" fill="url(#sbBg)"/>
+                    <!-- Bintang Nebula -->
+                    <circle cx="30" cy="25" r="1.2" fill="#fff" opacity="0.8"/>
+                    <circle cx="75" cy="70" r="1" fill="#38bdf8" opacity="0.6"/>
+                    <circle cx="280" cy="35" r="1.5" fill="#fff" opacity="0.7"/>
+                    <circle cx="250" cy="110" r="1.2" fill="#facc15" opacity="0.5"/>
+                    <circle cx="110" cy="30" r="1" fill="#fff" opacity="0.5"/>
+                    <!-- Asteroid Lava Membara Kiri -->
+                    <g transform="translate(42, 90)">
+                      <polygon points="-24,-12 -8,-28 16,-20 28,-2 22,22 -2,26 -22,12" fill="#1c1917" stroke="#ea580c" stroke-width="2"/>
+                      <path d="M-10,-10 L4,2 L14,-6 M-6,12 L2,2 L-12,4" stroke="#f97316" stroke-width="2" fill="none"/>
+                      <circle cx="2" cy="2" r="3" fill="#facc15" filter="url(#sbGlow)"/>
+                    </g>
+                    <!-- Asteroid Lava Membara Kanan -->
+                    <g transform="translate(270, 95)">
+                      <polygon points="-22,-14 -6,-26 18,-18 26,-2 18,20 -4,24 -20,10" fill="#1c1917" stroke="#ea580c" stroke-width="2"/>
+                      <path d="M-8,-8 L2,4 L12,-4 M-4,10 L0,2" stroke="#f97316" stroke-width="2" fill="none"/>
+                      <circle cx="0" cy="2" r="3" fill="#facc15" filter="url(#sbGlow)"/>
+                    </g>
+                    <!-- Dual Laser Beams -->
+                    <line x1="152" y1="130" x2="142" y2="40" stroke="#00f0ff" stroke-width="2.5" filter="url(#sbGlow)"/>
+                    <line x1="168" y1="130" x2="178" y2="40" stroke="#00f0ff" stroke-width="2.5" filter="url(#sbGlow)"/>
+                    <!-- Striker Jet Center -->
+                    <g transform="translate(160, 138)">
+                      <!-- Api Thruster -->
+                      <polygon points="-6,16 0,28 6,16" fill="#00f0ff" filter="url(#sbGlow)"/>
+                      <polygon points="-3,16 0,22 3,16" fill="#ffffff"/>
+                      <!-- Wings -->
+                      <polygon points="0,-18 7,-6 24,12 18,16 6,12 0,14 -6,12 -18,16 -24,12 -7,-6" fill="#0284c7" stroke="#38bdf8" stroke-width="1.2"/>
+                      <!-- Body -->
+                      <polygon points="0,-22 6,-8 7,12 -7,12 -6,-8" fill="#f8fafc" stroke="#00f0ff" stroke-width="1.2"/>
+                      <polygon points="0,-14 3,-2 -3,-2" fill="#0369a1"/>
+                      <!-- Cockpit -->
+                      <ellipse cx="0" cy="-4" rx="2.5" ry="6" fill="#00f0ff" filter="url(#sbGlow)"/>
+                    </g>
+                    <!-- Title Logo "SPACE BLASTER" -->
+                    <g transform="translate(160, 38)" text-anchor="middle">
+                      <ellipse cx="0" cy="-2" rx="72" ry="16" fill="none" stroke="#00f0ff" stroke-width="1.2" opacity="0.4" transform="rotate(-6)"/>
+                      <text x="0" y="-8" font-family="'Orbitron', sans-serif" font-weight="900" font-size="15" fill="url(#sbCyanTitle)" letter-spacing="3" filter="url(#sbGlow)">SPACE</text>
+                      <text x="0" y="16" font-family="'Orbitron', sans-serif" font-weight="900" font-size="21" fill="url(#sbTitleGrad)" letter-spacing="2" filter="url(#sbGlow)">BLASTER</text>
+                    </g>
+                  </svg>
                 </div>
                 <div class="card-body">
                   <div>
                     <h4 class="card-game-title">SPACE BLASTER</h4>
                     <p class="card-game-desc">Jet tempur, 5 meteorit, 6 power-up, & 3 Boss alien.</p>
+                    <div class="tag-pill-row">
+                      <span class="tag-pill tag-blue">ARCADE</span>
+                      <span class="tag-pill tag-purple">SHOOTER</span>
+                      <span class="tag-pill tag-red">BOSS FIGHT</span>
+                    </div>
                   </div>
-                  <button class="btn-play-card" onclick="launchGame('SPACE BLASTER')">▶ MAIN</button>
+                  <div class="card-actions-col">
+                    <button class="btn-guide-purple" onclick="openGameGuide('SPACE BLASTER')">📖 PANDUAN & LINEUP</button>
+                    <button class="btn-play-solid" onclick="launchGame('SPACE BLASTER')">▶ MAIN</button>
+                  </div>
                 </div>
               </div>
 
-              <div class="card-game">
-                <div class="card-thumb" style="background-image:url('https://images.unsplash.com/photo-1509198397868-475647b2a1e5?q=80&w=500&auto=format&fit=crop');">
-                  <span class="card-badge-status status-live">REDESIGN V2</span>
+              <!-- Game 2: Neon Dodger (Tema Purple + Artwork Sesuai Gambar Referensi) -->
+              <div class="card-game theme-purple">
+                <div class="card-thumb-wrap">
+                  <span class="card-badge-status badge-live-green"><span class="status-dot"></span> SIAP MAIN</span>
+                  <svg class="card-thumb-svg" viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                      <linearGradient id="ndSky" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stop-color="#0a051b"/>
+                        <stop offset="50%" stop-color="#240c4a"/>
+                        <stop offset="85%" stop-color="#581c87"/>
+                        <stop offset="100%" stop-color="#ec4899"/>
+                      </linearGradient>
+                      <radialGradient id="ndSun" cx="50%" cy="50%" r="50%">
+                        <stop offset="0%" stop-color="#fef08a"/>
+                        <stop offset="50%" stop-color="#facc15"/>
+                        <stop offset="80%" stop-color="#ec4899"/>
+                        <stop offset="100%" stop-color="#a855f7"/>
+                      </radialGradient>
+                      <linearGradient id="ndNeonTitle" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#e0f2fe"/>
+                        <stop offset="50%" stop-color="#c084fc"/>
+                        <stop offset="100%" stop-color="#f472b6"/>
+                      </linearGradient>
+                      <filter id="ndGlow" x="-20%" y="-20%" width="140%" height="140%">
+                        <feGaussianBlur stdDeviation="3" result="blur"/>
+                        <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+                      </filter>
+                    </defs>
+                    <rect width="320" height="110" fill="url(#ndSky)"/>
+                    <!-- Retro Sunset with Laser Slices -->
+                    <g transform="translate(160, 95)">
+                      <circle cx="0" cy="0" r="38" fill="url(#ndSun)" filter="url(#ndGlow)"/>
+                      <!-- Stripes -->
+                      <line x1="-36" y1="-8" x2="36" y2="-8" stroke="#1c0738" stroke-width="1.8"/>
+                      <line x1="-37" y1="-2" x2="37" y2="-2" stroke="#1c0738" stroke-width="2.2"/>
+                      <line x1="-37" y1="5" x2="37" y2="5" stroke="#1c0738" stroke-width="2.8"/>
+                      <line x1="-34" y1="13" x2="34" y2="13" stroke="#1c0738" stroke-width="3.5"/>
+                    </g>
+                    <!-- Cyber City Silhouettes -->
+                    <path d="M0,98 L18,98 L18,72 L26,72 L26,82 L38,82 L38,62 L48,62 L48,98 L75,98 L75,68 L88,68 L88,85 L98,85 L98,98 Z" fill="#12082b"/>
+                    <path d="M320,98 L302,98 L302,72 L294,72 L294,82 L282,82 L282,60 L272,60 L272,98 L245,98 L245,66 L232,66 L232,84 L222,84 L222,98 Z" fill="#12082b"/>
+                    <!-- Synthwave 3D Perspective Road Grid -->
+                    <polygon points="0,180 120,98 200,98 320,180" fill="#0b071e"/>
+                    <!-- Perspective Lines -->
+                    <line x1="160" y1="98" x2="160" y2="180" stroke="#a855f7" stroke-width="2" opacity="0.7"/>
+                    <line x1="150" y1="98" x2="100" y2="180" stroke="#00f0ff" stroke-width="1.5" opacity="0.6"/>
+                    <line x1="170" y1="98" x2="220" y2="180" stroke="#00f0ff" stroke-width="1.5" opacity="0.6"/>
+                    <line x1="135" y1="98" x2="30" y2="180" stroke="#ec4899" stroke-width="1.5" opacity="0.7"/>
+                    <line x1="185" y1="98" x2="290" y2="180" stroke="#ec4899" stroke-width="1.5" opacity="0.7"/>
+                    <!-- Horizontal Horizon Grids -->
+                    <line x1="105" y1="110" x2="215" y2="110" stroke="#a855f7" stroke-width="1" opacity="0.5"/>
+                    <line x1="85" y1="125" x2="235" y2="125" stroke="#a855f7" stroke-width="1.2" opacity="0.6"/>
+                    <line x1="55" y1="145" x2="265" y2="145" stroke="#a855f7" stroke-width="1.5" opacity="0.7"/>
+                    <line x1="20" y1="170" x2="300" y2="170" stroke="#00f0ff" stroke-width="1.8" opacity="0.8"/>
+                    <!-- Red Speeder / Supercar Rear -->
+                    <g transform="translate(160, 148)">
+                      <!-- Underglow -->
+                      <ellipse cx="0" cy="18" rx="26" ry="7" fill="#ec4899" filter="url(#ndGlow)" opacity="0.7"/>
+                      <!-- Car Body Rear -->
+                      <polygon points="-22,-6 22,-6 26,12 20,16 -20,16 -26,12" fill="#b91c1c" stroke="#ef4444" stroke-width="1.2"/>
+                      <polygon points="-16,-14 16,-14 20,-6 -20,-6" fill="#0f172a"/>
+                      <!-- Red Taillights -->
+                      <rect x="-22" y="0" width="12" height="4" rx="1.5" fill="#ef4444" filter="url(#ndGlow)"/>
+                      <rect x="10" y="0" width="12" height="4" rx="1.5" fill="#ef4444" filter="url(#ndGlow)"/>
+                      <rect x="-6" y="6" width="12" height="5" fill="#090d16"/>
+                    </g>
+                    <!-- Title Logo "NEON DODGER" -->
+                    <g transform="translate(160, 36)" text-anchor="middle">
+                      <text x="0" y="-4" font-family="'Orbitron', sans-serif" font-weight="900" font-size="16" fill="url(#ndNeonTitle)" letter-spacing="4" filter="url(#ndGlow)">NEON</text>
+                      <text x="0" y="16" font-family="'Orbitron', sans-serif" font-weight="900" font-size="19" fill="#f472b6" letter-spacing="3" font-style="italic" filter="url(#ndGlow)">DODGER</text>
+                    </g>
+                  </svg>
                 </div>
                 <div class="card-body">
                   <div>
                     <h4 class="card-game-title">NEON DODGER</h4>
                     <p class="card-game-desc">Hovercraft 3D synthwave, gerbang laser, EMP, & warp item.</p>
+                    <div class="tag-pill-row">
+                      <span class="tag-pill tag-cyan">RACING</span>
+                      <span class="tag-pill tag-purple">HINDARI</span>
+                      <span class="tag-pill tag-pink">SCORE ATTACK</span>
+                    </div>
                   </div>
-                  <button class="btn-play-card" onclick="launchGame('NEON DODGER')">▶ MAIN</button>
+                  <div class="card-actions-col">
+                    <button class="btn-guide-purple" onclick="openGameGuide('NEON DODGER')">📖 PANDUAN & LINEUP</button>
+                    <button class="btn-play-solid" onclick="launchGame('NEON DODGER')">▶ MAIN</button>
+                  </div>
                 </div>
               </div>
 
-              <div class="card-game">
-                <div class="card-thumb" style="background-image:url('https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=500&auto=format&fit=crop');">
-                  <span class="card-badge-status status-live">REDESIGN V2</span>
+              <!-- Game 3: Pixel Racer (Tema Blue + Artwork Sesuai Gambar Referensi) -->
+              <div class="card-game theme-blue">
+                <div class="card-thumb-wrap">
+                  <span class="card-badge-status badge-live-green"><span class="status-dot"></span> SIAP MAIN</span>
+                  <svg class="card-thumb-svg" viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                      <linearGradient id="prSky" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stop-color="#030712"/>
+                        <stop offset="60%" stop-color="#0c1e3d"/>
+                        <stop offset="100%" stop-color="#0284c7"/>
+                      </linearGradient>
+                      <linearGradient id="prTitleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#fef08a"/>
+                        <stop offset="50%" stop-color="#f97316"/>
+                        <stop offset="100%" stop-color="#ef4444"/>
+                      </linearGradient>
+                      <filter id="prGlow" x="-20%" y="-20%" width="140%" height="140%">
+                        <feGaussianBlur stdDeviation="3" result="blur"/>
+                        <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+                      </filter>
+                    </defs>
+                    <rect width="320" height="180" fill="url(#prSky)"/>
+                    <!-- Cyberpunk Skyscrapers Background -->
+                    <g fill="#071226" opacity="0.9">
+                      <rect x="25" y="45" width="22" height="70"/>
+                      <rect x="60" y="30" width="28" height="85"/>
+                      <rect x="100" y="55" width="20" height="60"/>
+                      <rect x="200" y="50" width="24" height="65"/>
+                      <rect x="235" y="35" width="30" height="80"/>
+                      <rect x="275" y="50" width="22" height="65"/>
+                    </g>
+                    <!-- Distant Full Moon -->
+                    <circle cx="255" cy="40" r="14" fill="#38bdf8" opacity="0.35" filter="url(#prGlow)"/>
+                    <circle cx="255" cy="40" r="12" fill="#e0f2fe" opacity="0.8"/>
+                    <!-- Highway Asphalt & Speed Light Trails -->
+                    <polygon points="0,180 110,105 210,105 320,180" fill="#040914"/>
+                    <!-- Neon Curb Lanes -->
+                    <line x1="110" y1="105" x2="0" y2="180" stroke="#00f0ff" stroke-width="3" filter="url(#prGlow)"/>
+                    <line x1="210" y1="105" x2="320" y2="180" stroke="#00f0ff" stroke-width="3" filter="url(#prGlow)"/>
+                    <!-- Dash Lanes -->
+                    <line x1="145" y1="105" x2="105" y2="180" stroke="#38bdf8" stroke-width="1.8" stroke-dasharray="10,8"/>
+                    <line x1="175" y1="105" x2="215" y2="180" stroke="#38bdf8" stroke-width="1.8" stroke-dasharray="10,8"/>
+                    <!-- Supercar Center -->
+                    <g transform="translate(160, 142)">
+                      <!-- Blue/Cyan Underglow -->
+                      <ellipse cx="0" cy="18" rx="28" ry="8" fill="#00f0ff" filter="url(#prGlow)" opacity="0.8"/>
+                      <!-- Exhaust Flames -->
+                      <polygon points="-8,18 -4,26 0,18" fill="#facc15" filter="url(#prGlow)"/>
+                      <polygon points="0,18 4,26 8,18" fill="#facc15" filter="url(#prGlow)"/>
+                      <!-- Wide Body Supercar -->
+                      <polygon points="-24,-8 24,-8 28,12 22,18 -22,18 -28,12" fill="#090d16" stroke="#0284c7" stroke-width="1.4"/>
+                      <polygon points="-16,-16 16,-16 20,-8 -20,-8" fill="#020617"/>
+                      <!-- Red Glowing Taillights Bar -->
+                      <rect x="-24" y="0" width="14" height="4" rx="1.5" fill="#ef4444" filter="url(#prGlow)"/>
+                      <rect x="10" y="0" width="14" height="4" rx="1.5" fill="#ef4444" filter="url(#prGlow)"/>
+                      <rect x="-24" y="0" width="48" height="2" fill="#f87171"/>
+                    </g>
+                    <!-- Title Logo "PIXEL RACER" -->
+                    <g transform="translate(160, 36)" text-anchor="middle">
+                      <!-- Checkered Flag Icon Behind -->
+                      <g transform="translate(48, -14)">
+                        <rect x="0" y="0" width="5" height="5" fill="#fff"/>
+                        <rect x="5" y="0" width="5" height="5" fill="#000"/>
+                        <rect x="0" y="5" width="5" height="5" fill="#000"/>
+                        <rect x="5" y="5" width="5" height="5" fill="#fff"/>
+                        <rect x="10" y="0" width="5" height="5" fill="#facc15"/>
+                        <rect x="10" y="5" width="5" height="5" fill="#000"/>
+                      </g>
+                      <text x="0" y="-4" font-family="'Orbitron', sans-serif" font-weight="900" font-size="16" fill="#e0f2fe" letter-spacing="3" filter="url(#prGlow)">PIXEL</text>
+                      <text x="0" y="16" font-family="'Orbitron', sans-serif" font-weight="900" font-size="20" fill="url(#prTitleGrad)" letter-spacing="2" filter="url(#prGlow)">RACER</text>
+                    </g>
+                  </svg>
                 </div>
                 <div class="card-body">
                   <div>
                     <h4 class="card-game-title">PIXEL RACER</h4>
                     <p class="card-game-desc">Supercar cyberpunk, 3 lajur neon, nitro turbo, & truk lawan.</p>
+                    <div class="tag-pill-row">
+                      <span class="tag-pill tag-cyan">RACING</span>
+                      <span class="tag-pill tag-purple">PIXEL</span>
+                      <span class="tag-pill tag-pink">NITRO</span>
+                    </div>
                   </div>
-                  <button class="btn-play-card" onclick="launchGame('PIXEL RACER')">▶ MAIN</button>
+                  <div class="card-actions-col">
+                    <button class="btn-guide-purple" onclick="openGameGuide('PIXEL RACER')">📖 PANDUAN & LINEUP</button>
+                    <button class="btn-play-solid" onclick="launchGame('PIXEL RACER')">▶ MAIN</button>
+                  </div>
                 </div>
               </div>
 
-              <div class="card-game">
-                <div class="card-thumb" style="background-image:url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=500&auto=format&fit=crop');">
-                  <span class="card-badge-status status-soon">COMING SOON</span>
+              <!-- Game 4: Galaxy Quest (Tema Amber + Artwork Sesuai Gambar Referensi) -->
+              <div class="card-game theme-amber">
+                <div class="card-thumb-wrap">
+                  <span class="card-badge-status badge-coming-dark">COMING SOON</span>
+                  <svg class="card-thumb-svg" viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                      <linearGradient id="gqSky" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stop-color="#0a0518"/>
+                        <stop offset="50%" stop-color="#2c142b"/>
+                        <stop offset="85%" stop-color="#7c2d12"/>
+                        <stop offset="100%" stop-color="#ea580c"/>
+                      </linearGradient>
+                      <radialGradient id="gqPlanet" cx="45%" cy="40%" r="55%">
+                        <stop offset="0%" stop-color="#fed7aa"/>
+                        <stop offset="50%" stop-color="#f97316"/>
+                        <stop offset="90%" stop-color="#9a3412"/>
+                        <stop offset="100%" stop-color="#431407"/>
+                      </radialGradient>
+                      <linearGradient id="gqTitleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#fef3c7"/>
+                        <stop offset="50%" stop-color="#facc15"/>
+                        <stop offset="100%" stop-color="#f97316"/>
+                      </linearGradient>
+                      <filter id="gqGlow" x="-20%" y="-20%" width="140%" height="140%">
+                        <feGaussianBlur stdDeviation="3" result="blur"/>
+                        <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+                      </filter>
+                    </defs>
+                    <rect width="320" height="180" fill="url(#gqSky)"/>
+                    <!-- Small Moons -->
+                    <circle cx="50" cy="50" r="7" fill="#ea580c" opacity="0.6"/>
+                    <circle cx="85" cy="65" r="4" fill="#fed7aa" opacity="0.5"/>
+                    <!-- Giant Ringed Planet (Saturn-like) -->
+                    <g transform="translate(230, 95)">
+                      <circle cx="0" cy="0" r="34" fill="url(#gqPlanet)" filter="url(#gqGlow)"/>
+                      <!-- Planet Rings -->
+                      <ellipse cx="0" cy="0" rx="72" ry="18" fill="none" stroke="#fed7aa" stroke-width="4.5" opacity="0.85" transform="rotate(-22)"/>
+                      <ellipse cx="0" cy="0" rx="60" ry="14" fill="none" stroke="#fb923c" stroke-width="2" opacity="0.7" transform="rotate(-22)"/>
+                    </g>
+                    <!-- Alien Planet Rocky Terrain Horizon -->
+                    <polygon points="0,180 0,148 40,140 85,152 140,142 190,154 250,145 320,152 320,180" fill="#431407"/>
+                    <polygon points="0,180 0,158 55,152 110,162 170,155 240,165 320,160 320,180" fill="#290d05"/>
+                    <!-- Tiny Astronaut Silhouette on Left Crater -->
+                    <g transform="translate(70, 142)">
+                      <!-- Helmet -->
+                      <circle cx="0" cy="-14" r="5" fill="#f8fafc"/>
+                      <ellipse cx="1" cy="-14" rx="2.5" ry="2" fill="#00f0ff"/>
+                      <!-- Body -->
+                      <rect x="-4" y="-9" width="8" height="10" rx="2" fill="#e2e8f0"/>
+                      <!-- Backpack -->
+                      <rect x="-7" y="-8" width="3" height="8" rx="1" fill="#94a3b8"/>
+                      <!-- Legs -->
+                      <line x1="-2.5" y1="1" x2="-3.5" y2="9" stroke="#cbd5e1" stroke-width="2.5"/>
+                      <line x1="2.5" y1="1" x2="3.5" y2="9" stroke="#cbd5e1" stroke-width="2.5"/>
+                    </g>
+                    <!-- Title Logo "GALAXY QUEST" -->
+                    <g transform="translate(160, 36)" text-anchor="middle">
+                      <text x="0" y="-4" font-family="'Orbitron', sans-serif" font-weight="900" font-size="16" fill="#f8fafc" letter-spacing="3" filter="url(#gqGlow)">GALAXY</text>
+                      <text x="0" y="16" font-family="'Orbitron', sans-serif" font-weight="900" font-size="19" fill="url(#gqTitleGrad)" letter-spacing="2" filter="url(#gqGlow)">★ QUEST</text>
+                    </g>
+                  </svg>
                 </div>
                 <div class="card-body">
                   <div>
                     <h4 class="card-game-title">GALAXY QUEST</h4>
-                    <p class="card-game-desc">Petualangan planet misterius.</p>
+                    <p class="card-game-desc">Petualangan penjelajahan planet misterius.</p>
+                    <div class="tag-pill-row">
+                      <span class="tag-pill tag-blue">ADVENTURE</span>
+                      <span class="tag-pill tag-purple">EXPLORATION</span>
+                      <span class="tag-pill tag-pink">STORY</span>
+                    </div>
                   </div>
-                  <button class="btn-soon-card" disabled>SEGERA</button>
+                  <div class="card-actions-col">
+                    <button class="btn-guide-purple" onclick="openGameGuide('GALAXY QUEST')">📖 PANDUAN & LINEUP</button>
+                    <div class="btn-disabled-dark">SEGERA</div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -852,26 +1356,29 @@
     <div id="tab-games" class="tab-content">
       <div style="font-family:'Orbitron',sans-serif; font-size:18px; margin-bottom:14px;">SEMUA KOLEKSI GAME</div>
       <div class="games-grid">
-        <div class="card-game"><div class="card-thumb" style="background-image:url('https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?q=80&w=500&auto=format&fit=crop');"><span class="card-badge-status status-live">SIAP</span></div><div class="card-body"><h4 class="card-game-title">SPACE BLASTER</h4><button class="btn-play-card" onclick="launchGame('SPACE BLASTER')">▶ MAIN</button></div></div>
-        <div class="card-game"><div class="card-thumb" style="background-image:url('https://images.unsplash.com/photo-1509198397868-475647b2a1e5?q=80&w=500&auto=format&fit=crop');"><span class="card-badge-status status-live">SIAP</span></div><div class="card-body"><h4 class="card-game-title">NEON DODGER</h4><button class="btn-play-card" onclick="launchGame('NEON DODGER')">▶ MAIN</button></div></div>
-        <div class="card-game"><div class="card-thumb" style="background-image:url('https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=500&auto=format&fit=crop');"><span class="card-badge-status status-live">SIAP</span></div><div class="card-body"><h4 class="card-game-title">PIXEL RACER</h4><button class="btn-play-card" onclick="launchGame('PIXEL RACER')">▶ MAIN</button></div></div>
-      </div>
-    </div>
-
-    <!-- TAB 3: LEADERBOARD -->
-    <div id="tab-leaderboard" class="tab-content">
-      <div class="leaderboard-container">
-        <h2 style="font-family:'Orbitron',sans-serif; font-size:20px; font-weight:800;">PAPAN PERINGKAT GLOBAL</h2>
-        <div class="podium-grid">
-          <div class="podium-card glass-card rank-2"><div class="podium-badge">🥈</div><div class="podium-avatar" id="podium-2-av">🥷</div><div class="podium-name" id="podium-2-name">-</div><div class="podium-game" id="podium-2-game">Belum Ada Rekor</div><div class="podium-score" id="podium-2-score">0</div></div>
-          <div class="podium-card glass-card rank-1"><div class="podium-badge">👑</div><div class="podium-avatar" id="podium-1-av">🤖</div><div class="podium-name" id="podium-1-name">-</div><div class="podium-game" id="podium-1-game">Belum Ada Rekor</div><div class="podium-score" id="podium-1-score">0</div></div>
-          <div class="podium-card glass-card rank-3"><div class="podium-badge">🥉</div><div class="podium-avatar" id="podium-3-av">🚀</div><div class="podium-name" id="podium-3-name">-</div><div class="podium-game" id="podium-3-game">Belum Ada Rekor</div><div class="podium-score" id="podium-3-score">0</div></div>
+        <div class="card-game">
+          <div class="card-thumb" style="background-image:url('https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?q=80&w=500&auto=format&fit=crop');"><span class="card-badge-status status-live">SIAP</span></div>
+          <div class="card-body">
+            <h4 class="card-game-title">SPACE BLASTER</h4>
+            <button class="btn-guide-card" onclick="openGameGuide('SPACE BLASTER')">📖 PANDUAN & LINEUP</button>
+            <button class="btn-play-card" onclick="launchGame('SPACE BLASTER')">▶ MAIN</button>
+          </div>
         </div>
-        <div class="lb-table-wrap glass-card">
-          <table class="lb-table">
-            <thead><tr><th>RANK</th><th>PEMAIN</th><th>GAME</th><th>SKOR TERTINGGI</th><th>TANGGAL</th></tr></thead>
-            <tbody id="leaderboardTableBody"><tr><td colspan="5" style="text-align:center; padding:20px;">Memuat data...</td></tr></tbody>
-          </table>
+        <div class="card-game">
+          <div class="card-thumb" style="background-image:url('https://images.unsplash.com/photo-1508739773434-c26b3d09e071?q=80&w=500&auto=format&fit=crop');"><span class="card-badge-status status-live">SIAP</span></div>
+          <div class="card-body">
+            <h4 class="card-game-title">NEON DODGER</h4>
+            <button class="btn-guide-card" onclick="openGameGuide('NEON DODGER')">📖 PANDUAN & LINEUP</button>
+            <button class="btn-play-card" onclick="launchGame('NEON DODGER')">▶ MAIN</button>
+          </div>
+        </div>
+        <div class="card-game">
+          <div class="card-thumb" style="background-image:url('https://images.unsplash.com/photo-1514565131-fce0801e5785?q=80&w=500&auto=format&fit=crop');"><span class="card-badge-status status-live">SIAP</span></div>
+          <div class="card-body">
+            <h4 class="card-game-title">PIXEL RACER</h4>
+            <button class="btn-guide-card" onclick="openGameGuide('PIXEL RACER')">📖 PANDUAN & LINEUP</button>
+            <button class="btn-play-card" onclick="launchGame('PIXEL RACER')">▶ MAIN</button>
+          </div>
         </div>
       </div>
     </div>
@@ -912,6 +1419,24 @@
       <button class="pedal-btn" id="btnRightPedal">KANAN ▶</button>
     </div>
     <button class="btn-modal-close" onclick="closeGameModal()">✕ Tutup Permainan</button>
+  </div>
+
+  <!-- MODAL PANDUAN & LINEUP SETIAP GAME -->
+  <div class="modal" id="guideModal">
+    <div class="guide-modal-box">
+      <div class="guide-modal-header">
+        <div>
+          <div class="guide-modal-title" id="guideTitle">PANDUAN & LINEUP GAME</div>
+          <div class="guide-modal-sub" id="guideSubtitle">Pelajari mekanika, item, dan musuh sebelum bertanding.</div>
+        </div>
+        <button type="button" class="btn-modal-close" style="margin-top:0; padding:4px 12px;" onclick="closeGameGuide()">✕</button>
+      </div>
+      <div id="guideContent" style="display:flex; flex-direction:column; gap:12px;"></div>
+      <div style="display:flex; justify-content:flex-end; gap:8px; margin-top:8px;">
+        <button class="btn-modal-close" style="margin-top:0;" onclick="closeGameGuide()">Tutup</button>
+        <button class="btn-hero-play" id="btnGuideLaunch" style="padding:8px 18px; font-size:11px;" onclick="launchFromGuide()">▶ MAIN SEKARANG</button>
+      </div>
+    </div>
   </div>
 
   <!-- PROFILE MODAL -->
@@ -1279,16 +1804,188 @@
       rctx.restore();
     }, 100);
 
-    function toggleFrontGuide() {
+    /* =========================================================================
+       PANDUAN & LINEUP ENGINE UNTUK SEMUA GAME
+       ========================================================================= */
+    const GAME_GUIDES_DATA = {
+      'SPACE BLASTER': {
+        title: '🚀 SPACE BLASTER',
+        subtitle: 'Kendalikan jet STRIKER, tembak meteorit, dan kalahkan 3 Boss armada alien!',
+        launchKey: 'SPACE BLASTER',
+        sections: [
+          {
+            heading: '☄️ 5 JENIS METEORIT',
+            items: [
+              { icon: '🌑', name: 'Normal', desc: '+1 Poin • Daya tahan standar' },
+              { icon: '🌋', name: 'Retak', desc: '+2 Poin • Magma membara' },
+              { icon: '❄️', name: 'Es', desc: '+3 Poin • Bergerak lebih lincah' },
+              { icon: '⭐', name: 'Emas', desc: '+5 Poin • Jaminan drop power-up' },
+              { icon: '🔮', name: 'Gelap', desc: '+10 Poin • Zirah void ekstra tebal' }
+            ]
+          },
+          {
+            heading: '⚡ 6 POWER-UP ITEMS',
+            items: [
+              { icon: '❤️', name: 'Heal', desc: '+1 HP Nyawa Tambahan' },
+              { icon: '🌟', name: 'Skor', desc: '+50 Poin Instan' },
+              { icon: '⏫', name: 'Speed', desc: 'Kecepatan tembak beruntun' },
+              { icon: '🔱', name: 'Triple', desc: 'Meriam laser menyebar 3 arah' },
+              { icon: '🛡️', name: 'Shield', desc: 'Perisai kebal selama 5 detik' },
+              { icon: '🧲', name: 'Magnet', desc: 'Menarik semua item ke pesawat' }
+            ]
+          },
+          {
+            heading: '☠️ BOSS LINEUP & POLA SERANG',
+            isLineup: true,
+            lineup: [
+              { border: '#ef4444', name: 'BOSS 1: TITAN DREADNOUGHT (Skor ≥ 100)', desc: 'Heavy Warship • Menembakkan peluru plasma ganda merah berkecepatan tinggi dari kedua sayap.' },
+              { border: '#a855f7', name: 'BOSS 2: VOID DESTROYER (Skor ≥ 300)', desc: 'Stealth Fighter • Laser menyebar 3 arah (kiri, tengah, kanan) dengan manuver lincah.' },
+              { border: '#facc15', name: 'BOSS 3: OMEGA ANNIHILATOR (Skor ≥ 600)', desc: 'Space Fortress • 4 Meriam plasma berat berondongan emas-merah yang menguji refleks pemain.' }
+            ]
+          }
+        ]
+      },
+      'NEON DODGER': {
+        title: '⚡ NEON DODGER',
+        subtitle: 'Meluncur di grid 3D synthwave berkecepatan tinggi dan hindari rintangan laser!',
+        launchKey: 'NEON DODGER',
+        sections: [
+          {
+            heading: '🛸 SPESIFIKASI HOVERCRAFT',
+            items: [
+              { icon: '🏎️', name: 'Inertia Tilt', desc: 'Kemiringan bodi responsif saat bermanuver' },
+              { icon: '💨', name: 'Dual Plasma', desc: 'Jejak api kembar pendorong neon' },
+              { icon: '🧭', name: 'Swipe / Mouse', desc: 'Kontrol presisi geser kiri & kanan' }
+            ]
+          },
+          {
+            heading: '⚠️ THREAT LINEUP (RINTANGAN)',
+            isLineup: true,
+            lineup: [
+              { border: '#ec4899', name: 'GERBANG LASER ENERGI (Laser Gate)', desc: 'Tembok palang laser neon berdenyut meluncur cepat ke arah pemain.' },
+              { border: '#ef4444', name: 'RANJAU PLASMA EMP (Rotating Mine)', desc: 'Bola ranjau berputar dengan duri elektromagnetik yang merusak sistem speeeder.' }
+            ]
+          },
+          {
+            heading: '🔮 POWER-UP & ITEM',
+            items: [
+              { icon: '💎', name: 'Neon Crystal', desc: '+25 Meter Jarak Tempuh Instan' },
+              { icon: '⏱️', name: 'Chrono Warp', desc: 'Slow-motion waktu rintangan 4 detik' },
+              { icon: '🛡️', name: 'Shield Aura', desc: 'Kebal menahan 1 kali benturan' }
+            ]
+          }
+        ]
+      },
+      'PIXEL RACER': {
+        title: '🏎️ PIXEL RACER',
+        subtitle: 'Balapan supercar cyberpunk jalan raya 3 lajur dengan turbo nitro berkecepatan tinggi!',
+        launchKey: 'PIXEL RACER',
+        sections: [
+          {
+            heading: '🏎️ MEKANISME KEMUDI & NITRO',
+            items: [
+              { icon: '⛽', name: 'Bahan Bakar', desc: 'Pertahankan bensin agar tidak mogok' },
+              { icon: '⚡', name: 'Nitro Boost', desc: 'Melesat 2.4x lipat lebih kencang' },
+              { icon: '💥', name: 'Smash Mode', desc: 'Menabrak tembus lawan saat nitro aktif' }
+            ]
+          },
+          {
+            heading: '🚦 TRAFFIC LINEUP (KENDARAAN LAWAN)',
+            isLineup: true,
+            lineup: [
+              { border: '#f97316', name: 'HEAVY ARMORED TRUCK (Truk Kontainer)', desc: 'Truk berbadan besar dan lambat yang menutup sebagian besar badan jalan.' },
+              { border: '#ef4444', name: 'CYBER SEDAN (Mobil Merah)', desc: 'Kendaraan sipil lajur tengah dengan kecepatan sedang.' },
+              { border: '#a855f7', name: 'SPEEDING HYPERCAR (Mobil Ungu)', desc: 'Mobil sport lawan yang melaju sangat cepat dan sering menyalip mendadak.' }
+            ]
+          },
+          {
+            heading: '📦 ITEM JALANAN',
+            items: [
+              { icon: '⛽', name: 'Gas Canister', desc: '+25% Refill Tangki Bensin' },
+              { icon: '⚡', name: 'Nitro Battery', desc: '+35% Pengisian Tabung Nitro' },
+              { icon: '🏁', name: 'Distance Pts', desc: 'Skor bertambah seiring jarak tempuh' }
+            ]
+          }
+        ]
+      },
+      'GALAXY QUEST': {
+        title: '🌌 GALAXY QUEST',
+        subtitle: 'Petualangan antariksa penjelajahan planet baru (Segera Hadir).',
+        launchKey: null,
+        sections: [
+          {
+            heading: '🪐 PREVIEW FITUR MENDATANG',
+            items: [
+              { icon: '🪐', name: 'Planet Hopper', desc: 'Menjelajahi atmosfer planet asing' },
+              { icon: '👾', name: 'Alien Wildlife', desc: 'Makhluk luar angkasa unik' },
+              { icon: '💎', name: 'Stardust Ore', desc: 'Mengumpulkan mineral langka' }
+            ]
+          }
+        ]
+      }
+    };
+
+    let activeGuideLaunchGame = null;
+
+    function openGameGuide(gameKey) {
       sfx.click();
-      const body = document.getElementById('frontGuideBody');
-      const btn = document.getElementById('btnFrontGuideToggle');
-      if (body.style.display === 'none') {
-        body.style.display = 'flex';
-        btn.innerText = 'TUTUP ▲';
+      const gData = GAME_GUIDES_DATA[gameKey];
+      if (!gData) return;
+
+      activeGuideLaunchGame = gData.launchKey;
+      document.getElementById('guideTitle').innerText = gData.title;
+      document.getElementById('guideSubtitle').innerText = gData.subtitle;
+
+      const launchBtn = document.getElementById('btnGuideLaunch');
+      if (gData.launchKey) {
+        launchBtn.style.display = 'inline-flex';
+        launchBtn.innerText = `▶ MAIN ${gData.launchKey}`;
       } else {
-        body.style.display = 'none';
-        btn.innerText = 'BUKA ▼';
+        launchBtn.style.display = 'none';
+      }
+
+      let html = '';
+      gData.sections.forEach(sec => {
+        html += `<div class="guide-section-title">${sec.heading}</div>`;
+        if (sec.isLineup) {
+          html += `<div class="guide-lineup-row">`;
+          sec.lineup.forEach(item => {
+            html += `
+              <div class="guide-lineup-card" style="border-left-color:${item.border};">
+                <div class="guide-lineup-name" style="color:${item.border};">${item.name}</div>
+                <div class="guide-lineup-desc">${item.desc}</div>
+              </div>
+            `;
+          });
+          html += `</div>`;
+        } else {
+          html += `<div class="guide-items-grid">`;
+          sec.items.forEach(it => {
+            html += `
+              <div class="guide-badge-card">
+                <div class="guide-badge-icon">${it.icon}</div>
+                <div class="guide-badge-name">${it.name}</div>
+                <div class="guide-badge-desc">${it.desc}</div>
+              </div>
+            `;
+          });
+          html += `</div>`;
+        }
+      });
+
+      document.getElementById('guideContent').innerHTML = html;
+      document.getElementById('guideModal').style.display = 'flex';
+    }
+
+    function closeGameGuide() {
+      sfx.click();
+      document.getElementById('guideModal').style.display = 'none';
+    }
+
+    function launchFromGuide() {
+      if (activeGuideLaunchGame) {
+        closeGameGuide();
+        launchGame(activeGuideLaunchGame);
       }
     }
 
@@ -1417,9 +2114,35 @@
         document.getElementById('stat-total-players').innerText = data.totalPlayers || 0;
         document.getElementById('stat-total-played').innerText = data.totalPlayed || 0;
 
+        // DEDUKLIKASI KETAT PERSONAL BEST:
+        // Setiap pemain hanya muncul 1 KALI dengan skor tertingginya!
+        const rawList = data.leaderboard || [];
+        const personalBestMap = {};
+
+        rawList.forEach(item => {
+          const u = String(item.username || '').trim();
+          if (!u) return;
+          const uKey = u.toLowerCase();
+          const s = Number(item.score) || 0;
+          
+          if (!personalBestMap[uKey] || s > personalBestMap[uKey].score) {
+            personalBestMap[uKey] = {
+              username: u,
+              score: s,
+              game: item.game || 'SPACE BLASTER',
+              avatar: sanitizeAvatar(item.avatar),
+              date: item.date || '-'
+            };
+          }
+        });
+
+        // Urutkan dari skor tertinggi
+        const lb = Object.values(personalBestMap).sort((a, b) => b.score - a.score);
+        const top5 = lb.slice(0, 5);
+
         const homeTopList = document.getElementById('homeTopPlayerList');
-        if (data.topPlayers && data.topPlayers.length > 0) {
-          homeTopList.innerHTML = data.topPlayers.map((p, idx) => `
+        if (top5.length > 0) {
+          homeTopList.innerHTML = top5.map((p, idx) => `
             <div class="player-item">
               <div class="player-rank-info">
                 <span class="rank-num">#${idx + 1}</span>
@@ -1432,29 +2155,41 @@
           homeTopList.innerHTML = `<div class="empty-state">Belum ada rekor pemain.<br>Mainkan game dan jadilah yang pertama!</div>`;
         }
 
-        const lb = data.leaderboard || [];
+        // Podium Top 3 (Hanya Pemain Berbeda / Best Score Unik)
         if (lb.length > 0) {
           document.getElementById('podium-1-av').innerText = sanitizeAvatar(lb[0].avatar);
           document.getElementById('podium-1-name').innerText = lb[0].username;
           document.getElementById('podium-1-game').innerText = lb[0].game;
           document.getElementById('podium-1-score').innerText = Number(lb[0].score).toLocaleString('id-ID');
+        } else {
+          document.getElementById('podium-1-name').innerText = '-';
+          document.getElementById('podium-1-score').innerText = '0';
         }
+
         if (lb.length > 1) {
           document.getElementById('podium-2-av').innerText = sanitizeAvatar(lb[1].avatar);
           document.getElementById('podium-2-name').innerText = lb[1].username;
           document.getElementById('podium-2-game').innerText = lb[1].game;
           document.getElementById('podium-2-score').innerText = Number(lb[1].score).toLocaleString('id-ID');
+        } else {
+          document.getElementById('podium-2-name').innerText = '-';
+          document.getElementById('podium-2-score').innerText = '0';
         }
+
         if (lb.length > 2) {
           document.getElementById('podium-3-av').innerText = sanitizeAvatar(lb[2].avatar);
           document.getElementById('podium-3-name').innerText = lb[2].username;
           document.getElementById('podium-3-game').innerText = lb[2].game;
           document.getElementById('podium-3-score').innerText = Number(lb[2].score).toLocaleString('id-ID');
+        } else {
+          document.getElementById('podium-3-name').innerText = '-';
+          document.getElementById('podium-3-score').innerText = '0';
         }
 
+        // Tabel Leaderboard Penuh (Maksimal 30 Pemain Unik)
         const tableBody = document.getElementById('leaderboardTableBody');
         if (lb.length > 0) {
-          tableBody.innerHTML = lb.map((it, idx) => `
+          tableBody.innerHTML = lb.slice(0, 30).map((it, idx) => `
             <tr>
               <td style="font-family:'Orbitron',sans-serif; font-weight:700; color:${idx < 3 ? '#facc15' : 'var(--text-muted)'};">#${idx + 1}</td>
               <td style="font-weight:600; color:#fff;"><span>${sanitizeAvatar(it.avatar)}</span> ${it.username}</td>
