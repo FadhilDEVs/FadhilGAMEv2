@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#030611">
   <title>Fadhil GAME - Pusat Arcade & RPG Modern</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -700,14 +701,18 @@
       border-bottom: 1.5px solid rgba(0, 240, 255, 0.28);
       box-shadow: 0 4px 25px rgba(0, 0, 0, 0.7);
     }
-    .cockpit-brand-badge {
-      display: flex; align-items: center; gap: 8px;
-      padding: 4px 14px; background: rgba(0, 240, 255, 0.12);
-      border: 1.5px solid rgba(0, 240, 255, 0.45); border-radius: 8px;
-      font-family: 'Orbitron', sans-serif; font-size: 13px; font-weight: 900;
-      color: #fff; letter-spacing: 1px; box-shadow: 0 0 14px rgba(0, 240, 255, 0.25);
+    .cockpit-brand-lockup { display: flex; align-items: center; gap: 10px; }
+    .cockpit-brand-icon {
+      width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 19px; background: radial-gradient(circle, rgba(0,240,255,0.28) 0%, rgba(0,240,255,0.04) 72%);
+      border: 1.5px solid rgba(0,240,255,0.5); filter: drop-shadow(0 0 10px rgba(0,240,255,0.4)); flex-shrink: 0;
     }
-    .cockpit-brand-badge span { color: var(--primary); }
+    .cockpit-brand-title {
+      font-family: 'Orbitron', sans-serif; font-size: 14px; font-weight: 900; color: #fff;
+      letter-spacing: 0.5px; line-height: 1.15;
+    }
+    .cockpit-brand-title span { color: var(--primary); }
+    .cockpit-brand-tagline { font-size: 8.5px; letter-spacing: 1.5px; color: #64748b; font-weight: 700; margin-top: 1px; }
 
     .cockpit-hud-chips { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
     .cockpit-chip {
@@ -715,6 +720,10 @@
       padding: 5px 14px; font-family: 'Orbitron', sans-serif; font-size: 11px; font-weight: 800;
       display: inline-flex; align-items: center; gap: 6px;
     }
+    .chip-with-bar { flex-direction: column; align-items: flex-start; gap: 4px; min-width: 96px; padding: 5px 14px 7px; }
+    .chip-bar-track { width: 100%; height: 3px; border-radius: 3px; background: rgba(255,255,255,0.14); overflow: hidden; }
+    .chip-bar-fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, #38bdf8, #0ea5e9); }
+    .chip-bar-fill.fill-green { background: linear-gradient(90deg, #4ade80, #16a34a); }
     .chip-gold { color: #facc15; border-color: rgba(250, 204, 21, 0.35); }
     .chip-cyan { color: #38bdf8; border-color: rgba(56, 189, 248, 0.35); }
     .chip-green { color: #4ade80; border-color: rgba(74, 222, 128, 0.35); }
@@ -722,19 +731,27 @@
     /* Navigation Capsule Tabs */
     .cockpit-nav-strip {
       position: relative; z-index: 5;
-      display: flex; gap: 8px; padding: 8px 22px; background: rgba(5, 8, 18, 0.88);
+      display: flex; gap: 8px; padding: 10px 22px; background: rgba(5, 8, 18, 0.88);
       border-bottom: 1px solid rgba(255, 255, 255, 0.06); overflow-x: auto;
+      scrollbar-width: none; -ms-overflow-style: none;
+      scroll-snap-type: x proximity;
+      -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 18px, #000 calc(100% - 18px), transparent 100%);
+      mask-image: linear-gradient(90deg, transparent 0, #000 18px, #000 calc(100% - 18px), transparent 100%);
     }
+    .cockpit-nav-strip::-webkit-scrollbar { display: none; }
     .cockpit-tab-pill {
-      padding: 6px 16px; border-radius: 8px; background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.08); color: var(--text-muted);
+      display: inline-flex; align-items: center; gap: 6px; flex-shrink: 0; scroll-snap-align: start;
+      padding: 8px 16px; border-radius: 10px; background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.09); color: var(--text-muted);
       font-size: 11px; font-weight: 700; font-family: 'Orbitron', sans-serif;
-      cursor: pointer; white-space: nowrap; transition: all 0.2s;
+      cursor: pointer; white-space: nowrap; transition: all 0.25s ease;
     }
-    .cockpit-tab-pill:hover { border-color: var(--primary); color: #fff; }
+    .cockpit-tab-pill:hover { border-color: rgba(0, 240, 255, 0.4); color: #fff; background: rgba(255, 255, 255, 0.06); }
+    .cockpit-tab-pill:active { transform: scale(0.96); }
     .cockpit-tab-pill.active {
-      background: rgba(0, 240, 255, 0.16); border-color: var(--primary); color: var(--primary);
-      box-shadow: 0 0 12px rgba(0, 240, 255, 0.25);
+      background: linear-gradient(135deg, rgba(0,240,255,0.24), rgba(139,92,246,0.18));
+      border-color: var(--primary); color: #fff;
+      box-shadow: 0 0 16px rgba(0, 240, 255, 0.3), inset 0 0 14px rgba(0, 240, 255, 0.1);
     }
 
     /* Outer Bridge Framework with Telemetry Side Brackets */
@@ -758,6 +775,13 @@
     /* Center Header for Exploration */
     .cockpit-map-headline {
       text-align: center; margin-bottom: 16px; position: relative; z-index: 3;
+      padding: 28px 20px; border-radius: 16px; overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(4,7,16,0.55) 0%, rgba(4,7,16,0.85) 100%),
+        radial-gradient(circle at 12% 85%, rgba(56,189,248,0.35) 0%, transparent 45%),
+        radial-gradient(circle at 90% 15%, rgba(139,92,246,0.3) 0%, transparent 40%),
+        url('https://images.unsplash.com/photo-1614732414444-096e5f1122d5?q=80&w=1600&auto=format&fit=crop') center/cover;
+      border: 1px solid rgba(0, 240, 255, 0.18);
     }
     .map-ringed-icon {
       font-size: 38px; display: inline-block; filter: drop-shadow(0 0 15px rgba(0, 240, 255, 0.6));
@@ -829,6 +853,13 @@
       content: ''; position: absolute; inset: 0;
       background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(8, 12, 26, 0.95) 100%);
     }
+    .mission-category-badge {
+      position: absolute; top: 10px; left: 10px; z-index: 2;
+      font-family: 'Orbitron', sans-serif; font-size: 8.5px; font-weight: 800; letter-spacing: 0.8px;
+      padding: 4px 9px; border-radius: 6px; background: rgba(6,10,20,0.75); backdrop-filter: blur(4px);
+      border: 1px solid rgba(255,255,255,0.25); color: #e2e8f0; text-transform: uppercase;
+    }
+    .mission-category-badge.badge-boss { border-color: rgba(239,68,68,0.6); color: #fca5a5; }
 
     .mission-card-content {
       padding: 12px 14px 14px; display: flex; flex-direction: column; flex-grow: 1; justify-content: space-between;
@@ -847,51 +878,30 @@
       background: linear-gradient(90deg, #00f0ff 0%, #0284c7 100%);
       color: #040813; font-family: 'Orbitron', sans-serif; font-size: 11px; font-weight: 900;
       letter-spacing: 0.8px; cursor: pointer; display: flex; align-items: center; justify-content: center;
-      gap: 6px; box-shadow: 0 0 15px rgba(0, 240, 255, 0.35); transition: filter 0.2s;
+      gap: 6px; box-shadow: 0 0 15px rgba(0, 240, 255, 0.35); transition: filter 0.2s, transform 0.1s;
     }
     .btn-action-cyan:hover { filter: brightness(1.2); }
+    .btn-action-cyan:active { transform: scale(0.97); }
 
     .btn-action-boss1 {
       width: 100%; padding: 9px 12px; border-radius: 8px; border: none;
       background: linear-gradient(90deg, #ef4444 0%, #b91c1c 100%);
       color: #fff; font-family: 'Orbitron', sans-serif; font-size: 11px; font-weight: 900;
       letter-spacing: 0.8px; cursor: pointer; display: flex; align-items: center; justify-content: center;
-      gap: 6px; box-shadow: 0 0 15px rgba(239, 68, 68, 0.45); transition: filter 0.2s;
+      gap: 6px; box-shadow: 0 0 15px rgba(239, 68, 68, 0.45); transition: filter 0.2s, transform 0.1s;
     }
     .btn-action-boss1:hover { filter: brightness(1.2); }
+    .btn-action-boss1:active { transform: scale(0.97); }
 
     .btn-action-boss2 {
       width: 100%; padding: 9px 12px; border-radius: 8px; border: none;
       background: linear-gradient(90deg, #facc15 0%, #d97706 100%);
       color: #040813; font-family: 'Orbitron', sans-serif; font-size: 11px; font-weight: 900;
       letter-spacing: 0.8px; cursor: pointer; display: flex; align-items: center; justify-content: center;
-      gap: 6px; box-shadow: 0 0 18px rgba(250, 204, 21, 0.45); transition: filter 0.2s;
+      gap: 6px; box-shadow: 0 0 18px rgba(250, 204, 21, 0.45); transition: filter 0.2s, transform 0.1s;
     }
     .btn-action-boss2:hover { filter: brightness(1.2); }
-
-    /* Bottom Cockpit Console Dashboard */
-    .cockpit-bottom-deck {
-      position: relative; z-index: 5;
-      display: flex; justify-content: space-between; align-items: flex-end;
-      background: linear-gradient(180deg, transparent 0%, rgba(4, 7, 18, 0.96) 60%);
-      padding: 8px 24px 10px; margin-top: 10px; border-top: 1px solid rgba(0, 240, 255, 0.15);
-    }
-    .cockpit-pilot-silhouette {
-      display: flex; align-items: center; gap: 12px; opacity: 0.85;
-    }
-    .pilot-helm-avatar {
-      font-size: 40px; filter: drop-shadow(0 0 10px rgba(0, 240, 255, 0.3));
-    }
-    .cockpit-center-quote {
-      text-align: center; font-family: 'Orbitron', sans-serif; font-size: 10px; font-weight: 800;
-      letter-spacing: 2px; color: rgba(255, 255, 255, 0.5); font-style: italic;
-    }
-    .cockpit-radar-holo {
-      display: flex; align-items: center; gap: 10px;
-      padding: 6px 14px; background: rgba(14, 20, 42, 0.7); border: 1px solid rgba(139, 92, 246, 0.35);
-      border-radius: 8px; font-family: 'Orbitron', sans-serif; font-size: 9.5px; font-weight: 800;
-      color: #c4b5fd; letter-spacing: 1px;
-    }
+    .btn-action-boss2:active { transform: scale(0.97); }
 
     /* Turn-based Battle Viewport & Log */
     .rpg-arena {
@@ -1016,6 +1026,7 @@
       letter-spacing: 0.8px; box-shadow: 0 0 22px rgba(250,204,21,0.4); transition: filter 0.2s, transform 0.2s;
     }
     .btn-summon-gold:hover { filter: brightness(1.12); transform: translateY(-2px); }
+    .btn-summon-gold:active { transform: scale(0.96); }
     .btn-summon-gold:disabled { opacity: 0.5; cursor: not-allowed; transform: none; filter: none; }
 
     .companion-collection-box {
@@ -1070,6 +1081,7 @@
       background: rgba(0,240,255,0.1); transition: all 0.2s;
     }
     .companion-equip-btn:hover { background: rgba(0,240,255,0.22); }
+    .companion-equip-btn:active:not(:disabled) { transform: scale(0.96); }
     .companion-equip-btn.active {
       background: rgba(34,197,94,0.18); border-color: #22c55e; color: #4ade80; cursor: default;
     }
@@ -1166,8 +1178,69 @@
       .games-grid { grid-template-columns: 1fr; }
       .auth-bottom-features { grid-template-columns: 1fr; }
       .rpg-combat-actions { grid-template-columns: repeat(2, 1fr); }
-      .cockpit-top-bar { flex-direction: column; gap: 10px; }
-      .cockpit-bottom-deck { flex-direction: column; align-items: center; gap: 8px; }
+      .cockpit-top-bar { flex-direction: column; align-items: stretch; gap: 8px; }
+    }
+
+    /* ============================================================
+       MOBILE PHONE REFINEMENTS (COCKPIT GALAXY FRONTIER)
+       ============================================================ */
+    @media (max-width: 600px) {
+      .cockpit-top-bar { padding: 8px 12px; }
+      .cockpit-brand-lockup { gap: 8px; }
+      .cockpit-brand-icon { width: 26px; height: 26px; font-size: 14px; }
+      .cockpit-brand-title { font-size: 11.5px; }
+      .cockpit-brand-tagline { font-size: 6.5px; letter-spacing: 1px; }
+      .cockpit-hud-chips { gap: 6px; }
+      .cockpit-chip { padding: 4px 9px; font-size: 9.5px; gap: 4px; }
+      .chip-with-bar { min-width: 68px; padding: 4px 9px 6px; }
+      .btn-guide-purple { padding: 7px 10px; font-size: 9.5px; }
+      .btn-modal-close { padding: 7px 10px; font-size: 9.5px; }
+
+      .cockpit-nav-strip { padding: 7px 10px; gap: 6px; }
+      .cockpit-tab-pill { padding: 6px 11px; font-size: 9.5px; border-radius: 8px; }
+
+      .cockpit-bridge-wrapper { padding: 8px 10px calc(8px + env(safe-area-inset-bottom, 0px)); }
+
+      .cockpit-map-headline { padding: 16px 10px; margin-bottom: 10px; border-radius: 12px; }
+      .map-ringed-icon { font-size: 26px; }
+      .map-title-text { font-size: 15px; letter-spacing: 1px; }
+      .map-sub-text { font-size: 9.5px; margin-top: 3px; }
+
+      .sektor-cyber-box { padding: 12px; margin-bottom: 12px; border-radius: 12px; }
+      .sektor-header-bar { flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+      .sektor-title-badge { font-size: 10.5px; }
+      .sektor-status-pill { font-size: 8.5px; }
+      .sektor-cards-grid { gap: 10px; }
+
+      .mission-artwork-window { height: 92px; }
+      .mission-category-badge { font-size: 7px; padding: 3px 7px; top: 7px; left: 7px; }
+      .mission-card-content { padding: 10px 12px 12px; }
+      .mission-name { font-size: 11.5px; }
+      .mission-desc { font-size: 9.5px; min-height: 0; margin-bottom: 9px; }
+      .btn-action-cyan, .btn-action-boss1, .btn-action-boss2 { padding: 8px 10px; font-size: 9.5px; }
+
+      .companion-collection-header { align-items: flex-start; }
+      .companion-select { font-size: 9.5px; padding: 5px 8px; }
+      .companion-cards-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+      .companion-card { padding: 12px 8px 10px; border-radius: 12px; }
+      .companion-icon-wrap { width: 60px; height: 60px; font-size: 30px; margin: 10px 0 8px; }
+      .companion-name { font-size: 9.5px; }
+      .companion-lv { font-size: 8.5px; }
+      .companion-stat-line { font-size: 8px; }
+      .companion-equip-btn { padding: 7px 8px; font-size: 8px; }
+      .companion-banner-tag { display: none; }
+
+      .gacha-result-card { padding: 20px 18px; max-width: 88vw; }
+      .gacha-result-icon-wrap { width: 88px; height: 88px; font-size: 42px; }
+      .gacha-result-name { font-size: 14px; }
+      .gacha-portal-fx { width: 160px; height: 160px; }
+      .gacha-portal-ring.ring-1 { width: 160px; height: 160px; }
+      .gacha-portal-ring.ring-2 { width: 116px; height: 116px; }
+      .gacha-portal-ring.ring-3 { width: 72px; height: 72px; }
+      .gacha-portal-core { font-size: 34px; }
+
+      .admin-tab-btn { padding: 6px 10px; font-size: 9px; }
+      .admin-asset-row { flex-wrap: wrap; }
     }
   </style>
 </head>
@@ -1528,14 +1601,24 @@
     <!-- TOP COMMANDER HUD BAR -->
     <header class="cockpit-top-bar">
       <div style="display:flex; align-items:center; gap:12px;">
-        <div class="cockpit-brand-badge">
-          FADHIL <span>GAME</span>
+        <div class="cockpit-brand-lockup">
+          <div class="cockpit-brand-icon">🪐</div>
+          <div>
+            <div class="cockpit-brand-title">FADHIL <span>GAME</span></div>
+            <div class="cockpit-brand-tagline">EXPLORE BEYOND LIMITS</div>
+          </div>
         </div>
         <div class="cockpit-hud-chips">
           <div class="cockpit-chip chip-gold">★ LV. <span id="rpgCmdLevel">4</span></div>
-          <div class="cockpit-chip chip-cyan">⚡ EXP: <span id="rpgCmdExp">113/304</span></div>
+          <div class="cockpit-chip chip-cyan chip-with-bar">
+            <div>⚡ EXP <span id="rpgCmdExp">113/304</span></div>
+            <div class="chip-bar-track"><div class="chip-bar-fill" id="rpgCmdExpBar" style="width:37%;"></div></div>
+          </div>
           <div class="cockpit-chip chip-gold">🪙 CREDIT: <span id="rpgCmdCredits">12,450</span></div>
-          <div class="cockpit-chip chip-green">⛽ FUEL: <span id="rpgCmdFuel">12/15</span></div>
+          <div class="cockpit-chip chip-green chip-with-bar">
+            <div>⛽ FUEL <span id="rpgCmdFuel">12/15</span></div>
+            <div class="chip-bar-track"><div class="chip-bar-fill fill-green" id="rpgCmdFuelBar" style="width:80%;"></div></div>
+          </div>
         </div>
       </div>
 
@@ -1564,10 +1647,10 @@
     <div class="cockpit-bridge-wrapper">
       <!-- Telemetry Holographic Side Wings -->
       <div class="bridge-telemetry-wing telemetry-left">
-        "A BIGGER<br>UNIVERSE<br>AWAITS YOU"
+        "A VAST<br>UNIVERSE<br>AWAITS YOU"
       </div>
       <div class="bridge-telemetry-wing telemetry-right">
-        EXPLORE ↗<br>FIGHT ⚔<br>UPGRADE ⟳<br>CONQUER 👑
+        CHART ↗<br>DISCOVER ⚔<br>DOMINATE ⟳<br>THE GALAXY 👑
       </div>
 
       <!-- MAIN CONTENT VIEWPORT -->
@@ -1586,7 +1669,7 @@
           <div class="sektor-cyber-box sektor-cyan">
             <div class="sektor-header-bar">
               <div class="sektor-title-badge sektor-title-cyan">
-                ▶ SEKTOR 1: ORION SECTOR (LV. 1 - 10)
+                🛰️ SEKTOR 1: ORION SECTOR (LV. 1 - 10)
               </div>
               <div class="sektor-status-pill" style="color:#4ade80;">
                 <span style="font-size:12px;">●</span> Wilayah Terbuka
@@ -1596,7 +1679,9 @@
             <div class="sektor-cards-grid">
               <!-- Card 1: Planet Terra Nova -->
               <div class="mission-hud-card">
-                <div class="mission-artwork-window" style="background-image:url('https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?q=80&w=600&auto=format&fit=crop');"></div>
+              <div class="mission-artwork-window" id="area-art-terra_nova" style="background-image:url('https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?q=80&w=600&auto=format&fit=crop');">
+                  <div class="mission-category-badge">Planet</div>
+                </div>
                 <div class="mission-card-content">
                   <div>
                     <div class="mission-name">🌍 Planet Terra Nova</div>
@@ -1610,7 +1695,9 @@
 
               <!-- Card 2: Asteroid Belt -->
               <div class="mission-hud-card">
-                <div class="mission-artwork-window" style="background-image:url('https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?q=80&w=600&auto=format&fit=crop');"></div>
+                <div class="mission-artwork-window" id="area-art-asteroid_belt" style="background-image:url('https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?q=80&w=600&auto=format&fit=crop');">
+                  <div class="mission-category-badge">Asteroid Field</div>
+                </div>
                 <div class="mission-card-content">
                   <div>
                     <div class="mission-name">☄️ Asteroid Belt</div>
@@ -1624,7 +1711,9 @@
 
               <!-- Card 3: Dark Moon Base (Boss 1) -->
               <div class="mission-hud-card card-hazard-red">
-                <div class="mission-artwork-window" style="background-image:url('https://images.unsplash.com/photo-1532693322450-2cb5c511067d?q=80&w=600&auto=format&fit=crop');"></div>
+                <div class="mission-artwork-window" id="area-art-moon_base" style="background-image:url('https://images.unsplash.com/photo-1532693322450-2cb5c511067d?q=80&w=600&auto=format&fit=crop');">
+                  <div class="mission-category-badge badge-boss">Boss Area</div>
+                </div>
                 <div class="mission-card-content">
                   <div>
                     <div class="mission-name" style="color:#f87171;">☠️ Dark Moon Base (Boss 1)</div>
@@ -1642,17 +1731,19 @@
           <div class="sektor-cyber-box sektor-purple">
             <div class="sektor-header-bar">
               <div class="sektor-title-badge sektor-title-purple">
-                ▶ SEKTOR 2: NEBULA VOID (LV. 10 - 25)
+                🛰️ SEKTOR 2: NEBULA VOID (LV. 10 - 25)
               </div>
               <div class="sektor-status-pill" style="color:#facc15;">
-                <span>🔒</span> Sektor Berbahaya
+                <span>🔒</span> Sektor Terkunci
               </div>
             </div>
 
             <div class="sektor-cards-grid">
               <!-- Card 4: Toxic Planet -->
               <div class="mission-hud-card">
-                <div class="mission-artwork-window" style="background-image:url('https://images.unsplash.com/photo-1545156521-77bd85671d30?q=80&w=600&auto=format&fit=crop');"></div>
+                <div class="mission-artwork-window" id="area-art-toxic_planet" style="background-image:url('https://images.unsplash.com/photo-1545156521-77bd85671d30?q=80&w=600&auto=format&fit=crop');">
+                  <div class="mission-category-badge">Planet</div>
+                </div>
                 <div class="mission-card-content">
                   <div>
                     <div class="mission-name">🧪 Toxic Planet</div>
@@ -1666,7 +1757,9 @@
 
               <!-- Card 5: Cyber Ruins -->
               <div class="mission-hud-card">
-                <div class="mission-artwork-window" style="background-image:url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=600&auto=format&fit=crop');"></div>
+                <div class="mission-artwork-window" id="area-art-cyber_ruins" style="background-image:url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=600&auto=format&fit=crop');">
+                  <div class="mission-category-badge">Ruins</div>
+                </div>
                 <div class="mission-card-content">
                   <div>
                     <div class="mission-name">🏛️ Cyber Ruins</div>
@@ -1680,7 +1773,9 @@
 
               <!-- Card 6: Void Fortress (Boss 2) -->
               <div class="mission-hud-card card-cosmic-gold">
-                <div class="mission-artwork-window" style="background-image:url('https://images.unsplash.com/photo-1502134249126-9f3755a50d78?q=80&w=600&auto=format&fit=crop');"></div>
+                <div class="mission-artwork-window" id="area-art-void_fortress" style="background-image:url('https://images.unsplash.com/photo-1502134249126-9f3755a50d78?q=80&w=600&auto=format&fit=crop');">
+                  <div class="mission-category-badge badge-boss">Boss Area</div>
+                </div>
                 <div class="mission-card-content">
                   <div>
                     <div class="mission-name" style="color:#facc15;">👑 Void Fortress (Boss 2)</div>
@@ -1864,25 +1959,6 @@
               </div>
             </div>
           </div>
-        </div>
-      </div>
-
-      <!-- COCKPIT BOTTOM BRIDGE DECK INTERIOR -->
-      <div class="cockpit-bottom-deck">
-        <div class="cockpit-pilot-silhouette">
-          <div class="pilot-helm-avatar">👨‍🚀</div>
-          <div>
-            <div style="font-family:'Orbitron'; font-size:11px; font-weight:800; color:var(--primary);">PILOT CONSOLE</div>
-            <div style="font-size:9px; color:#94a3b8;">SYSTEM: ONLINE • SHIELD: ACTIVE</div>
-          </div>
-        </div>
-
-        <div class="cockpit-center-quote">
-          "SMALL STEPS — BIGGER GALAXIES"
-        </div>
-
-        <div class="cockpit-radar-holo">
-          <span>🌀</span> RADAR TELEMETRY: SECTOR CLEAR
         </div>
       </div>
     </div>
@@ -2945,6 +3021,25 @@
     // Posisi tombol "PANGGIL COMPANION" di atas gambar (dalam persen), dikalibrasi ke gambar bawaan di atas.
     const GACHA_BANNER_BTN_RECT = { left: 31.5, top: 61.5, width: 37, height: 14.5 };
 
+    // Gambar area/misi di Galaxy Map - id di sini harus sama persis dengan id yang dipakai selectRpgArea().
+    const GALAXY_AREA_KEYS = [
+      { id: 'area_terra_nova', label: '🌍 Planet Terra Nova', elId: 'terra_nova', fallback: 'https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?q=80&w=600&auto=format&fit=crop' },
+      { id: 'area_asteroid_belt', label: '☄️ Asteroid Belt', elId: 'asteroid_belt', fallback: 'https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?q=80&w=600&auto=format&fit=crop' },
+      { id: 'area_moon_base', label: '☠️ Dark Moon Base (Boss 1)', elId: 'moon_base', fallback: 'https://images.unsplash.com/photo-1532693322450-2cb5c511067d?q=80&w=600&auto=format&fit=crop' },
+      { id: 'area_toxic_planet', label: '🧪 Toxic Planet', elId: 'toxic_planet', fallback: 'https://images.unsplash.com/photo-1545156521-77bd85671d30?q=80&w=600&auto=format&fit=crop' },
+      { id: 'area_cyber_ruins', label: '🏛️ Cyber Ruins', elId: 'cyber_ruins', fallback: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=600&auto=format&fit=crop' },
+      { id: 'area_void_fortress', label: '👑 Void Fortress (Boss 2)', elId: 'void_fortress', fallback: 'https://images.unsplash.com/photo-1502134249126-9f3755a50d78?q=80&w=600&auto=format&fit=crop' }
+    ];
+
+    function applyGalaxyAreaAssets() {
+      GALAXY_AREA_KEYS.forEach(k => {
+        const el = document.getElementById('area-art-' + k.elId);
+        if (!el) return;
+        const val = getAssetValue(k.id) || k.fallback;
+        el.style.backgroundImage = `url('${val}')`;
+      });
+    }
+
     const COMPANION_TIER_META = {
       Common:    { label: 'Common',    slug: 'common',    color: '#94a3b8', bg: 'rgba(148,163,184,0.18)' },
       Uncommon:  { label: 'Uncommon',  slug: 'uncommon',  color: '#4ade80', bg: 'rgba(74,222,128,0.18)' },
@@ -3073,6 +3168,13 @@
       document.getElementById('rpgCmdExp').innerText = `${rpgState.commander.exp}/${rpgState.commander.maxExp}`;
       document.getElementById('rpgCmdCredits').innerText = Number(rpgState.commander.credit).toLocaleString('id-ID');
       document.getElementById('rpgCmdFuel').innerText = `${rpgState.commander.fuel}/${rpgState.commander.maxFuel}`;
+
+      const expPct = rpgState.commander.maxExp > 0 ? Math.min(100, (rpgState.commander.exp / rpgState.commander.maxExp) * 100) : 0;
+      const fuelPct = rpgState.commander.maxFuel > 0 ? Math.min(100, (rpgState.commander.fuel / rpgState.commander.maxFuel) * 100) : 0;
+      const expBarEl = document.getElementById('rpgCmdExpBar');
+      const fuelBarEl = document.getElementById('rpgCmdFuelBar');
+      if (expBarEl) expBarEl.style.width = expPct + '%';
+      if (fuelBarEl) fuelBarEl.style.width = fuelPct + '%';
 
       document.getElementById('rpgCardCmdName').innerText = (currentUser || 'PADIL').toUpperCase();
       document.getElementById('rpgCardCmdLevel').innerText = rpgState.commander.level;
@@ -3304,6 +3406,8 @@
         if (el) el.style.backgroundImage = `url('${val || THUMB_FALLBACK_IMGS[id]}')`;
       } else if (kind === 'banner-bg') {
         applyGachaBannerBg();
+      } else if (kind === 'area-thumb') {
+        applyGalaxyAreaAssets();
       } else if (kind === 'pet') {
         renderRpgUI();
       }
@@ -3353,6 +3457,9 @@
       html += `<div class="admin-asset-group-title">🐾 GAMBAR PET / COMPANION</div>`;
       html += COMPANION_POOL.map(c => adminAssetRowHtml(c.imgKey, `${c.icon} ${c.name} (${COMPANION_TIER_META[c.tier]?.label || c.tier})`, 'pet')).join('');
 
+      html += `<div class="admin-asset-group-title">🪐 GAMBAR AREA SEKTOR GALAXY MAP</div>`;
+      html += GALAXY_AREA_KEYS.map(k => adminAssetRowHtml(k.id, k.label, 'area-thumb')).join('');
+
       container.innerHTML = html;
       updatePendingThumbNote();
     }
@@ -3385,6 +3492,13 @@
             const dw = img.width * scale, dh = img.height * scale;
             ctx.drawImage(img, (720 - dw) / 2, (270 - dh) / 2, dw, dh);
             b64 = cvs.toDataURL('image/jpeg', 0.55);
+          } else if (kind === 'area-thumb') {
+            // Gambar area sektor Galaxy Map: mengikuti rasio jendela kartu (± 2.4:1), di-"cover" biar tidak gepeng.
+            cvs.width = 640; cvs.height = 266;
+            const scale = Math.max(640 / img.width, 266 / img.height);
+            const dw = img.width * scale, dh = img.height * scale;
+            ctx.drawImage(img, (640 - dw) / 2, (266 - dh) / 2, dw, dh);
+            b64 = cvs.toDataURL('image/jpeg', 0.6);
           } else {
             // Thumbnail game: rasio 16:9 seperti sebelumnya.
             cvs.width = 480; cvs.height = 270;
@@ -3434,9 +3548,10 @@
         pendingThumbChanges = {};
         updatePendingThumbNote();
 
-        // Segarkan semua tampilan yang mungkin terpengaruh (thumbnail game, banner gacha, kartu pet).
+        // Segarkan semua tampilan yang mungkin terpengaruh (thumbnail game, banner gacha, area sektor, kartu pet).
         GAME_THUMB_KEYS.forEach(k => refreshAssetPreview(k.id, 'thumb'));
         applyGachaBannerBg();
+        applyGalaxyAreaAssets();
         renderRpgUI();
 
         showToast('✅ Semua perubahan gambar berhasil disimpan untuk semua pengguna!');
@@ -3489,6 +3604,7 @@
             }
           });
           applyGachaBannerBg();
+          applyGalaxyAreaAssets();
           renderRpgUI();
         }
       } catch (err) {
@@ -3730,6 +3846,7 @@
 
     window.addEventListener('DOMContentLoaded', () => {
       applyGachaBannerBg(); // pasang background bawaan dulu supaya langsung tampil walau server belum merespons
+      applyGalaxyAreaAssets();
       if (currentUser) {
         enterDashboard();
       } else {
