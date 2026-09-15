@@ -1134,31 +1134,183 @@
     }
 
     /* ============================================================
-       ECHO RECALL: MEMORY CARD GAME
+       ECHO RECALL: SOLO + MULTIPLAYER MEMORY ARENA
        ============================================================ */
+    #echoRecallContainer {
+      display:none; position:absolute; inset:0; overflow:hidden; flex-direction:column;
+      background:
+        radial-gradient(circle at 20% 15%, rgba(34,211,238,0.18), transparent 32%),
+        radial-gradient(circle at 82% 22%, rgba(168,85,247,0.18), transparent 30%),
+        linear-gradient(180deg, #090b1f 0%, #060816 100%);
+    }
+    .er-shell-noise { position:absolute; inset:0; pointer-events:none; opacity:0.16; background-image:radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px); background-size:18px 18px; }
+    .er-topbar {
+      position:relative; z-index:2; display:flex; align-items:flex-start; justify-content:space-between; gap:10px;
+      padding:14px 14px 10px;
+    }
+    .er-title-wrap { display:flex; flex-direction:column; gap:2px; }
+    .er-title-main {
+      font-family:'Orbitron', sans-serif; font-size:20px; font-weight:900; letter-spacing:1.4px;
+      color:#67e8f9; text-shadow:0 0 18px rgba(0,240,255,0.36);
+    }
+    .er-title-sub {
+      font-size:10px; color:#94a3b8; letter-spacing:1.2px; text-transform:uppercase;
+    }
+    .er-mode-switch {
+      display:flex; gap:6px; padding:4px; border-radius:14px;
+      background:rgba(8,12,28,0.8); border:1px solid rgba(255,255,255,0.08); box-shadow:0 8px 20px rgba(0,0,0,0.25);
+    }
+    .er-mode-btn {
+      min-width:78px; border:none; border-radius:10px; padding:8px 10px; cursor:pointer;
+      background:transparent; color:#94a3b8; font-family:'Orbitron', sans-serif; font-size:10px; font-weight:800;
+      letter-spacing:0.8px; transition:all 0.18s ease;
+    }
+    .er-mode-btn.active {
+      background:linear-gradient(135deg, rgba(34,211,238,0.22), rgba(168,85,247,0.22));
+      color:#fff; box-shadow:0 0 14px rgba(0,240,255,0.22);
+    }
+    .er-room-panel {
+      position:relative; z-index:2; margin:0 14px 10px; padding:12px;
+      border-radius:18px; border:1px solid rgba(148,163,184,0.12);
+      background:rgba(9,13,31,0.86); box-shadow:0 12px 26px rgba(0,0,0,0.24);
+      display:none;
+    }
+    .er-panel-title {
+      font-family:'Orbitron', sans-serif; font-size:11px; font-weight:800; letter-spacing:1px;
+      color:#e2e8f0; margin-bottom:8px;
+    }
+    .er-panel-copy { font-size:11px; color:#94a3b8; line-height:1.5; margin-bottom:10px; }
+    .er-room-actions { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:8px; }
+    .er-room-actions.single { grid-template-columns:1fr; }
+    .er-room-btn {
+      border:none; border-radius:12px; padding:10px 12px; cursor:pointer; font-weight:800; font-size:11px;
+      font-family:'Orbitron', sans-serif; transition:filter 0.18s ease, transform 0.18s ease;
+    }
+    .er-room-btn:hover { filter:brightness(1.1); }
+    .er-room-btn:active { transform:scale(0.985); }
+    .er-room-btn.primary { background:linear-gradient(135deg, #22d3ee, #0ea5e9); color:#03121d; }
+    .er-room-btn.secondary { background:linear-gradient(135deg, #8b5cf6, #6366f1); color:#fff; }
+    .er-room-btn.ghost { background:rgba(148,163,184,0.12); color:#e2e8f0; border:1px solid rgba(148,163,184,0.18); }
+    .er-room-btn.warn { background:linear-gradient(135deg, #f97316, #ef4444); color:#fff; }
+    .er-room-btn.success { background:linear-gradient(135deg, #22c55e, #16a34a); color:#03140b; }
+    .er-room-code-input {
+      width:100%; border-radius:12px; border:1px solid rgba(148,163,184,0.15);
+      background:rgba(3,7,18,0.78); color:#fff; padding:12px 13px;
+      font-family:'Orbitron', sans-serif; font-size:13px; font-weight:800; letter-spacing:2px; text-transform:uppercase;
+      outline:none;
+    }
+    .er-room-code-chip {
+      display:inline-flex; align-items:center; gap:6px; padding:7px 10px; border-radius:999px;
+      background:rgba(34,211,238,0.12); border:1px solid rgba(34,211,238,0.24); color:#67e8f9;
+      font-family:'Orbitron', sans-serif; font-size:10px; font-weight:800; letter-spacing:0.8px;
+    }
+    .er-lobby-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:10px; }
+    .er-player-card {
+      border-radius:14px; padding:10px; background:rgba(5,10,22,0.92); border:1px solid rgba(148,163,184,0.12);
+      min-height:86px;
+    }
+    .er-player-card.self { border-color:rgba(34,211,238,0.36); box-shadow:0 0 14px rgba(34,211,238,0.12); }
+    .er-player-label { font-size:9px; letter-spacing:1px; color:#94a3b8; text-transform:uppercase; margin-bottom:5px; }
+    .er-player-name { font-family:'Orbitron', sans-serif; font-size:12px; font-weight:800; color:#fff; margin-bottom:6px; }
+    .er-player-meta { display:flex; justify-content:space-between; align-items:center; font-size:10px; color:#cbd5e1; gap:8px; }
+    .er-ready-badge {
+      display:inline-flex; align-items:center; justify-content:center; min-width:62px; padding:5px 8px; border-radius:999px;
+      font-family:'Orbitron', sans-serif; font-size:9px; font-weight:800; letter-spacing:0.6px;
+      background:rgba(148,163,184,0.14); color:#cbd5e1;
+    }
+    .er-ready-badge.on { background:rgba(34,197,94,0.18); color:#4ade80; border:1px solid rgba(34,197,94,0.25); }
+    .er-ready-badge.off { background:rgba(248,113,113,0.14); color:#fda4af; border:1px solid rgba(248,113,113,0.22); }
+    .er-hud-wrap {
+      position:relative; z-index:2; padding:0 14px 10px; display:flex; flex-direction:column; gap:8px;
+    }
+    .er-hud {
+      display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px;
+    }
+    .er-stat {
+      border-radius:14px; padding:10px 10px 9px; background:rgba(8,13,28,0.86); border:1px solid rgba(148,163,184,0.10);
+      box-shadow:0 8px 18px rgba(0,0,0,0.18);
+    }
+    .er-stat-label {
+      display:block; font-size:9px; color:#94a3b8; margin-bottom:4px; text-transform:uppercase; letter-spacing:1px;
+    }
+    .er-stat-value {
+      font-family:'Orbitron', sans-serif; font-size:15px; font-weight:900; color:#fff;
+    }
+    .er-stat.level .er-stat-value { color:#facc15; }
+    .er-stat.score .er-stat-value { color:#4ade80; }
+    .er-stat.time .er-stat-value { color:#fb7185; }
+    .er-battle-strip {
+      display:none; grid-template-columns:1fr auto 1fr; align-items:center; gap:8px;
+      border-radius:14px; padding:10px 12px; background:rgba(8,13,28,0.86); border:1px solid rgba(148,163,184,0.10);
+    }
+    .er-battle-player { min-width:0; }
+    .er-battle-player.right { text-align:right; }
+    .er-battle-name {
+      font-family:'Orbitron', sans-serif; font-size:10px; font-weight:800; color:#fff; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+    }
+    .er-battle-score { font-size:10px; color:#94a3b8; margin-top:4px; }
+    .er-battle-vs {
+      width:38px; height:38px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+      font-family:'Orbitron', sans-serif; font-size:11px; font-weight:900; color:#67e8f9;
+      border:1px solid rgba(34,211,238,0.25); background:rgba(34,211,238,0.08);
+    }
+    .er-battle-notice {
+      display:none; border-radius:12px; padding:9px 12px; background:rgba(34,211,238,0.08);
+      border:1px solid rgba(34,211,238,0.18); color:#bae6fd; font-size:10px; text-align:center;
+    }
+    .er-grid-wrap {
+      position:relative; z-index:2; flex:1; margin:0 14px 12px; border-radius:22px;
+      border:1px solid rgba(34,211,238,0.26); background:linear-gradient(180deg, rgba(12,16,34,0.98) 0%, rgba(9,12,28,0.98) 100%);
+      box-shadow:inset 0 0 0 1px rgba(255,255,255,0.03), 0 0 28px rgba(0,240,255,0.16);
+      overflow:hidden; display:flex;
+    }
+    .er-grid-wrap::before {
+      content:''; position:absolute; inset:0; pointer-events:none;
+      background:linear-gradient(180deg, rgba(103,232,249,0.08), transparent 24%, transparent 76%, rgba(168,85,247,0.08));
+    }
+    .er-grid-empty {
+      margin:auto; text-align:center; padding:24px 20px; color:#94a3b8; font-size:11px; line-height:1.6;
+    }
+    .er-grid-empty strong { display:block; color:#e2e8f0; font-family:'Orbitron', sans-serif; margin-bottom:6px; }
     .er-grid {
-      flex: 1; display: grid; gap: 8px; padding: 8px 12px 14px;
-      align-content: center; justify-content: center;
+      flex:1; display:grid; gap:10px; padding:16px; align-content:center; justify-content:center; width:100%; height:100%;
     }
     .er-card {
-      width: 100%; height: 100%; aspect-ratio: 1/1; border-radius: 8px; cursor: pointer;
-      position: relative; transform-style: preserve-3d; transition: transform 0.35s ease;
-      min-width: 0;
+      width:100%; height:100%; aspect-ratio:1/1; border-radius:16px; cursor:pointer; position:relative;
+      transform-style:preserve-3d; transition:transform 0.38s ease, filter 0.18s ease; min-width:0;
     }
-    .er-card.flipped, .er-card.matched { transform: rotateY(180deg); }
+    .er-card:hover { filter:brightness(1.08); }
+    .er-card.flipped, .er-card.matched { transform:rotateY(180deg); }
     .er-card-face {
-      position: absolute; inset: 0; backface-visibility: hidden; border-radius: 8px;
-      display: flex; align-items: center; justify-content: center; font-size: clamp(16px, 5vw, 26px);
+      position:absolute; inset:0; backface-visibility:hidden; border-radius:16px; display:flex; align-items:center; justify-content:center;
+      font-size:clamp(18px, 5vw, 28px);
     }
     .er-card-back {
-      background: linear-gradient(135deg, #1e1b4b, #0f0a2e); border: 1.5px solid rgba(139,92,246,0.5);
-      color: var(--primary); font-family: 'Orbitron'; font-weight: 900;
+      background:linear-gradient(180deg, rgba(30,41,81,0.95), rgba(16,24,49,0.98));
+      border:1.5px solid rgba(103,232,249,0.22); color:#67e8f9; font-family:'Orbitron', sans-serif; font-weight:900;
+      box-shadow:inset 0 0 0 1px rgba(255,255,255,0.03), 0 10px 20px rgba(0,0,0,0.18);
     }
     .er-card-front {
-      background: rgba(255,255,255,0.06); border: 1.5px solid rgba(255,255,255,0.2);
-      transform: rotateY(180deg);
+      background:linear-gradient(180deg, rgba(15,23,42,0.95), rgba(24,24,54,0.96)); border:1.5px solid rgba(255,255,255,0.12);
+      transform:rotateY(180deg);
     }
-    .er-card.matched .er-card-front { background: rgba(74,222,128,0.18); border-color: #4ade80; }
+    .er-card.matched .er-card-front {
+      background:linear-gradient(180deg, rgba(20,83,45,0.98), rgba(6,78,59,0.98));
+      border-color:rgba(74,222,128,0.65); box-shadow:0 0 22px rgba(74,222,128,0.18);
+    }
+    .er-overlay {
+      display:none; position:absolute; inset:0; background:rgba(3,6,15,0.86); backdrop-filter:blur(6px);
+      flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:24px; z-index:6;
+    }
+    .er-overlay-box {
+      width:100%; max-width:255px; padding:22px 18px; border-radius:22px;
+      background:linear-gradient(180deg, rgba(10,15,30,0.98), rgba(8,11,23,0.98));
+      border:1px solid rgba(255,255,255,0.12); box-shadow:0 20px 40px rgba(0,0,0,0.28);
+    }
+    .er-overlay-title { font-family:'Orbitron', sans-serif; font-size:20px; font-weight:900; color:#67e8f9; margin-bottom:8px; }
+    .er-overlay-score { font-size:12px; color:#cbd5e1; line-height:1.6; margin-bottom:16px; }
+    .er-overlay-actions { display:flex; flex-direction:column; gap:8px; }
+    .er-overlay-actions .btn-hero-play, .er-overlay-actions .btn-modal-close { margin-top:0; }
 
     /* ============================================================
        GACHA SUMMON: PORTAL & RESULT REVEAL ANIMATION
@@ -2025,18 +2177,67 @@
     <div style="position:relative; width:340px; max-width:100%; aspect-ratio:340/440; border:2px solid var(--primary); border-radius:14px; overflow:hidden; box-shadow:0 0 25px var(--primary-glow);">
       <canvas id="gameCanvas" width="340" height="440" style="display:block; width:100%; height:100%;"></canvas>
 
-      <!-- Echo Recall: DOM card grid overlay (ditampilkan hanya saat game ini aktif) -->
-      <div id="echoRecallContainer" style="display:none; position:absolute; inset:0; background:#08051a; flex-direction:column;">
-        <div id="erHud" style="display:flex; justify-content:space-between; align-items:center; padding:10px 12px; font-family:'Orbitron'; font-size:10.5px; font-weight:800;">
-          <span style="color:#facc15;">LV. <span id="erLevelText">1</span></span>
-          <span style="color:#4ade80;">SKOR: <span id="erScoreText">0</span></span>
-          <span style="color:#f87171;">⏱ <span id="erTimeText">20</span>s</span>
+      <!-- Echo Recall: SOLO + MULTIPLAYER MEMORY ARENA -->
+      <div id="echoRecallContainer">
+        <div class="er-shell-noise"></div>
+
+        <div class="er-topbar">
+          <div class="er-title-wrap">
+            <div class="er-title-main">ECHO RECALL</div>
+            <div class="er-title-sub" id="erTitleSub">SOLO MEMORY LADDER</div>
+          </div>
+          <div class="er-mode-switch">
+            <button class="er-mode-btn active" id="erModeSoloBtn" onclick="erStartSoloRun()">SOLO</button>
+            <button class="er-mode-btn" id="erModeMultiBtn" onclick="erOpenMultiplayerHub()">MABAR</button>
+          </div>
         </div>
-        <div id="erGrid" class="er-grid"></div>
-        <div id="erOverlay" style="display:none; position:absolute; inset:0; background:rgba(4,6,14,0.82); flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:20px;">
-          <div id="erOverlayTitle" style="font-family:'Orbitron'; font-size:20px; font-weight:900; color:#ef4444; margin-bottom:8px;">WAKTU HABIS!</div>
-          <div id="erOverlayScore" style="font-family:'Orbitron'; font-size:14px; font-weight:700; color:#facc15; margin-bottom:14px;">SKOR AKHIR: 0</div>
-          <button class="btn-hero-play" onclick="initEchoRecall()">🔁 MAIN LAGI</button>
+
+        <div id="erRoomPanel" class="er-room-panel"></div>
+
+        <div class="er-hud-wrap">
+          <div class="er-hud" id="erHud">
+            <div class="er-stat level">
+              <span class="er-stat-label" id="erLevelLabel">LEVEL</span>
+              <span class="er-stat-value" id="erLevelText">1</span>
+            </div>
+            <div class="er-stat score">
+              <span class="er-stat-label">SKOR</span>
+              <span class="er-stat-value" id="erScoreText">0</span>
+            </div>
+            <div class="er-stat time">
+              <span class="er-stat-label" id="erTimeLabel">WAKTU</span>
+              <span class="er-stat-value" id="erTimeText">25</span>
+            </div>
+          </div>
+
+          <div class="er-battle-strip" id="erBattleStrip">
+            <div class="er-battle-player left">
+              <div class="er-battle-name" id="erLocalName">KAMU</div>
+              <div class="er-battle-score" id="erLocalBattleScore">0 poin • 0 pair</div>
+            </div>
+            <div class="er-battle-vs">VS</div>
+            <div class="er-battle-player right">
+              <div class="er-battle-name" id="erOpponentName">LAWAN</div>
+              <div class="er-battle-score" id="erOpponentBattleScore">0 poin • 0 pair</div>
+            </div>
+          </div>
+
+          <div class="er-battle-notice" id="erBattleNotice"></div>
+        </div>
+
+        <div class="er-grid-wrap" id="erGridWrap">
+          <div id="erGrid" class="er-grid"></div>
+        </div>
+
+        <div id="erOverlay" class="er-overlay">
+          <div class="er-overlay-box">
+            <div id="erOverlayTitle" class="er-overlay-title">WAKTU HABIS!</div>
+            <div id="erOverlayScore" class="er-overlay-score">SKOR AKHIR: 0</div>
+            <div class="er-overlay-actions">
+              <button class="btn-hero-play" id="erOverlayPrimaryBtn" onclick="erHandleOverlayPrimary()">🔁 MAIN LAGI</button>
+              <button class="btn-modal-close" id="erOverlaySecondaryBtn" onclick="erHandleOverlaySecondary()" style="display:none;">Kembali</button>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -2060,6 +2261,7 @@
       <div class="admin-tab-nav">
         <button class="admin-tab-btn active" id="admin-tabbtn-hero" onclick="switchAdminTab('hero')">🌟 Hero Banner</button>
         <button class="admin-tab-btn" id="admin-tabbtn-assets" onclick="switchAdminTab('assets')">🖼️ Kelola Gambar</button>
+        <button class="admin-tab-btn" id="admin-tabbtn-audio" onclick="switchAdminTab('audio')">🎵 Audio Lobby</button>
         <button class="admin-tab-btn" id="admin-tabbtn-resource" onclick="switchAdminTab('resource')">🎁 Resource RPG</button>
       </div>
 
@@ -2105,6 +2307,45 @@
           <div class="admin-save-bar">
             <span class="admin-pending-note is-clean" id="adminThumbPendingNote">Tidak ada perubahan tersimpan.</span>
             <button class="btn-save-changes" id="adminSaveThumbBtn" onclick="saveAllThumbnailChanges()">💾 Simpan Perubahan</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB: Lobby BGM Settings -->
+      <div class="admin-tab-pane" id="admin-tab-audio">
+        <div style="background:rgba(14,20,38,0.8); border:1px solid rgba(139,92,246,0.35); border-radius:12px; padding:14px;">
+          <div style="font-family:'Orbitron'; font-size:12px; font-weight:800; color:#c4b5fd; margin-bottom:8px;">🎵 PENGATURAN AUDIO LOBBY</div>
+          <div style="font-size:9.5px; color:#94a3b8; line-height:1.5; margin-bottom:14px;">
+            BGM memakai berkas <strong style="color:#fff;">bg_arcade.mp3</strong>, diputar berulang otomatis dengan durasi sekitar dua menit. SFX game tetap memakai Web Audio API sintetis.
+          </div>
+
+          <div style="background:rgba(6,9,19,0.72); border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:14px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:10px;">
+              <label for="adminBgmVolume" style="font-size:11px; font-weight:700; color:#e2e8f0;">Volume BGM Lobby</label>
+              <span id="adminBgmVolumeValue" style="font-family:'Orbitron'; font-size:11px; font-weight:800; color:var(--primary);">22%</span>
+            </div>
+            <input
+              type="range"
+              id="adminBgmVolume"
+              min="0"
+              max="100"
+              step="1"
+              value="22"
+              oninput="previewAdminBgmVolume(this.value)"
+              style="width:100%; accent-color:var(--primary); cursor:pointer;"
+              aria-label="Volume BGM lobby"
+            >
+            <div style="display:flex; justify-content:space-between; font-size:9px; color:#64748b; margin-top:5px;">
+              <span>0% Senyap</span>
+              <span>Default 22%</span>
+              <span>100% Maksimal</span>
+            </div>
+          </div>
+
+          <div style="display:flex; gap:8px; flex-wrap:wrap; margin-top:12px;">
+            <button class="btn-hero-play" style="padding:7px 14px; font-size:10px;" onclick="saveAdminAudioSettings()">💾 Simpan Volume</button>
+            <button class="btn-guide-purple" style="padding:7px 14px; font-size:10px;" onclick="resetAdminBgmVolume()">↺ Reset 22%</button>
+            <button class="btn-guide-purple" style="padding:7px 14px; font-size:10px; border-color:#22c55e; color:#4ade80; background:rgba(34,197,94,0.12);" onclick="testAdminBgm()">▶ Tes BGM</button>
           </div>
         </div>
       </div>
@@ -2280,38 +2521,77 @@
       }
     };
 
-    let bgmInterval = null;
-    function toggleBgm() {
-      bgmEnabled = !bgmEnabled;
+    const BGM_FILE = 'bg_arcade.mp3';
+    const BGM_DEFAULT_VOLUME = 0.22;
+    const BGM_VOLUME_STORAGE_KEY = 'fg_bgm_volume';
+
+    const storedBgmVolumeRaw = localStorage.getItem(BGM_VOLUME_STORAGE_KEY);
+    const storedBgmVolume = storedBgmVolumeRaw === null ? NaN : Number(storedBgmVolumeRaw);
+    let bgmVolume = Number.isFinite(storedBgmVolume)
+      ? Math.max(0, Math.min(1, storedBgmVolume))
+      : BGM_DEFAULT_VOLUME;
+
+    // BGM lobby menggunakan berkas MP3 eksternal. Seluruh SFX game tetap sintetis.
+    const lobbyBgm = new Audio(BGM_FILE);
+    lobbyBgm.preload = 'auto';
+    lobbyBgm.loop = true;
+    lobbyBgm.volume = bgmVolume;
+
+    function updateBgmButton() {
       const btn = document.getElementById('btn-bgm');
-      if (bgmEnabled) {
-        initAudio();
-        btn.innerText = "🎵 BGM: ON";
-        btn.classList.add('sound-active');
-        playSynthwaveBassline();
-      } else {
-        btn.innerText = "🎵 BGM: OFF";
-        btn.classList.remove('sound-active');
-        if (bgmInterval) { clearInterval(bgmInterval); bgmInterval = null; }
+      if (!btn) return;
+      btn.innerText = bgmEnabled ? '🎵 BGM: ON' : '🎵 BGM: OFF';
+      btn.classList.toggle('sound-active', bgmEnabled);
+    }
+
+    function isLobbyActive() {
+      const dashboard = document.getElementById('dashboard-view');
+      const gameModal = document.getElementById('gameModal');
+      const rpgView = document.getElementById('rpg-fullscreen-container');
+      return !!dashboard
+        && dashboard.style.display !== 'none'
+        && (!gameModal || gameModal.style.display !== 'flex')
+        && (!rpgView || rpgView.style.display !== 'flex');
+    }
+
+    async function playLobbyBgm() {
+      if (!bgmEnabled || !isLobbyActive()) return;
+      lobbyBgm.volume = bgmVolume;
+      try {
+        await lobbyBgm.play();
+      } catch (err) {
+        // Browser dapat menolak autoplay. Tombol BGM tetap bisa dipakai setelah interaksi pengguna.
+        console.warn('BGM lobby belum dapat diputar:', err);
       }
     }
 
-    function playSynthwaveBassline() {
-      if (bgmInterval) clearInterval(bgmInterval);
-      const bassNotes = [110, 110, 130, 146, 110, 110, 164, 146];
-      let step = 0;
-      bgmInterval = setInterval(() => {
-        if (!bgmEnabled || !audioCtx) return;
-        const o = audioCtx.createOscillator(), g = audioCtx.createGain();
-        o.type = 'triangle';
-        o.frequency.setValueAtTime(bassNotes[step % bassNotes.length], audioCtx.currentTime);
-        g.gain.setValueAtTime(0.04, audioCtx.currentTime);
-        g.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.22);
-        o.connect(g); g.connect(audioCtx.destination);
-        o.start(); o.stop(audioCtx.currentTime + 0.22);
-        step++;
-      }, 240);
+    function pauseLobbyBgm() {
+      lobbyBgm.pause();
     }
+
+    function stopLobbyBgm() {
+      lobbyBgm.pause();
+      try { lobbyBgm.currentTime = 0; } catch (err) {}
+    }
+
+    function toggleBgm() {
+      bgmEnabled = !bgmEnabled;
+      updateBgmButton();
+
+      if (bgmEnabled) {
+        playLobbyBgm().catch(() => {});
+      } else {
+        pauseLobbyBgm();
+      }
+    }
+
+    lobbyBgm.addEventListener('error', () => {
+      if (bgmEnabled) {
+        bgmEnabled = false;
+        updateBgmButton();
+        showToast('BGM gagal dimuat. Pastikan bg_arcade.mp3 berada satu folder dengan file HTML.');
+      }
+    });
 
     function toggleSound() {
       soundEnabled = !soundEnabled;
@@ -2458,6 +2738,9 @@
 
     function logout() {
       sfx.click();
+      bgmEnabled = false;
+      stopLobbyBgm();
+      updateBgmButton();
       currentUser = '';
       currentAvatar = '🤖';
       isAdminUser = false;
@@ -2785,6 +3068,7 @@
 
     function launchGalaxyFrontier() {
       sfx.click();
+      pauseLobbyBgm();
       document.getElementById('rpg-fullscreen-container').style.display = 'flex';
       renderRpgUI();
       switchRpgTab('galaxy');
@@ -2795,6 +3079,7 @@
       if (rpgNextBattleTimeout) { clearTimeout(rpgNextBattleTimeout); rpgNextBattleTimeout = null; }
       isRpgTurnBusy = false;
       document.getElementById('rpg-fullscreen-container').style.display = 'none';
+      playLobbyBgm().catch(() => {});
     }
 
     function switchRpgTab(tabKey) {
@@ -3379,6 +3664,7 @@
       document.getElementById('adminHeroTitle').value = document.getElementById('heroGameTitle').innerText;
       document.getElementById('adminHeroDesc').value = document.getElementById('heroGameDesc').innerText;
       renderAdminAssetManager();
+      syncAdminAudioControls();
       switchAdminTab('hero', true);
     }
 
@@ -3390,6 +3676,49 @@
       const btn = document.getElementById('admin-tabbtn-' + tab);
       if (pane) pane.classList.add('active');
       if (btn) btn.classList.add('active');
+    }
+
+    function syncAdminAudioControls() {
+      const slider = document.getElementById('adminBgmVolume');
+      const valueLabel = document.getElementById('adminBgmVolumeValue');
+      const percent = Math.round(bgmVolume * 100);
+      if (slider) slider.value = String(percent);
+      if (valueLabel) valueLabel.innerText = `${percent}%`;
+    }
+
+    function previewAdminBgmVolume(value) {
+      const percent = Math.max(0, Math.min(100, Number(value) || 0));
+      bgmVolume = percent / 100;
+      lobbyBgm.volume = bgmVolume;
+      const valueLabel = document.getElementById('adminBgmVolumeValue');
+      if (valueLabel) valueLabel.innerText = `${Math.round(percent)}%`;
+    }
+
+    function saveAdminAudioSettings() {
+      sfx.click();
+      localStorage.setItem(BGM_VOLUME_STORAGE_KEY, String(bgmVolume));
+      lobbyBgm.volume = bgmVolume;
+      syncAdminAudioControls();
+      showToast(`🎵 Volume BGM disimpan: ${Math.round(bgmVolume * 100)}%`);
+    }
+
+    function resetAdminBgmVolume() {
+      sfx.click();
+      bgmVolume = BGM_DEFAULT_VOLUME;
+      lobbyBgm.volume = bgmVolume;
+      localStorage.setItem(BGM_VOLUME_STORAGE_KEY, String(bgmVolume));
+      syncAdminAudioControls();
+      showToast('🎵 Volume BGM dikembalikan ke 22%.');
+    }
+
+    function testAdminBgm() {
+      sfx.click();
+      if (!bgmEnabled) {
+        bgmEnabled = true;
+        updateBgmButton();
+      }
+      playLobbyBgm().catch(() => {});
+      showToast('▶ Memutar tes BGM lobby.');
     }
 
     function closeAdminModal() {
@@ -3755,6 +4084,7 @@
         launchGalaxyFrontier();
         return;
       }
+      pauseLobbyBgm();
       currentGame = gameName;
       document.getElementById('activeGameTitle').innerText = gameName;
       gModal.style.display = 'flex';
@@ -3769,7 +4099,8 @@
       sfx.click();
       gModal.style.display = 'none';
       if (gameLoopId) cancelAnimationFrame(gameLoopId);
-      if (erTimerInterval) { clearInterval(erTimerInterval); erTimerInterval = null; }
+      erBeforeClose();
+      playLobbyBgm().catch(() => {});
     }
 
     let sharedPlayerX = 150;
@@ -4135,8 +4466,9 @@
     }
 
     // ============================================================
-    // GAME 2: ECHO RECALL — Memory Card Matching Game
-    // Grid kartu membesar setiap naik level, dibatasi hitungan mundur.
+    // GAME 2: ECHO RECALL — SOLO + ROOMCODE MULTIPLAYER
+    // Solo memakai sistem level bertahap. Multiplayer memakai room code,
+    // lobby ready-up, dan sinkronisasi realtime ringan via polling Apps Script.
     // ============================================================
     const ER_ICON_POOL = ['🚀','👾','🛸','⚡','💎','🔮','🎯','🧬','🛡️','🪐','🌀','🔥'];
     const ER_LEVELS = [
@@ -4146,17 +4478,117 @@
       { cols: 5, rows: 4, time: 55 },
       { cols: 6, rows: 4, time: 65 }
     ];
+    const ER_MULTI_CONFIG = { cols: 4, rows: 3, time: 60 };
+
     function erGetLevelConfig(level) {
       return ER_LEVELS[Math.min(level - 1, ER_LEVELS.length - 1)];
     }
 
     let erLevel = 1, erScore = 0, erCards = [], erFlipped = [], erMatchedCount = 0, erTotalPairs = 0;
     let erBusy = false, erTimeLeft = 0, erTimerInterval = null;
+    let erMode = 'solo', erCurrentCfg = null;
+    let erRoomCode = '', erRoomSnapshot = null, erPollInterval = null, erMpEndsAt = 0;
+    let erMpLocalFinished = false, erMpResultShown = false, erLocalReady = false;
+    let erOverlayPrimaryAction = 'soloReplay', erOverlaySecondaryAction = 'close';
+
+    function erClearTimer() {
+      if (erTimerInterval) { clearInterval(erTimerInterval); erTimerInterval = null; }
+    }
+
+    function erClearPolling() {
+      if (erPollInterval) { clearInterval(erPollInterval); erPollInterval = null; }
+    }
+
+    function erResetBoardState() {
+      erCards = [];
+      erFlipped = [];
+      erMatchedCount = 0;
+      erTotalPairs = 0;
+      erBusy = false;
+      erMpLocalFinished = false;
+      erMpResultShown = false;
+    }
+
+    function erGetPlayerPerspective(room) {
+      const hostName = String(room?.host?.username || '').trim().toLowerCase();
+      const guestName = String(room?.guest?.username || '').trim().toLowerCase();
+      const me = String(currentUser || '').trim().toLowerCase();
+      const isHost = !!me && hostName === me;
+      return {
+        isHost,
+        self: isHost ? (room?.host || null) : (room?.guest || null),
+        opponent: isHost ? (room?.guest || null) : (room?.host || null)
+      };
+    }
+
+    function erSetModeUi(mode) {
+      erMode = mode;
+      const soloBtn = document.getElementById('erModeSoloBtn');
+      const multiBtn = document.getElementById('erModeMultiBtn');
+      if (soloBtn) soloBtn.classList.toggle('active', mode === 'solo');
+      if (multiBtn) multiBtn.classList.toggle('active', mode === 'multi');
+      document.getElementById('erBattleStrip').style.display = mode === 'multi' && erRoomSnapshot && (erRoomSnapshot.status === 'PLAYING' || erRoomSnapshot.status === 'FINISHED') ? 'grid' : 'none';
+    }
+
+    function erSetTitleSub(text) {
+      document.getElementById('erTitleSub').innerText = text;
+    }
+
+    function erSetBattleNotice(text) {
+      const el = document.getElementById('erBattleNotice');
+      if (!text) {
+        el.style.display = 'none';
+        el.innerText = '';
+      } else {
+        el.style.display = 'block';
+        el.innerText = text;
+      }
+    }
+
+    function erShowOverlay(title, scoreHtml, primaryAction, primaryLabel, secondaryAction, secondaryLabel) {
+      erOverlayPrimaryAction = primaryAction || 'soloReplay';
+      erOverlaySecondaryAction = secondaryAction || 'close';
+      document.getElementById('erOverlayTitle').innerText = title;
+      document.getElementById('erOverlayScore').innerHTML = scoreHtml;
+      const pBtn = document.getElementById('erOverlayPrimaryBtn');
+      const sBtn = document.getElementById('erOverlaySecondaryBtn');
+      pBtn.innerText = primaryLabel || '🔁 MAIN LAGI';
+      if (secondaryLabel) {
+        sBtn.style.display = 'inline-flex';
+        sBtn.innerText = secondaryLabel;
+      } else {
+        sBtn.style.display = 'none';
+      }
+      document.getElementById('erOverlay').style.display = 'flex';
+    }
+
+    function erHideOverlay() {
+      document.getElementById('erOverlay').style.display = 'none';
+    }
+
+    function erHandleOverlayPrimary() {
+      if (erOverlayPrimaryAction === 'soloReplay') erStartSoloRun();
+      else if (erOverlayPrimaryAction === 'mpLobby') erReturnToMultiplayerLobby();
+      else if (erOverlayPrimaryAction === 'mpExit') erOpenMultiplayerHub();
+      else erHideOverlay();
+    }
+
+    function erHandleOverlaySecondary() {
+      if (erOverlaySecondaryAction === 'soloMode') erStartSoloRun();
+      else if (erOverlaySecondaryAction === 'mpLeave') erLeaveCurrentRoom();
+      else erHideOverlay();
+    }
+
+    function erRenderGridMessage(title, body) {
+      document.getElementById('erGrid').innerHTML = `<div class="er-grid-empty"><strong>${title}</strong>${body}</div>`;
+    }
 
     function initEchoRecall() {
-      erLevel = 1; erScore = 0;
-      document.getElementById('erOverlay').style.display = 'none';
-      erStartLevel(erLevel);
+      erClearTimer();
+      erHideOverlay();
+      erSetModeUi('solo');
+      erSetBattleNotice('');
+      erStartSoloRun();
     }
 
     function erShuffle(arr) {
@@ -4167,10 +4599,33 @@
       return arr;
     }
 
+    function erStartSoloRun() {
+      erClearTimer();
+      erHideOverlay();
+      erSetModeUi('solo');
+      erSetTitleSub('SOLO MEMORY LADDER');
+      erSetBattleNotice('');
+      erLocalReady = false;
+      if (erRoomCode) erLeaveCurrentRoom(true);
+      erRoomSnapshot = null;
+      document.getElementById('erRoomPanel').style.display = 'none';
+      document.getElementById('erBattleStrip').style.display = 'none';
+      document.getElementById('erGridWrap').style.display = 'flex';
+      document.getElementById('erLevelLabel').innerText = 'LEVEL';
+      document.getElementById('erTimeLabel').innerText = 'WAKTU';
+      erLevel = 1;
+      erScore = 0;
+      erStartLevel(erLevel);
+    }
+
     function erStartLevel(level) {
       const cfg = erGetLevelConfig(level);
+      erCurrentCfg = { ...cfg, mode: 'solo' };
       const pairs = (cfg.cols * cfg.rows) / 2;
-      erTotalPairs = pairs; erMatchedCount = 0; erFlipped = []; erBusy = false;
+      erTotalPairs = pairs;
+      erMatchedCount = 0;
+      erFlipped = [];
+      erBusy = false;
 
       let icons = [];
       for (let i = 0; i < pairs; i++) icons.push(ER_ICON_POOL[i % ER_ICON_POOL.length]);
@@ -4181,11 +4636,9 @@
       document.getElementById('erLevelText').innerText = level;
       document.getElementById('erScoreText').innerText = erScore;
       document.getElementById('erTimeText').innerText = erTimeLeft;
-      document.getElementById('erOverlay').style.display = 'none';
-
       erRenderGrid(cfg);
 
-      if (erTimerInterval) clearInterval(erTimerInterval);
+      erClearTimer();
       erTimerInterval = setInterval(erTick, 1000);
     }
 
@@ -4202,18 +4655,29 @@
     }
 
     function erTick() {
+      if (erMode === 'multi' && erCurrentCfg && erCurrentCfg.mode === 'multi') {
+        const remain = Math.max(0, Math.ceil((erMpEndsAt - Date.now()) / 1000));
+        erTimeLeft = remain;
+        document.getElementById('erTimeText').innerText = remain;
+        if (remain <= 0 && !erMpLocalFinished) {
+          erFinalizeMultiplayerRun('⏱ WAKTU KAMU HABIS');
+        }
+        return;
+      }
+
       erTimeLeft--;
       document.getElementById('erTimeText').innerText = Math.max(0, erTimeLeft);
       if (erTimeLeft <= 0) {
-        clearInterval(erTimerInterval); erTimerInterval = null;
-        erEndGame('WAKTU HABIS!');
+        erClearTimer();
+        erEndSoloGame('WAKTU HABIS!');
       }
     }
 
     function erHandleCardClick(idx) {
       if (erBusy) return;
+      if (erMode === 'multi' && erMpLocalFinished) return;
       const card = erCards[idx];
-      if (card.matched || erFlipped.includes(idx)) return;
+      if (!card || card.matched || erFlipped.includes(idx)) return;
 
       sfx.click();
       document.getElementById(`er-card-${idx}`).classList.add('flipped');
@@ -4228,6 +4692,7 @@
     function erCheckMatch() {
       const [i1, i2] = erFlipped;
       const c1 = erCards[i1], c2 = erCards[i2];
+      if (!c1 || !c2) { erFlipped = []; erBusy = false; return; }
 
       if (c1.icon === c2.icon) {
         c1.matched = true; c2.matched = true;
@@ -4238,7 +4703,14 @@
         document.getElementById('erScoreText').innerText = erScore;
         sfx.powerup();
 
-        if (erMatchedCount >= erTotalPairs) {
+        if (erMode === 'multi') {
+          erUpdateBattleScores(erRoomSnapshot);
+          if (erMatchedCount >= erTotalPairs) {
+            erFinalizeMultiplayerRun('✅ SEMUA PASANGAN DITEMUKAN');
+          } else {
+            erSyncMultiplayerState(false);
+          }
+        } else if (erMatchedCount >= erTotalPairs) {
           erLevelComplete();
         }
       } else {
@@ -4251,7 +4723,7 @@
     }
 
     function erLevelComplete() {
-      if (erTimerInterval) { clearInterval(erTimerInterval); erTimerInterval = null; }
+      erClearTimer();
       erScore += 50 + erTimeLeft * 2;
       document.getElementById('erScoreText').innerText = erScore;
       showToast(`🎉 Level ${erLevel} selesai! Lanjut Level ${erLevel + 1}...`);
@@ -4260,12 +4732,321 @@
       setTimeout(() => { erStartLevel(erLevel); }, 1300);
     }
 
-    function erEndGame(reasonText) {
+    function erEndSoloGame(reasonText) {
       sfx.gameOver();
-      document.getElementById('erOverlayTitle').innerText = reasonText;
-      document.getElementById('erOverlayScore').innerText = `SKOR AKHIR: ${erScore} (Level ${erLevel})`;
-      document.getElementById('erOverlay').style.display = 'flex';
+      erShowOverlay(reasonText, `SKOR AKHIR: <strong style="color:#facc15;">${erScore}</strong><br>Level Tertinggi: <strong style="color:#67e8f9;">${erLevel}</strong>`, 'soloReplay', '🔁 MAIN LAGI', 'mpExit', 'Mabar');
       if (currentUser) callBackend({ action: 'saveScore', username: currentUser, gameTitle: 'ECHO RECALL', score: erScore, avatar: currentAvatar });
+    }
+
+    function erOpenMultiplayerHub() {
+      erClearTimer();
+      erHideOverlay();
+      erSetModeUi('multi');
+      erSetTitleSub('ROOMCODE MEMORY MATCH');
+      document.getElementById('erLevelLabel').innerText = 'MODE';
+      document.getElementById('erLevelText').innerText = 'PVP';
+      document.getElementById('erScoreText').innerText = erScore;
+      document.getElementById('erTimeLabel').innerText = 'ROOM';
+      document.getElementById('erTimeText').innerText = erRoomCode || '--';
+      document.getElementById('erBattleStrip').style.display = erRoomSnapshot && (erRoomSnapshot.status === 'PLAYING' || erRoomSnapshot.status === 'FINISHED') ? 'grid' : 'none';
+      document.getElementById('erGridWrap').style.display = 'flex';
+      erRenderGridMessage('Mode Mabar Echo Recall', 'Buat room sendiri atau masukkan room code teman. Setelah dua pemain siap, host bisa memulai match realtime.');
+      erRenderMultiplayerPanel(erRoomSnapshot);
+    }
+
+    function erRenderMultiplayerPanel(room) {
+      const panel = document.getElementById('erRoomPanel');
+      if (erMode !== 'multi') {
+        panel.style.display = 'none';
+        return;
+      }
+
+      if (!room || !room.roomCode) {
+        panel.style.display = 'block';
+        panel.innerHTML = `
+          <div class="er-panel-title">ARENA ROOMCODE</div>
+          <div class="er-panel-copy">Main berdua secara realtime ringan. Sistem memakai polling Google Apps Script, jadi skor lawan dan status room akan terus diperbarui otomatis.</div>
+          <input class="er-room-code-input" id="erRoomCodeInput" maxlength="8" placeholder="MASUKKAN ROOM CODE" />
+          <div class="er-room-actions">
+            <button class="er-room-btn secondary" onclick="erCreateRoom()">＋ BUAT ROOM</button>
+            <button class="er-room-btn primary" onclick="erJoinRoom()">⇢ JOIN ROOM</button>
+          </div>
+        `;
+        document.getElementById('erBattleStrip').style.display = 'none';
+        erSetBattleNotice('');
+        return;
+      }
+
+      const { isHost, self, opponent } = erGetPlayerPerspective(room);
+      const hostReady = room.host?.ready ? 'on' : 'off';
+      const guestReady = room.guest?.ready ? 'on' : 'off';
+      const selfReadyClass = self?.ready ? 'on' : 'off';
+      const opponentReadyClass = opponent?.ready ? 'on' : 'off';
+      const opponentReadyLabel = opponent ? (opponent.ready ? 'READY' : 'BELUM') : 'BELUM MASUK';
+      const readyBtnText = self?.ready ? 'BATAL READY' : 'READY';
+      const canStart = isHost && room.host?.ready && room.guest?.ready && room.guest?.username;
+      const statusText = room.status === 'WAITING'
+        ? 'Menunggu pemain kedua masuk ke room.'
+        : room.status === 'LOBBY'
+          ? 'Kedua pemain bisa menekan READY. Host lalu menekan MULAI MATCH.'
+          : room.status === 'PLAYING'
+            ? 'Pertandingan berlangsung. Skor lawan diperbarui otomatis.'
+            : 'Pertandingan selesai. Lihat hasil akhir.';
+
+      panel.style.display = room.status === 'PLAYING' ? 'none' : 'block';
+      panel.innerHTML = `
+        <div style="display:flex; justify-content:space-between; align-items:center; gap:8px; margin-bottom:8px; flex-wrap:wrap;">
+          <div class="er-room-code-chip">ROOM: <strong>${room.roomCode}</strong></div>
+          <div class="er-room-code-chip">STATUS: <strong>${room.status}</strong></div>
+        </div>
+        <div class="er-panel-copy">${statusText}</div>
+        <div class="er-lobby-grid">
+          <div class="er-player-card self">
+            <div class="er-player-label">${isHost ? 'HOST / KAMU' : 'PLAYER / KAMU'}</div>
+            <div class="er-player-name">${self?.avatar || '🙂'} ${self?.username || currentUser || 'Kamu'}</div>
+            <div class="er-player-meta">
+              <span>${self?.score || 0} poin</span>
+              <span class="er-ready-badge ${selfReadyClass}">${self?.ready ? 'READY' : 'BELUM'}</span>
+            </div>
+          </div>
+          <div class="er-player-card">
+            <div class="er-player-label">${opponent ? (isHost ? 'PLAYER 2' : 'HOST') : 'SLOT KOSONG'}</div>
+            <div class="er-player-name">${opponent ? `${opponent.avatar || '🙂'} ${opponent.username}` : 'Menunggu lawan...'}</div>
+            <div class="er-player-meta">
+              <span>${opponent ? `${opponent.score || 0} poin` : 'Belum ada'}</span>
+              <span class="er-ready-badge ${opponentReadyClass}">${opponentReadyLabel}</span>
+            </div>
+          </div>
+        </div>
+        <div class="er-room-actions ${canStart ? '' : 'single'}">
+          <button class="er-room-btn ${self?.ready ? 'warn' : 'success'}" onclick="erToggleReady()">${readyBtnText}</button>
+          ${canStart ? '<button class="er-room-btn primary" onclick="erStartMultiplayerMatchRequest()">▶ MULAI MATCH</button>' : ''}
+        </div>
+        <div class="er-room-actions" style="margin-top:8px;">
+          <button class="er-room-btn ghost" onclick="erPollRoom(true)">⟳ REFRESH</button>
+          <button class="er-room-btn ghost" onclick="erLeaveCurrentRoom()">↩ KELUAR ROOM</button>
+        </div>
+      `;
+    }
+
+    async function erCreateRoom() {
+      if (!currentUser) return showToast('Login dulu sebelum membuat room.');
+      sfx.click();
+      const res = await callBackend({ action: 'erCreateRoom', username: currentUser, avatar: currentAvatar });
+      if (!res.success) return showToast(res.message || 'Gagal membuat room.');
+      erRoomCode = res.room.roomCode;
+      erRoomSnapshot = res.room;
+      erLocalReady = false;
+      erRenderMultiplayerPanel(erRoomSnapshot);
+      erStartRoomPolling();
+      document.getElementById('erTimeText').innerText = erRoomCode;
+      showToast(`Room ${erRoomCode} berhasil dibuat.`);
+    }
+
+    async function erJoinRoom() {
+      if (!currentUser) return showToast('Login dulu sebelum join room.');
+      sfx.click();
+      const input = document.getElementById('erRoomCodeInput');
+      const roomCode = String(input?.value || '').trim().toUpperCase();
+      if (!roomCode) return showToast('Masukkan room code terlebih dahulu.');
+      const res = await callBackend({ action: 'erJoinRoom', roomCode, username: currentUser, avatar: currentAvatar });
+      if (!res.success) return showToast(res.message || 'Gagal join room.');
+      erRoomCode = res.room.roomCode;
+      erRoomSnapshot = res.room;
+      erLocalReady = !!erGetPlayerPerspective(erRoomSnapshot).self?.ready;
+      erRenderMultiplayerPanel(erRoomSnapshot);
+      erStartRoomPolling();
+      document.getElementById('erTimeText').innerText = erRoomCode;
+      showToast(`Berhasil masuk ke room ${erRoomCode}.`);
+    }
+
+    function erStartRoomPolling() {
+      erClearPolling();
+      erPollInterval = setInterval(() => erPollRoom(false), 1200);
+      erPollRoom(false);
+    }
+
+    async function erPollRoom(manual = false) {
+      if (!erRoomCode) return;
+      const res = await callBackend({ action: 'erGetRoom', roomCode: erRoomCode, username: currentUser });
+      if (!res.success) {
+        if (manual) showToast(res.message || 'Room tidak tersedia.');
+        if (erRoomCode) {
+          erRoomCode = '';
+          erRoomSnapshot = null;
+          erClearPolling();
+          erOpenMultiplayerHub();
+        }
+        return;
+      }
+      erApplyRoomSnapshot(res.room);
+      if (manual) showToast('Room diperbarui.');
+    }
+
+    function erApplyRoomSnapshot(room) {
+      if (!room) return;
+      erRoomSnapshot = room;
+      erRoomCode = room.roomCode;
+      document.getElementById('erTimeText').innerText = room.status === 'PLAYING' ? Math.max(0, room.remainingTime || 0) : room.roomCode;
+      erRenderMultiplayerPanel(room);
+      erUpdateBattleScores(room);
+
+      if (room.status === 'PLAYING') {
+        document.getElementById('erBattleStrip').style.display = 'grid';
+        document.getElementById('erGridWrap').style.display = 'flex';
+        erSetBattleNotice('Match realtime aktif. Cari pasangan kartu secepat mungkin.');
+        if (!erCurrentCfg || erCurrentCfg.mode !== 'multi' || erCurrentCfg.roundId !== room.startedAt) {
+          erBootMultiplayerBoard(room);
+        } else {
+          erMpEndsAt = Date.now() + Math.max(0, room.remainingTime || 0) * 1000;
+          if (room.status === 'PLAYING' && erMpLocalFinished) {
+            erSetBattleNotice('Kamu sudah selesai. Menunggu lawan menyelesaikan ronde...');
+          }
+        }
+      } else if (room.status === 'FINISHED') {
+        document.getElementById('erBattleStrip').style.display = 'grid';
+        erSetBattleNotice('Ronde selesai. Hasil akhir sudah terkunci.');
+        if (!erMpResultShown) erShowMultiplayerResult(room);
+      } else {
+        document.getElementById('erBattleStrip').style.display = 'none';
+        erSetBattleNotice('');
+        if (erMode === 'multi') {
+          erRenderGridMessage('Lobby Multiplayer Aktif', 'Setelah kedua pemain READY, host dapat memulai ronde.');
+        }
+      }
+    }
+
+    function erBootMultiplayerBoard(room) {
+      erHideOverlay();
+      erClearTimer();
+      erResetBoardState();
+      erCurrentCfg = { cols: room.cols || ER_MULTI_CONFIG.cols, rows: room.rows || ER_MULTI_CONFIG.rows, mode: 'multi', roundId: room.startedAt };
+      const deck = Array.isArray(room.deck) ? room.deck : [];
+      erCards = deck.map(icon => ({ icon, matched: false }));
+      erTotalPairs = erCards.length / 2;
+      erLevel = 1;
+      erScore = 0;
+      erMatchedCount = 0;
+      erTimeLeft = Math.max(0, room.remainingTime || room.timeLimit || ER_MULTI_CONFIG.time);
+      erMpEndsAt = Date.now() + erTimeLeft * 1000;
+      document.getElementById('erLevelLabel').innerText = 'MODE';
+      document.getElementById('erLevelText').innerText = 'PVP';
+      document.getElementById('erScoreText').innerText = erScore;
+      document.getElementById('erTimeLabel').innerText = 'WAKTU';
+      document.getElementById('erTimeText').innerText = erTimeLeft;
+      erRenderGrid(erCurrentCfg);
+      erTimerInterval = setInterval(erTick, 250);
+      erSyncMultiplayerState(false);
+    }
+
+    function erUpdateBattleScores(room) {
+      if (!room) return;
+      const { self, opponent } = erGetPlayerPerspective(room);
+      document.getElementById('erLocalName').innerText = `${self?.avatar || currentAvatar || '🙂'} ${self?.username || currentUser || 'Kamu'}`;
+      document.getElementById('erOpponentName').innerText = opponent?.username ? `${opponent.avatar || '🙂'} ${opponent.username}` : 'Menunggu...';
+      document.getElementById('erLocalBattleScore').innerText = `${erScore} poin • ${erMatchedCount} pair`;
+      document.getElementById('erOpponentBattleScore').innerText = opponent?.username ? `${opponent.score || 0} poin • ${opponent.matchedPairs || 0} pair` : 'Belum ada lawan';
+    }
+
+    async function erToggleReady() {
+      if (!erRoomCode) return;
+      sfx.click();
+      const nextReady = !erGetPlayerPerspective(erRoomSnapshot).self?.ready;
+      const res = await callBackend({ action: 'erReadyRoom', roomCode: erRoomCode, username: currentUser, ready: nextReady });
+      if (!res.success) return showToast(res.message || 'Gagal memperbarui status ready.');
+      erLocalReady = nextReady;
+      erApplyRoomSnapshot(res.room);
+    }
+
+    async function erStartMultiplayerMatchRequest() {
+      if (!erRoomCode) return;
+      sfx.click();
+      const res = await callBackend({ action: 'erStartRoom', roomCode: erRoomCode, username: currentUser });
+      if (!res.success) return showToast(res.message || 'Gagal memulai match.');
+      erApplyRoomSnapshot(res.room);
+      showToast('Ronde multiplayer dimulai!');
+    }
+
+    async function erSyncMultiplayerState(forceFinished) {
+      if (!erRoomCode || erMode !== 'multi' || !erRoomSnapshot || erRoomSnapshot.status !== 'PLAYING') return;
+      const res = await callBackend({
+        action: 'erSyncRoom',
+        roomCode: erRoomCode,
+        username: currentUser,
+        score: erScore,
+        matchedPairs: erMatchedCount,
+        finished: !!forceFinished || !!erMpLocalFinished
+      });
+      if (res.success) erApplyRoomSnapshot(res.room);
+    }
+
+    function erFinalizeMultiplayerRun(reasonText) {
+      if (erMpLocalFinished) return;
+      erMpLocalFinished = true;
+      erBusy = true;
+      erFlipped = [];
+      erSetBattleNotice(reasonText === '✅ SEMUA PASANGAN DITEMUKAN'
+        ? 'Kamu sudah membuka semua kartu. Menunggu lawan menyelesaikan ronde...'
+        : 'Waktu kamu habis. Menunggu hasil akhir dari server...');
+      erSyncMultiplayerState(true);
+    }
+
+    function erShowMultiplayerResult(room) {
+      erMpResultShown = true;
+      erClearTimer();
+      erClearPolling();
+      sfx.gameOver();
+      const { self, opponent } = erGetPlayerPerspective(room);
+      let title = 'RONDE SELESAI';
+      if (room.winner === 'DRAW') title = 'SERI!';
+      else if (String(room.winner || '').toLowerCase() === String(currentUser || '').toLowerCase()) title = 'KAMU MENANG!';
+      else if (room.winner) title = 'KAMU KALAH';
+      const scoreHtml = `ROOM <strong style="color:#67e8f9;">${room.roomCode}</strong><br>
+        Skor Kamu: <strong style="color:#facc15;">${self?.score || erScore}</strong> • Pair: <strong style="color:#4ade80;">${self?.matchedPairs || erMatchedCount}</strong><br>
+        Lawan: <strong style="color:#fda4af;">${opponent?.score || 0}</strong> • Pair: <strong style="color:#c4b5fd;">${opponent?.matchedPairs || 0}</strong>`;
+      erShowOverlay(title, scoreHtml, 'mpLobby', '↩ Kembali ke Lobby', 'soloMode', 'Mode Solo');
+      if (currentUser) callBackend({ action: 'saveScore', username: currentUser, gameTitle: 'ECHO RECALL', score: self?.score || erScore, avatar: currentAvatar });
+    }
+
+    async function erReturnToMultiplayerLobby() {
+      erHideOverlay();
+      if (!erRoomCode) {
+        erOpenMultiplayerHub();
+        return;
+      }
+      const res = await callBackend({ action: 'erResetRoomLobby', roomCode: erRoomCode, username: currentUser });
+      if (!res.success) return showToast(res.message || 'Gagal kembali ke lobby.');
+      erClearTimer();
+      erMpResultShown = false;
+      erMpLocalFinished = false;
+      erCurrentCfg = null;
+      erApplyRoomSnapshot(res.room);
+      erStartRoomPolling();
+    }
+
+    async function erLeaveCurrentRoom(silent = false) {
+      if (erRoomCode) {
+        callBackend({ action: 'erLeaveRoom', roomCode: erRoomCode, username: currentUser });
+      }
+      erClearTimer();
+      erClearPolling();
+      erRoomCode = '';
+      erRoomSnapshot = null;
+      erCurrentCfg = erMode === 'solo' ? erCurrentCfg : null;
+      erMpEndsAt = 0;
+      erMpLocalFinished = false;
+      erMpResultShown = false;
+      erSetBattleNotice('');
+      if (!silent) {
+        erOpenMultiplayerHub();
+        showToast('Kamu keluar dari room Echo Recall.');
+      }
+    }
+
+    function erBeforeClose() {
+      erClearTimer();
+      erClearPolling();
+      if (erRoomCode) callBackend({ action: 'erLeaveRoom', roomCode: erRoomCode, username: currentUser });
     }
 
     // ============================================================
@@ -4617,6 +5398,8 @@
     });
 
     window.addEventListener('DOMContentLoaded', () => {
+      updateBgmButton();
+      syncAdminAudioControls();
       applyGachaBannerBg(); // pasang background bawaan dulu supaya langsung tampil walau server belum merespons
       applyGalaxyAreaAssets();
       if (currentUser) {
